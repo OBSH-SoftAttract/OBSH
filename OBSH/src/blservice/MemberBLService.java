@@ -1,5 +1,34 @@
 package blservice;
+import vo.PromotionVo;
 
-public class MemberBLService {
+public interface MemberBLService {
 
+	/**
+	 * 
+	 * @param id
+	 * @return 添加用户的信息
+	 */
+	public boolean addUser(long id);
+	
+	/**
+	 * 
+	 * @param id
+	 * @param birthday
+	 */
+	public void createByPersonal (long id, String birthday);
+	
+	/**
+	 * 
+	 * @param id
+	 * @param name
+	 */
+	public void createByBusiness (long id, String name);
+	
+	/**
+	 * 
+	 * @param rank
+	 * @param vo
+	 * @return 获得会员等级
+	 */
+	public int getRank(int rank,PromotionVo vo);
 }
