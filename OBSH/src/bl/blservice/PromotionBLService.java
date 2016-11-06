@@ -1,4 +1,4 @@
-package blservice;
+package bl.blservice;
 import java.util.List;
 
 import vo.PromotionVo;
@@ -6,16 +6,10 @@ public interface PromotionBLService {
 	/**
 	 * 
 	 * @param id
-	 * @return 确定营销策略表所属为酒店
+	 * @return 确定营销策略表所属为酒店还是网站
 	 */
-	public boolean judgeHotelstaff(long id);
+	public int judge (long id);
 	
-	/**
-	 * 
-	 * @param id
-	 * @return 确定营销策略表所属为网站营销人员
-	 */
-	public boolean judgeMarketer(long id);
 	
 	/**
 	 * 
@@ -40,8 +34,8 @@ public interface PromotionBLService {
 	
 	/**
 	 * 
-	 * @param vo
+	 * @param itemName
 	 * @return 返回营销策略信息
 	 */
-	public List getLineItem(PromotionVo vo);
+	public List getLineItem(String itemName);
 }

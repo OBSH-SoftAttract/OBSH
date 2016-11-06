@@ -1,13 +1,4 @@
-/blservce/
-/blservice/
-/data/
-/main/
-/po/
-/presentatio/
-/presentation/
-/vo/
 /bl/
-/blcontroller/
-/test/
-/OrderTest.class
+/po/
+/vo/
 /Mock/

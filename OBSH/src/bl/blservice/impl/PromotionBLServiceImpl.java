@@ -1,22 +1,16 @@
-package blservice.impl;
+package bl.blservice.impl;
 
 import java.util.List;
 
-import blservice.PromotionBLService;
+import bl.blservice.PromotionBLService;
 import vo.PromotionVo;
 
 public class PromotionBLServiceImpl implements PromotionBLService{
 
 	@Override
-	public boolean judgeHotelstaff(long id) {
+	public int judge(long id) {
 		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean judgeMarketer(long id) {
-		// TODO Auto-generated method stub
-		return false;
+		return 0;
 	}
 
 	@Override
@@ -38,7 +32,7 @@ public class PromotionBLServiceImpl implements PromotionBLService{
 	}
 
 	@Override
-	public List getLineItem(PromotionVo vo) {
+	public List getLineItem(String itemName) {
 		// TODO Auto-generated method stub
 		return null;
 	}

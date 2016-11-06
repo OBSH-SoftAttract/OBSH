@@ -1,8 +1,8 @@
-package blservice.impl;
+package bl.blservice.impl;
 
 import java.util.ArrayList;
 
-import blservice.OrderBLService;
+import bl.blservice.OrderBLService;
 import vo.OrderVo;
 import vo.PromotionVo;
 

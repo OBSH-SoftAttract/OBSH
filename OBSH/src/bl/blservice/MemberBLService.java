@@ -1,4 +1,4 @@
-package blservice;
+package bl.blservice;
 import vo.PromotionVo;
 
 public interface MemberBLService {
@@ -27,8 +27,14 @@ public interface MemberBLService {
 	/**
 	 * 
 	 * @param rank
-	 * @param vo
 	 * @return 获得会员等级
 	 */
-	public int getRank(int rank,PromotionVo vo);
+	public int getRank(double credit);
+	
+	/**
+	 * 
+	 * @param id
+	 * @return 判断会员
+	 */
+	public boolean isMember (long id);
 }

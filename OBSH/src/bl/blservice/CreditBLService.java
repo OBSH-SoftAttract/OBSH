@@ -1,4 +1,4 @@
-package blservice;
+package bl.blservice;
 
 public interface CreditBLService {
 	
@@ -23,5 +23,5 @@ public interface CreditBLService {
 	 * @param price
 	 * @return 处理申诉恢复信用值
 	 */
-	public double recoverCredit (boolean b,double price);
+	public double recoverCredit (double price, int tage);
 }

@@ -1,8 +1,8 @@
 package Mock;
 
-import blservice.MemberBLService;
+import bl.blservice.impl.MemberBLServiceImpl;
 
-public class MockMember extends MemberBLService{
+public class MockMember extends MemberBLServiceImpl{
 	int rank;
 	public  MockMember (int r) {
 		rank = r;

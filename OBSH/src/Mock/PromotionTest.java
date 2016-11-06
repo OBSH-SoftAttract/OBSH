@@ -1,6 +1,7 @@
 package Mock;
 
-import blservice.PromotionBLService;
+import bl.blservice.PromotionBLService;
+import bl.blservice.impl.PromotionBLServiceImpl;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import vo.PromotionVo;
@@ -17,8 +18,8 @@ public class PromotionTest {
 		MockUser user = new MockUser (1,00001);
 		MockHotel hotel = new MockHotel ("中央酒店", 00025);
 		
-		PromotionBLService promotion1 = new PromotionBLService();
-		PromotionBLService promotion2 = new PromotionBLService();
+		PromotionBLService promotion1 = new PromotionBLServiceImpl();
+		PromotionBLService promotion2 = new PromotionBLServiceImpl();
 		
 		assertEquals(0, promotion1.judge(user.getId()));
 		assertEquals(1, promotion2.judge(hotel.getHotelId()));
@@ -30,7 +31,7 @@ public class PromotionTest {
 		
 		PromotionVo vo1 = new PromotionVo(1,hotel.getHotelName(), "酒店百年优惠", "2016/11/6", "2016/11/13", "房间八折提供早餐");
 		
-		PromotionBLService promotion1 = new PromotionBLService();
+		PromotionBLService promotion1 = new PromotionBLServiceImpl();
 		promotion1.createNewItem(vo1);
 	
 		assertEquals("中央酒店+2016/11/6+2016/11/13+房间八折提供早餐", promotion1.getLineItem("酒店百年优惠"));

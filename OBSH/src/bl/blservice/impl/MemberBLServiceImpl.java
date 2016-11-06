@@ -1,6 +1,6 @@
-package blservice.impl;
+package bl.blservice.impl;
 
-import blservice.MemberBLService;
+import bl.blservice.MemberBLService;
 import vo.PromotionVo;
 
 public class MemberBLServiceImpl implements MemberBLService{
@@ -24,9 +24,15 @@ public class MemberBLServiceImpl implements MemberBLService{
 	}
 
 	@Override
-	public int getRank(int rank, PromotionVo vo) {
+	public int getRank(double credit) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean  isMember(long id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -1,6 +1,6 @@
-package blservice.impl;
+package bl.blservice.impl;
 
-import blservice.CreditBLService;
+import bl.blservice.CreditBLService;
 
 public class CreditBLServiceImpl implements CreditBLService{
 
@@ -17,7 +17,7 @@ public class CreditBLServiceImpl implements CreditBLService{
 	}
 
 	@Override
-	public double recoverCredit(boolean b, double price) {
+	public double recoverCredit (double price, int tage) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

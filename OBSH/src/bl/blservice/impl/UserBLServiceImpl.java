@@ -1,8 +1,8 @@
-package blservice.impl;
+package bl.blservice.impl;
 
 import java.util.ArrayList;
 
-import blservice.UserBLService;
+import bl.blservice.UserBLService;
 import vo.HotelroomVo;
 import vo.UserVo;
 

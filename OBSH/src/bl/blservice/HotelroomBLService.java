@@ -1,4 +1,4 @@
-package blservice;
+package bl.blservice;
 
 import vo.HotelroomVo;
 
