@@ -33,4 +33,10 @@ public class MockUser {
 		// TODO Auto-generated method stub
 	}
 
+
+	public Object AddClient() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

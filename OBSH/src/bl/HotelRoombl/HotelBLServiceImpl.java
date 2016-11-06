@@ -1,56 +1,53 @@
 package bl.HotelRoombl;
 
-import bl.HotelRoombl.HotelroomBLService;
-import vo.HotelroomVo;
-
-public class HotelroomBLServiceImpl implements HotelroomBLService{
+public class HotelBLServiceImpl implements HotelBLService{
 
 	@Override
-	public int Addroom(double room) {
+	public int Addhotel(int hotelNo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void Updateroom() {
+	public void Updatehotel() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public boolean Checkin(HotelroomVo vo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String Timein(String datein) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int IDin(int id) {
+	public int Addprice(int price) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public String TimeOutpro(String dateoutpro) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String Timeout(String timeout) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int IDout(int id) {
+	public int Addstar(int star) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public String Addlocation(String location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String Addsummary(String summary) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String Addservices(String services) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String Addkind(String kind) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

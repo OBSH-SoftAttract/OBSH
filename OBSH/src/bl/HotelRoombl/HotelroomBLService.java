@@ -9,7 +9,7 @@ public interface HotelroomBLService {
 	 * @param room
 	 * @return 添加客房
 	 */
-	public boolean Addroom (int room);
+	public int Addroom (double room);
 	
 	/**
 	 * 更新客房信息
@@ -28,33 +28,33 @@ public interface HotelroomBLService {
 	 * @param datein
 	 * @return 更新入住的时间
 	 */
-	public boolean Timein (String datein);
+	public String Timein (String datein);
 	
 	/**
 	 * 
 	 * @param id
 	 * @return 记录房间号
 	 */
-	public boolean IDin (int id);
+	public int IDin (int id);
 	
 	/**
 	 * 
 	 * @param dateoutpro
 	 * @return 计算预计离开时间
 	 */
-	public boolean TimeOutpro (String dateoutpro);
+	public String TimeOutpro (String dateoutpro);
 	
 	/**
 	 * 
 	 * @param timeout
 	 * @return 计算退房时间
 	 */
-	public boolean Timeout (String timeout);
+	public String Timeout (String timeout);
 	
 	/**
 	 * 
 	 * @param id
 	 * @return 记录退房号
 	 */
-	public boolean IDout (int id);
+	public int IDout (int id);
 }
