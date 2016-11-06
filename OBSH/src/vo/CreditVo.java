@@ -25,7 +25,7 @@ public class CreditVo {
 	
 	public CreditVo(CreditPo creditPo,UserPo userPo){
 		super();
-		this.userInfo = userPo.getUserName();
+		this.userInfo = userPo.getUsername();
 		this.credit = creditPo.getCredit();
 		this.time = creditPo.getTime();
 		this.creditInfo = creditPo.getCreditInfo();

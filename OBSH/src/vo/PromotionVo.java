@@ -31,9 +31,9 @@ public class PromotionVo {
 		super();
 		this.status = promotionPo.getStatus();
 		if(status == 1) {          //用来区分是酒店工作人员还是网站营销人员的状态位
-			hotelMarketerInfo = HotelPo.getHotelName();
+			hotelMarketerInfo = userPo.getUsername();
 		} else {
-			hotelMarketerInfo = userPo.getMarketerId();  //可能用不到这个
+			hotelMarketerInfo = userPo.getUsername();  //可能用不到这个
 		}
 		this.itemName = promotionPo.getItemName();
 		this.startTime = promotionPo.getStartTime();

@@ -1,6 +1,6 @@
-package bl.blservice.impl;
+package bl.Memberbl;
 
-import bl.blservice.MemberBLService;
+import bl.Memberbl.MemberBLService;
 import vo.PromotionVo;
 
 public class MemberBLServiceImpl implements MemberBLService{

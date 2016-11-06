@@ -9,6 +9,11 @@ public class MockUser {
 	}
 
 
+	public MockUser(int j) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public String getBirthday(int i) {
 		// TODO Auto-generated method stub
 		return null;

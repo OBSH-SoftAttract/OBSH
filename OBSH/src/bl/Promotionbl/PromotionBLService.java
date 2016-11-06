@@ -1,4 +1,4 @@
-package bl.blservice;
+package bl.Promotionbl;
 import java.util.List;
 
 import vo.PromotionVo;

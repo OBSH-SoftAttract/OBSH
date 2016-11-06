@@ -1,4 +1,4 @@
-package bl.blservice;
+package bl.Memberbl;
 import vo.PromotionVo;
 
 public interface MemberBLService {

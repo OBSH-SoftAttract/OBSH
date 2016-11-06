@@ -1,8 +1,8 @@
-package bl.blservice.impl;
+package bl.Promotionbl;
 
 import java.util.List;
 
-import bl.blservice.PromotionBLService;
+import bl.Promotionbl.PromotionBLService;
 import vo.PromotionVo;
 
 public class PromotionBLServiceImpl implements PromotionBLService{

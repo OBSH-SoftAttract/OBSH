@@ -14,7 +14,7 @@ import po.UserPo;
  */
 public class OrderVo {
 
-private int orderID;
+    private int orderID;
 	
 	private int orderState;
 	

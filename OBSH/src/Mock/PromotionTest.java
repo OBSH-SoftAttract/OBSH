@@ -1,9 +1,11 @@
 package Mock;
 
-import bl.blservice.PromotionBLService;
-import bl.blservice.impl.PromotionBLServiceImpl;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import bl.Promotionbl.PromotionBLService;
+import bl.Promotionbl.PromotionBLServiceImpl;
 import vo.PromotionVo;
 /**
  * 测试的是promotion的类间协作功能 

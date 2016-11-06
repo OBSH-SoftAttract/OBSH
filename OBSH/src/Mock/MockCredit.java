@@ -1,6 +1,6 @@
 package Mock;
 
-import bl.blservice.impl.CreditBLServiceImpl;
+import bl.Creditbl.CreditBLServiceImpl;
 
 public class MockCredit extends CreditBLServiceImpl{
 	double credit;

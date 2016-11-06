@@ -3,8 +3,10 @@ package Mock;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-import bl.blservice.MemberBLService;
-import bl.blservice.impl.MemberBLServiceImpl;
+
+import bl.Memberbl.MemberBLService;
+import bl.Memberbl.MemberBLServiceImpl;
+
 
 /**
  * 测试的是member的功能 

@@ -7,10 +7,12 @@ package Mock;
  * @author bxh
  */
 
-import bl.blservice.CreditBLService;
-import bl.blservice.impl.*;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import bl.Creditbl.CreditBLService;
+import bl.Creditbl.CreditBLServiceImpl;
 
 
 public class CreditTest {

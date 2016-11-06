@@ -1,8 +1,8 @@
 package Mock;
 
-import bl.blservice.impl.PromotionBLServiceImpl;
-
 import java.util.List;
+
+import bl.Promotionbl.PromotionBLServiceImpl;
 public class MockPromotion extends PromotionBLServiceImpl{
 	List<String> PromotionLineItem;
 	

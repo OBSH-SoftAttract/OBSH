@@ -25,7 +25,7 @@ public class MemberVo {
 	
 	public MemberVo(MemberPo memberPo,UserPo userPo){
 		super();
-		this.userInfo = userPo.getUserName()+"("+userPo.getCredit()+")";
+		this.userInfo = userPo.getUsername()+"("+userPo.getCredit()+")";
 		this.userId = memberPo.getUserId();
 		this.rank = memberPo.getRank();
 		this.memberInfo = memberPo.getMemberInfo();

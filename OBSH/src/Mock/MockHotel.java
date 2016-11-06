@@ -7,6 +7,10 @@ public class MockHotel {
 		// TODO Auto-generated constructor stub
 	}
 
+	public MockHotel(int i, String string) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getHotelId() {
 		// TODO Auto-generated method stub
 		return id;

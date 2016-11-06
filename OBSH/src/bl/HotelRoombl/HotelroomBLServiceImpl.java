@@ -1,6 +1,6 @@
-package bl.blservice.impl;
+package bl.HotelRoombl;
 
-import bl.blservice.HotelroomBLService;
+import bl.HotelRoombl.HotelroomBLService;
 import vo.HotelroomVo;
 
 public class HotelroomBLServiceImpl implements HotelroomBLService{

@@ -1,6 +1,6 @@
-package bl.blservice.impl;
+package bl.Creditbl;
 
-import bl.blservice.CreditBLService;
+import bl.Creditbl.CreditBLService;
 
 public class CreditBLServiceImpl implements CreditBLService{
 
