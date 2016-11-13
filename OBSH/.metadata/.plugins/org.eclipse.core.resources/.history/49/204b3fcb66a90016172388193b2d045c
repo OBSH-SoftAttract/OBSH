@@ -15,8 +15,8 @@ public class OrderTest {
 	@Test
 	public void testAdd(){
 		MockUser user=new MockUser(0,151250001);
-		MockHotelroom hotelroom1=new MockHotelroom(001,201);
-		MockHotelroom hotelroom2=new MockHotelroom(001,302);
+		MockHotel hotelroom1=new MockHotel("大酒店",001,201);
+		MockHotel hotelroom2=new MockHotel("大酒店",001,302);
 
 		OrderList orderlist=new OrderList(user.getId());
 		

@@ -14,13 +14,16 @@ import vo.OrderVo;
 public class OrderTest {
 	@Test
 	public void testAdd(){
-		MockUser user=new MockUser(0,151250001);
-		MockHotelroom hotelroom1=new MockHotelroom(001,201);
-		MockHotelroom hotelroom2=new MockHotelroom(001,302);
-
-		OrderList orderlist=new OrderList(user.getId());
+		MockUser user1=new MockUser(0,151250001);
+		MockUser user2=new MockUser(0,151250002);
+		MockHotel hotelroom1=new MockHotel("大酒店",001);
 		
-		orderlist.addroom(hotelroom1.getHotelName(),hotelroom1.getHotelId());
+		OrderlineItem orderLineItem1=new OrderlineItem(user1);
+		OrderlineItem orderLineItem2=new OrderlineItem(user2);
+		
+		OrderList orderlist=new OrderList();
+		orderlist.addOrderLineItem(orderLineItem1);
+		orderlist.addOrderLineItem(orderLineItem2);
 		
 		assertEquals(true,orderlist.addorder(orderlist));
 	}

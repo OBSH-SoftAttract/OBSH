@@ -29,9 +29,6 @@ public class MockHotel {
 	public String kind(){
 		return kind;
 	}
-	public MockHotel(String hotelName,int id) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public MockHotel(int i, String string) {
 		// TODO Auto-generated constructor stub

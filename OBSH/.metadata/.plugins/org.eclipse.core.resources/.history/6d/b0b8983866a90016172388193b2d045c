@@ -37,9 +37,6 @@ public class MockHotel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MockHotel(String string, int i, int j) {
-		// TODO Auto-generated constructor stub
-	}
 	public int getHotelId() {
 		// TODO Auto-generated method stub
 		return id;
