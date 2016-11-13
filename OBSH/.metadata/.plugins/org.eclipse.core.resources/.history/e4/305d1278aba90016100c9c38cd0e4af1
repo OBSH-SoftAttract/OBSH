@@ -50,10 +50,4 @@ public class HotelBLServiceImpl implements HotelBLService{
 		return null;
 	}
 
-	@Override
-	public Object Addprice(double price) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

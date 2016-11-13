@@ -48,6 +48,5 @@ public interface HotelBLService {
 	 * @return
 	 */
 	public String Addkind(String kind);
-	public Object Addprice(double price);
 }
 

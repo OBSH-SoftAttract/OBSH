@@ -55,13 +55,5 @@ public class MockHotelroom extends HotelroomBLServiceImpl{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public String gettimeout() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public int getid() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
