@@ -22,9 +22,4 @@ public class OrderList {
 		
 	}
 
-	public Object addorder(OrderList orderlist) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

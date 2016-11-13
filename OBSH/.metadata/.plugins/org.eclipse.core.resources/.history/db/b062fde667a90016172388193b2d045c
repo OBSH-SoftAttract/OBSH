@@ -16,15 +16,14 @@ public class OrderList {
 		return null;
 	}
 
+	public Object addorder(OrderList orderlist) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public void addroom(int id, int room) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public Object addorder(OrderList orderlist) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

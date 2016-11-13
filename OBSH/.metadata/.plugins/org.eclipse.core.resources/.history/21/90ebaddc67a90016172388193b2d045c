@@ -14,9 +14,6 @@ public class MockHotelroom extends HotelroomBLServiceImpl{
 		dateoutpro=D2;
 		timeout=D3;
 	}
-	public MockHotelroom(int i, int j) {
-		// TODO Auto-generated constructor stub
-	}
 	public int getRoom() {
 		return room;
 	}
