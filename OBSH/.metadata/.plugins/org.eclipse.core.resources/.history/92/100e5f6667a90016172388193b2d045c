@@ -26,23 +26,19 @@ public class MockHotelroom extends HotelroomBLServiceImpl{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getDatein() {
+	public MockHotelroom(int i, int j) {
+		// TODO Auto-generated constructor stub
+	}
+	public int getroom(){
+		return room;
+	}
+	public String getdatein(){
 		return datein;
 	}
-	public void setDatein(String datein) {
-		this.datein = datein;
-	}
-	public String getDateoutpro() {
+	public String getdateoutpro(){
 		return dateoutpro;
 	}
-	public void setDateoutpro(String dateoutpro) {
-		this.dateoutpro = dateoutpro;
-	}
-	public String getTimeout() {
+	public String gettimeout(){
 		return timeout;
 	}
-	public void setTimeout(String timeout) {
-		this.timeout = timeout;
-	}
-
 }

@@ -20,7 +20,7 @@ public class OrderTest {
 
 		OrderList orderlist=new OrderList(user.getId());
 		
-		orderlist.addroom(hotelroom1.getId(),hotelroom1.getRoom());
+		orderlist.addroom(hotelroom1.getroom(),);
 		
 		assertEquals(true,orderlist.addorder(orderlist));
 	}
