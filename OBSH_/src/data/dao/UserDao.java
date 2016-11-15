@@ -1,5 +1,22 @@
 package data.dao;
+/**
+ * @author bxh
+ */
+import po.UserPo;
 
-public class UserDao {
+public interface UserDao {
+	
+	/**
+	 * @param userId
+	 * @return	获取用户信息
+	 */
+	public UserPo getUser(int userId);
+	
+	/**
+	 * @param userPo
+	 * @return	更新用户信息
+	 */
+	public boolean updateUser(UserPo userPo);
 
 }
+
