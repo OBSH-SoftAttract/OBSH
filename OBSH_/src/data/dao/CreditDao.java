@@ -1,5 +1,17 @@
 package data.dao;
+/**
+ * @author bxh
+ */
 
-public class CreditDao {
+import po.CreditPo;
 
+public interface CreditDao {
+	
+	/**
+	 * @param orderId
+	 * @return	获取用户信用信息
+	 */
+	public CreditPo getCredit(int userId);
+	
 }
+
