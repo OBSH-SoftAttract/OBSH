@@ -26,7 +26,7 @@ public interface PromotionDao {
 	public boolean updatePromotion(PromotionPo promotionPo);
 	
 	/**
-	 * @param MemberPo
+	 * @param PromtionPo
 	 * @return	添加促销策略
 	 */
 	public boolean addPromotionPo(PromotionPo promotionPo);
