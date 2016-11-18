@@ -2,7 +2,7 @@ package Mock;
 
 public class MockHotel {
 	String hotelName;
-	int id;
+	private int id;
 	double price;
 	int star;
 	String location;
@@ -42,12 +42,18 @@ public class MockHotel {
 	}
 	public int getHotelId() {
 		// TODO Auto-generated method stub
-		return id;
+		return getId();
 	}
 
 	public String getHotelName() {
 		// TODO Auto-generated method stub
 		return hotelName;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

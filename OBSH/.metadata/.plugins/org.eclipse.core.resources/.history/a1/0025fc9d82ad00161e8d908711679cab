@@ -1,0 +1,15 @@
+package server_rmi;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class DataRemoteObject extends UnicastRemoteObject{
+
+	private static final long serialVersionUID = 4029039744279087114L;
+	
+	protected DataRemoteObject() throws RemoteException implements UserBLService{
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,7 +1,2 @@
-/Mock/
-/bl/
-/data/
-/main/
-/po/
-/presentation/
-/vo/
+/server_rmi/
+/client_rmi/
