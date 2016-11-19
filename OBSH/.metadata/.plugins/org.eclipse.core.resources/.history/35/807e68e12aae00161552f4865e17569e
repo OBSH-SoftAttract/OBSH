@@ -159,9 +159,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public void CancelKillCredit(OrderVo ordervo) throws RemoteException {
+	public boolean CancelKillCredit(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
-		orderblservice.CancelKillCredit(ordervo);
+		return orderblservice.CancelKillCredit(ordervo);
 	}
 
 	@Override
