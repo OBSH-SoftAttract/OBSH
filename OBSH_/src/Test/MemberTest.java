@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import Mock.MockCredit;
 import Mock.MockUser;
-import bl.Memberbl.MemberBLService;
-import bl.Memberbl.MemberBLServiceImpl;
+import blservice.MemberBLService;
+import blserviceImpl.MemberBLServiceImpl;
 
 
 /**

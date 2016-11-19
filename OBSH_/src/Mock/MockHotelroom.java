@@ -1,6 +1,6 @@
 package Mock;
 
-import bl.HotelRoombl.HotelroomBLServiceImpl;
+import blserviceImpl.HotelroomBLServiceImpl;
 
 public class MockHotelroom extends HotelroomBLServiceImpl{
 	int room;

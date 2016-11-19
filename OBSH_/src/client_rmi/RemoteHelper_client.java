@@ -6,13 +6,13 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import bl.Creditbl.CreditBLService;
-import bl.HotelRoombl.HotelBLService;
-import bl.HotelRoombl.HotelroomBLService;
-import bl.Memberbl.MemberBLService;
-import bl.Orderbl.OrderBLService;
-import bl.Promotionbl.PromotionBLService;
-import bl.Userbl.UserBLService;
+import blservice.CreditBLService;
+import blservice.HotelBLService;
+import blservice.HotelroomBLService;
+import blservice.MemberBLService;
+import blservice.OrderBLService;
+import blservice.PromotionBLService;
+import blservice.UserBLService;
 
 public class RemoteHelper_client {
     private RemoteHelper_client remotehelper;

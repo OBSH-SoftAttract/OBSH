@@ -13,8 +13,8 @@ import org.junit.Test;
 
 import Mock.MockOrder;
 import Mock.MockUser;
-import bl.Creditbl.CreditBLService;
-import bl.Creditbl.CreditBLServiceImpl;
+import blservice.CreditBLService;
+import blserviceImpl.CreditBLServiceImpl;
 
 
 public class CreditTest {

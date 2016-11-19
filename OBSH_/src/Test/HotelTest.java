@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Mock.MockHotel;
-import bl.HotelRoombl.HotelBLService;
-import bl.HotelRoombl.HotelBLServiceImpl;
+import blservice.HotelBLService;
+import blservice.HotelBLServiceImpl;
 
 public class HotelTest {
 	@Test

@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Mock.MockUser;
-import bl.Userbl.UserBLService;
-import bl.Userbl.UserBLServiceImpl;
+import blservice.UserBLService;
+import blserviceImpl.UserBLServiceImpl;
 import vo.UserVo;
 
 public class UserTest {

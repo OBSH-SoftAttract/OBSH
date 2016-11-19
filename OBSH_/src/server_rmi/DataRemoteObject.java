@@ -5,12 +5,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import bl.Creditbl.*;
-import bl.HotelRoombl.*;
-import bl.Memberbl.*;
-import bl.Orderbl.*;
-import bl.Promotionbl.*;
-import bl.Userbl.*;
+import blservice.*;
+import blserviceImpl.*;
 import vo.HotelroomVo;
 import vo.OrderVo;
 import vo.PromotionVo;

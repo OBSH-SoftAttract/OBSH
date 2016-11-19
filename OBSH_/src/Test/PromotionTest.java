@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import Mock.MockHotel;
 import Mock.MockUser;
-import bl.Promotionbl.PromotionBLService;
-import bl.Promotionbl.PromotionBLServiceImpl;
+import blservice.PromotionBLService;
+import blserviceImpl.PromotionBLServiceImpl;
 import vo.PromotionVo;
 /**
  * 测试的是promotion的类间协作功能 

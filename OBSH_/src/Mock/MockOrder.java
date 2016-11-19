@@ -1,6 +1,6 @@
 package Mock;
 
-import bl.Orderbl.OrderBLServiceImpl;
+import blserviceImpl.OrderBLServiceImpl;
 
 public class MockOrder extends OrderBLServiceImpl{
 	double price;     //订单价格
