@@ -1,7 +1,7 @@
 package po;
 
 /**
- * status             营销策略的所属（网站0 or酒店 1）
+ * id                 自动判断id是属于酒店还是网站营销人员
  * itemName           策略名称
  * startTime          策略适用开始时间
  * endTime            策略适用结束时间
@@ -10,7 +10,7 @@ package po;
  */
 public class PromotionPo {
 
-	private int status;
+	private int id;
 	
 	private String itemName;
 	
@@ -24,21 +24,21 @@ public class PromotionPo {
 		super();
 	}
 	
-	public PromotionPo(int status, String itemName, String startTime, String endTime, String promotionInfo) {
+	public PromotionPo(int id, String itemName, String startTime, String endTime, String promotionInfo) {
 		super();
-		this.status = status;
+		this.id = id;
 		this.itemName = itemName;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.promotionInfo = promotionInfo;
 	}
 	
-	public int getStatus() {
-		return status;
+	public int getid() {
+		return id;
 	}
 	
-	public void setStatus(int status) {
-		this.status = status;
+	public void setid(int id) {
+		this.id = id;
 	}
 	
 	public String getItemName() {
