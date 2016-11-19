@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainframe.RegisterController">
+   <children>
+      <Label fx:id="UserName" layoutX="81.0" layoutY="106.0" prefHeight="29.0" prefWidth="72.0" text="UserName:" />
+      <Label fx:id="Password" layoutX="81.0" layoutY="155.0" prefHeight="29.0" prefWidth="72.0" text="Password:" />
+      <TextField fx:id="username" layoutX="210.0" layoutY="107.0" onAction="#getUsername" />
+      <Button fx:id="Confirm" layoutX="426.0" layoutY="395.0" mnemonicParsing="false" onAction="#UserRegister" text="Confirm" />
+      <Button fx:id="Cancel" layoutX="515.0" layoutY="395.0" mnemonicParsing="false" onAction="#backtologin" text="Cancel" />
+      <Label id="register" fx:id="Register" layoutX="55.0" layoutY="55.0" text="Register">
+         <font>
+            <Font name="Apple SD GothicNeo ExtraBold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ConfirmPassword" layoutX="81.0" layoutY="198.0" prefHeight="29.0" prefWidth="129.0" text="Confirm Password:" />
+      <Label fx:id="mobilephone" layoutX="81.0" layoutY="245.0" prefHeight="29.0" prefWidth="129.0" text="mobile phone:" />
+      <TextField fx:id="phonenumber" layoutX="210.0" layoutY="246.0" onAction="#getPhoneNum" />
+      <Label fx:id="verificationcode" layoutX="81.0" layoutY="287.0" prefHeight="29.0" prefWidth="129.0" text="verification code:" />
+      <TextField fx:id="tfvc" layoutX="210.0" layoutY="288.0" onAction="#getvc" />
+      <PasswordField fx:id="password1" layoutX="210.0" layoutY="156.0" onAction="#getPassword1" />
+      <PasswordField fx:id="password2" layoutX="210.0" layoutY="200.0" onAction="#getPassword2" />
+      <Label fx:id="vc" layoutX="471.0" layoutY="278.0" prefHeight="41.0" prefWidth="44.0" text="tfbc">
+         <font>
+            <Font name="Brush Script MT Italic" size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5168539325842697" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Button layoutX="391.0" layoutY="329.0" mnemonicParsing="false" text="Unclear? Change another one." />
+   </children>
+</AnchorPane>
