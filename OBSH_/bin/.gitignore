@@ -1,5 +1,7 @@
+/Mock/
+/Test/
 /blservice/
-/bl/
+/blserviceImpl/
 /client_rmi/
 /data/
 /main/
@@ -7,6 +9,4 @@
 /presentation/
 /server_rmi/
 /vo/
-/Test/
-/blserviceImpl/
-/Mock/
+/datahelper/
