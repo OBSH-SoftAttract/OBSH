@@ -1,7 +1,0 @@
-package server_rmi;
-
-import java.rmi.server.UnicastRemoteObject;
-
-public class DataRemoteObject extends UnicastRemoteObject{
-
-}

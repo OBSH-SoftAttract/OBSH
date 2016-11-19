@@ -1,28 +1,33 @@
 package blservice;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import vo.OrderVo;
 import vo.PromotionVo;
 
-public interface OrderBLService{
+public interface OrderBLService extends Remote{
 	
 	/**
 	 * @param   ordervo
 	 * @return	将订单状态改为已撤销
+	 * @throws RemoteException 
 	 */
-	public boolean Cancellation(OrderVo ordervo);
+	public boolean Cancellation(OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * @param   ordervo
 	 * @return  返回订单开始到现在时间的时间差
+	 * @throws RemoteException 
 	 */
-	public String CancelTime (OrderVo ordervo);
+	public String CancelTime (OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * @param   ordervo
 	 * @return  扣除用户的信用值
+	 * @throws RemoteException 
 	 */
-	public boolean CancelKillCredit(OrderVo ordervo);
+	public boolean CancelKillCredit(OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * 
@@ -30,97 +35,111 @@ public interface OrderBLService{
 	 * @param comment
 	 * @param ordervo
 	 * @return 提交订单评语
+	 * @throws RemoteException 
 	 */
-	public boolean Assess(int score,String comment,OrderVo ordervo);
+	public boolean Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param ordervo
 	 * @return 添加订单
+	 * @throws RemoteException 
 	 */
-	public boolean Add(OrderVo ordervo); 
+	public boolean Add(OrderVo ordervo) throws RemoteException; 
 	
 	/**
 	 * 
 	 * @param ordervo
 	 * @return 检查信用值是否满足下单要求
+	 * @throws RemoteException 
 	 */
-	public boolean CreditCheck(OrderVo ordervo) ;
+	public boolean CreditCheck(OrderVo ordervo) throws RemoteException ;
 	
 	/**
 	 * 
 	 * @param userid
 	 * @return 获得符合该用户的最优策略
+	 * @throws RemoteException 
 	 */
-	public PromotionVo CalPromotion(int userid);
+	public PromotionVo CalPromotion(int userid) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo1
 	 * @param vo2
 	 * @return 获得订单价格
+	 * @throws RemoteException 
 	 */
-	public OrderVo CalPrice(PromotionVo vo1,OrderVo vo2);
+	public OrderVo CalPrice(PromotionVo vo1,OrderVo vo2) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 	处理订单	
+	 * @throws RemoteException 
 	 */
-	public boolean Solve(OrderVo vo);
+	public boolean Solve(OrderVo vo) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 处理用户申诉
+	 * @throws RemoteException 
 	 */
-	public boolean ComplainDeal(OrderVo vo);
+	public boolean ComplainDeal(OrderVo vo) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param orderid
 	 * @return 获得对应ID的订单对象
+	 * @throws RemoteException 
 	 */
-	public OrderVo ViewByID (int orderid);
+	public OrderVo ViewByID (int orderid) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param userid
 	 * @return 获得对应用户的所有订单
+	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> Views(int userid);
+	public ArrayList<OrderVo> Views(int userid) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param id
 	 * @return 获得对应客户的订单
+	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> ViewByCustom(int id);
+	public ArrayList<OrderVo> ViewByCustom(int id) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param date
 	 * @return 获得对应日期的订单列表
+	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> ViewByDaily(String date);
+	public ArrayList<OrderVo> ViewByDaily(String date) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param state
 	 * @return 获得
+	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> ViewByState(int state);
+	public ArrayList<OrderVo> ViewByState(int state) throws RemoteException;
 	
 	/**
 	 * 
 	 * @param orderlist
 	 * @return 获得按时间排序
+	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> TimeSort ( ArrayList<OrderVo> orderlist);
+	public ArrayList<OrderVo> TimeSort ( ArrayList<OrderVo> orderlist) throws RemoteException;
 	
 	/**
 	 * 
 	 * @return 获得一个新的订单号
+	 * @throws RemoteException 
 	 */
-	public int CreateID();
+	public int CreateID() throws RemoteException;
 }

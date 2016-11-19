@@ -16,7 +16,7 @@ public class OrderVo {
 
     private int orderID;
 	
-	private int orderState;
+	private int orderState=-1;
 	
 	private String StartTime;
 	
@@ -39,7 +39,8 @@ public class OrderVo {
 		
 	}
 	
-	public OrderVo(int orderid,int orderstate,String starttime,String endtime,String lasttime,int userid,double pri,int hotelid,String roominfo,String userinfo){
+	public OrderVo(int orderid,int orderstate,String starttime,String endtime,String lasttime,
+			int userid,double pri,int hotelid,String roominfo,String userinfo){
 		super();
 		this.orderID=orderid;
 		this.orderState=orderstate;
@@ -52,76 +53,86 @@ public class OrderVo {
 		this.roomInfo=roominfo;
 		this.userInfo=userinfo;
 	}
-	
-	public int getOrderID(){
-		return this.orderID;
+
+	public int getOrderID() {
+		return orderID;
+	}
+
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
+	}
+
+	public int getOrderState() {
+		return orderState;
+	}
+
+	public void setOrderState(int orderState) {
+		this.orderState = orderState;
+	}
+
+	public String getStartTime() {
+		return StartTime;
+	}
+
+	public void setStartTime(String startTime) {
+		StartTime = startTime;
+	}
+
+	public String getEndTime() {
+		return EndTime;
+	}
+
+	public void setEndTime(String endTime) {
+		EndTime = endTime;
+	}
+
+	public String getLastTime() {
+		return lastTime;
+	}
+
+	public void setLastTime(String lastTime) {
+		this.lastTime = lastTime;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getHotelID() {
+		return hotelID;
+	}
+
+	public void setHotelID(int hotelID) {
+		this.hotelID = hotelID;
+	}
+
+	public String getRoomInfo() {
+		return roomInfo;
+	}
+
+	public void setRoomInfo(String roomInfo) {
+		this.roomInfo = roomInfo;
+	}
+
+	public String getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(String userInfo) {
+		this.userInfo = userInfo;
 	}
 	
-	public void setOrderID(int id){
-		this.orderID=id;
-	}
-	
-	public int getOrderState(){
-		return this.orderState;
-	}
-	
-	public void setOrderState(int orderstate){
-		this.orderState=orderstate;
-	}
-	
-	public String getStartTime(){
-		return this.StartTime;
-	}
-	
-	public void setStartTime(String starttime){
-		this.StartTime=starttime;
-	}
-	
-	public String getEndTime(){
-		return this.EndTime;
-	}
-	
-	public void setEndTime(String endtime){
-		this.EndTime=endtime;
-	}
-	
-	public String getlastTime(){
-		return this.lastTime;
-	}
-	
-	public void setlastTime(String lastime){
-		this.lastTime=lastime;
-	}
-	
-	public int getUserID(){
-		return this.userID;
-	}
-	
-	public void setUserID(int id){
-		this.userID=id;
-	}
-	
-	public double getPrice(){
-		return this.price;
-	}
-	
-	public void setPrice(double pri){
-		this.price=pri;
-	}
-	
-	public int getHotelID(){
-		return this.hotelID;
-	}
-	
-	public void setHotelID(int id){
-		this.hotelID=id;
-	}
-	
-	public String getroomInfo(){
-		return this.roomInfo;
-	}
-	
-	public void setroomInfo(String roominfo){
-		this.roomInfo=roominfo;
-	}
+
 }

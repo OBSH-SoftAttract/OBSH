@@ -146,103 +146,103 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public boolean Cancellation(OrderVo ordervo) {
+	public boolean Cancellation(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Cancellation(ordervo);
 	}
 
 	@Override
-	public String CancelTime(OrderVo ordervo) {
+	public String CancelTime(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CancelTime(ordervo);
 	}
 
 	@Override
-	public boolean CancelKillCredit(OrderVo ordervo) {
+	public boolean CancelKillCredit(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CancelKillCredit(ordervo);
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, OrderVo ordervo) {
+	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Assess(score, comment, ordervo);
 	}
 
 	@Override
-	public boolean Add(OrderVo ordervo) {
+	public boolean Add(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Add(ordervo);
 	}
 
 	@Override
-	public boolean CreditCheck(OrderVo ordervo) {
+	public boolean CreditCheck(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CreditCheck(ordervo);
 	}
 
 	@Override
-	public PromotionVo CalPromotion(int userid) {
+	public PromotionVo CalPromotion(int userid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CalPromotion(userid);
 	}
 
 	@Override
-	public OrderVo CalPrice(PromotionVo vo1, OrderVo vo2) {
+	public OrderVo CalPrice(PromotionVo vo1, OrderVo vo2) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CalPrice(vo1, vo2);
 	}
 
 	@Override
-	public boolean Solve(OrderVo vo) {
+	public boolean Solve(OrderVo vo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Solve(vo);
 	}
 
 	@Override
-	public boolean ComplainDeal(OrderVo vo) {
+	public boolean ComplainDeal(OrderVo vo) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ComplainDeal(vo);
 	}
 
 	@Override
-	public OrderVo ViewByID(int orderid) {
+	public OrderVo ViewByID(int orderid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByID(orderid);
 	}
 
 	@Override
-	public ArrayList<OrderVo> Views(int userid) {
+	public ArrayList<OrderVo> Views(int userid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Views(userid);
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByCustom(int id) {
+	public ArrayList<OrderVo> ViewByCustom(int id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByCustom(id);
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByDaily(String date) {
+	public ArrayList<OrderVo> ViewByDaily(String date) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByDaily(date);
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByState(int state) {
+	public ArrayList<OrderVo> ViewByState(int state) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByState(state);
 	}
 
 	@Override
-	public ArrayList<OrderVo> TimeSort(ArrayList<OrderVo> orderlist) {
+	public ArrayList<OrderVo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.TimeSort(orderlist);
 	}
 
 	@Override
-	public int CreateID() {
+	public int CreateID() throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CreateID();
 	}

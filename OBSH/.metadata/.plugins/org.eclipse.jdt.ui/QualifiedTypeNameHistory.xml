@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.rmi.server.UnicastRemoteObject"/>
 <fullyQualifiedTypeName name="bl.Userbl.UserBLServiceImpl"/>
-<fullyQualifiedTypeName name="java.rmi.Remote"/>
 <fullyQualifiedTypeName name="bl.Userbl.UserBLService"/>
 <fullyQualifiedTypeName name="bl.Promotionbl.PromotionBLService"/>
 <fullyQualifiedTypeName name="bl.Creditbl.CreditBLService"/>
@@ -10,4 +9,6 @@
 <fullyQualifiedTypeName name="bl.Orderbl.OrderBLService"/>
 <fullyQualifiedTypeName name="bl.Memberbl.MemberBLService"/>
 <fullyQualifiedTypeName name="bl.HotelRoombl.HotelroomBLService"/>
+<fullyQualifiedTypeName name="java.rmi.RemoteException"/>
+<fullyQualifiedTypeName name="java.rmi.Remote"/>
 </qualifiedTypeNameHistroy>

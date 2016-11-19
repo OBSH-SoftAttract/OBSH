@@ -1,7 +1,0 @@
-package server_rmi;
-
-import java.rmi.Remote;
-
-public class DataRemoteObject implements Remote {
-
-}
