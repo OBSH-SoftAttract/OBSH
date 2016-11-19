@@ -127,7 +127,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderPo> ViewByState(int state) throws RemoteException;
+	public ArrayList<OrderPo> ViewByState(int state,int id) throws RemoteException;
 	
 	/**
 	 * 

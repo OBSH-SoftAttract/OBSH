@@ -9,6 +9,7 @@ import blservice.OrderBLService;
 import data.dao.CreditDao;
 import data.dao.OrderDao;
 import data.dao.impl.CreditDaoImpl;
+import data.dao.impl.OrderDaoImpl;
 import po.OrderPo;
 import po.PromotionPo;
 import vo.PromotionVo;
@@ -20,6 +21,11 @@ public class OrderBLServiceImpl implements OrderBLService{
 	private CreditDao creditdao;
 	private OrderDao orderdao;
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
+	public OrderBLServiceImpl(){
+		creditdao=CreditDaoImpl.getInstance();
+		orderdao=OrderDaoImpl.getInstance();
+	}
 	
 	@Override
 	public boolean Cancellation(OrderVo ordervo)throws RemoteException{
@@ -51,14 +57,13 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	@Override
 	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
-		creditdao=CreditDaoImpl.getInstance();
 		double precredit=creditdao.getCredit(ordervo.getOrderID()).getCredit();
 		creditdao.setCredit(ordervo.getOrderID(), precredit-ordervo.getPrice());
 	}
 
 	@Override
 	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException{
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -124,10 +129,12 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public ArrayList<OrderPo> ViewByState(int state) throws RemoteException{
-		// TODO Auto-generated method stub
+	public ArrayList<OrderPo> ViewByState(int state,int id) throws RemoteException{
+		ArrayList<OrderPo> orderlist=new ArrayList<OrderPo>();
+		
 		return null;
 	}
+
 
 	@Override
 	public ArrayList<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException{

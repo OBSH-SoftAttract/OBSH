@@ -19,4 +19,5 @@
 <fullyQualifiedTypeName name="po.OrderPo"/>
 <fullyQualifiedTypeName name="data.dao.impl.CreditDaoImpl"/>
 <fullyQualifiedTypeName name="data.dao.OrderDao"/>
+<fullyQualifiedTypeName name="data.dao.impl.OrderDaoImpl"/>
 </qualifiedTypeNameHistroy>

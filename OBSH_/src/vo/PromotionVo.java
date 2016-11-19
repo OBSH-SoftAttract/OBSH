@@ -43,7 +43,7 @@ public class PromotionVo {
 		super();
 		this.id = promotionPo.getid();
 		if(String.valueOf(id).length()==4) {          //用来区分是酒店工作人员还是网站营销人员的
-			hotelMarketerInfo = hotelPo.getname();
+			hotelMarketerInfo = hotelPo.getName();
 		} 
 		this.itemName = promotionPo.getItemName();
 		this.startTime = promotionPo.getStartTime();

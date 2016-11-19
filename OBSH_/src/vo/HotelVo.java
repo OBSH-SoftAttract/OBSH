@@ -5,7 +5,7 @@ import po.HotelPo;
 
 public class HotelVo extends Vector<String> {
 	public HotelVo(int hotelNo, String name, int price, int star, String location, String summary, String services,
-			String kind) {
+			String roominfo,double scor) {
 		this.add(String.valueOf(hotelNo));
 		this.add(name);
 		this.add(String.valueOf(price));
@@ -13,7 +13,8 @@ public class HotelVo extends Vector<String> {
 		this.add(location);
 		this.add(summary);
 		this.add(services);
-		this.add(kind);
+		this.add(roominfo);
+		this.add(String.valueOf(scor));
 	}
 
 	public int gethotelNo() {
@@ -44,7 +45,10 @@ public class HotelVo extends Vector<String> {
 		return this.get(6);
 	}
 
-	public String getkind() {
+	public String getroomInfo() {
 		return this.get(7);
 	}
+	public double getscore() {
+		return Double.valueOf(this.get(8));
+	}	
 }

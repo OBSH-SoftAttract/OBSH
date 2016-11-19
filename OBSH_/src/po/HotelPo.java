@@ -3,91 +3,93 @@ package po;
 public class HotelPo {
 	private int hotelNo;
 	private String name;
-	private int price;
 	private int star;
 	private String location;
 	private String summary;
 	private String services;
-	private String kind;
-
+	private String roomInfo;//房间类型+个数
+	private double score=0;
+	
 	public HotelPo() {
 		super();
 	}
 
-	public HotelPo(int hotelNo, String name, int price, int star, String location, String summary, String services,
-			String kind) {
+	public HotelPo(int hotelNo, String name, int star, String location, String summary, String services,
+			String roominfo,double s) {
 		super();
 		this.hotelNo = hotelNo;
 		this.name = name;
-		this.price = price;
 		this.star = star;
 		this.location = location;
 		this.summary = summary;
 		this.services = services;
-		this.kind = kind;
+		this.roomInfo = roominfo;
+		this.score=s;
 	}
 
-	public int gethotelNo() {
+	public int getHotelNo() {
 		return hotelNo;
 	}
 
-	public void sethotelNo(int hotelNo) {
+	public void setHotelNo(int hotelNo) {
 		this.hotelNo = hotelNo;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getprice() {
-		return price;
-	}
-
-	public void setprice(int price) {
-		this.price = price;
-	}
-
-	public int getstar() {
+	public int getStar() {
 		return star;
 	}
 
-	public void setstar(int star) {
+	public void setStar(int star) {
 		this.star = star;
 	}
 
-	public String getlocation() {
+	public String getLocation() {
 		return location;
 	}
 
-	public void setlocation(String location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}
 
-	public String getsummary() {
+	public String getSummary() {
 		return summary;
 	}
 
-	public void setsummary(String summary) {
+	public void setSummary(String summary) {
 		this.summary = summary;
 	}
 
-	public String getservices() {
+	public String getServices() {
 		return services;
 	}
 
-	public void setservices(String services) {
+	public void setServices(String services) {
 		this.services = services;
 	}
 
-	public String getkind() {
-		return kind;
+	public String getRoomInfo() {
+		return roomInfo;
 	}
 
-	public void setkind(String kind) {
-		this.kind = kind;
+	public void setRoomInfo(String roomInfo) {
+		this.roomInfo = roomInfo;
 	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+
 }

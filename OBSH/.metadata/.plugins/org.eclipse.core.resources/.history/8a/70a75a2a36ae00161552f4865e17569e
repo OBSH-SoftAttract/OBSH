@@ -1,0 +1,10 @@
+package data.dao.impl;
+
+import data.dao.OrderDao;
+
+public class OrderDaoImpl implements OrderDao {
+	private static OrderDaoImpl Orderdao = new OrderDaoImpl();
+	public static OrderDaoImpl getInstance(){
+		return Orderdao;
+	}
+}
