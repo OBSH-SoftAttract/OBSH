@@ -3,7 +3,7 @@ package po;
 /**
  * userId          用户编号
  * birthday		      普通会员生日
- * corpoateName    企业会员名称
+ * corpoateName    企业名称
  * rank	                      会员等级
  * memberInfo      会员信息详情
  * @author bxh
