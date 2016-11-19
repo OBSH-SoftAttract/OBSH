@@ -7,6 +7,7 @@ import java.util.List;
 
 import blservice.*;
 import blserviceImpl.*;
+import po.OrderPo;
 import vo.HotelroomVo;
 import vo.OrderVo;
 import vo.PromotionVo;
@@ -212,31 +213,31 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public ArrayList<OrderVo> Views(int userid) throws RemoteException {
+	public ArrayList<OrderPo> Views(int userid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Views(userid);
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByCustom(int id) throws RemoteException {
+	public ArrayList<OrderPo> ViewByCustom(int id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByCustom(id);
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByDaily(String date) throws RemoteException {
+	public ArrayList<OrderPo> ViewByDaily(String date) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByDaily(date);
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByState(int state) throws RemoteException {
+	public ArrayList<OrderPo> ViewByState(int state) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByState(state);
 	}
 
 	@Override
-	public ArrayList<OrderVo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException {
+	public ArrayList<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.TimeSort(orderlist);
 	}

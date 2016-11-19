@@ -13,5 +13,8 @@ public interface CreditDao {
 	 */
 	public CreditPo getCredit(int userId);
 	
+	public CreditPo setCredit(int userID,double credit);
+	
+	
 }
 

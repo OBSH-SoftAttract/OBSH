@@ -3,6 +3,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.OrderPo;
 import vo.OrderVo;
 import vo.PromotionVo;
 
@@ -27,7 +28,7 @@ public interface OrderBLService extends Remote{
 	 * @return  扣除用户的信用值
 	 * @throws RemoteException 
 	 */
-	public boolean CancelKillCredit(OrderVo ordervo) throws RemoteException;
+	public void CancelKillCredit(OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * 
@@ -102,7 +103,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应用户的所有订单
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> Views(int userid) throws RemoteException;
+	public ArrayList<OrderPo> Views(int userid) throws RemoteException;
 	
 	/**
 	 * 
@@ -110,7 +111,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应客户的订单
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> ViewByCustom(int id) throws RemoteException;
+	public ArrayList<OrderPo> ViewByCustom(int id) throws RemoteException;
 	
 	/**
 	 * 
@@ -118,7 +119,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应日期的订单列表
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> ViewByDaily(String date) throws RemoteException;
+	public ArrayList<OrderPo> ViewByDaily(String date) throws RemoteException;
 	
 	/**
 	 * 
@@ -126,7 +127,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> ViewByState(int state) throws RemoteException;
+	public ArrayList<OrderPo> ViewByState(int state) throws RemoteException;
 	
 	/**
 	 * 
@@ -134,7 +135,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得按时间排序
 	 * @throws RemoteException 
 	 */
-	public ArrayList<OrderVo> TimeSort ( ArrayList<OrderVo> orderlist) throws RemoteException;
+	public ArrayList<OrderPo> TimeSort ( ArrayList<OrderVo> orderlist) throws RemoteException;
 	
 	/**
 	 * 

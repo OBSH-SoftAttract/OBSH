@@ -6,13 +6,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import blservice.OrderBLService;
+import data.dao.CreditDao;
+import data.dao.OrderDao;
+import data.dao.impl.CreditDaoImpl;
 import po.OrderPo;
 import po.PromotionPo;
 import vo.PromotionVo;
 import vo.OrderVo;
 
+
 public class OrderBLServiceImpl implements OrderBLService{
 
+	private CreditDao creditdao;
+	private OrderDao orderdao;
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	@Override
@@ -44,9 +50,10 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public boolean CancelKillCredit(OrderVo ordervo)throws RemoteException {
-		
-		return false;
+	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
+		creditdao=CreditDaoImpl.getInstance();
+		double precredit=creditdao.getCredit(ordervo.getOrderID()).getCredit();
+		creditdao.setCredit(ordervo.getOrderID(), precredit-ordervo.getPrice());
 	}
 
 	@Override
@@ -58,6 +65,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public boolean Add(OrderVo ordervo) throws RemoteException{
 		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -98,31 +106,31 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public ArrayList<OrderVo> Views(int userid) throws RemoteException{
+	public ArrayList<OrderPo> Views(int userid) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByCustom(int id) throws RemoteException{
+	public ArrayList<OrderPo> ViewByCustom(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByDaily(String date) throws RemoteException{
+	public ArrayList<OrderPo> ViewByDaily(String date) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<OrderVo> ViewByState(int state) throws RemoteException{
+	public ArrayList<OrderPo> ViewByState(int state) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<OrderVo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException{
+	public ArrayList<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}

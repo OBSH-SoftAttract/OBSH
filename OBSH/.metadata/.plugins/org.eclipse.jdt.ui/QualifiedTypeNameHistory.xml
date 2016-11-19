@@ -11,4 +11,12 @@
 <fullyQualifiedTypeName name="bl.HotelRoombl.HotelroomBLService"/>
 <fullyQualifiedTypeName name="java.rmi.RemoteException"/>
 <fullyQualifiedTypeName name="java.rmi.Remote"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="blservice.CreditBLService"/>
+<fullyQualifiedTypeName name="vo.OrderVo"/>
+<fullyQualifiedTypeName name="data.dao.CreditDao"/>
+<fullyQualifiedTypeName name="po.OrderPo"/>
+<fullyQualifiedTypeName name="data.dao.impl.CreditDaoImpl"/>
+<fullyQualifiedTypeName name="data.dao.OrderDao"/>
 </qualifiedTypeNameHistroy>
