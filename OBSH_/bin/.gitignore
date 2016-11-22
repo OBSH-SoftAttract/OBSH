@@ -1,7 +1,4 @@
-/data/
-/blserviceImpl/
-/vo/
 /blservice/
+/blserviceImpl/
 /server_rmi/
-/client_rmi/
-/po/
+/data/

@@ -1,0 +1,29 @@
+package data.dao;
+/**
+ * @author bxh
+ */
+
+import po.CreditPo;
+import po.OrderPo;
+
+public interface CreditDao {
+	
+	/**
+	 * @param CreditId
+	 * @return	获取用户信用信息
+	 */
+	public CreditPo getCredit(int userId);
+	
+<<<<<<< HEAD
+	/**
+	 * @param CreduitPo
+	 * @return	更新信用信息
+	 */
+	public boolean updateOrder(OrderPo orderPo);
+=======
+	public CreditPo setCredit(int userID,double credit);
+	
+>>>>>>> origin/master
+	
+}
+

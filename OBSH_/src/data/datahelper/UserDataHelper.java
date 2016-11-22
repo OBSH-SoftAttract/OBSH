@@ -7,15 +7,21 @@ import po.UserPo;
 public interface UserDataHelper {
 	
 	/**
-	 * @return	从数据库中读取用户数�?
+	 * @return	从数据库中读取用户数据
 	 */
 	public Map<Integer, UserPo> getUserData();
 	
 	/**
-	 * 向数据库中写入用户数�?
+	 * 更新用户数据
 	 * @param list
 	 */
 	public void updateUserData(Map<Integer, UserPo> map);
+
+	/**
+	 * 向数据库中写入新的用户数据
+	 * @param list
+	 */
+	public void setNewUserData(UserPo userPo);
 
 }
 

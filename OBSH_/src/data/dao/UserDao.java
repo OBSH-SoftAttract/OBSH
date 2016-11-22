@@ -14,6 +14,12 @@ public interface UserDao {
 	
 	/**
 	 * @param userPo
+	 * @return	新建用户
+	 */
+	public void setUser(UserPo userPo) ;
+	
+	/**
+	 * @param userPo
 	 * @return	更新用户信息
 	 */
 	public boolean updateUser(UserPo userPo);
