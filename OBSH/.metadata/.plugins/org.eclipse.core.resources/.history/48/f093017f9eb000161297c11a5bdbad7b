@@ -231,9 +231,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public ArrayList<OrderPo> ViewByState(int state,int id) throws RemoteException {
+	public ArrayList<OrderPo> ViewByState(int state，int id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.ViewByState(state,id);
+		return orderblservice.ViewByState(state);
 	}
 
 	@Override
