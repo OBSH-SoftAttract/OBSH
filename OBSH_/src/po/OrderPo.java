@@ -1,4 +1,7 @@
 package po;
+
+import java.sql.Timestamp;
+
 /**
  * orderID		订单编号
  * orderState   订单状态（0：未执行订单；1：已执行订单；2：异常订单；3：已撤销订单）
@@ -15,11 +18,11 @@ public class OrderPo {
 	
 	private int orderState;
 	
-	private String StartTime;
+	private Timestamp StartTime;
 	
-	private String EndTime;
+	private Timestamp EndTime;
 	
-	private String lastTime;
+	private Timestamp lastTime;
 	
 	private int userID;
 	
@@ -33,7 +36,7 @@ public class OrderPo {
 		super();
 	}
 	
-	public OrderPo(int orderid,int orderstate,String starttime,String endtime,String lasttime,int userid,double pri,int hotelid,String roominfo){
+	public OrderPo(int orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,int userid,double pri,int hotelid,String roominfo){
 		this.orderID=orderid;
 		this.orderState=orderstate;
 		this.StartTime=starttime;
@@ -61,27 +64,27 @@ public class OrderPo {
 		this.orderState=orderstate;
 	}
 	
-	public String getStartTime(){
+	public Timestamp getStartTime(){
 		return this.StartTime;
 	}
 	
-	public void setStartTime(String starttime){
+	public void setStartTime(Timestamp starttime){
 		this.StartTime=starttime;
 	}
 	
-	public String getEndTime(){
+	public Timestamp getEndTime(){
 		return this.EndTime;
 	}
 	
-	public void setEndTime(String endtime){
+	public void setEndTime(Timestamp endtime){
 		this.EndTime=endtime;
 	}
 	
-	public String getlastTime(){
+	public Timestamp getlastTime(){
 		return this.lastTime;
 	}
 	
-	public void setlastTime(String lastime){
+	public void setlastTime(Timestamp lastime){
 		this.lastTime=lastime;
 	}
 	

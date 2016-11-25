@@ -1,0 +1,59 @@
+package data.datahelper.impl;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import data.datahelper.OrderDataHelper;
+import po.HotelPo;
+import po.OrderPo;
+
+public class OrderDataMysqlHelper implements OrderDataHelper {
+	
+	static String sql = null;  
+	
+	static JDBCHelper db1 = null;  
+	
+	static ResultSet ret = null; 
+	
+	static int sta; 
+	
+	@Override
+	public Map<Integer, OrderPo> getOrderData() {
+		// TODO Auto-generated method stub
+		
+	    sql = "select *from orderbl";//SQL语句  
+	    db1 = new JDBCHelper(sql);//创建DBHelper对象  
+	    Map<Integer, OrderPo> map = new HashMap<Integer, OrderPo>();
+	    
+	    try {  
+	    	ret = db1.pst.executeQuery();//执行语句，得到结果集  
+	        while (ret.next()) {  
+	        	int orderId = ret.getInt(1);  
+	            int orderstate = ret.getInt(2);  
+	            int startLevel = ret.getInt(3);  
+	            String location = ret.getString(4); 
+	            String summary = ret.getString(5);
+	            String service = ret.getString(6);
+	            String roomInfo = ret.getString(7);
+	            double score = ret.getDouble(8);
+	            
+	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, summary, service, roomInfo, score); 
+	            map.put(id, hotelPo);
+	        }//显示数据  
+	        ret.close();  
+	        db1.close();//关闭连接  
+	     } catch (SQLException e) {  
+	        e.printStackTrace();  
+	     }  
+		return map;
+	}
+
+	@Override
+	public void updateOrderData(Map<Integer, OrderPo> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

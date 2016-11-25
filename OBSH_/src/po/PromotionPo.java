@@ -1,11 +1,14 @@
 package po;
 
+import java.sql.Timestamp;
+
 /**
  * id                 自动判断id是属于酒店还是网站营销人员
  * itemName           策略名称
  * startTime          策略适用开始时间
  * endTime            策略适用结束时间
  * promotionInfo      策略详细信息
+ * discount            打折的折扣 如0.88
  * @author bxh
  */
 public class PromotionPo {
@@ -14,30 +17,33 @@ public class PromotionPo {
 	
 	private String itemName;
 	
-	private String startTime;
+	private Timestamp startTime;
 	
-	private String endTime;
+	private Timestamp endTime;
 	
 	private String promotionInfo;
+	
+	private double discount;
 	
 	public PromotionPo(){
 		super();
 	}
 	
-	public PromotionPo(int id, String itemName, String startTime, String endTime, String promotionInfo) {
+	public PromotionPo(int id, String itemName, Timestamp startTime, Timestamp endTime, String promotionInfo, double discount) {
 		super();
 		this.id = id;
 		this.itemName = itemName;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.promotionInfo = promotionInfo;
+		this.discount = discount;
 	}
 	
-	public int getid() {
+	public int getID() {
 		return id;
 	}
 	
-	public void setid(int id) {
+	public void setID(int id) {
 		this.id = id;
 	}
 	
@@ -49,19 +55,19 @@ public class PromotionPo {
 		this.itemName = itemName;
 	}
 	
-	public String getStartTime() {
+	public Timestamp getStartTime() {
 		return startTime;
 	}
 	
-	public void setStartTime(String startTime) {
-		this.itemName = startTime;
+	public void setStartTime(Timestamp startTime) {
+		this.startTime = startTime;
 	}
 	
-	public String getEndTime() {
+	public Timestamp getEndTime() {
 		return endTime;
 	}
 	
-	public void setEndTime(String endTime) {
+	public void setEndTime(Timestamp endTime) {
 		this.endTime = endTime;
 	}
 	
@@ -71,5 +77,13 @@ public class PromotionPo {
 	
 	public void setPromotionInfo(String promotionInfo) {
 		this.promotionInfo = promotionInfo;
+	}
+	
+	public double getDiscount() {
+		return discount;
+	}
+	
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 }

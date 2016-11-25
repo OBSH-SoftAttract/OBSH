@@ -58,7 +58,7 @@ public class Mainframe extends Application {
 		    grid4.setVgap(20);
 		    grid4.setPadding(new Insets(10, 10, 10, 10));
 		    
-		    Text welcome = new Text("Welcome");
+		    Text welcome = new Text("WELCOME");
 		    welcome.setFill(Color.BLACK);
 		    welcome.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));  
 		    grid4.add(welcome,0,0);

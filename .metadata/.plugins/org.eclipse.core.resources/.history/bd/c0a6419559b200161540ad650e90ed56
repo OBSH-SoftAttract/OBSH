@@ -1,0 +1,24 @@
+package data.dao.impl;
+
+import data.dao.CreditDao;
+import po.CreditPo;
+
+public class CreditDaoImpl implements CreditDao {
+	private static CreditDaoImpl creditDataServiceImpl;
+	public static CreditDaoImpl getInstance(){
+		if(creditDataServiceImpl == null){
+			creditDataServiceImpl = new CreditDaoImpl();
+		}
+		return creditDataServiceImpl;
+	}
+	@Override
+	public CreditPo getCredit(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public CreditPo setCredit(int userID, double credit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

@@ -7,7 +7,7 @@ public interface HotelroomDao {
 	 * @param hotelId
 	 * @return	获取酒店房间信息
 	 */
-	public HotelroomPo getHotelroom(int hotelId);
+	public HotelroomPo getHotelroom(int hotelroomId);
 	
 	/**
 	 * @param hotelroomPo
@@ -25,6 +25,6 @@ public interface HotelroomDao {
 	 * @param hotelroomPo
 	 * @return	删除酒店房间
 	 */
-	public boolean deleteHotelroomPo(HotelroomPo hotelroomPo);
+	public boolean deleteHotelroom(int hotelroomId);
 
 }

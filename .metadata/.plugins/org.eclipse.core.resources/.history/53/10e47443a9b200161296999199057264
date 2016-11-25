@@ -1,0 +1,17 @@
+package data.datahelper;
+
+import java.util.Map;
+
+import po.HotelPo;
+
+public interface HotelDataHelper {
+
+	public Map<Integer, HotelPo> getHotel();;
+
+	public boolean updateHotel(HotelPo hotelPo);
+
+	public boolean addHotelPo(HotelPo hotelPo);
+
+	public boolean deleteOrderPo(int hotelId);
+
+}

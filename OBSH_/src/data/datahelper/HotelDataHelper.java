@@ -1,15 +1,32 @@
 package data.datahelper;
 
+import java.util.Map;
+
 import po.HotelPo;
 
 public interface HotelDataHelper {
 
-	public HotelPo getHotel(int hotelId);
+	/**
+	 * @return	从数据库中读取酒店信息
+	 */
+	public Map<Integer, HotelPo> getHotel();;
 
-	public boolean updateHotel(HotelPo hotelPo);
+	/**
+	 * @return	更新酒店信息
+	 */
+	public void updateHotel(Map<Integer, HotelPo> map);
 
-	public boolean addHotelPo(HotelPo hotelPo);
+	/**
+	 * @return	录入新酒店
+	 */
+	public void addHotelPo(HotelPo hotelPo);
 
-	public boolean deleteOrderPo(int hotelId);
+	/**
+	 * 删除酒店
+	 * @param hotelId
+	 */
+	public void deleteHotelPo(int hotelId);
+
+	
 
 }

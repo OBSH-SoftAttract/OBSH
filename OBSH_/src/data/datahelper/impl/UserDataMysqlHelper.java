@@ -56,14 +56,14 @@ public class UserDataMysqlHelper implements UserDataHelper {
 	}
 
 	@Override
-	public void setNewUserData(UserPo userPo) {
+	public void addUserData(UserPo userPo) {
 		// TODO Auto-generated method stub
 		int isVIP ;
 		if(userPo.getifVIP())
 			isVIP = 1;
 		else 
 			isVIP = 0;
-		sql = "insert into user value("+userPo.getID()+","+userPo.getUsername()+","+userPo.getPassword()+","+userPo.getPhone()+","+userPo.getCredit()+","+isVIP+")";
+		sql = "insert into user value("+userPo.getID()+", '"+userPo.getUsername()+"' ,"+userPo.getPassword()+","+userPo.getPhone()+","+userPo.getCredit()+","+isVIP+")";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);
@@ -86,7 +86,7 @@ public class UserDataMysqlHelper implements UserDataHelper {
 				isVIP = 1;
 			else 
 				isVIP = 0;
-			sql = "update user set name = "+userPo.getUsername()+"password = "+userPo.getPassword()+"contactinfo = "+userPo.getPhone()+"credit = "+userPo.getCredit()+"isVIP = "+isVIP+"where id = "+userPo.getID();//SQL语句 
+			sql = "update user set name = "+userPo.getUsername()+",password = "+userPo.getPassword()+",contactinfo = "+userPo.getPhone()+",credit = "+userPo.getCredit()+",isVIP = "+isVIP+"where id = "+userPo.getID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);

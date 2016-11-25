@@ -2,6 +2,9 @@ package Test;
 
 
 import static org.junit.Assert.*;
+
+import java.sql.Timestamp;
+
 import org.junit.Test;
 
 import Mock.MockHotel;
@@ -33,7 +36,7 @@ public class PromotionTest {
 	public void testgetLineItem() {
 		MockHotel hotel = new MockHotel ("中央酒店", 00025);
 		
-		PromotionVo vo1 = new PromotionVo(1,hotel.getHotelName(), "酒店百年优惠", "2016/11/6", "2016/11/13", "房间八折提供早餐");
+		PromotionVo vo1 = new PromotionVo(1,hotel.getHotelName(), "酒店百年优惠", Timestamp.valueOf("20161106000000"), Timestamp.valueOf("20161113000000"), "房间八折提供早餐");
 		
 		PromotionBLService promotion1 = new PromotionBLServiceImpl();
 		promotion1.createNewItem(vo1);

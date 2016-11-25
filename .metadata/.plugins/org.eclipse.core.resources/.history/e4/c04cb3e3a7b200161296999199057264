@@ -1,0 +1,40 @@
+package data.datahelper.impl;
+
+import java.sql.ResultSet;
+import java.util.Map;
+
+import data.datahelper.HotelDataHelper;
+import po.HotelPo;
+import po.UserPo;
+
+public class HotelDataMysqlHelper implements HotelDataHelper {
+	static String sql = null;  
+	static JDBCHelper db1 = null;  
+	static ResultSet ret = null;  
+	static int sta;  
+	
+	@Override
+	public  Map<Integer, HotelPo> getHotel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateHotel(HotelPo hotelPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addHotelPo(HotelPo hotelPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteOrderPo(int hotelId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

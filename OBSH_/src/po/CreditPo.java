@@ -1,5 +1,7 @@
 package po;
 
+import java.sql.Timestamp;
+
 /**
  * credit       信用值
  * userId		用户编号
@@ -14,7 +16,7 @@ public class CreditPo {
 	
 	private double credit;
 	
-	private String time;
+	private Timestamp time;
 	
 	private String creditInfo;
 	
@@ -22,7 +24,7 @@ public class CreditPo {
 		super();
 	}
 
-	public CreditPo(int userId, double credit, String time, String creditInfo) {
+	public CreditPo(int userId, double credit, Timestamp time, String creditInfo) {
 		super();
 		this.userId = userId;
 		this.credit = credit;
@@ -46,11 +48,11 @@ public class CreditPo {
 		this.credit = credit;
 	}
 	
-	public String getTime() {
+	public Timestamp getTime() {
 		return time;
 	}
 	
-	public void setTime(String time) {
+	public void setTime(Timestamp time) {
 		this.time = time;
 	}
 	

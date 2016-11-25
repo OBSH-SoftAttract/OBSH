@@ -17,5 +17,17 @@ public interface OrderDataHelper {
 	 */
 	public void updateOrderData(Map<Integer,OrderPo> map);
 
+	/**
+	 * 添加订单
+	 * @param orderPo
+	 */
+	public void addOrderData(OrderPo orderPo);
+
+	/**
+	 * 删除订单
+	 * @param orderId
+	 */
+	public void deleteOrderData(int orderId);
+
 }
 

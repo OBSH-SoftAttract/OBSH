@@ -15,6 +15,11 @@ public interface CreditDataHelper {
 	 * 向数据库中写入信用信息
 	 * @param list	
 	 */
-	public void updateCreditData(Map<Integer,CreditPo> map);
+	public void addCreditData(CreditPo creditPo);
 
+	/**
+	 *更新信用信息
+	 * @param map
+	 */
+	public void updateCreditData(Map<Integer, CreditPo> map);
 }

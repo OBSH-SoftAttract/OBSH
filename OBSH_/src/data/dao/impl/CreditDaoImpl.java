@@ -1,21 +1,68 @@
 package data.dao.impl;
+/**
+ * 由于setcredit更改形参 所以项目中有报错
+ */
+import java.util.Map;
 
 import data.dao.CreditDao;
+import data.datahelper.CreditDataHelper;
+import data.datahelper.DataFactory;
+import data.datahelper.impl.DataFactoryImpl;
 import po.CreditPo;
 
 public class CreditDaoImpl implements CreditDao {
-	private static CreditDaoImpl creditdao = new CreditDaoImpl();
+	
+	private Map<Integer,CreditPo> map;
+	
+	private CreditDataHelper creditDataHelper;
+	
+	private DataFactory dataFactory;
+	
+	private static CreditDaoImpl creditDataServiceImpl;
+	
 	public static CreditDaoImpl getInstance(){
-		return creditdao;
+		if(creditDataServiceImpl == null){
+			creditDataServiceImpl = new CreditDaoImpl();
+		}
+		return creditDataServiceImpl;
 	}
+	
+	public CreditDaoImpl(){
+		if(map == null){
+			dataFactory = new DataFactoryImpl();
+			creditDataHelper = dataFactory.getCreditDataHelper();
+			map = creditDataHelper.getCreditData();
+		}
+	}
+	
 	@Override
 	public CreditPo getCredit(int userId) {
 		// TODO Auto-generated method stub
-		return null;
+		return map.get(userId);
 	}
+	
 	@Override
-	public CreditPo setCredit(int userID, double credit) {
+	public boolean updateCredit(CreditPo creditPo) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		int userId = creditPo.getUserId();
+		if(map.get(userId) != null){
+			map.put(userId, creditPo);
+			creditDataHelper.updateCreditData(map);;
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean setCredit(CreditPo creditPo) {
+		// TODO Auto-generated method stub
+		
+		int userId = creditPo.getUserId();
+		if(map.get(userId)==null) {
+			creditDataHelper.addCreditData(creditPo);
+			return true;
+		}
+		return false;
 	}
 }

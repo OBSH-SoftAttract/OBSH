@@ -1,0 +1,59 @@
+package data.datahelper.impl;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import data.datahelper.HotelroomDataHelper;
+import po.HotelPo;
+import po.HotelroomPo;
+
+public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
+
+	static String sql = null;  
+	
+	static JDBCHelper db1 = null;  
+	
+	static ResultSet ret = null; 
+	
+	static int sta;  
+	
+	@Override
+	public Map<Integer, HotelroomPo> getHotelroomData() {
+		// TODO Auto-generated method stub
+		
+		 sql = "select *from hotelroom";//SQL语句  
+		 db1 = new JDBCHelper(sql);//创建DBHelper对象  
+		 Map<Integer, HotelroomPo> map = new HashMap<Integer, HotelroomPo>();
+		    
+		 try {  
+			 ret = db1.pst.executeQuery();//执行语句，得到结果集  
+		     while (ret.next()) {  
+		     int hotelId = ret.getInt(1); 
+		     int roomId = ret.getInt(2);  
+		     String roomName = ret.getString(3); 
+		     Date dateIn = ret.getDate(4);
+		     Date dateOut = ret.getDate(5);
+		     Date actualDateOut = ret.getDate(6);
+		            
+		     HotelroomPo hotelroomPo=new HotelroomPo(roomId, dateIn, hotelId, dateOut, actualDateOut, roomName); 
+		     map.put(roomId, hotelroomPo);
+		 }//显示数据  
+		     ret.close();  
+		     db1.close();//关闭连接  
+		 } catch (SQLException e) {  
+		     e.printStackTrace();  
+		     }  
+		 return map;
+	}
+
+	@Override
+	public void updateHotelroomData(Map<Integer, HotelroomPo> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

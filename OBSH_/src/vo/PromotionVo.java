@@ -11,6 +11,9 @@ package vo;
  */
 import po.PromotionPo;
 import po.UserPo;
+
+import java.sql.Timestamp;
+
 import po.HotelPo;
 
 public class PromotionVo {
@@ -19,9 +22,9 @@ public class PromotionVo {
 	
 	private String itemName;
 	
-	private String startTime;
+	private Timestamp startTime;
 	
-	private String endTime;
+	private Timestamp endTime;
 	
 	private String promotionInfo;
 	
@@ -29,7 +32,7 @@ public class PromotionVo {
 	
 	public PromotionVo(PromotionPo promotionPo, UserPo userPo) {
 		super();
-		this.id = promotionPo.getid();
+		this.id = promotionPo.getID();
 		if(String.valueOf(id).length()==3) {          //用来区分是酒店工作人员还是网站营销人员的
 			hotelMarketerInfo = userPo.getUsername();  
 		}
@@ -41,7 +44,7 @@ public class PromotionVo {
 	
 	public PromotionVo(PromotionPo promotionPo, HotelPo hotelPo) {
 		super();
-		this.id = promotionPo.getid();
+		this.id = promotionPo.getID();
 		if(String.valueOf(id).length()==4) {          //用来区分是酒店工作人员还是网站营销人员的
 			hotelMarketerInfo = hotelPo.getName();
 		} 
@@ -51,7 +54,7 @@ public class PromotionVo {
 		this.promotionInfo = promotionPo.getPromotionInfo();
 	}
 	
-	public PromotionVo(int id, String hotelMarketerInfo, String itemName, String startTime, String endTime, String promotionInfo){
+	public PromotionVo(int id, String hotelMarketerInfo, String itemName, Timestamp startTime, Timestamp endTime, String promotionInfo){
 		this.id = id;
 		this.hotelMarketerInfo = hotelMarketerInfo;
 		this.itemName = itemName;
@@ -72,19 +75,19 @@ public class PromotionVo {
 		this.itemName = itemName;
 	}
 	
-	public String getStartTime() {
+	public Timestamp getStartTime() {
 		return startTime;
 	}
 	
-	public void setStartTime(String startTime) {
+	public void setStartTime(Timestamp startTime) {
 		this.startTime = startTime;
 	}
 	
-	public String getEndTime() {
+	public Timestamp getEndTime() {
 		return endTime;
 	}
 	
-	public void setEndTime(String endTime) {
+	public void setEndTime(Timestamp endTime) {
 		this.endTime = endTime;
 	}
 	

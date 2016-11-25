@@ -1,0 +1,63 @@
+package data.datahelper.impl;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import data.datahelper.MemberDataHelper;
+import po.MemberPo;
+import po.UserPo;
+
+public class MemberDataMysqlHelper implements MemberDataHelper {
+	static String sql = null;  
+	static JDBCHelper db1 = null;  
+	static ResultSet ret = null;  
+	static int sta; 
+	
+	@Override
+	public MemberPo getMember(int memberId) {
+		// TODO Auto-generated method stub
+		sql = "select *from member";//SQL语句  
+	    db1 = new JDBCHelper(sql);//创建DBHelper对象  
+	    Map<Integer, MemberPo> map = new HashMap<Integer, MemberPo>();
+	    
+	    try {  
+	    	ret = db1.pst.executeQuery();//执行语句，得到结果集  
+	        while (ret.next()) {  
+	        	int id = ret.getInt(1);  
+	            String name = ret.getString(2);  
+	            String password = ret.getString(3);  
+	            String contactinfo = ret.getString(4); 
+	            int credit = ret.getInt(5);
+	            boolean isVIP = false;
+	            if(ret.getInt(6)==1)
+	            	isVIP = true;
+	            else 
+	            	isVIP = false;
+	            
+	        	MemberPo memberPo=new UserPo(id, password, contactinfo, name, credit, isVIP);
+				map.put(id, memberPo);
+	            
+	        }//显示数据  
+	        ret.close();  
+	        db1.close();//关闭连接  
+	     } catch (SQLException e) {  
+	        e.printStackTrace();  
+	     }  
+		return map;
+	}
+
+	@Override
+	public boolean updateMember(MemberPo memberPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addMemberPo(MemberPo memberPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

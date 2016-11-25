@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	public void setUser(UserPo userPo) {
-		userDataHelper.setNewUserData(userPo);
+		userDataHelper.addUserData(userPo);
 	}
 	
 	public boolean updateUser(UserPo userPo) {

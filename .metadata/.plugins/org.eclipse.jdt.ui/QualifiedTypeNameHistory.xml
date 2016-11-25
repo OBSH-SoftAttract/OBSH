@@ -3,4 +3,17 @@
 <fullyQualifiedTypeName name="data.dao.CreditDao"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="data.dao.MemberDao"/>
+<fullyQualifiedTypeName name="data.datahelper.MemberDataHelper"/>
+<fullyQualifiedTypeName name="data.datahelper.HotelDataHelper"/>
+<fullyQualifiedTypeName name="po.UserPo"/>
+<fullyQualifiedTypeName name="data.dao.HotelroomDao"/>
+<fullyQualifiedTypeName name="data.datahelper.HotelroomDataHelper"/>
+<fullyQualifiedTypeName name="data.datahelper.OrderDataHelper"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="data.dao.PromotionDao"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="data.datahelper.PromotionDataHelper"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="data.datahelper.CreditDataHelper"/>
 </qualifiedTypeNameHistroy>

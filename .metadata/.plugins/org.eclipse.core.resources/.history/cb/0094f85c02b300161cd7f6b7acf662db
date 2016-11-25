@@ -1,0 +1,31 @@
+package data.datahelper.impl;
+
+import java.sql.ResultSet;
+import java.util.Map;
+
+import data.datahelper.OrderDataHelper;
+import po.OrderPo;
+
+public class OrderDataMysqlHelper implements OrderDataHelper {
+	
+	static String sql = null;  
+	
+	static JDBCHelper db1 = null;  
+	
+	static ResultSet ret = null; 
+	
+	static int sta; 
+	
+	@Override
+	public Map<Integer, OrderPo> getOrderData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateOrderData(Map<Integer, OrderPo> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

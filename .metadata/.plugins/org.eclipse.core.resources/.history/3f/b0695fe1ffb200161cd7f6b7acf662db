@@ -1,0 +1,32 @@
+package data.dao.impl;
+
+import data.dao.HotelroomDao;
+import po.HotelroomPo;
+
+public class HotelroomDaoImpl implements HotelroomDao {
+
+	@Override
+	public HotelroomPo getHotelroom(int hotelId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateHotelroom(HotelroomPo hotelroomPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addHotelroomPo(HotelroomPo hotelroomPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteHotelroomPo(HotelroomPo hotelroomPo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

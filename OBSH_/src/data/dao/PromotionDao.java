@@ -9,15 +9,15 @@ import po.PromotionPo;
 public interface PromotionDao {
 	
 	/**
-	 * @param itemName
+	 * @param id //这里的id指的是酒店或网站营销人员的id+促销策略序号
 	 * @return	获取促销策略信息
 	 */
-	public PromotionPo getPromotion(String itemName);
+	public PromotionPo getPromotion(int id);
 	
 	/** 
 	 * @return  获取促销策略列表
 	 */
-	public List<String> getLineItem();
+	public List<PromotionPo> getLineItem();
 	
 	/**
 	 * @param PromotionPo

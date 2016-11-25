@@ -1,0 +1,60 @@
+package po;
+
+import java.sql.Date;
+
+public class HotelroomPo {
+	private int room;
+	private Date datein;
+	private int id;
+	private Date dateoutpro;
+	private Date timeout;
+	private String roomName;
+    public HotelroomPo(){
+    	super();
+    }
+    public HotelroomPo(int room,Date datein,int id,Date dateoutpro,Date timeout,String roomName){
+    	super();
+    	this.room=room;
+    	this.datein=datein;
+    	this.id=id;
+    	this.dateoutpro=dateoutpro;
+    	this.timeout=timeout;
+    	this.roomName = roomName;
+    }
+    public int getroom(){
+    	return room;
+    }
+    public void setroom(int room){
+    	this.room=room;
+    }
+    public Date getdatein(){
+    	return datein;
+    }
+    public void setdatein(Date datein){
+    	this.datein=datein;
+    }
+    public int getid(){
+    	return id;
+    }
+    public void setid(int id){
+    	this.id=id;
+    }
+    public Date getdateoutpro(){
+    	return dateoutpro;
+    }
+    public void setdateoutpro(Date dateoutpro){
+    	this.dateoutpro=dateoutpro;
+    }
+    public Date gettimeout(){
+    	return timeout;
+    }
+    public void settimeout(Date timeout){
+    	this.timeout=timeout;
+    }
+    public String getroomName(){
+    	return roomName;
+    }
+    public void setroom(String roomName){
+    	this.roomName = roomName;
+    }
+}

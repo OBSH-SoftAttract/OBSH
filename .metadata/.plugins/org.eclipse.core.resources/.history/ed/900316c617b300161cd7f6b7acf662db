@@ -1,0 +1,81 @@
+package data.dao.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import data.dao.PromotionDao;
+import data.datahelper.DataFactory;
+import data.datahelper.OrderDataHelper;
+import data.datahelper.PromotionDataHelper;
+import data.datahelper.impl.DataFactoryImpl;
+import po.OrderPo;
+import po.PromotionPo;
+
+public class PromotionDaoImpl implements PromotionDao {
+	
+	private Map<Integer,PromotionPo> map;
+	
+	private PromotionDataHelper promotionDataHelper;
+	
+	private DataFactory dataFactory;
+	
+	private static PromotionDaoImpl promotionDataServiceImpl;
+	
+	public static PromotionDaoImpl getInstance(){
+		if(promotionDataServiceImpl == null){
+			promotionDataServiceImpl = new PromotionDaoImpl();
+		}
+		return promotionDataServiceImpl;
+	}
+	
+	public PromotionDaoImpl(){
+		if(map == null){
+			dataFactory = new DataFactoryImpl();
+			promotionDataHelper = dataFactory.getPromotionDataHelper();
+			map = promotionDataHelper.getPromotionData();
+		}
+	}
+	
+	@Override
+	public PromotionPo getPromotion(int id) {
+		// TODO Auto-generated method stub
+		return map.get(id);
+	}
+
+	@Override
+	public List<PromotionPo> getLineItem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updatePromotion(PromotionPo promotionPo) {
+		// TODO Auto-generated method stub
+		int id = promotionPo.getid();
+		if(map.get(id) != null){
+			map.put(id, promotionPo);
+			promotionDataHelper.updatePromotionData(map);;;
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean addPromotionPo(PromotionPo promotionPo) {
+		// TODO Auto-generated method stub
+		
+		int promotionId = promotionPo.getID();
+		if(map.get(orderId)==null){
+			orderDataHelper.addOrderData(orderPo);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deletePromotionPo(String itemName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
