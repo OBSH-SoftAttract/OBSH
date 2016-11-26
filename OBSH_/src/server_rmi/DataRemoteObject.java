@@ -160,9 +160,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
+	public void Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.Assess(score, comment, ordervo);
+		orderblservice.Assess(score, comment, ordervo);
 	}
 
 	@Override

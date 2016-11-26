@@ -1,5 +1,7 @@
 package vo;
 
+import java.sql.Timestamp;
+
 import po.OrderPo;
 import po.UserPo;
 /**
@@ -18,11 +20,11 @@ public class OrderVo {
 	
 	private int orderState=-1;
 	
-	private String StartTime;
+	private Timestamp StartTime;
 	
-	private String EndTime;
+	private Timestamp EndTime;
 	
-	private String lastTime;
+	private Timestamp lastTime;
 	
 	private int userID;
 	
@@ -39,7 +41,7 @@ public class OrderVo {
 		
 	}
 	
-	public OrderVo(int orderid,int orderstate,String starttime,String endtime,String lasttime,
+	public OrderVo(int orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,
 			int userid,double pri,int hotelid,String roominfo,String userinfo){
 		super();
 		this.orderID=orderid;
@@ -70,27 +72,27 @@ public class OrderVo {
 		this.orderState = orderState;
 	}
 
-	public String getStartTime() {
+	public Timestamp getStartTime() {
 		return StartTime;
 	}
 
-	public void setStartTime(String startTime) {
+	public void setStartTime(Timestamp startTime) {
 		StartTime = startTime;
 	}
 
-	public String getEndTime() {
+	public Timestamp getEndTime() {
 		return EndTime;
 	}
 
-	public void setEndTime(String endTime) {
+	public void setEndTime(Timestamp endTime) {
 		EndTime = endTime;
 	}
 
-	public String getLastTime() {
+	public Timestamp getLastTime() {
 		return lastTime;
 	}
 
-	public void setLastTime(String lastTime) {
+	public void setLastTime(Timestamp lastTime) {
 		this.lastTime = lastTime;
 	}
 

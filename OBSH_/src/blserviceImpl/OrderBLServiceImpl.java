@@ -7,10 +7,13 @@ import java.util.Date;
 
 import blservice.OrderBLService;
 import data.dao.CreditDao;
+import data.dao.HotelDao;
 import data.dao.OrderDao;
 import data.dao.impl.CreditDaoImpl;
+import data.dao.impl.HotelDaoImpl;
 import data.dao.impl.OrderDaoImpl;
 import po.CreditPo;
+import po.HotelPo;
 import po.OrderPo;
 import po.PromotionPo;
 import vo.PromotionVo;
@@ -21,11 +24,16 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	private CreditDao creditdao;
 	private OrderDao orderdao;
+	private HotelDao hoteldao;
+	
+	private static int scoreCount=0;
+	
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	public OrderBLServiceImpl(){
 		creditdao=CreditDaoImpl.getInstance();
 		orderdao=OrderDaoImpl.getInstance();
+		hoteldao=HotelDaoImpl.getInstance();
 	}
 	
 	@Override
@@ -42,7 +50,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 		String time = null;
 		try{		
 		    Date d1 = df.parse(df.format(new Date()));
-		    Date d2 = df.parse(ordervo.getStartTime());
+		    Date d2 = df.parse(ordervo.getStartTime().toString());
 		    long l=d1.getTime()-d2.getTime();
 		    long day=l/(24*60*60*1000);
 		    long hour=(l/(60*60*1000)-day*24);
@@ -64,15 +72,23 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException{
-		
-		return false;
+	public void Assess(int score, String comment, OrderVo ordervo) throws RemoteException{
+		HotelPo hotelpo=hoteldao.getHotel(ordervo.getHotelID());
+		double prescore=hotelpo.getScore();
+		if(score!=-1){
+			prescore*=scoreCount++;
+			prescore+=score;
+			hotelpo.setScore(prescore/scoreCount);
+		}
+		if(null!=comment)
+			hotelpo.addSummary(comment);
+		hoteldao.updateHotel(hotelpo);
 	}
 
 	@Override
 	public boolean Add(OrderVo ordervo) throws RemoteException{
-		// TODO Auto-generated method stub
-		
+		OrderPo orderPo=new OrderPo(ordervo);
+		orderdao.addOrderPo(orderPo);
 		return false;
 	}
 

@@ -11,7 +11,7 @@ import vo.UserVo;
 
 public class UserBLServiceImpl implements UserBLService{
 
-	UserDao userdao;
+	private UserDao userdao;
 	
 	public UserBLServiceImpl(){
 		userdao=UserDaoImpl.getInstance();

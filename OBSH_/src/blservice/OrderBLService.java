@@ -38,7 +38,7 @@ public interface OrderBLService extends Remote{
 	 * @return 提交订单评语
 	 * @throws RemoteException 
 	 */
-	public boolean Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
+	public void Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * 

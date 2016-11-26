@@ -2,6 +2,8 @@ package po;
 
 import java.sql.Timestamp;
 
+import vo.OrderVo;
+
 /**
  * orderID		订单编号
  * orderState   订单状态（0：未执行订单；1：已执行订单；2：异常订单；3：已撤销订单）
@@ -48,6 +50,10 @@ public class OrderPo {
 		this.roomInfo=roominfo;
 	}
 	
+	public OrderPo(OrderVo ordervo) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getOrderID(){
 		return this.orderID;
 	}

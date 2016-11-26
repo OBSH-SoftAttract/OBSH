@@ -1,11 +1,13 @@
 package po;
 
+import java.util.List;
+
 public class HotelPo {
 	private int hotelNo;
 	private String name;
 	private int star;
 	private String location;
-	private String summary;
+	private List<String> summary;
 	private String services;
 	private String roomInfo;//房间类型+个数
 	private double score=0;
@@ -14,7 +16,7 @@ public class HotelPo {
 		super();
 	}
 
-	public HotelPo(int hotelNo, String name, int star, String location, String summary, String services,
+	public HotelPo(int hotelNo, String name, int star, String location, List<String> summary, String services,
 			String roominfo,double s) {
 		super();
 		this.hotelNo = hotelNo;
@@ -59,12 +61,16 @@ public class HotelPo {
 		this.location = location;
 	}
 
-	public String getSummary() {
+	public List<String> getSummary() {
 		return summary;
 	}
 
-	public void setSummary(String summary) {
+	public void setSummary(List<String> summary) {
 		this.summary = summary;
+	}
+	
+	public void addSummary(String summary){
+		this.summary.add(summary);
 	}
 
 	public String getServices() {
