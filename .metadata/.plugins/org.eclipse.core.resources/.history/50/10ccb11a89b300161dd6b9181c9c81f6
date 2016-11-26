@@ -11,6 +11,7 @@ import data.datahelper.DataFactory;
 import data.datahelper.HotelDataHelper;
 import data.datahelper.impl.DataFactoryImpl;
 import po.HotelPo;
+import po.OrderPo;
 
 public class HotelDaoImpl implements HotelDao {
 	
@@ -54,7 +55,7 @@ public class HotelDaoImpl implements HotelDao {
 			HotelPo hotelPo = entry.getValue();
 			
 			if(hotelPo.getLocation().equals(location))
-				hotel.add(hotelPo);
+				hotel.add(hotelPo)
 		}
 		return hotel;
 	}

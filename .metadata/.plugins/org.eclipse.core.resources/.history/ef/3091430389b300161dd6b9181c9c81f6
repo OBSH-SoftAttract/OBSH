@@ -1,10 +1,6 @@
 package data.dao.impl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import data.dao.HotelDao;
 import data.datahelper.DataFactory;
@@ -42,23 +38,7 @@ public class HotelDaoImpl implements HotelDao {
 		// TODO Auto-generated method stub
 		return map.get(hotelId);
 	}
-	
-	@Override
-	public List<HotelPo> searchHotelByLocation(String location) { 
-		// TODO Auto-generated method stub
-		
-		List<HotelPo> hotel = new ArrayList<HotelPo>();
-		Iterator<Entry<Integer, HotelPo>> iterator = map.entrySet().iterator();
-		while(iterator.hasNext()){
-			Entry<Integer, HotelPo> entry = iterator.next();
-			HotelPo hotelPo = entry.getValue();
-			
-			if(hotelPo.getLocation().equals(location))
-				hotel.add(hotelPo);
-		}
-		return hotel;
-	}
-	
+
 	@Override
 	public boolean updateHotel(HotelPo hotelPo) {
 		// TODO Auto-generated method stub

@@ -31,11 +31,6 @@ public interface HotelDao {
 	 */
 	public boolean deleteOrderPo(int hotelId);
 
-	/**
-	 * 
-	 * @param location
-	 * @return  按地址商圈搜索酒店
-	 */
 	public List<HotelPo> searchHotelByLocation(String location);
 
 }

@@ -5,10 +5,8 @@ package data.datahelper.impl;
  */
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import data.datahelper.HotelDataHelper;
@@ -41,12 +39,11 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 	            int startLevel = ret.getInt(3);  
 	            String location = ret.getString(4); 
 	            String summary = ret.getString(5);
-	            String[] s = summary.split(",");
-	            List<String> listSummary = Arrays.asList(s);
 	            String service = ret.getString(6);
 	            String roomInfo = ret.getString(7);
 	            double score = ret.getDouble(8);
-	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, listSummary, service, roomInfo, score); 
+	            
+	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, summary, service, roomInfo, score); 
 	            map.put(id, hotelPo);
 	        }//显示数据  
 	        ret.close();  

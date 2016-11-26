@@ -41,12 +41,13 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 	            int startLevel = ret.getInt(3);  
 	            String location = ret.getString(4); 
 	            String summary = ret.getString(5);
-	            String[] s = summary.split(",");
-	            List<String> listSummary = Arrays.asList(s);
 	            String service = ret.getString(6);
 	            String roomInfo = ret.getString(7);
+	            String[] s = roomInfo.split(",");
+	            List<String> listroomInfo = Arrays.asList(s);
 	            double score = ret.getDouble(8);
-	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, listSummary, service, roomInfo, score); 
+	            
+	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, summary, service, listroomInfo, score); 
 	            map.put(id, hotelPo);
 	        }//显示数据  
 	        ret.close();  

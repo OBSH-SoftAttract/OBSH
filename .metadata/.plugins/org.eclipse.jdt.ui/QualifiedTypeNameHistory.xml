@@ -16,4 +16,6 @@
 <fullyQualifiedTypeName name="data.datahelper.PromotionDataHelper"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="data.datahelper.CreditDataHelper"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
