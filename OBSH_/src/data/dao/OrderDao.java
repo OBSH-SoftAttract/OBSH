@@ -9,10 +9,10 @@ import po.OrderPo;
 public interface OrderDao {
 	
 	/**
-	 * @param orderId
+	 * @param string
 	 * @return	获取订单信息
 	 */
-	public OrderPo getOrder(int orderId);
+	public OrderPo getOrder(String string);
 	
 	/**
 	 * @return	获取酒店订单列表
@@ -36,6 +36,13 @@ public interface OrderDao {
 	 * @return	删除订单
 	 */
 	public boolean deleteOrderPo(int orderId);
+
+	/**
+	 * 
+	 * @param userID
+	 * @return 获取客户订单信息
+	 */
+	public List<OrderPo> getOrderByUserID(int userID);
 
 }
 

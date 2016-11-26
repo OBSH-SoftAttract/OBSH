@@ -86,7 +86,7 @@ public class UserDataMysqlHelper implements UserDataHelper {
 				isVIP = 1;
 			else 
 				isVIP = 0;
-			sql = "update user set name = "+userPo.getUsername()+",password = "+userPo.getPassword()+",contactinfo = "+userPo.getPhone()+",credit = "+userPo.getCredit()+",isVIP = "+isVIP+"where id = "+userPo.getID();//SQL语句 
+			sql = "update user set name = '"+userPo.getUsername()+"', password = '"+userPo.getPassword()+"',contactinfo = '"+userPo.getPhone()+"',credit = "+userPo.getCredit()+", isVIP = "+isVIP+" where id = "+userPo.getID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);

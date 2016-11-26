@@ -1,5 +1,7 @@
 package data.dao.impl;
-
+/**
+ * @birthday和corpoateName会有一个为空 不知道是null还是NULL 逻辑注意
+ */
 import java.util.Map;
 
 import data.dao.MemberDao;
@@ -52,9 +54,15 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 	@Override
-	public void addMemberPo(MemberPo memberPo) {
+	public boolean addMemberPo(MemberPo memberPo) {
 		// TODO Auto-generated method stub
-		memberDataHelper.addMemberPo(memberPo);
+		int ID = memberPo.getUserId();
+		if(map.get(ID)==null) {
+			memberDataHelper.addMemberPo(memberPo);
+			return true;
+		}
+		return false;
+		
 	}
 
 }

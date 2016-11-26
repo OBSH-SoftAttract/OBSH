@@ -43,8 +43,13 @@ public class UserDaoImpl implements UserDao{
 		return map.get(userId);
 	}
 
-	public void setUser(UserPo userPo) {
-		userDataHelper.addUserData(userPo);
+	public boolean addUser(UserPo userPo) {
+		int userID = userPo.getID();
+		if(map.get(userID)==null) {
+			userDataHelper.addUserData(userPo);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean updateUser(UserPo userPo) {

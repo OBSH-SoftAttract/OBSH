@@ -1,5 +1,7 @@
 package po;
 
+import java.sql.Date;
+
 /**
  * userId          用户编号
  * birthday		      普通会员生日
@@ -13,7 +15,7 @@ public class MemberPo {
 	
 	private int userId;
 	
-	private String birthday;
+	private Date birthday;
 	
 	private String corpoateName;
 	
@@ -25,7 +27,7 @@ public class MemberPo {
 		super();
 	}
 
-	public MemberPo(int userId, String birthday, String corpoateName, int rank, String memberInfo) {
+	public MemberPo(int userId, Date birthday, String corpoateName, int rank, String memberInfo) {
 		super();
 		this.userId = userId;
 		this.birthday = birthday;
@@ -42,11 +44,11 @@ public class MemberPo {
 		this.userId = userId;
 	}
 	
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 	
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 	

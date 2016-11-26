@@ -1,5 +1,6 @@
 package data.datahelper.impl;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -27,9 +28,9 @@ public class MemberDataMysqlHelper implements MemberDataHelper {
 	    	ret = db1.pst.executeQuery();//执行语句，得到结果集  
 	        while (ret.next()) {  
 	        	int id = ret.getInt(1);  
-	            String birthday = ret.getString(2);  
-	            String corpoateName = ret.getString(3);  
-	            int rank = ret.getInt(4); 
+	        	int rank = ret.getInt(2); 
+	            Date birthday = ret.getDate(3);
+	            String corpoateName = ret.getString(4);  
 	            String memberInfo = ret.getString(5);
 
 	        	MemberPo memberPo=new MemberPo(id, birthday, corpoateName, rank, memberInfo);
@@ -47,7 +48,7 @@ public class MemberDataMysqlHelper implements MemberDataHelper {
 	@Override
 	public void addMemberPo(MemberPo memberPo) {
 		// TODO Auto-generated method stub
-		sql = "insert into member value("+memberPo.getUserId()+","+memberPo.getBirthday()+",'"+memberPo.getCorpoatename()+"',"+memberPo.getRank()+",'"+memberPo.getMemberInfo()+"')";
+		sql = "insert into member value("+memberPo.getUserId()+","+memberPo.getRank()+",'"+memberPo.getBirthday()+"',"+memberPo.getCorpoatename()+",'"+memberPo.getMemberInfo()+"')";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);
@@ -66,7 +67,7 @@ public class MemberDataMysqlHelper implements MemberDataHelper {
 			Entry<Integer, MemberPo> entry = iterator.next();
 			MemberPo memberPo = entry.getValue();
 
-			sql = "update member set birthday = "+memberPo.getBirthday()+",corpoateName = '"+memberPo.getCorpoatename()+"',rank = "+memberPo.getRank()+",memberInfo = '"+memberPo.getMemberInfo()+"' where id = "+memberPo.getUserId();//SQL语句 
+			sql = "update member set birthday = '"+memberPo.getBirthday()+"',corpoateName = '"+memberPo.getCorpoatename()+"',rank = "+memberPo.getRank()+",memberInfo = '"+memberPo.getMemberInfo()+"' where id = "+memberPo.getUserId();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);

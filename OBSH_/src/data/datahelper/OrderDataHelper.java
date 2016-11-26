@@ -9,13 +9,13 @@ public interface OrderDataHelper {
 	/**
 	 * @return	从数据库中读取订单数据
 	 */
-	public Map<Integer,OrderPo> getOrderData();
+	public Map<String, OrderPo> getOrderData();
 	
 	/**
 	 * 向数据库中写入订单数据
 	 * @param list	
 	 */
-	public void updateOrderData(Map<Integer,OrderPo> map);
+	public void updateOrderData(Map<String, OrderPo> map);
 
 	/**
 	 * 添加订单

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import data.dao.OrderDao;
 import data.datahelper.DataFactory;
@@ -13,7 +14,7 @@ import po.OrderPo;
 
 public class OrderDaoImpl implements OrderDao {
 	
-	private Map<Integer,OrderPo> map;
+	private Map<String,OrderPo> map;
 	
 	private OrderDataHelper orderDataHelper;
 	
@@ -37,7 +38,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 
 	@Override
-	public OrderPo getOrder(int orderId) {
+	public OrderPo getOrder(String orderId) {
 		// TODO Auto-generated method stub
 		return map.get(orderId);
 	}
@@ -47,9 +48,9 @@ public class OrderDaoImpl implements OrderDao {
 		// TODO Auto-generated method stub
 		
 		List<OrderPo> orders = new ArrayList<OrderPo>();
-		Iterator<Map.Entry<Integer, OrderPo>> iterator = map.entrySet().iterator();
+		Iterator<Entry<String, OrderPo>> iterator = map.entrySet().iterator();
 		while(iterator.hasNext()){
-			Map.Entry<Integer, OrderPo> entry = iterator.next();
+			Entry<String, OrderPo> entry = iterator.next();
 			OrderPo orderPo = entry.getValue();
 			
 			if(orderPo.getHotelID()==hotelId)
@@ -59,10 +60,26 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	
 	@Override
+	public List<OrderPo> getOrderByUserID(int userID) { 
+		// TODO Auto-generated method stub
+		
+		List<OrderPo> orders = new ArrayList<OrderPo>();
+		Iterator<Entry<String, OrderPo>> iterator = map.entrySet().iterator();
+		while(iterator.hasNext()){
+			Entry<String, OrderPo> entry = iterator.next();
+			OrderPo orderPo = entry.getValue();
+			
+			if(orderPo.getUserID()==userID)
+				orders.add(orderPo);
+		}
+		return orders;
+	}
+	
+	@Override
 	public boolean updateOrder(OrderPo orderPo) {
 		// TODO Auto-generated method stub
 		
-		int orderId = orderPo.getOrderID();
+		String orderId = orderPo.getOrderID();
 		if(map.get(orderId) != null){
 			map.put(orderId, orderPo);
 			orderDataHelper.updateOrderData(map);
@@ -75,7 +92,7 @@ public class OrderDaoImpl implements OrderDao {
 	public boolean addOrderPo(OrderPo orderPo) {
 		// TODO Auto-generated method stub
 		
-		int orderId = orderPo.getOrderID();
+		String orderId = orderPo.getOrderID();
 		if(map.get(orderId)==null){
 			orderDataHelper.addOrderData(orderPo);
 			return true;
