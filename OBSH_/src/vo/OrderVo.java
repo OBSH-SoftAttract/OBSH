@@ -16,7 +16,7 @@ import po.UserPo;
  */
 public class OrderVo {
 
-    private int orderID;
+    private String orderID;
 	
 	private int orderState=-1;
 	
@@ -41,7 +41,7 @@ public class OrderVo {
 		
 	}
 	
-	public OrderVo(int orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,
+	public OrderVo(String orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,
 			int userid,double pri,int hotelid,String roominfo,String userinfo){
 		super();
 		this.orderID=orderid;
@@ -56,11 +56,11 @@ public class OrderVo {
 		this.userInfo=userinfo;
 	}
 
-	public int getOrderID() {
+	public String getOrderID() {
 		return orderID;
 	}
 
-	public void setOrderID(int orderID) {
+	public void setOrderID(String orderID) {
 		this.orderID = orderID;
 	}
 

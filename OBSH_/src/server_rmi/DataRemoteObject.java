@@ -203,15 +203,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public OrderVo ViewByID(int orderid) throws RemoteException {
+	public OrderPo ViewByOrderID(int orderid) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.ViewByID(orderid);
-	}
-
-	@Override
-	public List<OrderPo> Views(int userid) throws RemoteException {
-		// TODO Auto-generated method stub
-		return orderblservice.Views(userid);
+		return orderblservice.ViewByOrderID(orderid);
 	}
 
 	@Override

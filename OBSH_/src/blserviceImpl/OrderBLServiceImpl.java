@@ -39,10 +39,11 @@ public class OrderBLServiceImpl implements OrderBLService{
 	
 	@Override
 	public boolean Cancellation(OrderVo ordervo)throws RemoteException{
-		if(-1==ordervo.getOrderState()){
+		if(0!=ordervo.getOrderState()){
 			return false;
 		}
 		ordervo.setOrderState(2);
+		orderdao.getOrder(ordervo.getOrderID()).setOrderState(2);
 		return false;
 	}
 
@@ -67,8 +68,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	@Override
 	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
-		double precredit=creditdao.getCredit(ordervo.getOrderID()).getCredit();
-		CreditPo creditpo=new CreditPo(ordervo.getOrderID(), precredit-ordervo.getPrice());
+		double precredit=creditdao.getCredit(ordervo.getUserID()).getCredit();
+		CreditPo creditpo=new CreditPo(ordervo.getUserID(), precredit-ordervo.getPrice());
 		creditdao.updateCredit(creditpo);
 	}
 
@@ -125,15 +126,13 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public OrderVo ViewByID(int orderid) throws RemoteException{
-		// TODO Auto-generated method stub
-		return null;
+	public OrderPo ViewByOrderID(int orderid) throws RemoteException{
+		return orderdao.getOrder(orderid);	
 	}
-
+	
 	@Override
-	public List<OrderPo> Views(int userid) throws RemoteException{
-		
-		return null;
+	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
+		return orderdao.getOrders(id);
 	}
 
 	@Override
@@ -179,10 +178,6 @@ public class OrderBLServiceImpl implements OrderBLService{
 		return  s;
 	}
 
-	@Override
-	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 }

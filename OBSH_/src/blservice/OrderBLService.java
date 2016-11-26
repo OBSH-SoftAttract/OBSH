@@ -97,15 +97,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应ID的订单对象
 	 * @throws RemoteException 
 	 */
-	public OrderVo ViewByID (int orderid) throws RemoteException;
-	
-	/**
-	 * 
-	 * @param userid
-	 * @return 获得对应用户的所有订单
-	 * @throws RemoteException 
-	 */
-	public List<OrderPo> Views(int userid) throws RemoteException;
+	public OrderPo ViewByOrderID (int orderid) throws RemoteException;
 	
 		/**
 	 * 
