@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import data.datahelper.OrderDataHelper;
 import po.OrderPo;
@@ -21,17 +22,17 @@ public class OrderDataMysqlHelper implements OrderDataHelper {
 	static int sta; 
 	
 	@Override
-	public Map<Integer, OrderPo> getOrderData() {
+	public Map<String, OrderPo> getOrderData() {
 		// TODO Auto-generated method stub
 		
 	    sql = "select *from orderbl";//SQL语句  
 	    db1 = new JDBCHelper(sql);//创建DBHelper对象  
-	    Map<Integer, OrderPo> map = new HashMap<Integer, OrderPo>();
+	    Map<String, OrderPo> map = new HashMap<String, OrderPo>();
 	    
 	    try {  
 	    	ret = db1.pst.executeQuery();//执行语句，得到结果集  
 	        while (ret.next()) {  
-	        	int orderId = ret.getInt(1);  
+	        	String orderId = ret.getString(1);  
 	            int orderstate = ret.getInt(2);  
 	            Timestamp startTime = ret.getTimestamp(3) ;
 	            Timestamp endTime = ret.getTimestamp(4); 
@@ -53,15 +54,15 @@ public class OrderDataMysqlHelper implements OrderDataHelper {
 	}
 	
 	@Override
-	public void updateOrderData(Map<Integer, OrderPo> map) {
+	public void updateOrderData(Map<String, OrderPo> map) {
 		// TODO Auto-generated method stub
 		
-		Iterator<Map.Entry<Integer, OrderPo>> iterator = map.entrySet().iterator();
+		Iterator<Entry<String, OrderPo>> iterator = map.entrySet().iterator();
 		while(iterator.hasNext()){
-			Map.Entry<Integer, OrderPo> entry = iterator.next();
+			Entry<String, OrderPo> entry = iterator.next();
 			OrderPo orderPo = entry.getValue();
 
-			sql = "update orderbl set orderstate = "+orderPo.getOrderState()+",starttime = '"+orderPo.getStartTime()+"',endtime = '"+orderPo.getEndTime()+"',lasttime = '"+orderPo.getlastTime()+"',userid = "+orderPo.getUserID()+",price = "+orderPo.getPrice()+",hotelid = "+orderPo.getHotelID()+",roominfo = "+orderPo.getroomInfo()+"where orderid = "+orderPo.getOrderID();//SQL语句 
+			sql = "update orderbl set orderstate = "+orderPo.getOrderState()+",starttime = '"+orderPo.getStartTime()+"',endtime = '"+orderPo.getEndTime()+"',lasttime = '"+orderPo.getlastTime()+"',userid = "+orderPo.getUserID()+",price = "+orderPo.getPrice()+",hotelid = "+orderPo.getHotelID()+",roominfo = "+orderPo.getroomInfo()+"where orderid = '"+orderPo.getOrderID()+"'";//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -77,7 +78,7 @@ public class OrderDataMysqlHelper implements OrderDataHelper {
 	public void addOrderData(OrderPo orderPo) {
 		// TODO Auto-generated method stub
 
-		sql = "insert into orderbl value("+orderPo.getOrderID()+","+orderPo.getOrderState()+",'"+orderPo.getStartTime()+"','"+orderPo.getEndTime()+"','"+orderPo.getlastTime()+"',"+orderPo.getUserID()+","+orderPo.getPrice()+","+orderPo.getHotelID()+",'"+orderPo.getroomInfo()+"')";
+		sql = "insert into orderbl value('"+orderPo.getOrderID()+"',"+orderPo.getOrderState()+",'"+orderPo.getStartTime()+"','"+orderPo.getEndTime()+"','"+orderPo.getlastTime()+"',"+orderPo.getUserID()+","+orderPo.getPrice()+","+orderPo.getHotelID()+",'"+orderPo.getroomInfo()+"')";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);

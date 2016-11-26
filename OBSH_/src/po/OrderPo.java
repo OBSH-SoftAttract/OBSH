@@ -16,7 +16,7 @@ import vo.OrderVo;
  * roomInfo     房间信息
  */
 public class OrderPo {
-	private int orderID;
+	private String orderID;
 	
 	private int orderState;
 	
@@ -38,7 +38,7 @@ public class OrderPo {
 		super();
 	}
 	
-	public OrderPo(int orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,int userid,double pri,int hotelid,String roominfo){
+	public OrderPo(String orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,int userid,double pri,int hotelid,String roominfo){
 		this.orderID=orderid;
 		this.orderState=orderstate;
 		this.StartTime=starttime;
@@ -54,11 +54,11 @@ public class OrderPo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getOrderID(){
+	public String getOrderID(){
 		return this.orderID;
 	}
 	
-	public void setOrderID(int id){
+	public void setOrderID(String id){
 		this.orderID=id;
 	}
 	

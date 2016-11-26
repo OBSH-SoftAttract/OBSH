@@ -22,6 +22,6 @@ public interface MemberDao {
 	 * @param MemberPo
 	 * @return	添加会员
 	 */
-	public void addMemberPo(MemberPo memberPo);	
+	public boolean addMemberPo(MemberPo memberPo);	
 	
 }

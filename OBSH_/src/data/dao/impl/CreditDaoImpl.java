@@ -1,7 +1,5 @@
 package data.dao.impl;
-/**
- * 由于setcredit更改形参 所以项目中有报错
- */
+
 import java.util.Map;
 
 import data.dao.CreditDao;
