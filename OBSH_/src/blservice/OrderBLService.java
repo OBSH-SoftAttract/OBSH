@@ -20,10 +20,10 @@ public interface OrderBLService extends Remote{
 	
 	/**
 	 * @param   ordervo
-	 * @return  返回订单开始到现在时间的时间差
+	 * @return  订单是否超时
 	 * @throws RemoteException 
 	 */
-	public String CancelTime (OrderVo ordervo) throws RemoteException;
+	public boolean IFpassTime (OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * @param   ordervo
@@ -68,12 +68,11 @@ public interface OrderBLService extends Remote{
 	
 	/**
 	 * 
-	 * @param vo1
-	 * @param vo2
+	 * @param vo
 	 * @return 获得订单价格
 	 * @throws RemoteException 
 	 */
-	public OrderVo CalPrice(PromotionVo vo1,OrderVo vo2) throws RemoteException;
+	public double CalPrice(OrderVo vo) throws RemoteException;
 	
 	/**
 	 * 
@@ -137,7 +136,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得按时间排序
 	 * @throws RemoteException 
 	 */
-	public List<OrderPo> TimeSort ( ArrayList<OrderVo> orderlist) throws RemoteException;
+	public List<OrderVo> TimeSort (List<OrderVo> orderlist) throws RemoteException;
 	
 	/**
 	 * 

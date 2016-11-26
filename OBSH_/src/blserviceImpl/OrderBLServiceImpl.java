@@ -1,9 +1,11 @@
 package blserviceImpl;
 
 import java.rmi.RemoteException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import blservice.OrderBLService;
@@ -48,23 +50,14 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public String CancelTime(OrderVo ordervo) throws RemoteException{//返回的格式为：dd hh：mm：ss
-		String time = null;
-		/*try{		
-		    Date d1 = df.parse(df.format(new Date()));
-		    Date d2 = df.parse(ordervo.getStartTime().toString());
-		    long l=d1.getTime()-d2.getTime();
-		    long day=l/(24*60*60*1000);
-		    long hour=(l/(60*60*1000)-day*24);
-		    long min=((l/(60*1000))-day*24*60-hour*60);
-		    long s=(l/1000-day*24*60*60-hour*60*60-min*60);
-		    time=String.valueOf(day)+" "+String.valueOf(hour)+":"+String.valueOf(min)+":"+String.valueOf(s);
-		}
-		catch (Exception e){
-			e.printStackTrace();
-		}*/
-		return time;
+	public boolean IFpassTime(OrderVo ordervo) throws RemoteException{//返回的格式为：hh：mm：ss
+		Timestamp deadline=ordervo.getLastTime();		
+		Date date = new Date();       
+		Timestamp now = new Timestamp(date.getTime());
+		if(deadline.getTime()<now.getTime())return true;		
+		return false;
 	}
+	
 
 	@Override
 	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
@@ -108,9 +101,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public OrderVo CalPrice(PromotionVo vo1, OrderVo vo2) throws RemoteException{
+	public double CalPrice(OrderVo vo) throws RemoteException{
 		
-		return null;
 	}
 
 	@Override
@@ -137,29 +129,46 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	@Override
 	public List<OrderPo> ViewByCustom(int id) throws RemoteException{
-		// TODO Auto-generated method stub
-		return null;
+		return orderdao.getOrderByUserID(id);
 	}
 
 	@Override
 	public List<OrderPo> ViewByDaily(String date) throws RemoteException{
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	@Override
-	public List<OrderPo> ViewByState(int state,int id) throws RemoteException{
-		List<OrderPo> orderList;
 		
 		return null;
 	}
+	
+	
+	@SuppressWarnings("null")
+	@Override
+	public List<OrderPo> ViewByState(int state,int id) throws RemoteException{
+		List<OrderPo> orderList=ViewByCustom(id);
+		Iterator<OrderPo> ite=orderList.iterator();
+		List<OrderPo> orderAfter = null;
+		while(ite.hasNext()){
+			OrderPo po=ite.next();
+			if(po.getOrderState()==state)
+				orderAfter.add(po);
+		  }			
+		return orderAfter;
+	}
 
 
 	@Override
-	public List<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException{
-		// TODO Auto-generated method stub
-		return null;
+	public List<OrderVo> TimeSort(List<OrderVo> orderlist) throws RemoteException{
+		
+		if(orderlist.size()<=1) return orderlist;
+		for(int i=0;i<orderlist.size()-1;i++){
+			for(int j=1;j<orderlist.size();j++){
+				OrderVo vo;
+				if(orderlist.get(i).getStartTime().getTime()<orderlist.get(j).getStartTime().getTime()){
+					vo=orderlist.get(i);
+					orderlist.set(i, orderlist.get(j));
+					orderlist.set(j, vo);
+				}
+			}
+		}
+		return orderlist;
 	}
 
 	@Override

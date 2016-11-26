@@ -149,9 +149,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public String CancelTime(OrderVo ordervo) throws RemoteException {
+	public  boolean IFpassTime(OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.CancelTime(ordervo);
+		return orderblservice.IFpassTime(ordervo);
 	}
 
 	@Override
@@ -185,9 +185,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public OrderVo CalPrice(PromotionVo vo1, OrderVo vo2) throws RemoteException {
+	public double CalPrice(OrderVo vo) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.CalPrice(vo1, vo2);
+		return orderblservice.CalPrice(vo);
 	}
 
 	@Override
@@ -227,7 +227,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public List<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException {
+	public List<OrderVo> TimeSort(List<OrderVo> orderlist) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.TimeSort(orderlist);
 	}
