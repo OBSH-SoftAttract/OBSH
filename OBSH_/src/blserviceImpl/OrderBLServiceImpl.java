@@ -10,6 +10,7 @@ import data.dao.CreditDao;
 import data.dao.OrderDao;
 import data.dao.impl.CreditDaoImpl;
 import data.dao.impl.OrderDaoImpl;
+import po.CreditPo;
 import po.OrderPo;
 import po.PromotionPo;
 import vo.PromotionVo;
@@ -58,7 +59,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
 		double precredit=creditdao.getCredit(ordervo.getOrderID()).getCredit();
-		creditdao.setCredit(ordervo.getOrderID(), precredit-ordervo.getPrice());
+		CreditPo creditpo=new CreditPo(ordervo.getOrderID(), precredit-ordervo.getPrice());
+		creditdao.updateCredit(creditpo);
 	}
 
 	@Override

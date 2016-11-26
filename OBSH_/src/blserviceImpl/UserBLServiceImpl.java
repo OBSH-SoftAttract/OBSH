@@ -3,20 +3,28 @@ package blserviceImpl;
 import java.util.ArrayList;
 
 import blservice.UserBLService;
+import data.dao.UserDao;
+import data.dao.impl.UserDaoImpl;
+import po.HotelroomPo;
 import vo.HotelroomVo;
 import vo.UserVo;
 
 public class UserBLServiceImpl implements UserBLService{
 
+	UserDao userdao;
+	
+	public UserBLServiceImpl(){
+		userdao=UserDaoImpl.getInstance();
+	}
+	
 	@Override
-	public boolean login(long id, String password) {
-		// TODO Auto-generated method stub
+	public boolean login(int id, String password) {
+		if(userdao.getUser(id).getPassword()==password)return true;
 		return false;
 	}
 
 	@Override
-	public ArrayList<HotelroomVo> Views(String address, String commercialDistrict) {
-		// TODO Auto-generated method stub
+	public ArrayList<HotelroomPo> Views(String address, String commercialDistrict) {
 		return null;
 	}
 
@@ -28,13 +36,11 @@ public class UserBLServiceImpl implements UserBLService{
 
 	@Override
 	public void ModifyMessage(UserVo vo) {
-		// TODO Auto-generated method stub
-		
+		userdao.getUser(vo.getID()).setPassword(vo.getPassword());
 	}
 
 	@Override
 	public boolean ModifyHotelMessage(HotelroomVo vo) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -72,12 +78,6 @@ public class UserBLServiceImpl implements UserBLService{
 	public boolean ViewDetail(HotelroomVo hotel) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public void EndSearch() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

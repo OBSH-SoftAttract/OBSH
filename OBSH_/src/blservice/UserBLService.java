@@ -2,6 +2,7 @@ package blservice;
 
 import java.util.ArrayList;
 
+import po.HotelroomPo;
 import vo.HotelroomVo;
 import vo.UserVo;
 
@@ -13,7 +14,7 @@ public interface UserBLService {
 	 * @param password
 	 * @return 登录
 	 */
-	public boolean login(long id, String password);
+	public boolean login(int id, String password);
 	
 	/**
 	 * 
@@ -21,7 +22,7 @@ public interface UserBLService {
 	 * @param commercialDistrict
 	 * @return 获得酒店信息
 	 */
-	public ArrayList<HotelroomVo> Views(String address,String commercialDistrict);
+	public ArrayList<HotelroomPo> Views(String address,String commercialDistrict);
 	
 	/**
 	 * 
@@ -83,10 +84,6 @@ public interface UserBLService {
 	 */
 	public boolean ViewDetail(HotelroomVo hotel);
 	
-	/**
-	 * 
-	 */
-	public void EndSearch();
 	
 	/**
 	 * 

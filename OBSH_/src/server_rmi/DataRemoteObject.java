@@ -8,6 +8,7 @@ import java.util.List;
 import blservice.*;
 import blserviceImpl.*;
 import po.OrderPo;
+import po.HotelroomPo;
 import vo.HotelroomVo;
 import vo.OrderVo;
 import vo.PromotionVo;
@@ -39,13 +40,13 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	
 	
 	@Override
-	public boolean login(long id, String password) {
+	public boolean login(int id, String password) {
 		// TODO Auto-generated method stub
 		return userblservice.login(id, password);
 	}
 
 	@Override
-	public ArrayList<HotelroomVo> Views(String address, String commercialDistrict) {
+	public ArrayList<HotelroomPo> Views(String address, String commercialDistrict) {
 		// TODO Auto-generated method stub
 		return userblservice.Views(address, commercialDistrict);
 	}
@@ -102,12 +103,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public boolean ViewDetail(HotelroomVo hotel) {
 		// TODO Auto-generated method stub
 		return userblservice.ViewDetail(hotel);
-	}
-
-	@Override
-	public void EndSearch() {
-		// TODO Auto-generated method stub
-		userblservice.EndSearch();
 	}
 
 	@Override

@@ -1,4 +1,6 @@
 package vo;
+import java.sql.Timestamp;
+
 /**
  * credit       信用值
  * userInfo		用户名称
@@ -13,7 +15,7 @@ public class CreditVo {
 	
 	private double credit;
 	
-	private String time;
+	private Timestamp time;
 	
 	private String creditInfo;
 	
@@ -40,11 +42,11 @@ public class CreditVo {
 		this.credit = credit;
 	}
 
-	public String getTime() {
+	public Timestamp getTime() {
 		return time;
 	}
 	
-	public void setTime(String time) {
+	public void setTime(Timestamp time) {
 		this.time = time;
 	}
 	

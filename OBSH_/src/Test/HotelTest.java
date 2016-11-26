@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import Mock.MockHotel;
 import blservice.HotelBLService;
-import blservice.HotelBLServiceImpl;
+import blserviceImpl.HotelBLServiceImpl;
 
 public class HotelTest {
 	@Test

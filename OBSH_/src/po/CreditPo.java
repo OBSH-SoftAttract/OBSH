@@ -24,8 +24,11 @@ public class CreditPo {
 		super();
 	}
 
+	public CreditPo(int userId,double credit){
+		this.userId = userId;
+		this.credit = credit;		
+	}
 	public CreditPo(int userId, double credit, Timestamp time, String creditInfo) {
-		super();
 		this.userId = userId;
 		this.credit = credit;
 		this.time = time;
