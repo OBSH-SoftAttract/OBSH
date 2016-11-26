@@ -103,7 +103,6 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public double CalPrice(OrderVo vo) throws RemoteException{
 		
-		return 0;
 	}
 
 	@Override

@@ -103,7 +103,6 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public double CalPrice(OrderVo vo) throws RemoteException{
 		
-		return 0;
 	}
 
 	@Override
@@ -119,7 +118,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public OrderPo ViewByOrderID(String orderid) throws RemoteException{
+	public OrderPo ViewByOrderID(int orderid) throws RemoteException{
 		return orderdao.getOrder(orderid);	
 	}
 	

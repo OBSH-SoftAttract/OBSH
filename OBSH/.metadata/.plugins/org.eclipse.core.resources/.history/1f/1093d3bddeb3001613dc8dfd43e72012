@@ -96,7 +96,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应ID的订单对象
 	 * @throws RemoteException 
 	 */
-	public OrderPo ViewByOrderID (String orderid) throws RemoteException;
+	public OrderPo ViewByOrderID (int orderid) throws RemoteException;
 	
 		/**
 	 * 

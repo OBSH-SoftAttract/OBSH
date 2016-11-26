@@ -203,7 +203,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public OrderPo ViewByOrderID(String orderid) throws RemoteException {
+	public OrderPo ViewByOrderID(int orderid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByOrderID(orderid);
 	}
