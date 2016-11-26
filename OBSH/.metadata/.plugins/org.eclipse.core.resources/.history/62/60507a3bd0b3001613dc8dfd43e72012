@@ -239,9 +239,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public String CreateID(int hotelid) throws RemoteException {
+	public int CreateID() throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.CreateID(hotelid);
+		return orderblservice.CreateID();
 	}
 
 	@Override
@@ -408,14 +408,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public int IDout(int id) {
 		// TODO Auto-generated method stub
 		return hotelroomblservice.IDout(id);
-	}
-
-
-
-	@Override
-	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

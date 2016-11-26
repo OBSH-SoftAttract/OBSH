@@ -410,12 +410,4 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 		return hotelroomblservice.IDout(id);
 	}
 
-
-
-	@Override
-	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -2,10 +2,8 @@ package blservice;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.List;
 
 import po.OrderPo;
-import po.PromotionPo;
 import vo.OrderVo;
 import vo.PromotionVo;
 
@@ -40,7 +38,7 @@ public interface OrderBLService extends Remote{
 	 * @return 提交订单评语
 	 * @throws RemoteException 
 	 */
-	public boolean Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
+	public void Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * 
@@ -64,7 +62,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得符合该用户的最优策略
 	 * @throws RemoteException 
 	 */
-	public PromotionPo CalPromotion(int userid) throws RemoteException;
+	public PromotionVo CalPromotion(int userid) throws RemoteException;
 	
 	/**
 	 * 
@@ -105,23 +103,15 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应用户的所有订单
 	 * @throws RemoteException 
 	 */
-	public List<OrderPo> Views(int userid) throws RemoteException;
+	public ArrayList<OrderPo> Views(int userid) throws RemoteException;
 	
-		/**
-	 * 
-	 * @param id
-	 * @return 获得对应酒店的订单
-	 * @throws RemoteException
-	 */
-	public List<OrderPo> ViewByHotel(int id) throws RemoteException;
 	/**
 	 * 
 	 * @param id
 	 * @return 获得对应客户的订单
 	 * @throws RemoteException 
 	 */
-	
-	public List<OrderPo> ViewByCustom(int id) throws RemoteException;
+	public ArrayList<OrderPo> ViewByCustom(int id) throws RemoteException;
 	
 	/**
 	 * 
@@ -129,7 +119,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应日期的订单列表
 	 * @throws RemoteException 
 	 */
-	public List<OrderPo> ViewByDaily(String date) throws RemoteException;
+	public ArrayList<OrderPo> ViewByDaily(String date) throws RemoteException;
 	
 	/**
 	 * 
@@ -137,7 +127,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得
 	 * @throws RemoteException 
 	 */
-	public List<OrderPo> ViewByState(int state,int id) throws RemoteException;
+	public ArrayList<OrderPo> ViewByState(int state,int id) throws RemoteException;
 	
 	/**
 	 * 
@@ -145,12 +135,12 @@ public interface OrderBLService extends Remote{
 	 * @return 获得按时间排序
 	 * @throws RemoteException 
 	 */
-	public List<OrderPo> TimeSort ( ArrayList<OrderVo> orderlist) throws RemoteException;
+	public ArrayList<OrderPo> TimeSort ( ArrayList<OrderVo> orderlist) throws RemoteException;
 	
 	/**
 	 * 
 	 * @return 获得一个新的订单号
 	 * @throws RemoteException 
 	 */
-	public String CreateID(int hotel) throws RemoteException;
+	public int CreateID() throws RemoteException;
 }

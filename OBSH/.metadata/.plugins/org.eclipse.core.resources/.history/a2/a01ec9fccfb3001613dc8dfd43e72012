@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import po.OrderPo;
-import po.PromotionPo;
 import vo.OrderVo;
 import vo.PromotionVo;
 
@@ -40,7 +39,7 @@ public interface OrderBLService extends Remote{
 	 * @return 提交订单评语
 	 * @throws RemoteException 
 	 */
-	public boolean Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
+	public void Assess(int score,String comment,OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * 
@@ -152,5 +151,5 @@ public interface OrderBLService extends Remote{
 	 * @return 获得一个新的订单号
 	 * @throws RemoteException 
 	 */
-	public String CreateID(int hotel) throws RemoteException;
+	public String CreateID(int hotelroom) throws RemoteException;
 }

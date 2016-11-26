@@ -8,7 +8,6 @@ import java.util.List;
 import blservice.*;
 import blserviceImpl.*;
 import po.OrderPo;
-import po.PromotionPo;
 import po.HotelroomPo;
 import vo.HotelroomVo;
 import vo.OrderVo;
@@ -161,9 +160,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
+	public void Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.Assess(score, comment, ordervo);
+		orderblservice.Assess(score, comment, ordervo);
 	}
 
 	@Override
@@ -179,7 +178,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public PromotionPo CalPromotion(int userid) throws RemoteException {
+	public PromotionVo CalPromotion(int userid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.CalPromotion(userid);
 	}
@@ -209,39 +208,39 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public List<OrderPo> Views(int userid) throws RemoteException {
+	public ArrayList<OrderPo> Views(int userid) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.Views(userid);
 	}
 
 	@Override
-	public List<OrderPo> ViewByCustom(int id) throws RemoteException {
+	public ArrayList<OrderPo> ViewByCustom(int id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByCustom(id);
 	}
 
 	@Override
-	public List<OrderPo> ViewByDaily(String date) throws RemoteException {
+	public ArrayList<OrderPo> ViewByDaily(String date) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByDaily(date);
 	}
 
 	@Override
-	public List<OrderPo> ViewByState(int state,int id) throws RemoteException {
+	public ArrayList<OrderPo> ViewByState(int state,int id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByState(state,id);
 	}
 
 	@Override
-	public List<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException {
+	public ArrayList<OrderPo> TimeSort(ArrayList<OrderVo> orderlist) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.TimeSort(orderlist);
 	}
 
 	@Override
-	public String CreateID(int hotelid) throws RemoteException {
+	public int CreateID() throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.CreateID(hotelid);
+		return orderblservice.CreateID();
 	}
 
 	@Override
@@ -408,14 +407,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public int IDout(int id) {
 		// TODO Auto-generated method stub
 		return hotelroomblservice.IDout(id);
-	}
-
-
-
-	@Override
-	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
