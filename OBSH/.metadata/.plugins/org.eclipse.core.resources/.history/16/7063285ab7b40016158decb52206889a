@@ -191,9 +191,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public void Solve(OrderVo vo) throws RemoteException {
+	public boolean Solve(OrderVo vo) throws RemoteException {
 		// TODO Auto-generated method stub
-		orderblservice.Solve(vo);
+		return orderblservice.Solve(vo);
 	}
 
 	@Override

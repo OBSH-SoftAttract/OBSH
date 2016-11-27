@@ -1,8 +1,0 @@
-package data.dao.impl;
-
-public class CreditDaoImpl {
-	private static CreditDaoImpl creditdao = new CreditDaoImpl();
-	public static CreditDaoImpl getInstance(){
-		return creditdao;
-	}
-}

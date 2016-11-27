@@ -131,11 +131,12 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public void Solve(OrderVo vo) throws RemoteException{
+	public boolean Solve(OrderVo vo) throws RemoteException{
 		OrderPo orderpo=orderdao.getOrder(vo.getOrderID());
 		orderpo.setOrderState(1);
 		double incre=orderpo.getPrice();
 		creditdao.getCredit(orderpo.getUserID()).setCredit(incre+creditdao.getCredit(orderpo.getUserID()).getCredit());
+		return false;
 	}
 
 	@Override

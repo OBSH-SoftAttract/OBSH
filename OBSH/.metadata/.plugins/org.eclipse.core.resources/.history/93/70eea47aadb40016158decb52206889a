@@ -101,52 +101,25 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public PromotionPo CalPromotion(int userid) throws RemoteException{
 		List<PromotionPo> list=promotiondao.getLineItem();
-		Iterator<PromotionPo> ite=list.iterator();
-		
-		Date date = new Date();
-		Timestamp now = new Timestamp(date.getTime());
-		double best=1;
-		PromotionPo res=null;
-		while(ite.hasNext()){
-			PromotionPo temp=ite.next();
-			if(temp.getEndTime().getTime()<=now.getTime()&&
-					now.getTime()>=temp.getStartTime().getTime()){
-				if(temp.getDiscount()<best){
-					best=temp.getDiscount();
-					res=temp;
-				}
-					
-			}
-		}
-		return res;
+		return null;
 	}
 
 	@Override
-	public double CalPrice(OrderVo vo) throws RemoteException{//未考虑会员的折扣
-		
+	public double CalPrice(OrderVo vo) throws RemoteException{
 		PromotionPo promotion=CalPromotion(vo.getUserID());
-		if(promotion!=null)
-		   return promotion.getDiscount()*vo.getPrice();
-		return vo.getPrice();
+		return promotion.getDiscount()*vo.getPrice();
 	}
 
 	@Override
-	public void Solve(OrderVo vo) throws RemoteException{
-		OrderPo orderpo=orderdao.getOrder(vo.getOrderID());
-		orderpo.setOrderState(1);
-		double incre=orderpo.getPrice();
-		creditdao.getCredit(orderpo.getUserID()).setCredit(incre+creditdao.getCredit(orderpo.getUserID()).getCredit());
+	public boolean Solve(OrderVo vo) throws RemoteException{
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean ComplainDeal(OrderVo vo) throws RemoteException{
-		OrderPo po=orderdao.getOrder(vo.getOrderID());
-		if(po.getOrderState()!=3)
+		// TODO Auto-generated method stub
 		return false;
-		else{
-			po.setOrderState(2);
-			return true;
-		}
 	}
 
 	@Override

@@ -80,7 +80,7 @@ public interface OrderBLService extends Remote{
 	 * @return 	处理订单	
 	 * @throws RemoteException 
 	 */
-	public void Solve(OrderVo vo) throws RemoteException;
+	public boolean Solve(OrderVo vo) throws RemoteException;
 	
 	/**
 	 * 

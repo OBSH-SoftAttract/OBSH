@@ -131,22 +131,16 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public void Solve(OrderVo vo) throws RemoteException{
-		OrderPo orderpo=orderdao.getOrder(vo.getOrderID());
-		orderpo.setOrderState(1);
-		double incre=orderpo.getPrice();
-		creditdao.getCredit(orderpo.getUserID()).setCredit(incre+creditdao.getCredit(orderpo.getUserID()).getCredit());
+	public boolean Solve(OrderVo vo) throws RemoteException{
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean ComplainDeal(OrderVo vo) throws RemoteException{
 		OrderPo po=orderdao.getOrder(vo.getOrderID());
-		if(po.getOrderState()!=3)
+		
 		return false;
-		else{
-			po.setOrderState(2);
-			return true;
-		}
 	}
 
 	@Override

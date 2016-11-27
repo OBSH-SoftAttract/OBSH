@@ -20,4 +20,11 @@
 <fullyQualifiedTypeName name="data.dao.impl.CreditDaoImpl"/>
 <fullyQualifiedTypeName name="data.dao.OrderDao"/>
 <fullyQualifiedTypeName name="data.dao.impl.OrderDaoImpl"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="po.PromotionPo"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.security.Timestamp"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="data.dao.PromotionDao"/>
+<fullyQualifiedTypeName name="data.dao.impl.PromotionDaoImpl"/>
 </qualifiedTypeNameHistroy>
