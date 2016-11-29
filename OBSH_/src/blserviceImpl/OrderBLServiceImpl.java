@@ -49,8 +49,9 @@ public class OrderBLServiceImpl implements OrderBLService{
 			return false;
 		}
 		ordervo.setOrderState(2);
-		orderdao.getOrder(ordervo.getOrderID()).setOrderState(2);
-		return false;
+		OrderPo po=orderdao.getOrder(ordervo.getOrderID());
+		po.setOrderState(2);
+		return orderdao.updateOrder(po);
 	}
 
 	@Override
@@ -135,7 +136,9 @@ public class OrderBLServiceImpl implements OrderBLService{
 		OrderPo orderpo=orderdao.getOrder(vo.getOrderID());
 		orderpo.setOrderState(1);
 		double incre=orderpo.getPrice();
-		creditdao.getCredit(orderpo.getUserID()).setCredit(incre+creditdao.getCredit(orderpo.getUserID()).getCredit());
+		CreditPo po=creditdao.getCredit(orderpo.getUserID());
+		po.setCredit(incre+creditdao.getCredit(orderpo.getUserID()).getCredit());
+		creditdao.updateCredit(po);
 	}
 
 	@Override
@@ -145,7 +148,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 		return false;
 		else{
 			po.setOrderState(2);
-			return true;
+			return orderdao.updateOrder(po);
 		}
 	}
 
@@ -165,9 +168,17 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public List<OrderPo> ViewByDaily(String date) throws RemoteException{
-		
-		return null;
+	public List<OrderVo> ViewByDaily(List<OrderVo> list) throws RemoteException{
+		for(int i=0;i<list.size()-1;i++){
+			for(int j=1;j<list.size();j++){
+				if(list.get(i).getStartTime().getTime()<list.get(j).getStartTime().getTime()){
+					OrderVo vo=list.get(i);
+					list.set(i, list.get(j));
+					list.set(j, vo);
+				}
+			}
+		}
+		return list;
 	}
 	
 	

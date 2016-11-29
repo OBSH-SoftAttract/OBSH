@@ -215,9 +215,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public List<OrderPo> ViewByDaily(String date) throws RemoteException {
+	public List<OrderVo> ViewByDaily(List<OrderVo> list) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.ViewByDaily(date);
+		return orderblservice.ViewByDaily(list);
 	}
 
 	@Override

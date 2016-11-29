@@ -120,7 +120,7 @@ public interface OrderBLService extends Remote{
 	 * @return 获得对应日期的订单列表
 	 * @throws RemoteException 
 	 */
-	public List<OrderPo> ViewByDaily(String date) throws RemoteException;
+	public List<OrderVo> ViewByDaily(List<OrderVo> list) throws RemoteException;
 	
 	/**
 	 * 
