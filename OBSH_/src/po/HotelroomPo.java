@@ -3,41 +3,41 @@ package po;
 import java.sql.Timestamp;
 
 public class HotelroomPo {
-	private int room;
+	private int roomID;
 	private Timestamp datein;
-	private int id;
+	private int hotelID;
 	private Timestamp dateoutpro;
 	private Timestamp timeout;
 	private String roomName;
     public HotelroomPo(){
     	super();
     }
-    public HotelroomPo(int room,Timestamp datein,int id,Timestamp dateoutpro,Timestamp timeout,String roomName){
+    public HotelroomPo(int roomID,Timestamp datein,int hotelID,Timestamp dateoutpro,Timestamp timeout,String roomName){
     	super();
-    	this.room=room;
+    	this.roomID=roomID;
     	this.datein=datein;
-    	this.id=id;
+    	this.hotelID=hotelID;
     	this.dateoutpro=dateoutpro;
     	this.timeout=timeout;
     	this.roomName = roomName;
     }
-    public int getroom(){
-    	return room;
+    public int getroomID(){
+    	return roomID;
     }
-    public void setroom(int room){
-    	this.room=room;
+    public void setroomID(int roomID){
+    	this.roomID = roomID;
     }
     public Timestamp getdatein(){
     	return datein;
     }
     public void setdatein(Timestamp datein){
-    	this.datein=datein;
+    	this.datein = datein;
     }
-    public int getid(){
-    	return id;
+    public int gethotelID(){
+    	return hotelID;
     }
-    public void setid(int id){
-    	this.id=id;
+    public void setid(int hotelID){
+    	this.hotelID=hotelID;
     }
     public Timestamp getdateoutpro(){
     	return dateoutpro;

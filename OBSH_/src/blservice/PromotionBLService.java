@@ -8,7 +8,7 @@ public interface PromotionBLService {
 	 * @param id
 	 * @return 确定营销策略表所属为酒店还是网站
 	 */
-	public int judge (long id);
+	public int judge (int id);
 	
 	
 	/**
@@ -23,14 +23,14 @@ public interface PromotionBLService {
 	 * @param vo
 	 * @return 系统更新营销策略列表
 	 */
-	public PromotionVo Del(PromotionVo vo);
+	public boolean Del(PromotionVo vo);
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 系统更新营销策略列表
 	 */
-	public PromotionVo update (PromotionVo vo);
+	public boolean update (PromotionVo vo);
 	
 	/**
 	 * 

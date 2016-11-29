@@ -3,12 +3,23 @@ package data.datahelper.impl;
 import java.sql.Date;
 import java.sql.ResultSet;  
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.List;
 
+import data.dao.CreditDao;
+import data.dao.HotelDao;
 import data.dao.MemberDao;
+import data.dao.OrderDao;
 import data.dao.UserDao;
+import data.dao.impl.CreditDaoImpl;
+import data.dao.impl.HotelDaoImpl;
 import data.dao.impl.MemberDaoImpl;
+import data.dao.impl.OrderDaoImpl;
 import data.dao.impl.UserDaoImpl;
+import po.CreditPo;
+import po.HotelPo;
 import po.MemberPo;
+import po.OrderPo;
 import po.UserPo;  
 
 public class jdbcdemo {  
@@ -19,14 +30,22 @@ public class jdbcdemo {
   static int sta;
   static UserPo userPo = new UserPo(151250008, "233333","144", "比尔盖茨", 5000, true);
   static MemberPo memberPo = new MemberPo(151250004,Date.valueOf("1996-06-01"),null,2,"蔡赵辰+2600");
-  
-  public static void main(String[] args) { 
+  static OrderPo orderPo = new OrderPo("110",0,Timestamp.valueOf("2016-11-29 15:45:00"),Timestamp.valueOf("2016-11-30 05:00:00"),
+		  Timestamp.valueOf("2016-11-30 10:08:04"),151250004,500,1001,"商务房");
+  static CreditPo creditPo = new CreditPo(151250004, 2000, "-500+2016-11-29");
+  public static void main(String[] args) {
+	  HotelDao hotelDao = HotelDaoImpl.getInstance();
+	  /*CreditDao creditDao = CreditDaoImpl.getInstance();
+	  System.out.println(creditDao.getCredit(creditPo.getUserId()).getCreditInfo());
+	  OrderDao orderDao = OrderDaoImpl.getInstance();
+	  boolean b = orderDao.deleteOrderPo(orderPo.getOrderID());
+	  List<OrderPo> list = orderDao.getOrderByUserID(151250004);
 	  MemberDao memberDao = MemberDaoImpl.getInstance();
-	  //MemberPo m = memberDao.getMember(memberPo.getUserId());
+	  MemberPo m = memberDao.getMember(memberPo.getUserId());
 	  boolean b = memberDao.updateMember(memberPo);
 	  MemberPo m = memberDao.getMember(memberPo.getUserId());
 	  System.out.println(m.getMemberInfo());
-	  	/*int isVIP ;
+	  	int isVIP ;
 		if(userPo.getifVIP())
 			isVIP = 1;
 		else 
@@ -58,7 +77,8 @@ public class jdbcdemo {
           db1.close();//关闭连接  
       } catch (SQLException e) {  
           e.printStackTrace();  
-      } */
+      }*/ 
   }  
 
 }  
+

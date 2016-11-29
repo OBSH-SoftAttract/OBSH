@@ -6,6 +6,7 @@ import blservice.UserBLService;
 import data.dao.UserDao;
 import data.dao.impl.UserDaoImpl;
 import po.HotelroomPo;
+import po.UserPo;
 import vo.HotelroomVo;
 import vo.UserVo;
 
@@ -19,10 +20,9 @@ public class UserBLServiceImpl implements UserBLService{
 	
 	@Override
 	public boolean login(int id, String password) {
-		if(userdao.getUser(id).getPassword()==password)return true;
-		return false;
+		return userdao.getUser(id).getPassword().equals(password);
 	}
-
+	
 	@Override
 	public ArrayList<HotelroomPo> Views(String address, String commercialDistrict) {
 		return null;
@@ -82,8 +82,8 @@ public class UserBLServiceImpl implements UserBLService{
 
 	@Override
 	public boolean AddClient(UserVo vo) {
-		// TODO Auto-generated method stub
-		return false;
+		UserPo po=new UserPo(vo);		
+		return userdao.addUser(po);
 	}
 
 	@Override

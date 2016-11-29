@@ -101,7 +101,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	
 	@Override
-	public boolean deleteOrderPo(int orderId) {
+	public boolean deleteOrderPo(String orderId) {
 		// TODO Auto-generated method stub
 		
 		if(map.get(orderId)!=null) {
@@ -111,3 +111,4 @@ public class OrderDaoImpl implements OrderDao {
 		return false;
 	}
 }
+

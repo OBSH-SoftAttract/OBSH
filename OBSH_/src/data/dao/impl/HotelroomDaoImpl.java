@@ -45,7 +45,7 @@ public class HotelroomDaoImpl implements HotelroomDao {
 	@Override
 	public boolean updateHotelroom(HotelroomPo hotelroomPo) {
 		// TODO Auto-generated method stub
-		int hotelroomId = hotelroomPo.getroom();
+		int hotelroomId = hotelroomPo.getroomID();
 		if(map.get(hotelroomId) != null){
 			map.put(hotelroomId, hotelroomPo);
 			hotelroomDataHelper.updateHotelroomData(map);
@@ -57,7 +57,7 @@ public class HotelroomDaoImpl implements HotelroomDao {
 	@Override
 	public boolean addHotelroomPo(HotelroomPo hotelroomPo) {
 		// TODO Auto-generated method stub
-		int hotelroomId = hotelroomPo.getroom();
+		int hotelroomId = hotelroomPo.getroomID();
 		if(map.get(hotelroomId)==null){
 			hotelroomDataHelper.addHotelroom(hotelroomPo);
 			return true;
@@ -76,3 +76,4 @@ public class HotelroomDaoImpl implements HotelroomDao {
 	}
 
 }
+

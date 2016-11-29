@@ -101,3 +101,4 @@ public class PromotionDaoImpl implements PromotionDao {
 	}
 
 }
+

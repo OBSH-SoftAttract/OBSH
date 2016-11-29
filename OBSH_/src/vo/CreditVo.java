@@ -15,8 +15,6 @@ public class CreditVo {
 	
 	private double credit;
 	
-	private Timestamp time;
-	
 	private String creditInfo;
 	
 	private String userInfo;
@@ -29,7 +27,6 @@ public class CreditVo {
 		super();
 		this.userInfo = userPo.getUsername();
 		this.credit = creditPo.getCredit();
-		this.time = creditPo.getTime();
 		this.creditInfo = creditPo.getCreditInfo();
 	}
 
@@ -40,14 +37,6 @@ public class CreditVo {
 	
 	public void setCredit(double credit) {
 		this.credit = credit;
-	}
-
-	public Timestamp getTime() {
-		return time;
-	}
-	
-	public void setTime(Timestamp time) {
-		this.time = time;
 	}
 	
 	public String getUserInfo() {

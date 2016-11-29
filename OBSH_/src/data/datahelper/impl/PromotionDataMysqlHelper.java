@@ -59,7 +59,11 @@ public class PromotionDataMysqlHelper implements PromotionDataHelper {
 			Entry<Integer, PromotionPo> entry = iterator.next();
 			PromotionPo promotionPo = entry.getValue();
 
-			sql = "update promotion set itemName = '"+promotionPo.getItemName()+"',starttime = '"+promotionPo.getStartTime()+"',endtime = '"+promotionPo.getEndTime()+"',promotioninfo = '"+promotionPo.getPromotionInfo()+"where id = "+promotionPo.getID();//SQL语句 
+			sql = "update promotion set itemName = '"+promotionPo.getItemName()+
+					"',starttime = '"+promotionPo.getStartTime()+
+					"',endtime = '"+promotionPo.getEndTime()+
+					"',promotioninfo = '"+promotionPo.getPromotionInfo()+
+					"’ where id = "+promotionPo.getID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -75,7 +79,12 @@ public class PromotionDataMysqlHelper implements PromotionDataHelper {
 	public void addPromotion(PromotionPo promotionPo) {
 		// TODO Auto-generated method stub
 
-		sql = "insert into promotion value("+promotionPo.getID()+",'"+promotionPo.getItemName()+"','"+promotionPo.getStartTime()+"','"+promotionPo.getEndTime()+"','"+promotionPo.getPromotionInfo()+"',"+promotionPo.getDiscount()+")";
+		sql = "insert into promotion value("+promotionPo.getID()+
+				",'"+promotionPo.getItemName()+
+				"','"+promotionPo.getStartTime()+
+				"','"+promotionPo.getEndTime()+
+				"','"+promotionPo.getPromotionInfo()+
+				"',"+promotionPo.getDiscount()+")";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);
@@ -102,3 +111,4 @@ public class PromotionDataMysqlHelper implements PromotionDataHelper {
 	}
 
 }
+

@@ -81,3 +81,4 @@ public class MemberDataMysqlHelper implements MemberDataHelper {
 	}
 
 }
+

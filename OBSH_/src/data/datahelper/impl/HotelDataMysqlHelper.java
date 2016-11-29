@@ -66,7 +66,14 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 			Map.Entry<Integer, HotelPo> entry = iterator.next();
 			HotelPo hotelPo = entry.getValue();
 
-			sql = "update hotel set hotelname = '"+hotelPo.getName()+"',starlevel = "+hotelPo.getStar()+",location = '"+hotelPo.getLocation()+"',summary = '"+hotelPo.getSummary()+"',services = '"+hotelPo.getServices()+"',roominfo = '"+hotelPo.getRoomInfo()+"',score = "+hotelPo.getScore()+"where id = "+hotelPo.getHotelNo();//SQL语句 
+			sql = "update hotel set hotelname = '"+hotelPo.getName()+
+					"',starlevel = "+hotelPo.getStar()+
+					",location = '"+hotelPo.getLocation()+
+					"',summary = '"+hotelPo.getSummary()+
+					"',services = '"+hotelPo.getServices()+
+					"',roominfo = '"+hotelPo.getRoomInfo()+
+					"',score = "+hotelPo.getScore()+
+					"where id = "+hotelPo.getHotelID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -83,7 +90,14 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 	public void addHotelPo(HotelPo hotelPo) {
 		// TODO Auto-generated method stub
 
-		sql = "insert into hotel value("+hotelPo.getHotelNo()+",'"+hotelPo.getName()+"',"+hotelPo.getStar()+",'"+hotelPo.getLocation()+"','"+hotelPo.getSummary()+"','"+hotelPo.getServices()+"','"+hotelPo.getRoomInfo()+"',"+hotelPo.getScore()+")";
+		sql = "insert into hotel value("+hotelPo.getHotelID()+
+				",'"+hotelPo.getName()+
+				"',"+hotelPo.getStar()+
+				",'"+hotelPo.getLocation()+
+				"','"+hotelPo.getSummary()+
+				"','"+hotelPo.getServices()+
+				"','"+hotelPo.getRoomInfo()+
+				"',"+hotelPo.getScore()+")";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);

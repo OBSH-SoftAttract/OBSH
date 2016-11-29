@@ -1,5 +1,7 @@
 package po;
 
+import vo.UserVo;
+
 public class UserPo {
 	private int id;
 	private String username;
@@ -15,6 +17,9 @@ public class UserPo {
 		this.username=un;
 		this.credit=cre;
 		this.ifVIP=iv;
+	}
+	public UserPo(UserVo vo) {
+		// TODO Auto-generated constructor stub
 	}
 	public int getID(){
 		return id;

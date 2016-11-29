@@ -1,5 +1,5 @@
 package data.datahelper;
-//想了一下感觉这个类的接口方法定义有问题
+
 import java.util.Map;
 
 import po.OrderPo;
@@ -27,7 +27,6 @@ public interface OrderDataHelper {
 	 * 删除订单
 	 * @param orderId
 	 */
-	public void deleteOrderData(int orderId);
+	public void deleteOrderData(String orderId);
 
 }
-

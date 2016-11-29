@@ -58,7 +58,12 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 			Map.Entry<Integer, HotelroomPo> entry = iterator.next();
 			HotelroomPo hotelroomPo = entry.getValue();
 
-			sql = "update hotelroom set hotelid = "+hotelroomPo.getid()+",roomName = '"+hotelroomPo.getroomName()+"',datein = "+hotelroomPo.getdatein()+",dateout = "+hotelroomPo.getdateoutpro()+",actualdateout = "+hotelroomPo.gettimeout()+"where roomid = "+hotelroomPo.getroom();//SQL语句 
+			sql = "update hotelroom set hotelid = "+hotelroomPo.gethotelID()+
+					",roomName = '"+hotelroomPo.getroomName()+
+					"',datein = '"+hotelroomPo.getdatein()+
+					"',dateout = '"+hotelroomPo.getdateoutpro()+
+					"',actualdateout = '"+hotelroomPo.gettimeout()+
+					"' where roomid = "+hotelroomPo.getroomID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -74,7 +79,12 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 	public void addHotelroom(HotelroomPo hotelroomPo) {
 		// TODO Auto-generated method stub
 
-		sql = "insert into hotelroom value("+hotelroomPo.getid()+","+hotelroomPo.getroom()+",'"+hotelroomPo.getroomName()+"','"+hotelroomPo.getdatein()+"','"+hotelroomPo.getdateoutpro()+"','"+hotelroomPo.gettimeout()+")";
+		sql = "insert into hotelroom value("+hotelroomPo.gethotelID()+
+				","+hotelroomPo.getroomID()+
+				",'"+hotelroomPo.getroomName()+
+				"','"+hotelroomPo.getdatein()+
+				"','"+hotelroomPo.getdateoutpro()+
+				"','"+hotelroomPo.gettimeout()+"')";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);

@@ -62,7 +62,15 @@ public class OrderDataMysqlHelper implements OrderDataHelper {
 			Entry<String, OrderPo> entry = iterator.next();
 			OrderPo orderPo = entry.getValue();
 
-			sql = "update orderbl set orderstate = "+orderPo.getOrderState()+",starttime = '"+orderPo.getStartTime()+"',endtime = '"+orderPo.getEndTime()+"',lasttime = '"+orderPo.getlastTime()+"',userid = "+orderPo.getUserID()+",price = "+orderPo.getPrice()+",hotelid = "+orderPo.getHotelID()+",roominfo = "+orderPo.getroomInfo()+"where orderid = '"+orderPo.getOrderID()+"'";//SQL语句 
+			sql = "update orderbl set orderstate = "+orderPo.getOrderState()+
+					",starttime = '"+orderPo.getStartTime()+
+					"',endtime = '"+orderPo.getEndTime()+
+					"',lasttime = '"+orderPo.getlastTime()+
+					"',userid = "+orderPo.getUserID()+
+					",price = "+orderPo.getPrice()+
+					",hotelid = "+orderPo.getHotelID()+
+					",roominfo = '"+orderPo.getroomInfo()+
+					"' where orderid = '"+orderPo.getOrderID()+"'";//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -90,10 +98,10 @@ public class OrderDataMysqlHelper implements OrderDataHelper {
 	}
 
 	@Override
-	public void deleteOrderData(int orderId) {
+	public void deleteOrderData(String orderId) {
 		// TODO Auto-generated method stub
 		
-		sql = "delete from orderbl where id = "+orderId;
+		sql = "delete from orderbl where orderid = "+orderId;
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);

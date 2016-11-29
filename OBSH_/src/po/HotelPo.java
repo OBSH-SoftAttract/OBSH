@@ -3,23 +3,23 @@ package po;
 import java.util.List;
 
 public class HotelPo {
-	private int hotelNo;
+	private int hotelID;
 	private String name;
 	private int star;
 	private String location;
 	private List<String> summary;
 	private String services;
-	private String roomInfo;//房间类型+个数
+	private String roomInfo;//房间类型+个数 中间用分号区分
 	private double score=0;
 	
 	public HotelPo() {
 		super();
 	}
 
-	public HotelPo(int hotelNo, String name, int star, String location, List<String> summary, String services,
+	public HotelPo(int hotelID, String name, int star, String location, List<String> summary, String services,
 			String roominfo,double s) {
 		super();
-		this.hotelNo = hotelNo;
+		this.hotelID = hotelID;
 		this.name = name;
 		this.star = star;
 		this.location = location;
@@ -29,12 +29,12 @@ public class HotelPo {
 		this.score=s;
 	}
 
-	public int getHotelNo() {
-		return hotelNo;
+	public int getHotelID() {
+		return hotelID;
 	}
 
-	public void setHotelNo(int hotelNo) {
-		this.hotelNo = hotelNo;
+	public void setHotelID(int hotelID) {
+		this.hotelID = hotelID;
 	}
 
 	public String getName() {
@@ -99,3 +99,4 @@ public class HotelPo {
 
 
 }
+

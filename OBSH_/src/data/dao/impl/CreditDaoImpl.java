@@ -1,5 +1,11 @@
 package data.dao.impl;
-
+/**
+ * 这个模块会有很大的改动
+ * 表的结构变化 客户id 时间 符号 变化的信用 信用值 到时候返回的是list 
+ * 逻辑上不知道能否按照时间将他们排序 这样的一个表中没有主键
+ * 这样信用值的查找和返回应用user模块userPo。getCredit
+ * 暂时没有改
+ */
 import java.util.Map;
 
 import data.dao.CreditDao;

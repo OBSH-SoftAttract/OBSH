@@ -311,7 +311,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public int judge(long id) {
+	public int judge(int id) {
 		// TODO Auto-generated method stub
 		return promotionblservice.judge(id);
 	}
@@ -323,13 +323,13 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public PromotionVo Del(PromotionVo vo) {
+	public boolean Del(PromotionVo vo) {
 		// TODO Auto-generated method stub
 		return promotionblservice.Del(vo);
 	}
 
 	@Override
-	public PromotionVo update(PromotionVo vo) {
+	public boolean update(PromotionVo vo) {
 		// TODO Auto-generated method stub
 		return promotionblservice.update(vo);
 	}

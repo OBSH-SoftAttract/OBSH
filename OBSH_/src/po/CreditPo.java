@@ -1,12 +1,9 @@
 package po;
 
-import java.sql.Timestamp;
-
 /**
  * credit       信用值
  * userId		用户编号
- * time         信用充值时当前时间
- * creditInfo   信用记录详情
+ * creditInfo   信用记录详情 第一位符号表示增加或减少多少之后为时间 如+500+2016-11-29 05：00：00
  * @author bxh
  */
 
@@ -15,8 +12,6 @@ public class CreditPo {
 	private int userId;
 	
 	private double credit;
-	
-	private Timestamp time;
 	
 	private String creditInfo;
 	
@@ -28,10 +23,9 @@ public class CreditPo {
 		this.userId = userId;
 		this.credit = credit;		
 	}
-	public CreditPo(int userId, double credit, Timestamp time, String creditInfo) {
+	public CreditPo(int userId, double credit, String creditInfo) {
 		this.userId = userId;
 		this.credit = credit;
-		this.time = time;
 		this.creditInfo = creditInfo;
 	}
 	
@@ -51,14 +45,6 @@ public class CreditPo {
 		this.credit = credit;
 	}
 	
-	public Timestamp getTime() {
-		return time;
-	}
-	
-	public void setTime(Timestamp time) {
-		this.time = time;
-	}
-	
 	public String getCreditInfo() {
 		return creditInfo;
 	}
@@ -68,3 +54,4 @@ public class CreditPo {
 	}
 
 }
+
