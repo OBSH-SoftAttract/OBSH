@@ -1,0 +1,58 @@
+package po;
+
+/**
+ * userID		用户编号
+ * time         每一次信用值变化的时间 类型为DateTIme
+ * active       动作（0 订单执行、1 订单异常、2 订单撤销、3 充值
+ * creditInfo   信用记录详情 第一位符号表示增加或减少多少之后为时间 如+500+2016-11-29 05：00：00
+ * @author 毕潇晗
+ */
+
+public class CreditPo {
+	
+	private int userId;
+	
+	private double credit;
+	
+	private String creditInfo;
+	
+	public CreditPo(){
+		super();
+	}
+
+	public CreditPo(int userId,double credit){
+		this.userId = userId;
+		this.credit = credit;		
+	}
+	public CreditPo(int userId, double credit, String creditInfo) {
+		this.userId = userId;
+		this.credit = credit;
+		this.creditInfo = creditInfo;
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	public double getCredit() {
+		return credit;
+	}
+	
+	public void setCredit(double credit) {
+		this.credit = credit;
+	}
+	
+	public String getCreditInfo() {
+		return creditInfo;
+	}
+	
+	public void setCreditInfo(String creditInfo) {
+		this.creditInfo = creditInfo;
+	}
+
+}
+

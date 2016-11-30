@@ -32,7 +32,7 @@ public class jdbcdemo {
   static MemberPo memberPo = new MemberPo(151250004,Date.valueOf("1996-06-01"),null,2,"蔡赵辰+2600");
   static OrderPo orderPo = new OrderPo("110",0,Timestamp.valueOf("2016-11-29 15:45:00"),Timestamp.valueOf("2016-11-30 05:00:00"),
 		  Timestamp.valueOf("2016-11-30 10:08:04"),151250004,500,1001,"商务房");
-  static CreditPo creditPo = new CreditPo(151250004, 2000, "-500+2016-11-29");
+  //static CreditPo creditPo = new CreditPo(151250004, 2000, "-500+2016-11-29");
   public static void main(String[] args) {
 	  HotelDao hotelDao = HotelDaoImpl.getInstance();
 	  /*CreditDao creditDao = CreditDaoImpl.getInstance();

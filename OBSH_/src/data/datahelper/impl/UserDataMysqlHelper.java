@@ -36,7 +36,7 @@ public class UserDataMysqlHelper implements UserDataHelper {
 	            String name = ret.getString(2);  
 	            String password = ret.getString(3);  
 	            String contactinfo = ret.getString(4); 
-	            int credit = ret.getInt(5);
+	            double credit = ret.getInt(5);
 	            boolean isVIP = false;
 	            if(ret.getInt(6)==1)
 	            	isVIP = true;

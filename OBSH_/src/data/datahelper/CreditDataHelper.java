@@ -18,8 +18,9 @@ public interface CreditDataHelper {
 	public void addCreditData(CreditPo creditPo);
 
 	/**
-	 *更新信用信息
-	 * @param map
+	 * 新注册客户录入初始信用信息
+	 * @param creditPo
 	 */
-	public void updateCreditData(Map<Integer, CreditPo> map);
+	public void setCreditData(CreditPo creditPo);
+
 }

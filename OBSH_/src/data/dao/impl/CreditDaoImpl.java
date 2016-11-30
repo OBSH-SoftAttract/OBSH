@@ -1,13 +1,12 @@
 package data.dao.impl;
 /**
- * 这个模块会有很大的改动
- * 表的结构变化 客户id 时间 符号 变化的信用 信用值 到时候返回的是list 
- * 逻辑上不知道能否按照时间将他们排序 这样的一个表中没有主键
- * 这样信用值的查找和返回应用user模块userPo。getCredit
- * 暂时没有改
+ * 这里缺少一个getlatestcreditPo的方法 由于是逻辑层的 我试着写了一下 头疼 不写了
  */
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-
+import java.util.Map.Entry;
 import data.dao.CreditDao;
 import data.datahelper.CreditDataHelper;
 import data.datahelper.DataFactory;
@@ -40,31 +39,35 @@ public class CreditDaoImpl implements CreditDao {
 	}
 	
 	@Override
-	public CreditPo getCredit(int userId) {
+	public List<CreditPo> getCredit(int userID) {
 		// TODO Auto-generated method stub
-		return map.get(userId);
+		
+		List<CreditPo> creditAll = new ArrayList<CreditPo>();
+		Iterator<Entry<Integer, CreditPo>> iterator = map.entrySet().iterator();
+		while(iterator.hasNext()){
+			Entry<Integer, CreditPo> entry = iterator.next();
+			CreditPo creditPo = entry.getValue();
+			
+			if(creditPo.getUserID()==userID)
+				creditAll.add(creditPo);
+		}
+		return creditAll;
 	}
 	
 	@Override
-	public boolean updateCredit(CreditPo creditPo) {
+	public void addCredit(CreditPo creditPo) {
 		// TODO Auto-generated method stub
 		
-		int userId = creditPo.getUserId();
-		if(map.get(userId) != null){
-			map.put(userId, creditPo);
-			creditDataHelper.updateCreditData(map);;
-			return true;
-		}
-		return false;
+		creditDataHelper.addCreditData(creditPo);
 	}
 	
 	@Override
 	public boolean setCredit(CreditPo creditPo) {
 		// TODO Auto-generated method stub
 		
-		int userId = creditPo.getUserId();
+		int userId = creditPo.getUserID();
 		if(map.get(userId)==null) {
-			creditDataHelper.addCreditData(creditPo);
+			creditDataHelper.setCreditData(creditPo);
 			return true;
 		}
 		return false;

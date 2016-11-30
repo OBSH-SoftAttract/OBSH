@@ -1,0 +1,73 @@
+package po;
+
+import java.sql.Timestamp;
+
+/**
+ * userID		用户编号 int类型
+ * time         每一次信用值变化的时间 类型为DateTIme
+ * action       动作 int类型（0 订单执行、1 订单异常、2 订单撤销、3 充值）
+ * creditChange 信用值变化  String表示+-表示增减 之后为具体数值 如+500
+ * creditResult 信用值结果 double类型
+ * @author 毕潇晗
+ */
+
+public class CreditPo {
+	
+	private int userId;
+	
+	private Timestamp  time;
+	
+	private int action;
+	
+	private String creditChange;
+	
+	private double creditResult;
+	
+	
+	
+	public CreditPo(){
+		super();
+	}
+
+	/**
+	 * 构造只含userID和credit的CreditPo用于客户注册后生成初始信用记录 时间是否生成？？？
+	 * @param userId
+	 * @param creditResult
+	 */
+	public CreditPo(int userId, Timestamp time, double creditResult){
+		this.userId = userId;
+		this.time = time;
+		this.creditResult = creditResult;	
+	}
+	public CreditPo(int userId, Timestamp  time, int action, String creditChange, double creditResult) {
+		this.userId = userId;
+		this.creditResult = credit;
+		this.creditInfo = creditInfo;
+	}
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	public double getCredit() {
+		return creditResult;
+	}
+	
+	public void setCredit(double credit) {
+		this.creditResult = credit;
+	}
+	
+	public String getCreditInfo() {
+		return creditInfo;
+	}
+	
+	public void setCreditInfo(String creditInfo) {
+		this.creditInfo = creditInfo;
+	}
+
+}
+

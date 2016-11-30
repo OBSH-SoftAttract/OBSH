@@ -3,29 +3,30 @@ package data.dao;
  * @author bxh
  */
 
+import java.util.List;
+
 import po.CreditPo;
 
 public interface CreditDao {
 	
 	/**
-	 * @param orderId
-	 * @return	获取客户信用信息
+	 * @param userId
+	 * @return 该客户的所有信用记录
 	 */
-	public CreditPo getCredit(int userId);
+	public List<CreditPo> getCredit(int userId);
 	
 	/**
 	 * @param creditPo
-	 * @return  添加客户的信用信息
+	 * @return  添加客户每次变更的信用信息
 	 */
-	public boolean setCredit(CreditPo creditPo);
+	public void addCredit(CreditPo creditPo);
 
 	/**
 	 * 
 	 * @param creditPo
-	 * @return  更新信用信息
+	 * @return  录入客户初始的信用信息
 	 */
-	public boolean updateCredit(CreditPo creditPo);
-	
+	public boolean setCredit(CreditPo creditPo);
 	
 }
 

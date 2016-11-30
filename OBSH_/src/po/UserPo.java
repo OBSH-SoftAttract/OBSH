@@ -6,11 +6,11 @@ public class UserPo {
 	private int id;
 	private String username;
 	private String password; 
-	private int credit;
+	private double credit;
 	private String phone; 
 	private boolean ifVIP;
 	
-	public UserPo (int i, String pa,String ph,String un,int cre,boolean iv){ 
+	public UserPo (int i, String pa,String ph,String un,double cre,boolean iv){ 
 		this.id=i;
 		this.password=pa; 
 		this.phone=ph;
@@ -51,10 +51,10 @@ public class UserPo {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public int getCredit() {
+	public double getCredit() {
 		return credit;
 	}
-	public void setCredit(int credit) {
+	public void setCredit(double credit) {
 		this.credit = credit;
 	}
 }

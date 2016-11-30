@@ -1,56 +1,97 @@
 package po;
 
+import java.sql.Timestamp;
+
 /**
- * credit       信用值
- * userId		用户编号
- * creditInfo   信用记录详情 第一位符号表示增加或减少多少之后为时间 如+500+2016-11-29 05：00：00
- * @author bxh
+ * userID		                    用户编号 int类型
+ * time                   每一次信用值变化的时间 类型为DateTIme
+ * action                 动作 int类型（0 订单执行、1 订单异常、2 订单撤销、3 充值）
+ * CreditChange           信用值变化  String表示+-表示增减 之后为具体数值 如+500
+ * CreditResultResult     信用值结果 double类型
+ * @author 毕潇晗
  */
 
 public class CreditPo {
 	
-	private int userId;
+	private int userID;
 	
-	private double credit;
+	private Timestamp  time;
 	
-	private String creditInfo;
+	private int action;
+	
+	private String CreditChange;
+	
+	private double CreditResult;
 	
 	public CreditPo(){
 		super();
 	}
 
-	public CreditPo(int userId,double credit){
-		this.userId = userId;
-		this.credit = credit;		
-	}
-	public CreditPo(int userId, double credit, String creditInfo) {
-		this.userId = userId;
-		this.credit = credit;
-		this.creditInfo = creditInfo;
-	}
-	
-	public int getUserId() {
-		return userId;
+	/**
+	 * 构造只含userID和CreditResult的CreditResultPo用于客户注册后生成初始信用记录 时间是否生成？？？
+	 * @param userId
+	 * @param CreditResult
+	 */
+	public CreditPo(int userID, Timestamp time, double CreditResult){
+		this.userID = userID;
+		this.time = time;
+		this.CreditResult = CreditResult;	
 	}
 	
-	public void setUserId(int userId) {
-		this.userId = userId;
+	/**
+	 * 记录有信用变化后每次信用值的变更
+	 * @param userID
+	 * @param time
+	 * @param action
+	 * @param CreditResultChange
+	 * @param CreditResultResult
+	 */
+	public CreditPo(int userID, Timestamp  time, int action, String CreditChange, double CreditResult) {
+		this.userID = userID;
+		this.time = time;
+		this.action = action;
+		this.CreditChange = CreditChange;
+		this.CreditResult = CreditResult;
+	}
+
+	public int getUserID() {
+		return userID;
 	}
 	
-	public double getCredit() {
-		return credit;
+	public void setUserId(int userID) {
+		this.userID = userID;
 	}
 	
-	public void setCredit(double credit) {
-		this.credit = credit;
+	public Timestamp getTime() {
+		return time;
 	}
 	
-	public String getCreditInfo() {
-		return creditInfo;
+	public void setTime(Timestamp time) {
+		this.time = time;
 	}
 	
-	public void setCreditInfo(String creditInfo) {
-		this.creditInfo = creditInfo;
+	public int getAction() {
+		return action;
+	}
+	
+	public void setAction(int action) {
+		this.action = action;
+	}
+	
+	public String getCreditChange() {
+		return CreditChange;
+	}
+	
+	public void setCreditChange(String CreditChange) {
+		this.CreditChange = CreditChange;
+	}
+	
+	public double getCreditResult() {
+		return CreditResult;
+	}
+	
+	public void setCreditResult(double CreditResult) {
+		this.CreditResult = CreditResult;
 	}
 
 }
