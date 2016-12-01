@@ -2,27 +2,22 @@ package blservice;
 import vo.PromotionVo;
 
 public interface MemberBLService {
-
-	/**
-	 * 
-	 * @param id
-	 * @return 添加用户的信息
-	 */
-	public boolean addUser(long id);
 	
 	/**
 	 * 
 	 * @param id
 	 * @param birthday
+	 * @return 添加个人会员
 	 */
-	public void createByPersonal (long id, String birthday);
+	public void createByPersonal (int id, String birthday);
 	
 	/**
 	 * 
 	 * @param id
 	 * @param name
+	 * @return 添加企业会员
 	 */
-	public void createByBusiness (long id, String name);
+	public void createByBusiness (int id, String name);
 	
 	/**
 	 * 
@@ -36,5 +31,5 @@ public interface MemberBLService {
 	 * @param id
 	 * @return 判断会员
 	 */
-	public boolean isMember (long id);
+	public boolean isMember (int id);
 }

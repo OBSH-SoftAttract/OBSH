@@ -1,54 +1,100 @@
 package vo;
 
+import java.util.List;
 import java.util.Vector;
 import po.HotelPo;
 
 public class HotelVo extends Vector<String> {
-	public HotelVo(int hotelNo, String name, int price, int star, String location, String summary, String services,
-			String roominfo,double scor) {
-		this.add(String.valueOf(hotelNo));
-		this.add(name);
-		this.add(String.valueOf(price));
-		this.add(String.valueOf(star));
-		this.add(location);
-		this.add(summary);
-		this.add(services);
-		this.add(roominfo);
-		this.add(String.valueOf(scor));
+	private int hotelID;
+	private String name;
+	private int star;
+	private String location;  //地址+商圈
+	private List<String> summary;
+	private String services;
+	private String roomInfo;//房间类型+个数 中间用分号区分
+	private double score=0;
+
+
+	public HotelVo(int hotelID, String name, int star, String location, List<String> summary, String services,
+			String roominfo,double s) {
+		super();
+		this.hotelID = hotelID;
+		this.name = name;
+		this.star = star;
+		this.location = location;
+		this.summary = summary;
+		this.services = services;
+		this.roomInfo = roominfo;
+		this.score=s;
 	}
 
-	public int gethotelNo() {
-		return Integer.valueOf(this.get(0));
+	public int getHotelID() {
+		return hotelID;
 	}
 
-	public String getname() {
-		return this.get(1);
+	public void setHotelID(int hotelID) {
+		this.hotelID = hotelID;
 	}
 
-	public int getprice() {
-		return Integer.valueOf(this.get(2));
+	public String getName() {
+		return name;
 	}
 
-	public int getstar() {
-		return Integer.valueOf(this.get(3));
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getlocation() {
-		return this.get(4);
+	public int getStar() {
+		return star;
 	}
 
-	public String getsummary() {
-		return this.get(5);
+	public void setStar(int star) {
+		this.star = star;
 	}
 
-	public String getservices() {
-		return this.get(6);
+	public String getLocation() {
+		return location;
 	}
 
-	public String getroomInfo() {
-		return this.get(7);
+	public void setLocation(String location) {
+		this.location = location;
 	}
-	public double getscore() {
-		return Double.valueOf(this.get(8));
-	}	
+
+	public List<String> getSummary() {
+		return summary;
+	}
+
+	public void setSummary(List<String> summary) {
+		this.summary = summary;
+	}
+	
+	public void addSummary(String summary){
+		this.summary.add(summary);
+	}
+
+	public String getServices() {
+		return services;
+	}
+
+	public void setServices(String services) {
+		this.services = services;
+	}
+
+	public String getRoomInfo() {
+		return roomInfo;
+	}
+
+	public void setRoomInfo(String roomInfo) {
+		this.roomInfo = roomInfo;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+
 }

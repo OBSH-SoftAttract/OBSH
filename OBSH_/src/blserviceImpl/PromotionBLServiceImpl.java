@@ -40,7 +40,7 @@ public class PromotionBLServiceImpl implements PromotionBLService{
 	}
 
 	@Override
-	public List getLineItem(String itemName) {
+	public List<PromotionPo> getLineItem(String itemName) {
 		
 		return null;
 	}

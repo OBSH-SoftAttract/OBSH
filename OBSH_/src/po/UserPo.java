@@ -6,20 +6,19 @@ public class UserPo {
 	private int id;
 	private String username;
 	private String password; 
-	private double credit;
 	private String phone; 
-	private boolean ifVIP;
 	
-	public UserPo (int i, String pa,String ph,String un,double cre,boolean iv){ 
+	public UserPo (int i, String pa,String ph,String un){ 
 		this.id=i;
 		this.password=pa; 
 		this.phone=ph;
 		this.username=un;
-		this.credit=cre;
-		this.ifVIP=iv;
 	}
 	public UserPo(UserVo vo) {
-		// TODO Auto-generated constructor stub
+		this.id=vo.getID();
+		this.password=vo.getPassword(); 
+		this.phone=vo.getPhone();
+		this.username=vo.getUsername();
 	}
 	public int getID(){
 		return id;
@@ -39,22 +38,10 @@ public class UserPo {
 	public void setPhone(String ph){
 		this.phone=ph;
 	}
-	public boolean getifVIP(){ 
-		return ifVIP;
-	}
-	public void setifVIP(boolean b){ 
-		this.ifVIP=b;
-	}
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
-	}
-	public double getCredit() {
-		return credit;
-	}
-	public void setCredit(double credit) {
-		this.credit = credit;
 	}
 }

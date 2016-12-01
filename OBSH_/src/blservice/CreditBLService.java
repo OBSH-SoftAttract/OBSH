@@ -1,27 +1,37 @@
 package blservice;
 
+import po.CreditPo;
+
 public interface CreditBLService {
 	
 	/**
 	 * 
 	 * @param id
-	 * @return 添加用户信息
+	 * @return 获得用户信用值
 	 */
-	public boolean addUser (long id);
+	public CreditPo getCredit (int id);
 	
 	/**
 	 * 
 	 * @param value
 	 * @return 添加用户的信用值
 	 */
-	public double addCredit (double value);
+	public void addCredit(int id,double value);
 	
 	
 	/**
 	 * 
-	 * @param b
+	 * @param tag 0代表一半，1代表全部
 	 * @param price
 	 * @return 处理申诉恢复信用值
 	 */
-	public double recoverCredit (double price, int tage);
+	public void recoverCredit (int id,double price, int tag);
+	
+	/**
+	 * 
+	 * @param id
+	 * @param price
+	 * @return 处理未满6小时撤销扣除的信用值
+	 */
+	public void CutCreditForCancel(int id,double price);
 }

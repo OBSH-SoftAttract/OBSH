@@ -1,6 +1,7 @@
 package blservice;
 import java.util.List;
 
+import po.PromotionPo;
 import vo.PromotionVo;
 public interface PromotionBLService {
 	/**
@@ -37,5 +38,5 @@ public interface PromotionBLService {
 	 * @param itemName
 	 * @return 返回营销策略信息
 	 */
-	public List getLineItem(String itemName);
+	public List<PromotionPo> getLineItem(String itemName);
 }

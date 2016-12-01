@@ -1,7 +1,4 @@
 package data.dao.impl;
-/**
- * 这里缺少一个getlatestcreditPo的方法 由于是逻辑层的 我试着写了一下 头疼 不写了
- */
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

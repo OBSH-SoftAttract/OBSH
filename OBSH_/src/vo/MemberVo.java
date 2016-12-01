@@ -19,16 +19,11 @@ public class MemberVo {
 	
 	private String memberInfo;
 	
-	public MemberVo(){
-		super();
-	}
-	
-	public MemberVo(MemberPo memberPo,UserPo userPo){
-		super();
-		this.userInfo = userPo.getUsername()+"("+userPo.getCredit()+")";
-		this.userId = memberPo.getUserId();
-		this.rank = memberPo.getRank();
-		this.memberInfo = memberPo.getMemberInfo();
+	public MemberVo(int id,int Rank,String userinf,String memberInf){
+		this.userId=id;
+		this.rank=Rank;
+		this.userInfo=userinf;
+		this.memberInfo= memberInf;
 	}
 	
 	public int getUserId() {

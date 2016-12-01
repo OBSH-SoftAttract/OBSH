@@ -35,12 +35,16 @@ public class OrderBLServiceImpl implements OrderBLService{
 	private static int scoreCount=0;
 	private final double CREDIT=0;
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private final long AttemptedTime=21600000;//6小时
+	
+	private CreditBLServiceImpl cre;
 	
 	public OrderBLServiceImpl(){
 		creditdao=CreditDaoImpl.getInstance();
 		orderdao=OrderDaoImpl.getInstance();
 		hoteldao=HotelDaoImpl.getInstance();
 		promotiondao=PromotionDaoImpl.getInstance();
+		cre=new CreditBLServiceImpl();
 	}
 	
 	@Override
@@ -51,11 +55,17 @@ public class OrderBLServiceImpl implements OrderBLService{
 		ordervo.setOrderState(2);
 		OrderPo po=orderdao.getOrder(ordervo.getOrderID());
 		po.setOrderState(2);
+		
+		Date date=new Date();
+		Timestamp now=new Timestamp(date.getTime());
+		if(now.getTime()-ordervo.getStartTime().getTime()>AttemptedTime){
+			cre.CutCreditForCancel(ordervo.getUserID(),ordervo.getPrice());
+		}
 		return orderdao.updateOrder(po);
 	}
 
 	@Override
-	public boolean IFpassTime(OrderVo ordervo) throws RemoteException{//返回的格式为：hh：mm：ss
+	public boolean IFpassTime(OrderVo ordervo) throws RemoteException{
 		Timestamp deadline=ordervo.getLastTime();		
 		Date date = new Date();       
 		Timestamp now = new Timestamp(date.getTime());
@@ -66,9 +76,11 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	@Override
 	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
-		double precredit=creditdao.getCredit(ordervo.getUserID()).getCredit();
-		CreditPo creditpo=new CreditPo(ordervo.getUserID(), precredit-ordervo.getPrice());
-		creditdao.updateCredit(creditpo);
+		double precredit=cre.getCredit(ordervo.getUserID()).getCreditResult();
+		Date date=new Date();
+		Timestamp now=new Timestamp(date.getTime());
+		CreditPo creditpo=new CreditPo(ordervo.getUserID(),now ,precredit-ordervo.getPrice());
+		creditdao.addCredit(creditpo);
 	}
 
 	@Override
@@ -94,8 +106,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public boolean CreditCheck(OrderVo ordervo) throws RemoteException{
 		int id=ordervo.getUserID();
-		double cre=creditdao.getCredit(id).getCredit();
-		if(cre>=CREDIT)return true;
+		double credit=cre.getCredit(id).getCreditResult();
+		if(credit>=CREDIT)return true;
 		return false;
 	}
 
@@ -133,12 +145,14 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	@Override
 	public void Solve(OrderVo vo) throws RemoteException{
-		OrderPo orderpo=orderdao.getOrder(vo.getOrderID());
+		OrderPo orderpo=orderdao.getOrder(vo.getOrderID());//先修改状态
 		orderpo.setOrderState(1);
+		orderdao.updateOrder(orderpo);
+		
 		double incre=orderpo.getPrice();
-		CreditPo po=creditdao.getCredit(orderpo.getUserID());
-		po.setCredit(incre+creditdao.getCredit(orderpo.getUserID()).getCredit());
-		creditdao.updateCredit(po);
+		CreditPo po=cre.getCredit(orderpo.getUserID());
+		po.setCreditResult((incre+cre.getCredit(orderpo.getUserID()).getCreditResult()));
+		creditdao.addCredit(po);
 	}
 
 	@Override

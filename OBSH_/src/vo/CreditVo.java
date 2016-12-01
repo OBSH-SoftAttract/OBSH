@@ -12,49 +12,63 @@ import po.CreditPo;
 import po.UserPo;
 
 public class CreditVo {
+	private int userID;
 	
-	private double credit;
+	private Timestamp  time;
 	
-	private String creditInfo;
+	private int action;
 	
-	private String userInfo;
+	private String CreditChange;
 	
-	public CreditVo(){
-		super();
-	}
+	private double CreditResult;
 	
-	public CreditVo(CreditPo creditPo,UserPo userPo){
-		super();
-		this.userInfo = userPo.getUsername();
-		this.credit = creditPo.getCredit();
-		this.creditInfo = creditPo.getCreditInfo();
-	}
-
-	
-	public double getCredit() {
-		return credit;
-	}
-	
-	public void setCredit(double credit) {
-		this.credit = credit;
-	}
-	
-	public String getUserInfo() {
-		return userInfo;
-	}
-	
-	public void setUserInfo(String userInfo) {
-		this.userInfo = userInfo;
-	}
-
-	public String getCreditInfo() {
-		return creditInfo;
-	}
-	
-	public void setCreditInfo(String creditInfo) {
-		this.creditInfo = creditInfo;
+	public CreditVo(int id,Timestamp t,int act,String creChange,double credit){
+		this.userID=id;
+		this.time=t;
+		this.action=act;
+		this.CreditChange=creChange;
+		this.CreditResult=credit;
 	}
 	
 	
+	public int getUserID() {
+		return userID;
+	}
+	
+	public void setUserId(int userID) {
+		this.userID = userID;
+	}
+	
+	public Timestamp getTime() {
+		return time;
+	}
+	
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}
+	
+	public int getAction() {
+		return action;
+	}
+	
+	public void setAction(int action) {
+		this.action = action;
+	}
+	
+	public String getCreditChange() {
+		return CreditChange;
+	}
+	
+	public void setCreditChange(String CreditChange) {
+		this.CreditChange = CreditChange;
+	}
+	
+	public double getCreditResult() {
+		return CreditResult;
+	}
+	
+	public void setCreditResult(double CreditResult) {
+		this.CreditResult = CreditResult;
+	}
 
 }

@@ -1,8 +1,12 @@
 package blservice;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import po.CreditPo;
+import po.HotelPo;
 import po.HotelroomPo;
+import po.OrderPo;
+import vo.HotelVo;
 import vo.HotelroomVo;
 import vo.UserVo;
 
@@ -18,37 +22,38 @@ public interface UserBLService {
 	
 	/**
 	 * 
+	 * @param id
+	 * @return 获得信用记录
+	 */
+	public List<CreditPo> getHistoryCredit(int id);
+	
+	/**
+	 * 
 	 * @param address
 	 * @param commercialDistrict
-	 * @return 获得酒店信息
+	 * @return 获得对应地址商圈的酒店信息列表
 	 */
-	public ArrayList<HotelroomPo> Views(String address,String commercialDistrict);
+	public List<HotelPo>  Views(String address,String commercialDistrict);
 	
 	/**
 	 * 
 	 * @param vo
-	 * @return 获得信用值
+	 * @return 修改客户信息
 	 */
-	public boolean GetCredit(UserVo vo);
-	
-	/**
-	 * 
-	 * @param vo
-	 */
-	public void ModifyMessage(UserVo vo);
+	public boolean ModifyMessage(UserVo vo);
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 修改酒店信息
 	 */
-	public boolean ModifyHotelMessage(HotelroomVo vo);
+	public boolean ModifyHotelMessage(HotelVo vo);
 	
 	/**
 	 * 
 	 * @param id
 	 */
-	public void Administration(long id);
+	public void Administration(int id);
 	
 	/**
 	 * 
@@ -68,21 +73,21 @@ public interface UserBLService {
 	 * @param state
 	 * @return 获得对应状态
 	 */
-	public ArrayList<HotelroomVo> filterbystate(int state);
+	public List<HotelroomVo> filterbystate(int state);
 	
 	/**
 	 * 
 	 * @param list
 	 * @return 获得按时间排序的酒店信息
 	 */
-	public ArrayList<HotelroomVo> SortByTime (ArrayList<HotelroomVo> list);
+	public List<HotelroomVo> SortByTime (List<HotelroomVo> list);
 	
 	/**
 	 * 
 	 * @param hotel
 	 * @return 获得详细信息
 	 */
-	public boolean ViewDetail(HotelroomVo hotel);
+	public boolean ViewDetail(int hotelid);
 	
 	
 	/**
@@ -94,8 +99,23 @@ public interface UserBLService {
 	
 	/**
 	 * 
+	 * @param vo
+	 * @return 添加酒店工作人员(需要先添加酒店)
+	 */
+	public boolean AddHotelMember(UserVo vo);
+	
+	/**
+	 * 
+	 * @param vo
+	 * @return 添加营销人员
+	 */
+	public boolean AddMarketer(UserVo vo);
+	
+	/**
+	 * 
 	 * @param id
 	 * @return 获得历史订单记录
 	 */
-	public boolean GetOrderHistory (int id);
+	public List<OrderPo> GetOrderHistory (int id);
+	
 }

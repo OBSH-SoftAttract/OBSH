@@ -1,0 +1,34 @@
+package blserviceImpl;
+
+import blservice.CreditBLService;
+import data.dao.CreditDao;
+import data.dao.impl.CreditDaoImpl;
+import po.CreditPo;
+
+public class CreditBLServiceImpl implements CreditBLService{
+
+	private CreditDao creditdao;
+	
+	public CreditBLServiceImpl(){
+		creditdao=CreditDaoImpl.getInstance();
+	}
+	
+	@Override
+	public double addCredit(double value) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double recoverCredit (double price, int tage) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public CreditPo getCredit(int id) {
+	
+		return null;
+	}
+
+}
