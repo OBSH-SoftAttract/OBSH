@@ -2,18 +2,22 @@
 	-fx-background-color:white;
 }
 .Top{
-	-fx-background-color:#8bbdes;
+	-fx-background-color:#f2eada;
 }
 .Second{
-	-fx-background-color:rgd(69,137,148);
+	-fx-background-color:#94ccd9;
 }
+.Center{
+	-fx-background-color:linear-gradient(to bottom,#94ccd9,white);
+}
+
 .SearchHotel{
 	-fx-background-color:#fbcb45;
 	-fx-font-size:15;
 	-fx-text-fill:black;
 }
 .CheckOrder{
-	-fx-background-color:#667bbf;
+	-fx-background-color:#e4718e;
 	-fx-font-size:15;
 	-fx-text-fill:#a8a3a6;
 }
@@ -23,5 +27,8 @@
 	-fx-text-fill:#bdd97e;
 }
 .SearchButton{
-	-fx-image:url("/searchicon.png"); 
+	-fx-background-image:url("/searchicon.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-background-color:#b2d235;
 }
