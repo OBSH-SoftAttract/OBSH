@@ -38,17 +38,4 @@ public interface HotelDao {
 	 */
 	public List<HotelPo> searchHotelByLocation(String location);
 
-	/**
-	 * 
-	 * @return  获得所有酒店信息
-	 */
-	public List<HotelPo> getAllHotel();
-
-	/**
-	 * 
-	 * @param location
-	 * @return  按酒店名称搜索酒店
-	 */
-	public List<HotelPo> searchHotelByName(String hotelName);
-
 }
