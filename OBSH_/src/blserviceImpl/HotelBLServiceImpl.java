@@ -58,4 +58,28 @@ public class HotelBLServiceImpl implements HotelBLService{
 		return null;
 	}
 
+	@Override
+	public String[] getProvince() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getRelatedCity(int p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getRelatedDistrict(int c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getRelatedCommercial(int c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

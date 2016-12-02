@@ -1,0 +1,27 @@
+.root{
+	-fx-background-color:white;
+}
+.Top{
+	-fx-background-color:#8bbdes;
+}
+.Second{
+	-fx-background-color:rgd(69,137,148);
+}
+.SearchHotel{
+	-fx-background-color:#fbcb45;
+	-fx-font-size:15;
+	-fx-text-fill:black;
+}
+.CheckOrder{
+	-fx-background-color:#667bbf;
+	-fx-font-size:15;
+	-fx-text-fill:#a8a3a6;
+}
+.MaintainPersonalInfo{
+	-fx-background-color:#c39b85;
+	-fx-font-size:15;
+	-fx-text-fill:#bdd97e;
+}
+.SearchButton{
+	-fx-image:url("/searchicon.png"); 
+}

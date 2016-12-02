@@ -1,52 +1,5 @@
 .root{
-	-fx-background-image:url("'/31.jpeg"); 
-}
-
-#text{
-	-fx-font-size:20px;
-	-fx-text-fill:#ffc20e;
-	-fx-effect:dropshadow(gaussian,rgba(255,255,255,0.5) , 0,0,0,1);
-}
-.Button{
-	  -fx-font-family: "Arial Narrow";
-	  -fx-font-weight: bold;
-	  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-} 
-.ChangedButton:hover {
-	-fx-background-color: linear-gradient(#2A5058, #61a2b1);
-}
-.Vbox{
-	-fx-border-insets:20.0 20.0 20.0 20.0;
-	-fx-border-width: 2px;
-	-fx-border-color: #ffffff;
-	-fx-padding: 30;
-	-fx-spacing: 30;
-	-fx-hgap: 10;
-    -fx-vgap: 10;
-}
-.Gridpane{
-	-fx-border-color:#ffffff;
-	-fx-border-radius:10;
-	-fx-background-color: #ffffff;
-	-fx-background-insets:0.0 80.0 40.0 20.0;
-	-fx-border-insets:0.0 80.0 40.0 20.0;
-}
-.SearchButton{
-	-fx-font-family: "Arial Narrow";
-	-fx-font-weight: bold;
-	-fx-background-color:#78cdd1;
-	-fx-text-fill: #ffffff;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-}
-.ToggleButton1{
-	-fx-base:#d7ecf1;
-}
-.ToggleButton2{
-	-fx-base:#f3f8f1;
-}
-.ToggleButton3{
-	-fx-base:#a98175;
-}
-.ToggleButton4{
-	-fx-base:#d4f2e8;
+	-fx-background-image:url("'/登录界面2.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
 }

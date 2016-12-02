@@ -49,5 +49,9 @@ public interface HotelBLService {
 	 */
 	public String Addkind(String kind);
 	public Object Addprice(double price);
+	public String[] getProvince();
+	public String[] getRelatedCity(int p);
+	public String[] getRelatedDistrict(int c);
+	public String[] getRelatedCommercial(int c);
 }
 
