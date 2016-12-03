@@ -1,57 +1,69 @@
 package blservice;
+import java.util.List;
+
+import po.HotelPo;
 import vo.HotelVo;
 public interface HotelBLService {
 	/**
 	 * 
 	 * @param hotelNo
-	 * @return
+	 * @return 添加酒店
 	 */
-	public int Addhotel (int hotelNo);
+	public boolean Addhotel (HotelVo hotelvo);
+
+
 	/**
 	 * 
-	 * @return
+	 * @return 搜索所有酒店
 	 */
-	public void Updatehotel();
-	/**
-	 * 
-	 * @param price
-	 * @return
-	 */
-	public int Addprice(int price);
-	/**
+	public List<HotelPo> AllHotels();
+	
+		/**
 	 * 
 	 * @param star
-	 * @return
+	 * @return 按星级搜索
 	 */
-	public int Addstar(int star);
+	public List<HotelPo> SortByStar(int star,List<HotelPo> list);
+	
 	/**
 	 * 
-	 * @param location
-	 * @return
+	 * @param min
+	 * @param max
+	 * @return 按原始价格区间搜索
 	 */
-	public String Addlocation(String location);
+	public List<HotelPo> SortByPrice(double min, double max,List<HotelPo> list);
+	
 	/**
 	 * 
-	 * @param summary
-	 * @return
+	 * @param min
+	 * @param max
+	 * @return 按评价区间搜索
 	 */
-	public String Addsummary(String summary);
+	public List<HotelPo> SortByScore(double min, double max,List<HotelPo> list);
+	
 	/**
 	 * 
-	 * @param services
-	 * @return
+	 * @param type
+	 * @return 按房间类型搜索
 	 */
-	public String Addservices(String services);
+	public List<HotelPo> SortByRoomType(String type,List<HotelPo> list);
+	
 	/**
 	 * 
-	 * @param kind
-	 * @return
+	 * @param hotel
+	 * @return 直接搜索酒店名称
 	 */
-	public String Addkind(String kind);
-	public Object Addprice(double price);
+	public HotelPo SearchByNmae(String hotel);
+	
+
 	public String[] getProvince();
+
+
 	public String[] getRelatedCity(int p);
+
+
 	public String[] getRelatedDistrict(int c);
+
+
 	public String[] getRelatedCommercial(int c);
 }
-

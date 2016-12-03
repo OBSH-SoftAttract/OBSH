@@ -229,60 +229,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public int Addhotel(int hotelNo) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addhotel(hotelNo);
-	}
-
-	@Override
-	public void Updatehotel() {
-		// TODO Auto-generated method stub
-		hotelblservice.Updatehotel();
-	}
-
-	@Override
-	public int Addprice(int price) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addprice(price);
-	}
-
-	@Override
-	public int Addstar(int star) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addstar(star);
-	}
-
-	@Override
-	public String Addlocation(String location) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addlocation(location);
-	}
-
-	@Override
-	public String Addsummary(String summary) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addsummary(summary);
-	}
-
-	@Override
-	public String Addservices(String services) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addservices(services);
-	}
-
-	@Override
-	public String Addkind(String kind) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addkind(kind);
-	}
-
-	@Override
-	public Object Addprice(double price) {
-		// TODO Auto-generated method stub
-		return hotelblservice.Addprice(price);
-	}
-
-	@Override
 	public void addCredit(int id,double value) {
 		// TODO Auto-generated method stub
 		creditblservice.addCredit(id,value);
@@ -443,9 +389,65 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
+	public boolean Addhotel(HotelVo hotelvo) {
+		// TODO Auto-generated method stub
+		return hotelblservice.Addhotel(hotelvo);
+	}
+
+
+
+	@Override
+	public List<HotelPo> AllHotels() {
+		// TODO Auto-generated method stub
+		return hotelblservice.AllHotels();
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByStar(int star, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByStar(star, list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByPrice(double min, double max, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByPrice(min, max, list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByScore(double min, double max, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByScore(min, max, list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByRoomType(String type, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByRoomType(type, list);
+	}
+
+
+
+	@Override
+	public HotelPo SearchByNmae(String hotel) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SearchByNmae(hotel);
+	}
+
+
+
+	@Override
 	public String[] getProvince() {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.getProvince();
 	}
 
 
@@ -453,7 +455,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	@Override
 	public String[] getRelatedCity(int p) {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.getRelatedCity(p);
 	}
 
 
@@ -461,7 +463,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	@Override
 	public String[] getRelatedDistrict(int c) {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.getRelatedDistrict(c);
 	}
 
 
@@ -469,7 +471,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	@Override
 	public String[] getRelatedCommercial(int c) {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.getRelatedCommercial(c);
 	}
 
 }

@@ -1,84 +1,82 @@
 package blserviceImpl;
 
+import java.util.List;
+
 import blservice.HotelBLService;
+import data.dao.HotelDao;
+import data.dao.impl.HotelDaoImpl;
+import po.HotelPo;
+import vo.HotelVo;
 
-public class HotelBLServiceImpl implements HotelBLService{
+public class HotelBLServiceImpl implements HotelBLService {
 
-	@Override
-	public int Addhotel(int hotelNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	HotelDao hoteldao;
+
+	public HotelBLServiceImpl() {
+		hoteldao = HotelDaoImpl.getInstance();
 	}
 
 	@Override
-	public void Updatehotel() {
-		// TODO Auto-generated method stub
-		
+	public boolean Addhotel(HotelVo hotelvo) {
+		return hoteldao.addHotelPo(new HotelPo(hotelvo));
 	}
 
 	@Override
-	public int Addprice(int price) {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<HotelPo> SortByStar(int star, List<HotelPo> list) {
+		for (int i = 0; i < list.size();) {
+			if (list.get(i).getStar() != star) {
+				list.remove(i);
+			} else
+				i++;
+		}
+		return list;
 	}
 
 	@Override
-	public int Addstar(int star) {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<HotelPo> AllHotels() {
+		return null;
 	}
 
 	@Override
-	public String Addlocation(String location) {
+	public List<HotelPo> SortByPrice(double min, double max, List<HotelPo> list) {
+		return null;
+	}
+
+	@Override
+	public List<HotelPo> SortByScore(double min, double max, List<HotelPo> list) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String Addsummary(String summary) {
+	public List<HotelPo> SortByRoomType(String type, List<HotelPo> list) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String Addservices(String services) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public HotelPo SearchByNmae(String hotel) {
 
-	@Override
-	public String Addkind(String kind) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object Addprice(double price) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String[] getProvince() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String[] getRelatedCity(int p) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String[] getRelatedDistrict(int c) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String[] getRelatedCommercial(int c) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
