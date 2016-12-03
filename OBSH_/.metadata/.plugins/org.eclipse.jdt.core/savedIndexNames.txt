@@ -1,1 +1,0 @@
-INDEX VERSION 1.127+E:\南大\课\软工二\酒店预定系统\OBSH\OBSH\.metadata\.plugins\org.eclipse.jdt.core

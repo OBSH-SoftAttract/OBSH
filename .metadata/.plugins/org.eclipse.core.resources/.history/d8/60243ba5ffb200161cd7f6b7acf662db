@@ -1,7 +1,0 @@
-package data.dao.impl;
-
-import data.dao.HotelroomDao;
-
-public class HotelroomDaoImpl implements HotelroomDao {
-
-}
