@@ -34,7 +34,7 @@ public class jdbcdemo {
 		  Timestamp.valueOf("2016-11-30 10:08:04"),151250004,500,1001,"商务房");
   //static CreditPo creditPo = new CreditPo(151250004, 2000, "-500+2016-11-29");
   public static void main(String[] args) {
-	  HotelDao hotelDao = HotelDaoImpl.getInstance();
+	  //HotelDao hotelDao = HotelDaoImpl.getInstance();
 	  /*CreditDao creditDao = CreditDaoImpl.getInstance();
 	  System.out.println(creditDao.getCredit(creditPo.getUserId()).getCreditInfo());
 	  OrderDao orderDao = OrderDaoImpl.getInstance();

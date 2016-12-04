@@ -8,8 +8,6 @@ import java.sql.Timestamp;
  * creditInfo   信用记录详情
  * @author bxh
  */
-import po.CreditPo;
-import po.UserPo;
 
 public class CreditVo {
 	private int userID;

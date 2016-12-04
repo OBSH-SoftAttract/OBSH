@@ -1,10 +1,6 @@
 package client_rmi;
 
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.Remote;
-import java.rmi.RemoteException;
 
 import blservice.CreditBLService;
 import blservice.HotelBLService;
@@ -15,48 +11,42 @@ import blservice.PromotionBLService;
 import blservice.UserBLService;
 
 public class RemoteHelper_client {
-    private RemoteHelper_client remotehelper;
-    private Remote remote;
-	public void linkToServer() {
-		try {
-			remotehelper.setRemote(Naming.lookup("rmi://localhost:4450/DataRemoteObject"));
-			System.out.println("the client has linked");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (NotBoundException e) {
-			e.printStackTrace();
-		}
+	private static RemoteHelper_client remotehelper = new RemoteHelper_client();
+	private Remote remote;
+
+	public static RemoteHelper_client getInstance() {
+		return remotehelper;
 	}
-	
-	public RemoteHelper_client(){
-		linkToServer();
-	}
-	
-	private void setRemote(Remote remote){
+
+	public void setRemote(Remote remote) {
 		this.remote = remote;
 	}
-	
-	public UserBLService getUserBLService(){
-		return (UserBLService)remote;
+
+	public UserBLService getUserBLService() {
+		return (UserBLService) remote;
 	}
-	public PromotionBLService getPromotionBLService(){
-		return (PromotionBLService)remote;
+
+	public PromotionBLService getPromotionBLService() {
+		return (PromotionBLService) remote;
 	}
-	public CreditBLService getCreditBLService(){
-		return (CreditBLService)remote;
+
+	public CreditBLService getCreditBLService() {
+		return (CreditBLService) remote;
 	}
-	public HotelBLService getHotelBLService(){
-		return (HotelBLService)remote;
+
+	public HotelBLService getHotelBLService() {
+		return (HotelBLService) remote;
 	}
-	public OrderBLService getOrderBLService(){
-		return (OrderBLService)remote;
+
+	public OrderBLService getOrderBLService() {
+		return (OrderBLService) remote;
 	}
-	public MemberBLService getMemberBLService(){
-		return (MemberBLService)remote;
+
+	public MemberBLService getMemberBLService() {
+		return (MemberBLService) remote;
 	}
-	public HotelroomBLService getHotelroomBLService(){
-		return (HotelroomBLService)remote;
+
+	public HotelroomBLService getHotelroomBLService() {
+		return (HotelroomBLService) remote;
 	}
 }

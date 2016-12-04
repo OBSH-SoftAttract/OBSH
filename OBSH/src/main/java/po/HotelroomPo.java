@@ -9,23 +9,21 @@ import java.sql.Timestamp;
  * AttemptedLeaveTime 预计退房时间
  * TimeCheckOut 退房时间
  * roomType  房间类型
- * ifOccupied 房间使用状态
  */
 public class HotelroomPo {
 	private int roomID;
 	private Timestamp TimeCheckIn;
 	private int hotelID;
-	private Timestamp dateoutpro;
+	private Timestamp AttemptedLeaveTime;
 	private Timestamp TimeCheckOut;
 	private String roomType;
-	private boolean ifOccupied=false;
 
-    public HotelroomPo(int roomID,Timestamp datein,int hotelID,Timestamp dateoutpro,
+    public HotelroomPo(int roomID,Timestamp datein,int hotelID,Timestamp attemptedLeaveTime,
     		Timestamp timecheckout,String roomtype){
     	this.roomID=roomID;
     	this.TimeCheckIn=datein;
     	this.hotelID=hotelID;
-    	this.dateoutpro=dateoutpro;
+    	this.AttemptedLeaveTime=attemptedLeaveTime;
     	this.TimeCheckOut=timecheckout;
     	this.roomType = roomtype;
     }
@@ -54,12 +52,12 @@ public class HotelroomPo {
 		this.hotelID = hotelID;
 	}
 
-	public Timestamp getDateoutpro() {
-		return dateoutpro;
+	public Timestamp getAttemptedLeaveTime() {
+		return AttemptedLeaveTime;
 	}
 
-	public void setDateoutpro(Timestamp dateoutpro) {
-		this.dateoutpro = dateoutpro;
+	public void setAttemptedLeaveTime(Timestamp attemptedLeaveTime) {
+		this.AttemptedLeaveTime = attemptedLeaveTime;
 	}
 
 	public Timestamp getTimeCheckOut() {
@@ -78,12 +76,5 @@ public class HotelroomPo {
 		this.roomType = roomType;
 	}
 
-	public boolean isIfOccupied() {
-		return ifOccupied;
-	}
-
-	public void setIfOccupied(boolean ifOccupied) {
-		this.ifOccupied = ifOccupied;
-	}
                                                        
 }

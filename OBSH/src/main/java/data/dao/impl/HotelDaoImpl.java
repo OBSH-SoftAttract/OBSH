@@ -111,12 +111,6 @@ public class HotelDaoImpl implements HotelDao {
 		}
 		return false;
 		
-		/*int hotelId = hotelPo.getHotelNo();  这里提供了第二种方法 不直接访问数据库 但可能数据层复杂
-		if(map.get(hotelId)==null) {           将增加信息的map传入数据层中 遍历某一条数据库中没有 则加入
-			map.put(hotelId, hotelPo);
-			hotelDataHelper.addHotelPo(map);
-			return true;
-		}*/
 	}
 
 	@Override

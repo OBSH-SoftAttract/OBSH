@@ -21,25 +21,26 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 	static int sta;  
 	
 	@Override
-	public Map<Integer, HotelroomPo> getHotelroomData() {
+	public Map<String, HotelroomPo> getHotelroomData() {
 		// TODO Auto-generated method stub
 		
 		 sql = "select *from hotelroom";//SQL语句  
 		 db1 = new JDBCHelper(sql);//创建DBHelper对象  
-		 Map<Integer, HotelroomPo> map = new HashMap<Integer, HotelroomPo>();
+		 Map<String, HotelroomPo> map = new HashMap<String, HotelroomPo>();
 		    
 		 try {  
 			 ret = db1.pst.executeQuery();//执行语句，得到结果集  
 		     while (ret.next()) {  
-		     int hotelId = ret.getInt(1); 
-		     int roomId = ret.getInt(2);  
-		     String roomName = ret.getString(3); 
-		     Timestamp dateIn = ret.getTimestamp(4);
-		     Timestamp dateOut = ret.getTimestamp(5);
-		     Timestamp actualDateOut = ret.getTimestamp(6);
-		            
-		     HotelroomPo hotelroomPo=new HotelroomPo(roomId, dateIn, hotelId, dateOut, actualDateOut, roomName); 
-		     map.put(roomId, hotelroomPo);
+		     int roomID = ret.getInt(1);
+		     Timestamp timeCheckIn = ret.getTimestamp(2);
+		     int hotelID = ret.getInt(3);
+		     Timestamp attemptedLeaveTime = ret.getTimestamp(4);
+		     Timestamp timeCheckOut = ret.getTimestamp(5);
+		     String roomType = ret.getString(6);
+		     String hotelroomID = String.valueOf(hotelID)+String.valueOf(roomID);
+		     
+		     HotelroomPo hotelroomPo=new HotelroomPo(roomID, timeCheckIn, hotelID, attemptedLeaveTime, timeCheckOut, roomType); 
+		     map.put(hotelroomID, hotelroomPo);
 		 }//显示数据  
 		     ret.close();  
 		     db1.close();//关闭连接  
@@ -50,20 +51,20 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 	}
 
 	@Override
-	public void updateHotelroomData(Map<Integer, HotelroomPo> map) {
+	public void updateHotelroomData(Map<String, HotelroomPo> map) {
 		// TODO Auto-generated method stub
 		
-		Iterator<Map.Entry<Integer, HotelroomPo>> iterator = map.entrySet().iterator();
+		Iterator<Map.Entry<String, HotelroomPo>> iterator = map.entrySet().iterator();
 		while(iterator.hasNext()){
-			Map.Entry<Integer, HotelroomPo> entry = iterator.next();
+			Map.Entry<String, HotelroomPo> entry = iterator.next();
 			HotelroomPo hotelroomPo = entry.getValue();
 
-			sql = "update hotelroom set hotelid = "+hotelroomPo.getHotelID()+
-					",roomName = '"+hotelroomPo.getRoomType()+
-					"',datein = '"+hotelroomPo.getTimeCheckIn()+
-					"',dateout = '"+hotelroomPo.getDateoutpro()+
-					"',actualdateout = '"+hotelroomPo.getTimeCheckOut()+
-					"' where roomid = "+hotelroomPo.getRoomID();//SQL语句 
+			sql = "update hotelroom set + TimeCheckIn = '"+hotelroomPo.getTimeCheckIn()+
+					"',AttemptedLeaveTime = '"+hotelroomPo.getAttemptedLeaveTime()+
+					"',TimeCheckOut = '"+hotelroomPo.getTimeCheckOut()+
+					"',roomType = '"+hotelroomPo.getRoomType()+
+					"',where roomID = "+hotelroomPo.getRoomID()+
+					"and hotelID = "+hotelroomPo.getHotelID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -79,12 +80,12 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 	public void addHotelroom(HotelroomPo hotelroomPo) {
 		// TODO Auto-generated method stub
 
-		sql = "insert into hotelroom value("+hotelroomPo.getHotelID()+
-				","+hotelroomPo.getRoomID()+
-				",'"+hotelroomPo.getRoomType()+
-				"','"+hotelroomPo.getTimeCheckIn()+
-				"','"+hotelroomPo.getDateoutpro()+
-				"','"+hotelroomPo.getTimeCheckOut()+"')";
+		sql = "insert into hotelroom value("+hotelroomPo.getRoomID()+
+				",'"+hotelroomPo.getTimeCheckIn()+
+				"',"+hotelroomPo.getHotelID()+
+				",'"+hotelroomPo.getAttemptedLeaveTime()+
+				"','"+hotelroomPo.getTimeCheckOut()+
+				"','"+hotelroomPo.getRoomType()+"')";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);
@@ -96,10 +97,10 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 	}
 	
 	@Override
-	public void deleteHotelroom(int hotelroomId) {
+	public void deleteHotelroom(int hotelID, int roomID) {
 		// TODO Auto-generated method stub
 		
-		sql = "delete from hotelroom where roomid = "+hotelroomId;
+		sql = "delete from hotelroom where roomid = "+roomID +"and hotelID = "+hotelID;
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);
