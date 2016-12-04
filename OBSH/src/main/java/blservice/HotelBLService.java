@@ -11,13 +11,20 @@ public interface HotelBLService {
 	 */
 	public boolean Addhotel (HotelVo hotelvo);
 
-
 	/**
 	 * 
-	 * @return 搜索所有酒店
+	 * @param address
+	 * @param commercialDistrict
+	 * @return 按地址和商圈
 	 */
-	public List<HotelPo> AllHotels();
+	public List<HotelPo> Views(String address, String commercialDistrict);
 	
+	/**
+	 * 
+	 * @param hotelid
+	 * @return 详细信息：地址+简介+设施服务+客房类型+价格
+	 */
+	public String ViewHotelDetail(int hotelid);
 		/**
 	 * 
 	 * @param star
@@ -53,17 +60,6 @@ public interface HotelBLService {
 	 * @param hotel
 	 * @return 直接搜索酒店名称
 	 */
-	public HotelPo SearchByNmae(String hotel);
-	
+	public HotelPo SearchByName(String hotel);
 
-	public String[] getProvince();
-
-
-	public String[] getRelatedCity(int p);
-
-
-	public String[] getRelatedDistrict(int c);
-
-
-	public String[] getRelatedCommercial(int c);
 }

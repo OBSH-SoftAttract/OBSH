@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+import blservice.HotelBLService;
 import blservice.UserBLService;
 import data.dao.CreditDao;
 import data.dao.HotelDao;
@@ -28,6 +29,7 @@ public class UserBLServiceImpl implements UserBLService{
 	private HotelDao hoteldao;
 	private OrderDao orderdao;
 	private CreditDao creditdao;
+	private HotelBLService hotelbl;
 	private final double DefaultCredit=0;
 	
 	public UserBLServiceImpl(){
@@ -35,6 +37,7 @@ public class UserBLServiceImpl implements UserBLService{
 		hoteldao=HotelDaoImpl.getInstance();
 		orderdao=OrderDaoImpl.getInstance();
 		creditdao=CreditDaoImpl.getInstance();
+		hotelbl=new HotelBLServiceImpl();
 	}
 	
 	@Override
@@ -42,11 +45,6 @@ public class UserBLServiceImpl implements UserBLService{
 		return userdao.getUser(id).getPassword().equals(password);
 	}
 	
-	@Override
-	public List<HotelPo> Views(String address, String commercialDistrict) {
-		return hoteldao.searchHotelByLocation(address+"+"+commercialDistrict);
-	}
-
 	@Override
 	public boolean ModifyMessage(UserVo vo) {
 		UserPo po=new UserPo(vo);
@@ -90,12 +88,6 @@ public class UserBLServiceImpl implements UserBLService{
 	}
 
 	@Override
-	public boolean ViewDetail(int hotelid) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean AddClient(UserVo vo) {
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=9)return false;
@@ -114,8 +106,7 @@ public class UserBLServiceImpl implements UserBLService{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=4)return false;
 		
-		UserPo po=new UserPo(vo);
-		return userdao.addUser(po);
+		return userdao.addUser(new UserPo(vo));
 	}
 
 	@Override
@@ -123,8 +114,7 @@ public class UserBLServiceImpl implements UserBLService{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=3)return false;
 		
-		UserPo po=new UserPo(vo);
-		return userdao.addUser(po);
+		return userdao.addUser(new UserPo(vo));
 	}
 
 	@Override

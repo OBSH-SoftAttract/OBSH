@@ -2,7 +2,7 @@ package vo;
 
 import java.sql.Timestamp;
 import java.util.Vector;
-import po.HotelroomPo;
+
 
 public class HotelroomVo extends Vector<String> {
 	private int roomID;

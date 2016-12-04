@@ -8,11 +8,12 @@ public class HotelPo {
 	private int hotelID;
 	private String name;
 	private int star;
+	private String briefInro;  //简介
 	private String location;  //地址+商圈
-	private List<String> summary;
-	private String services;
+	private List<String> summary; //评价
+	private String services;  //服务设施
 	private String roomInfo;//房间类型+个数 中间用分号区分
-	private double score=0;
+	private static double score=0;
 	
 	public HotelPo(HotelVo hotelvo) {
 		this.hotelID = hotelvo.getHotelID();
@@ -22,11 +23,11 @@ public class HotelPo {
 		this.summary = hotelvo.getSummary();
 		this.services = hotelvo.getServices();
 		this.roomInfo =hotelvo.getRoomInfo();
-		this.score=hotelvo.getScore();
+		HotelPo.score=hotelvo.getScore();
 	}
 
 	public HotelPo(int hotelID, String name, int star, String location, List<String> summary, String services,
-			String roominfo,double s) {
+			String roominfo,double s,String br) {
 		this.hotelID = hotelID;
 		this.name = name;
 		this.star = star;
@@ -34,7 +35,16 @@ public class HotelPo {
 		this.summary = summary;
 		this.services = services;
 		this.roomInfo = roominfo;
-		this.score=s;
+		HotelPo.score=s;
+		this.briefInro=br;
+	}
+
+	public String getBriefInro() {
+		return briefInro;
+	}
+
+	public void setBriefInro(String briefInro) {
+		this.briefInro = briefInro;
 	}
 
 	public int getHotelID() {
@@ -102,7 +112,7 @@ public class HotelPo {
 	}
 
 	public void setScore(double score) {
-		this.score = score;
+		HotelPo.score = score;
 	}
 
 

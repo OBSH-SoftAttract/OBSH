@@ -27,13 +27,6 @@ public interface UserBLService {
 	 */
 	public List<CreditPo> getHistoryCredit(int id);
 	
-	/**
-	 * 
-	 * @param address
-	 * @param commercialDistrict
-	 * @return 获得对应地址商圈的酒店信息列表
-	 */
-	public List<HotelPo>  Views(String address,String commercialDistrict);
 	
 	/**
 	 * 
@@ -81,14 +74,6 @@ public interface UserBLService {
 	 * @return 获得按时间排序的酒店信息
 	 */
 	public List<HotelroomVo> SortByTime (List<HotelroomVo> list);
-	
-	/**
-	 * 
-	 * @param hotel
-	 * @return 获得详细信息
-	 */
-	public boolean ViewDetail(int hotelid);
-	
 	
 	/**
 	 * 

@@ -8,16 +8,16 @@ public class HotelVo extends Vector<String> {
 	private int hotelID;
 	private String name;
 	private int star;
+	private String briefInro;  //简介
 	private String location;  //地址+商圈
 	private List<String> summary;
 	private String services;
 	private String roomInfo;//房间类型+个数 中间用分号区分
-	private double score=0;
+	private static double score=0;
 
 
 	public HotelVo(int hotelID, String name, int star, String location, List<String> summary, String services,
-			String roominfo,double s) {
-		super();
+			String roominfo,double s,String br) {
 		this.hotelID = hotelID;
 		this.name = name;
 		this.star = star;
@@ -25,7 +25,16 @@ public class HotelVo extends Vector<String> {
 		this.summary = summary;
 		this.services = services;
 		this.roomInfo = roominfo;
-		this.score=s;
+		HotelVo.score=s;
+		this.briefInro=br;
+	}
+
+	public String getBriefInro() {
+		return briefInro;
+	}
+
+	public void setBriefInro(String briefInro) {
+		this.briefInro = briefInro;
 	}
 
 	public int getHotelID() {
@@ -93,7 +102,7 @@ public class HotelVo extends Vector<String> {
 	}
 
 	public void setScore(double score) {
-		this.score = score;
+		HotelVo.score = score;
 	}
 
 
