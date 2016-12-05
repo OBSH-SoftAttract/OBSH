@@ -8,7 +8,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import blservice.MemberBLService;
 import blservice.OrderBLService;
+import blservice.PromotionBLService;
 import data.dao.CreditDao;
 import data.dao.HotelDao;
 import data.dao.OrderDao;
@@ -30,7 +32,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	private CreditDao creditdao;
 	private OrderDao orderdao;
 	private HotelDao hoteldao;
-	private PromotionDao promotiondao;
+	private PromotionBLService promotionbl;
+	private MemberBLService memberbl;
 	
 	private static int scoreCount=0;
 	private final double CREDIT=0;
@@ -43,7 +46,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 		creditdao=CreditDaoImpl.getInstance();
 		orderdao=OrderDaoImpl.getInstance();
 		hoteldao=HotelDaoImpl.getInstance();
-		promotiondao=PromotionDaoImpl.getInstance();
+		promotionbl=new PromotionBLServiceImpl();
+		memberbl=new MemberBLServiceImpl();
 		cre=new CreditBLServiceImpl();
 	}
 	
@@ -113,7 +117,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	@Override
 	public PromotionPo CalPromotion(int userid) throws RemoteException{
-		List<PromotionPo> list=promotiondao.getLineItem();
+		List<PromotionPo> list=promotionbl.getPromotions();
 		Iterator<PromotionPo> ite=list.iterator();
 		
 		Date date = new Date();
@@ -130,17 +134,23 @@ public class OrderBLServiceImpl implements OrderBLService{
 				}
 					
 			}
-		}
+		}	
 		return res;
 	}
 
 	@Override
-	public double CalPrice(OrderVo vo) throws RemoteException{//未考虑会员的折扣
+	public double CalPrice(OrderVo vo) throws RemoteException{
+		double discount=1;
+		if(memberbl.isMember(vo.getUserID())){
+			double memberDiscount=memberbl.getRankDiscount(memberbl.getMemberRank(vo.getUserID()));
+			discount=memberDiscount;
+		}
 		
 		PromotionPo promotion=CalPromotion(vo.getUserID());
-		if(promotion!=null)
-		   return promotion.getDiscount()*vo.getPrice();
-		return vo.getPrice();
+		if(promotion!=null&&promotion.getDiscount()<discount)
+			discount=promotion.getDiscount();
+		   
+		return discount*vo.getPrice();
 	}
 
 	@Override

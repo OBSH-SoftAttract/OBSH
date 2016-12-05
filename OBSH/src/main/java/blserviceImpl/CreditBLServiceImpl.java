@@ -1,6 +1,7 @@
 package blserviceImpl;
 
 
+import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CreditBLServiceImpl implements CreditBLService{
 	}
 	
 	@Override
-	public void addCredit(int id,double value) {
+	public void addCredit(int id,double value) throws RemoteException{
 		Date date=new Date();
 		Timestamp now=new Timestamp(date.getTime());
 		
@@ -30,7 +31,7 @@ public class CreditBLServiceImpl implements CreditBLService{
 	}
 
 	@Override
-	public void recoverCredit (int id,double price, int tag) {
+	public void recoverCredit (int id,double price, int tag)throws RemoteException {
 		Date date=new Date();
 		Timestamp now=new Timestamp(date.getTime());
 		
@@ -50,7 +51,7 @@ public class CreditBLServiceImpl implements CreditBLService{
 	}
 
 	@Override
-	public CreditPo getCredit(int id) {
+	public CreditPo getCredit(int id)throws RemoteException {
 		List<CreditPo> list=creditdao.getCredit(id);
 		CreditPo latest = null;
 		try{
@@ -66,7 +67,7 @@ public class CreditBLServiceImpl implements CreditBLService{
 	}
 
 	@Override
-	public void CutCreditForCancel(int id, double price) {
+	public void CutCreditForCancel(int id, double price) throws RemoteException{
 		Date date=new Date();
 		Timestamp now=new Timestamp(date.getTime());
 		

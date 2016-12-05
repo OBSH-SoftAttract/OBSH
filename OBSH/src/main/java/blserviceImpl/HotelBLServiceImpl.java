@@ -1,5 +1,6 @@
 package blserviceImpl;
 
+import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public boolean Addhotel(HotelVo hotelvo) {
+	public boolean Addhotel(HotelVo hotelvo) throws RemoteException{
 		String id = String.valueOf(hotelvo.getHotelID());
 		if (id.length() != 4)
 			return false;
@@ -36,7 +37,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public List<HotelPo> FilterByStar(int star, List<HotelPo> list) {
+	public List<HotelPo> FilterByStar(int star, List<HotelPo> list) throws RemoteException{
 		try{
 			for (int i = 0; i < list.size();i++) {
 			    if (list.get(i).getStar() != star)
@@ -49,12 +50,12 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public List<HotelPo> Views(String address, String commercialDistrict) {
+	public List<HotelPo> Views(String address, String commercialDistrict) throws RemoteException{
 		return hoteldao.searchHotelByLocation(address + "+" + commercialDistrict);
 	}
 
 	@Override
-	public String ViewHotelDetail(int hotelid) {
+	public String ViewHotelDetail(int hotelid) throws RemoteException{
 		HotelPo hotelpo = hoteldao.getHotel(hotelid);
 		String detail = hotelpo.getLocation() + "+"+hotelpo.getBriefInfo() + "+" +hotelpo.getServices();
 		
@@ -93,7 +94,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 
 
 	@Override
-	public List<HotelPo> FilterByPrice(double min, double max, List<HotelPo> list) {
+	public List<HotelPo> FilterByPrice(double min, double max, List<HotelPo> list) throws RemoteException{
 		try{
 		      for(int i=0;i<list.size();i++){
 			     List<HotelroomPo> roomlist= hotelroomdao.getHotelroomByHotelID(list.get(i).getHotelID());
@@ -115,7 +116,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public List<HotelPo> FilterByScore(double min, double max, List<HotelPo> list) {
+	public List<HotelPo> FilterByScore(double min, double max, List<HotelPo> list) throws RemoteException{
 		try{
 		      for(int i=0;i<list.size();i++){
 		    	  double score=list.get(i).getScore();
@@ -130,18 +131,18 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public List<HotelPo> FilterByRoomType(String type, List<HotelPo> list) {
+	public List<HotelPo> FilterByRoomType(String type, List<HotelPo> list) throws RemoteException{
 		
         return null;
 	}
 
 	@Override
-	public HotelPo SearchByName(String hotel) {
+	public HotelPo SearchByName(String hotel) throws RemoteException{
 		return hoteldao.searchHotelByName(hotel);
 	}
 
 	@Override
-	public List<HotelPo> SortByStar(List<HotelPo> list) {
+	public List<HotelPo> SortByStar(List<HotelPo> list) throws RemoteException{
 		for(int i=0;i<list.size();i++){
 			for(int j=1;j<list.size();j++){
 				if(list.get(i).getStar()<list.get(j).getStar()){
@@ -155,7 +156,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public List<HotelPo> SortByPrice(List<HotelPo> list) {
+	public List<HotelPo> SortByPrice(List<HotelPo> list) throws RemoteException{
 		for(int i=0;i<list.size();i++){
 			for(int j=1;j<list.size();j++){
 				if(getHotelMinPrice(list.get(i).getHotelID())>
@@ -170,7 +171,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public List<HotelPo> SortByScore(List<HotelPo> list) {
+	public List<HotelPo> SortByScore(List<HotelPo> list) throws RemoteException{
 		for(int i=0;i<list.size();i++){
 			for(int j=1;j<list.size();j++){
 				if(list.get(i).getScore()<list.get(j).getScore()){
@@ -185,7 +186,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 
 
 	@Override
-	public List<HotelroomPo> SortByTime(List<HotelroomPo> list) {
+	public List<HotelroomPo> SortByTime(List<HotelroomPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
 	}

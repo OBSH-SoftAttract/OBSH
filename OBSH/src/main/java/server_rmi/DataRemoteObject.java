@@ -44,56 +44,56 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	
 	
 	@Override
-	public boolean login(int id, String password) {
+	public boolean login(int id, String password) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.login(id, password);
 	}
 
 
 	@Override
-	public boolean ModifyMessage(UserVo vo) {
+	public boolean ModifyMessage(UserVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.ModifyMessage(vo);
 	}
 
 	@Override
-	public boolean ModifyHotelMessage(HotelVo vo) {
+	public boolean ModifyHotelMessage(HotelVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.ModifyHotelMessage(vo);
 	}
 
 	@Override
-	public boolean ModifyPassword(UserVo vo) {
+	public boolean ModifyPassword(UserVo vo)throws RemoteException {
 		// TODO Auto-generated method stub
 		return userblservice.ModifyPassword(vo);
 	}
 
 	@Override
-	public boolean AddClient(UserVo vo) {
+	public boolean AddClient(UserVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.AddClient(vo);
 	}
 
 	@Override
-	public List<OrderPo> GetOrderHistory(int id) {
+	public List<OrderPo> GetOrderHistory(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.GetOrderHistory(id);
 	}
 
 	@Override
-	public void createByBusiness(int id, String name) {
+	public void createByBusiness(int id, String name)throws RemoteException {
 		// TODO Auto-generated method stub
 		memberblservice.createByBusiness(id, name);
 	}
 
 	@Override
-	public int getMemberRank(int id) {
+	public int getMemberRank(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return memberblservice.getMemberRank(id);
 	}
 
 	@Override
-	public boolean isMember(int id) {
+	public boolean isMember(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return memberblservice.isMember(id);
 	}
@@ -195,51 +195,45 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public void addCredit(int id,double value) {
+	public void addCredit(int id,double value) throws RemoteException{
 		// TODO Auto-generated method stub
 		creditblservice.addCredit(id,value);
 	}
 
 	@Override
-	public void recoverCredit(int id,double price, int tag) {
+	public void recoverCredit(int id,double price, int tag) throws RemoteException{
 		// TODO Auto-generated method stub
 		creditblservice.recoverCredit(id,price, tag);
 	}
 
 	@Override
-	public int judge(int id) {
+	public int judge(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return promotionblservice.judge(id);
 	}
 
 	@Override
-	public PromotionVo createNewItem(PromotionVo vo) {
+	public boolean createNewItem(PromotionVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return promotionblservice.createNewItem(vo);
 	}
 
 	@Override
-	public boolean Del(PromotionVo vo) {
+	public boolean Del(PromotionVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return promotionblservice.Del(vo);
 	}
 
 	@Override
-	public boolean update(PromotionVo vo) {
+	public List<PromotionPo> getPromotions() throws RemoteException{
 		// TODO Auto-generated method stub
-		return promotionblservice.update(vo);
-	}
-
-	@Override
-	public List<PromotionPo> getLineItem(String itemName) {
-		// TODO Auto-generated method stub
-		return promotionblservice.getLineItem(itemName);
+		return promotionblservice.getPromotions();
 	}
 
 
 
 	@Override
-	public int Addroom(double room) {
+	public int Addroom(double room) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelroomblservice.Addroom(room);
 	}
@@ -256,7 +250,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<CreditPo> getHistoryCredit(int id) {
+	public List<CreditPo> getHistoryCredit(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.getHistoryCredit(id);
 	}
@@ -264,7 +258,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public void CutCreditForCancel(int id, double price) {
+	public void CutCreditForCancel(int id, double price) throws RemoteException{
 		// TODO Auto-generated method stub
 		creditblservice.CutCreditForCancel(id, price);
 	}
@@ -272,7 +266,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public void Administration(int id) {
+	public void Administration(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		userblservice.Administration(id);
 	}
@@ -280,7 +274,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public boolean AddHotelMember(UserVo vo) {
+	public boolean AddHotelMember(UserVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.AddHotelMember(vo);
 	}
@@ -288,7 +282,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public boolean AddMarketer(UserVo vo) {
+	public boolean AddMarketer(UserVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.AddMarketer(vo);
 	}
@@ -296,7 +290,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public boolean Addhotel(HotelVo hotelvo) {
+	public boolean Addhotel(HotelVo hotelvo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.Addhotel(hotelvo);
 	}
@@ -305,7 +299,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public String ViewHotelDetail(int hotelid) {
+	public String ViewHotelDetail(int hotelid)throws RemoteException {
 		// TODO Auto-generated method stub
 		return hotelblservice.ViewHotelDetail(hotelid);
 	}
@@ -313,7 +307,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public HotelPo SearchByName(String hotel) {
+	public HotelPo SearchByName(String hotel) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.SearchByName(hotel);
 	}
@@ -321,7 +315,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> Views(String address, String commercialDistrict) {
+	public List<HotelPo> Views(String address, String commercialDistrict)throws RemoteException {
 		// TODO Auto-generated method stub
 		return hotelblservice.Views(address, commercialDistrict);
 	}
@@ -329,7 +323,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public void createByPersonal(int id, Date birthday) {
+	public void createByPersonal(int id, Date birthday)throws RemoteException {
 		// TODO Auto-generated method stub
 		memberblservice.createByPersonal(id, birthday);
 	}
@@ -337,7 +331,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> FilterByStar(int star, List<HotelPo> list) {
+	public List<HotelPo> FilterByStar(int star, List<HotelPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.FilterByStar(star, list);
 	}
@@ -345,7 +339,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> SortByStar(List<HotelPo> list) {
+	public List<HotelPo> SortByStar(List<HotelPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.SortByStar(list);
 	}
@@ -353,7 +347,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> FilterByPrice(double min, double max, List<HotelPo> list) {
+	public List<HotelPo> FilterByPrice(double min, double max, List<HotelPo> list)throws RemoteException {
 		// TODO Auto-generated method stub
 		return hotelblservice.FilterByPrice(min, max, list);
 	}
@@ -361,7 +355,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> SortByPrice(List<HotelPo> list) {
+	public List<HotelPo> SortByPrice(List<HotelPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.SortByPrice(list);
 	}
@@ -369,7 +363,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> FilterByScore(double min, double max, List<HotelPo> list) {
+	public List<HotelPo> FilterByScore(double min, double max, List<HotelPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.FilterByScore(min, max, list);
 	}
@@ -377,7 +371,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> SortByScore(List<HotelPo> list) {
+	public List<HotelPo> SortByScore(List<HotelPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.SortByScore(list);
 	}
@@ -385,7 +379,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelPo> FilterByRoomType(String type, List<HotelPo> list) {
+	public List<HotelPo> FilterByRoomType(String type, List<HotelPo> list)throws RemoteException {
 		// TODO Auto-generated method stub
 		return hotelblservice.FilterByRoomType(type, list);
 	}
@@ -393,7 +387,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public List<HotelroomPo> SortByTime(List<HotelroomPo> list) {
+	public List<HotelroomPo> SortByTime(List<HotelroomPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return hotelblservice.SortByTime(list);
 	}
@@ -401,9 +395,17 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public CreditPo getCredit(int id) {
+	public CreditPo getCredit(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return creditblservice.getCredit(id);
+	}
+
+
+
+	@Override
+	public double getRankDiscount(int rank) throws RemoteException {
+		// TODO Auto-generated method stub
+		return memberblservice.getRankDiscount(rank);
 	}
 
 }

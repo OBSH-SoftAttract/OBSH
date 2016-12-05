@@ -1,5 +1,6 @@
 package blserviceImpl;
 
+import java.rmi.RemoteException;
 import java.sql.Date;
 import blservice.CreditBLService;
 import blservice.MemberBLService;
@@ -11,14 +12,14 @@ public class MemberBLServiceImpl implements MemberBLService{
 
 	private MemberDao memberdao;
 	private CreditBLService creditbl;
-	
+	private final double Discount[]={1,0.975,0.95,0.925,0.88};
 	public MemberBLServiceImpl(){
 		memberdao = MemberDaoImpl.getInstance();
 		creditbl=new CreditBLServiceImpl();
 	}
 	
 	@Override
-	public void createByPersonal(int id, Date birthday) {
+	public void createByPersonal(int id, Date birthday) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 		MemberPo memberPo = new MemberPo();
@@ -31,7 +32,7 @@ public class MemberBLServiceImpl implements MemberBLService{
 	}
 
 	@Override
-	public void createByBusiness(int id, String name) {
+	public void createByBusiness(int id, String name) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 		MemberPo memberPo = new MemberPo();
@@ -44,27 +45,35 @@ public class MemberBLServiceImpl implements MemberBLService{
 	}
 
 	@Override
-	public int getMemberRank(int id) {
+	public int getMemberRank(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 
 		int rank = 0;
 		double credit = creditbl.getCredit(id).getCreditResult();
 		if(credit>=1000){
 			credit-=1000;
-			while(credit>0){
+			while(credit>0&&rank<=4){
 				credit-=3000;
-				credit++;
+				rank++;
 			}
 			return rank;
 		}
 		else		
 		  return rank;
 	}
+	
+	
 
 	@Override
-	public boolean isMember(int id) {
+	public boolean isMember(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		return memberdao.isMember(id);
+	}
+
+	@Override
+	public double getRankDiscount(int rank) throws RemoteException {
+		
+		return Discount[rank];
 	}
 
 }

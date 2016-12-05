@@ -1,10 +1,10 @@
 package blserviceImpl;
 
+import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-import blservice.HotelBLService;
 import blservice.UserBLService;
 import data.dao.CreditDao;
 import data.dao.HotelDao;
@@ -16,11 +16,9 @@ import data.dao.impl.OrderDaoImpl;
 import data.dao.impl.UserDaoImpl;
 import po.CreditPo;
 import po.HotelPo;
-import po.HotelroomPo;
 import po.OrderPo;
 import po.UserPo;
 import vo.HotelVo;
-import vo.HotelroomVo;
 import vo.UserVo;
 
 public class UserBLServiceImpl implements UserBLService{
@@ -39,31 +37,31 @@ public class UserBLServiceImpl implements UserBLService{
 	}
 	
 	@Override
-	public boolean login(int id, String password) {
+	public boolean login(int id, String password) throws RemoteException{
 		UserPo po=userdao.getUser(id);
 		if(null==po)return false;
 		return po.getPassword().equals(password);
 	}
 	
 	@Override
-	public boolean ModifyMessage(UserVo vo) {
+	public boolean ModifyMessage(UserVo vo) throws RemoteException{
 		UserPo po=new UserPo(vo);
 		return userdao.updateUser(po);
 	}
 
 	@Override
-	public boolean ModifyHotelMessage(HotelVo vo) {
+	public boolean ModifyHotelMessage(HotelVo vo) throws RemoteException{
 		return hoteldao.updateHotel(new HotelPo(vo));
 	}
 
 	@Override
-	public void Administration(int id) {
+	public void Administration(int id) throws RemoteException{
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public boolean ModifyPassword(UserVo vo) {
+	public boolean ModifyPassword(UserVo vo) throws RemoteException{
 		UserPo po=userdao.getUser(vo.getID());
 		po.setPassword(vo.getPassword());
 		return userdao.updateUser(po);
@@ -71,7 +69,7 @@ public class UserBLServiceImpl implements UserBLService{
 
 
 	@Override
-	public boolean AddClient(UserVo vo) {
+	public boolean AddClient(UserVo vo) throws RemoteException{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=9)return false;
 		
@@ -85,7 +83,7 @@ public class UserBLServiceImpl implements UserBLService{
 	}
 	
 	@Override
-	public boolean AddHotelMember(UserVo vo) {
+	public boolean AddHotelMember(UserVo vo) throws RemoteException{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=4)return false;
 		
@@ -93,7 +91,7 @@ public class UserBLServiceImpl implements UserBLService{
 	}
 
 	@Override
-	public boolean AddMarketer(UserVo vo) {
+	public boolean AddMarketer(UserVo vo) throws RemoteException{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=3)return false;
 		
@@ -101,13 +99,13 @@ public class UserBLServiceImpl implements UserBLService{
 	}
 
 	@Override
-	public List<OrderPo> GetOrderHistory(int id) {
+	public List<OrderPo> GetOrderHistory(int id) throws RemoteException{
 		List<OrderPo> list=orderdao.getOrderByUserID(id);
 		return list;
 	}
 
 	@Override
-	public List<CreditPo> getHistoryCredit(int id) {
+	public List<CreditPo> getHistoryCredit(int id) throws RemoteException{
 		return creditdao.getCredit(id);
 	}
 

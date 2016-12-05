@@ -1,5 +1,6 @@
 package blserviceImpl;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 import blservice.PromotionBLService;
@@ -17,32 +18,24 @@ public class PromotionBLServiceImpl implements PromotionBLService{
 		promotiondao=PromotionDaoImpl.getInstance();
 	}
 	@Override
-	public int judge(int id) {
-		
+	public int judge(int id) throws RemoteException{
+		if(id<1000)return 1;
 		return 0;
 	}
 
 	@Override
-	public PromotionVo createNewItem(PromotionVo vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean createNewItem(PromotionVo vo) throws RemoteException{
+		return promotiondao.addPromotionPo(new PromotionPo(vo));
 	}
 
 	@Override
-	public boolean Del(PromotionVo vo) {
+	public boolean Del(PromotionVo vo) throws RemoteException{
 		return promotiondao.deletePromotionPo(vo.getItemName());
 	}
 
 	@Override
-	public boolean update(PromotionVo vo) {
-		
-		return false;
-	}
-
-	@Override
-	public List<PromotionPo> getLineItem(String itemName) {
-		
-		return null;
+	public List<PromotionPo> getPromotions() throws RemoteException{		
+		return promotiondao.getLineItem();
 	}
 
 }

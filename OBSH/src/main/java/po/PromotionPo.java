@@ -2,6 +2,8 @@ package po;
 
 import java.sql.Timestamp;
 
+import vo.PromotionVo;
+
 /**
  * id                 自动判断id是属于酒店还是网站营销人员
  * itemName           策略名称
@@ -39,6 +41,10 @@ public class PromotionPo {
 		this.discount = discount;
 	}
 	
+	public PromotionPo(PromotionVo vo) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getID() {
 		return id;
 	}
