@@ -46,7 +46,8 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 	            String service = ret.getString(6);
 	            String roomInfo = ret.getString(7);
 	            double score = ret.getDouble(8);
-	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, listSummary, service, roomInfo, score); 
+	            String briefInfo = ret.getString(9);
+	        	HotelPo hotelPo=new HotelPo(id, hotelName, startLevel, location, listSummary, service, roomInfo, score, briefInfo); 
 	            map.put(id, hotelPo);
 	        }//显示数据  
 	        ret.close();  
@@ -73,7 +74,8 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 					"',services = '"+hotelPo.getServices()+
 					"',roominfo = '"+hotelPo.getRoomInfo()+
 					"',score = "+hotelPo.getScore()+
-					"where id = "+hotelPo.getHotelID();//SQL语句 
+					",briefInfo = '"+hotelPo.getBriefInfo()+
+					"' where id = "+hotelPo.getHotelID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
 				sta = db1.pst.executeUpdate(sql);
@@ -97,7 +99,8 @@ public class HotelDataMysqlHelper implements HotelDataHelper {
 				"','"+hotelPo.getSummary()+
 				"','"+hotelPo.getServices()+
 				"','"+hotelPo.getRoomInfo()+
-				"',"+hotelPo.getScore()+")";
+				"',"+hotelPo.getScore()+
+				",'"+hotelPo.getBriefInfo()+"')";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);

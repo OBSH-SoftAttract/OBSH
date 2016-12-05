@@ -8,7 +8,7 @@ public class HotelPo {
 	private int hotelID;
 	private String name;
 	private int star;
-	private String briefInro;  //简介
+	private String briefInfo;  //简介
 	private String location;  //地址+商圈
 	private List<String> summary; //评价
 	private String services;  //服务设施
@@ -36,15 +36,15 @@ public class HotelPo {
 		this.services = services;
 		this.roomInfo = roominfo;
 		HotelPo.score=s;
-		this.briefInro=br;
+		this.briefInfo=br;
 	}
 
-	public String getBriefInro() {
-		return briefInro;
+	public String getBriefInfo() {
+		return briefInfo;
 	}
 
-	public void setBriefInro(String briefInro) {
-		this.briefInro = briefInro;
+	public void setBriefInfo(String briefInfo) {
+		this.briefInfo = briefInfo;
 	}
 
 	public int getHotelID() {

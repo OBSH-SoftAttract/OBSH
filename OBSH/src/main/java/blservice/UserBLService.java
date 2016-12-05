@@ -102,5 +102,7 @@ public interface UserBLService {
 	 * @return 获得历史订单记录
 	 */
 	public List<OrderPo> GetOrderHistory (int id);
+
+	public boolean ViewDetail(int hotelid);
 	
 }

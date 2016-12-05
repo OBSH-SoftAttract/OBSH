@@ -72,7 +72,7 @@ public class MemberPo {
 		return memberInfo;
 	}
 	
-	public void setCreditInfo(String memberInfo) {
+	public void setMemberInfo(String memberInfo) {
 		this.memberInfo = memberInfo;
 	}
 

@@ -62,4 +62,16 @@ public interface HotelBLService {
 	 */
 	public HotelPo SearchByName(String hotel);
 
+	String[] getRelatedCommercial(int c);
+
+	List<HotelPo> AllHotels();
+
+	HotelPo SearchByNmae(String hotel);
+
+	String[] getProvince();
+
+	String[] getRelatedCity(int p);
+
+	String[] getRelatedDistrict(int c);
+
 }

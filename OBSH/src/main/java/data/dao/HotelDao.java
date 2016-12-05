@@ -49,6 +49,6 @@ public interface HotelDao {
 	 * @param location
 	 * @return  按酒店名称搜索酒店
 	 */
-	public List<HotelPo> searchHotelByName(String hotelName);
+	public HotelPo searchHotelByName(String hotelName);
 
 }

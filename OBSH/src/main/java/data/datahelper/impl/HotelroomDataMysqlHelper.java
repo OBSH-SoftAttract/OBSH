@@ -37,9 +37,10 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 		     Timestamp attemptedLeaveTime = ret.getTimestamp(4);
 		     Timestamp timeCheckOut = ret.getTimestamp(5);
 		     String roomType = ret.getString(6);
+		     double price = ret.getDouble(7);
 		     String hotelroomID = String.valueOf(hotelID)+String.valueOf(roomID);
 		     
-		     HotelroomPo hotelroomPo=new HotelroomPo(roomID, timeCheckIn, hotelID, attemptedLeaveTime, timeCheckOut, roomType); 
+		     HotelroomPo hotelroomPo=new HotelroomPo(roomID, timeCheckIn, hotelID, attemptedLeaveTime, timeCheckOut, roomType, price); 
 		     map.put(hotelroomID, hotelroomPo);
 		 }//显示数据  
 		     ret.close();  
@@ -63,7 +64,8 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 					"',AttemptedLeaveTime = '"+hotelroomPo.getAttemptedLeaveTime()+
 					"',TimeCheckOut = '"+hotelroomPo.getTimeCheckOut()+
 					"',roomType = '"+hotelroomPo.getRoomType()+
-					"',where roomID = "+hotelroomPo.getRoomID()+
+					"',price = "+hotelroomPo.getPrice()+
+					",where roomID = "+hotelroomPo.getRoomID()+
 					"and hotelID = "+hotelroomPo.getHotelID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
 			try {
@@ -85,7 +87,8 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 				"',"+hotelroomPo.getHotelID()+
 				",'"+hotelroomPo.getAttemptedLeaveTime()+
 				"','"+hotelroomPo.getTimeCheckOut()+
-				"','"+hotelroomPo.getRoomType()+"')";
+				"','"+hotelroomPo.getRoomType()+
+				"',"+hotelroomPo.getPrice()+")";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);

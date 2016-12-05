@@ -53,7 +53,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	@Override
 	public String ViewHotelDetail(int hotelid) {
 		HotelPo hotelpo = hoteldao.getHotel(hotelid);
-		String detail = hotelpo.getLocation() + hotelpo.getBriefInro() + hotelpo.getServices();
+		String detail = hotelpo.getLocation() + hotelpo.getBriefInfo() + hotelpo.getServices();
 
 		return detail;
 	}
@@ -65,7 +65,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 			     List<HotelroomPo> roomlist= hotelroomdao.getHotelroomByHotelID(list.get(i).getHotelID());
 			     double temp=max+1;
 			     for(int j=0;j<roomlist.size();j++){
-			    	 double p=roomlist.get(j).getprice();
+			    	 double p=roomlist.get(j).getPrice();
 			    	 if(p<=max&&p>=min&&p<temp)
 			    		 temp=p;
 			     }
@@ -103,6 +103,42 @@ return null;
 	@Override
 	public HotelPo SearchByName(String hotel) {
 		return hoteldao.searchHotelByName(hotel);
+	}
+
+	@Override
+	public String[] getRelatedCommercial(int c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HotelPo> AllHotels() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HotelPo SearchByNmae(String hotel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getProvince() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getRelatedCity(int p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String[] getRelatedDistrict(int c) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

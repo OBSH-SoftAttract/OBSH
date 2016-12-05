@@ -22,6 +22,13 @@ public interface MemberDao {
 	 * @param MemberPo
 	 * @return	添加会员
 	 */
-	public boolean addMemberPo(MemberPo memberPo);	
+	public boolean addMemberPo(MemberPo memberPo);
+
+	/**
+	 * 
+	 * @param ID
+	 * @return  判断是否是会员
+	 */
+	public boolean isMember(int ID);	
 	
 }

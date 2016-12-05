@@ -5,7 +5,7 @@ import blservice.OrderBLService;
 import blservice.UserBLService;
 import blserviceImpl.OrderBLServiceImpl;
 import blserviceImpl.UserBLServiceImpl;
-import javafx.scene.control.ComboBox;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import presentation.view.UserView;
 import presentation.view.UserViewControllerService;
@@ -50,36 +50,8 @@ public class UserViewControllerImpl implements UserViewControllerService{
 		}
 	}
 	@Override
-	public void backtoMain() {
-		view.backtoMain();
-	}
-	@Override
-	public void jumptoSearchHotelMainFrame() {
-		view.jumptoSearchHotelMainFrame();
-	}
-	@Override
-	public String[] getProvince() {
-		return hotelService.getProvince();
-	}
-	@Override
-	public String[] getRelatedCity(int p) {
-		return hotelService.getRelatedCity(p);
-	}
-	@Override
-	public String[] getRelatedDistrict(int c) {
-		return hotelService.getRelatedDistrict(c);
-	}
-	@Override
-	public String[] getRelatedCommercial(int c) {
-		return hotelService.getRelatedCommercial(c);
-	}
-	@Override
-	public void jumptoRegisterFrame() {
-		view.jumptoRegisterFrame();
-	}
-	@Override
-	public void jumptoUserMainFrame() {
-		view.jumptoUserMainFrame();
+	public void backtoMain(Stage primaryStage) {
+		view.backtoMain(primaryStage);
 	}
 	@Override
 	public String[] getHotelName() {
@@ -100,5 +72,26 @@ public class UserViewControllerImpl implements UserViewControllerService{
 	public String[] getRelatedHotelMark() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void jumptoSearchHotelMainFrame(Stage primaryStage) {
+		view.jumptoSearchHotelMainFrame(primaryStage);
+	}
+	@Override
+	public void jumptoRegisterFrame(Stage primaryStage) {
+		view.jumptoRegisterFrame(primaryStage);
+	}
+	@Override
+	public void jumptoUserMainFrame(Stage primaryStage) {
+		view.jumptoUserMainFrame(primaryStage);
+	}
+	@Override
+	public void jumptoCheckOrder(Stage primaryStage) {
+		view.jumptoCheckOrder(primaryStage);
+		
+	}
+	@Override
+	public void jumptoMaintainPersonalInfo(Stage primaryStage) {
+		view.jumptoMaintainPersonalInfo(primaryStage);		
 	}
 }

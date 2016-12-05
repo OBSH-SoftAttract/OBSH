@@ -34,4 +34,5 @@ public interface CreditBLService {
 	 * @return 处理未满6小时撤销扣除的信用值
 	 */
 	public void CutCreditForCancel(int id,double price);
+
 }

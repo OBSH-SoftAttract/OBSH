@@ -1,4 +1,6 @@
 package blservice;
+import java.sql.Date;
+
 import vo.PromotionVo;
 
 public interface MemberBLService {
@@ -9,7 +11,7 @@ public interface MemberBLService {
 	 * @param birthday
 	 * @return 添加个人会员
 	 */
-	public void createByPersonal (int id, String birthday);
+	public void createByPersonal (int id, Date birthday);
 	
 	/**
 	 * 
@@ -24,7 +26,7 @@ public interface MemberBLService {
 	 * @param rank
 	 * @return 获得会员等级
 	 */
-	public int getRank(double credit);
+	public int getMemberRank(int id);
 	
 	/**
 	 * 

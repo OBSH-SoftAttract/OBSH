@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>OBSH</name>
   <description>A group to develope an online booking system of hotel.</description>
-  
+
   <dependencies>
 	<!-- https://mvnrepository.com/artifact/junit/junit -->
 	<dependency>
@@ -22,5 +22,5 @@
     	<version>6.0.5</version>
   	</dependency>
  </dependencies>
-
+</project>
 

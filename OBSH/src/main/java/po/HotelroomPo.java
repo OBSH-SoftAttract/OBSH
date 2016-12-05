@@ -3,12 +3,13 @@ package po;
 import java.sql.Timestamp;
 /**
  * 
- * roomID  房间编号：301
- * TimeCheckIn  入住时间
- * hotelID 酒店的ID
- * AttemptedLeaveTime 预计退房时间
- * TimeCheckOut 退房时间
- * roomType  房间类型
+ * roomID                房间编号：301
+ * TimeCheckIn           入住时间
+ * hotelID               酒店的ID
+ * AttemptedLeaveTime    预计退房时间
+ * TimeCheckOut          退房时间
+ * roomType              房间类型
+ * price                 房间价格
  */
 public class HotelroomPo {
 	private int roomID;
@@ -17,15 +18,17 @@ public class HotelroomPo {
 	private Timestamp AttemptedLeaveTime;
 	private Timestamp TimeCheckOut;
 	private String roomType;
+	private double price;
 
     public HotelroomPo(int roomID,Timestamp datein,int hotelID,Timestamp attemptedLeaveTime,
-    		Timestamp timecheckout,String roomtype){
+    		Timestamp timecheckout,String roomtype,double price){
     	this.roomID=roomID;
     	this.TimeCheckIn=datein;
     	this.hotelID=hotelID;
     	this.AttemptedLeaveTime=attemptedLeaveTime;
     	this.TimeCheckOut=timecheckout;
     	this.roomType = roomtype;
+    	this.price = price;
     }
 
 	public int getRoomID() {
@@ -76,5 +79,12 @@ public class HotelroomPo {
 		this.roomType = roomType;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
                                                        
 }

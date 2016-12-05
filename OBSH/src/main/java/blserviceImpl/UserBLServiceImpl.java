@@ -128,4 +128,10 @@ public class UserBLServiceImpl implements UserBLService{
 		return creditdao.getCredit(id);
 	}
 
+	@Override
+	public boolean ViewDetail(int hotelid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

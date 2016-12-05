@@ -74,17 +74,17 @@ public class HotelDaoImpl implements HotelDao {
 	}
 	
 	@Override
-	public List<HotelPo> searchHotelByName(String hotelName) { 
+	public HotelPo searchHotelByName(String hotelName) { 
 		// TODO Auto-generated method stub
 		
-		List<HotelPo> hotel = new ArrayList<HotelPo>();
+		HotelPo hotel = null;
 		Iterator<Entry<Integer, HotelPo>> iterator = map.entrySet().iterator();
 		while(iterator.hasNext()){
 			Entry<Integer, HotelPo> entry = iterator.next();
 			HotelPo hotelPo = entry.getValue();
 			
 			if(hotelPo.getName().equals(hotelName))
-				hotel.add(hotelPo);
+				hotel = hotelPo;
 		}
 		return hotel;
 	}

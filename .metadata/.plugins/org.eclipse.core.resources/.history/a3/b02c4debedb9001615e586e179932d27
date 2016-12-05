@@ -1,0 +1,399 @@
+package server_rmi;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
+import blservice.*;
+import blserviceImpl.*;
+import po.OrderPo;
+import po.PromotionPo;
+import po.CreditPo;
+import po.HotelPo;
+import po.HotelroomPo;
+import vo.HotelVo;
+import vo.HotelroomVo;
+import vo.OrderVo;
+import vo.PromotionVo;
+import vo.UserVo;
+
+public class DataRemoteObject extends UnicastRemoteObject implements UserBLService,HotelroomBLService,
+PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService{
+
+	private static final long serialVersionUID = 4029039744279087114L;
+	private UserBLService userblservice;
+	private PromotionBLService promotionblservice;
+	private CreditBLService creditblservice;
+	private HotelBLService hotelblservice;
+	private OrderBLService orderblservice;
+	private MemberBLService memberblservice;
+	private HotelroomBLService hotelroomblservice;
+	
+	protected DataRemoteObject() throws RemoteException{
+		userblservice=new UserBLServiceImpl();
+		promotionblservice=new PromotionBLServiceImpl();
+		creditblservice=new CreditBLServiceImpl();
+		hotelblservice=new HotelBLServiceImpl();
+		orderblservice=new OrderBLServiceImpl();
+		memberblservice=new MemberBLServiceImpl();
+		hotelroomblservice=new HotelroomBLServiceImpl();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void createByPersonal(int id, String birthday) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void createByBusiness(int id, String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getRank(double credit) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isMember(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean Cancellation(OrderVo ordervo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean IFpassTime(OrderVo ordervo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void CancelKillCredit(OrderVo ordervo) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean Add(OrderVo ordervo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean CreditCheck(OrderVo ordervo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public PromotionPo CalPromotion(int userid) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double CalPrice(OrderVo vo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void Solve(OrderVo vo) throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ComplainDeal(OrderVo vo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public OrderPo ViewByOrderID(String orderid) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderPo> ViewByCustom(int id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVo> ViewByDaily(List<OrderVo> list) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderPo> ViewByState(int state, int id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVo> TimeSort(List<OrderVo> orderlist) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String CreateID(int hotel) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean Addhotel(HotelVo hotelvo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<HotelPo> Views(String address, String commercialDistrict) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String ViewHotelDetail(int hotelid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HotelPo> SortByStar(int star, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HotelPo> SortByPrice(double min, double max, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HotelPo> SortByScore(double min, double max, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HotelPo> SortByRoomType(String type, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HotelPo SearchByName(String hotel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreditPo getCredit(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addCredit(int id, double value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void recoverCredit(int id, double price, int tag) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void CutCreditForCancel(int id, double price) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int judge(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public PromotionVo createNewItem(PromotionVo vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean Del(PromotionVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean update(PromotionVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<PromotionPo> getLineItem(String itemName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int Addroom(double room) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void Updateroom() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean Checkin(HotelroomVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String Timein(String datein) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int IDin(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String TimeOutpro(String dateoutpro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String Timeout(String timeout) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int IDout(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean login(int id, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<CreditPo> getHistoryCredit(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean ModifyMessage(UserVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ModifyHotelMessage(HotelVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void Administration(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ModifyPassword(UserVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void Cancel(UserVo vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<HotelroomVo> filterbystate(int state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<HotelroomVo> SortByTime(List<HotelroomVo> list) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean AddClient(UserVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean AddHotelMember(UserVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean AddMarketer(UserVo vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<OrderPo> GetOrderHistory(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+}

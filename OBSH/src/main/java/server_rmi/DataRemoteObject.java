@@ -2,6 +2,7 @@ package server_rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.Date;
 import java.util.List;
 
 import blservice.*;
@@ -48,11 +49,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 		return userblservice.login(id, password);
 	}
 
-	@Override
-	public List<HotelPo> Views(String address, String commercialDistrict) {
-		// TODO Auto-generated method stub
-		return userblservice.Views(address, commercialDistrict);
-	}
 
 	@Override
 	public boolean ModifyMessage(UserVo vo) {
@@ -109,21 +105,15 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public void createByPersonal(int id, String birthday) {
-		// TODO Auto-generated method stub
-		memberblservice.createByPersonal(id, birthday);
-	}
-
-	@Override
 	public void createByBusiness(int id, String name) {
 		// TODO Auto-generated method stub
 		memberblservice.createByBusiness(id, name);
 	}
 
 	@Override
-	public int getRank(double credit) {
+	public int getMemberRank(int id) {
 		// TODO Auto-generated method stub
-		return memberblservice.getRank(credit);
+		return memberblservice.getMemberRank(id);
 	}
 
 	@Override
@@ -472,6 +462,38 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public String[] getRelatedCommercial(int c) {
 		// TODO Auto-generated method stub
 		return hotelblservice.getRelatedCommercial(c);
+	}
+
+
+
+	@Override
+	public String ViewHotelDetail(int hotelid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public HotelPo SearchByName(String hotel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<HotelPo> Views(String address, String commercialDistrict) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void createByPersonal(int id, Date birthday) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
