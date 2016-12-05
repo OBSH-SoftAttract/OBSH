@@ -10,6 +10,7 @@ import java.sql.Timestamp;
  * TimeCheckOut          退房时间
  * roomType              房间类型
  * price                 房间价格
+ * IfOccupied            占用情况
  */
 public class HotelroomPo {
 	private int roomID;
@@ -19,9 +20,10 @@ public class HotelroomPo {
 	private Timestamp TimeCheckOut;
 	private String roomType;
 	private double price;
+	private boolean IfOccupied;
 
     public HotelroomPo(int roomID,Timestamp datein,int hotelID,Timestamp attemptedLeaveTime,
-    		Timestamp timecheckout,String roomtype,double price){
+    		Timestamp timecheckout,String roomtype,double price,boolean ifoccupied){
     	this.roomID=roomID;
     	this.TimeCheckIn=datein;
     	this.hotelID=hotelID;
@@ -29,7 +31,20 @@ public class HotelroomPo {
     	this.TimeCheckOut=timecheckout;
     	this.roomType = roomtype;
     	this.price = price;
+    	this.IfOccupied=ifoccupied;
     }
+
+	public boolean isIfOccupied() {
+		return IfOccupied;
+	}
+
+	public void setIfOccupied(boolean ifOccupied) {
+		IfOccupied = ifOccupied;
+	}
+
+	public HotelroomPo() {
+		super();
+	}
 
 	public int getRoomID() {
 		return roomID;

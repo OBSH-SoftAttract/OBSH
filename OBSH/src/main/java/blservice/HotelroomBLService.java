@@ -11,6 +11,6 @@ public interface HotelroomBLService {
 	 * @param room
 	 * @return 添加客房
 	 */
-	public int Addroom (double room)throws RemoteException;
+	public boolean Addroom(HotelroomVo vo)throws RemoteException;
 	
 }

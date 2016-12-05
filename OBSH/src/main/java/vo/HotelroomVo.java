@@ -1,59 +1,93 @@
 package vo;
 
 import java.sql.Timestamp;
-import java.util.Vector;
 
-
-public class HotelroomVo extends Vector<String> {
+public class HotelroomVo {
 	private int roomID;
-	private Timestamp datein;
+	private Timestamp TimeCheckIn;
 	private int hotelID;
-	private Timestamp dateoutpro;
-	private Timestamp timeout;
-	private String roomName;
+	private Timestamp AttemptedLeaveTime;
+	private Timestamp TimeCheckOut;
+	private String roomType;
+	private double price;
+	private boolean IfOccupied;
 
-    public HotelroomVo(int roomID,Timestamp datein,int hotelID,Timestamp dateoutpro,Timestamp timeout,String roomName){
+    public HotelroomVo(int roomID,Timestamp datein,int hotelID,Timestamp attemptedLeaveTime,
+    		Timestamp timecheckout,String roomtype,double price,boolean ifoccupied){
     	this.roomID=roomID;
-    	this.datein=datein;
+    	this.TimeCheckIn=datein;
     	this.hotelID=hotelID;
-    	this.dateoutpro=dateoutpro;
-    	this.timeout=timeout;
-    	this.roomName = roomName;
+    	this.AttemptedLeaveTime=attemptedLeaveTime;
+    	this.TimeCheckOut=timecheckout;
+    	this.roomType = roomtype;
+    	this.price = price;
+    	this.IfOccupied=ifoccupied;
     }
-    public int getroomID(){
-    	return roomID;
-    }
-    public void setroomID(int roomID){
-    	this.roomID = roomID;
-    }
-    public Timestamp getdatein(){
-    	return datein;
-    }
-    public void setdatein(Timestamp datein){
-    	this.datein = datein;
-    }
-    public int gethotelID(){
-    	return hotelID;
-    }
-    public void setid(int hotelID){
-    	this.hotelID=hotelID;
-    }
-    public Timestamp getdateoutpro(){
-    	return dateoutpro;
-    }
-    public void setdateoutpro(Timestamp dateoutpro){
-    	this.dateoutpro=dateoutpro;
-    }
-    public Timestamp gettimeout(){
-    	return timeout;
-    }
-    public void settimeout(Timestamp timeout){
-    	this.timeout=timeout;
-    }
-    public String getroomName(){
-    	return roomName;
-    }
-    public void setroom(String roomName){
-    	this.roomName = roomName;
-    }
+
+	public boolean isIfOccupied() {
+		return IfOccupied;
+	}
+
+	public void setIfOccupied(boolean ifOccupied) {
+		IfOccupied = ifOccupied;
+	}
+
+	public int getRoomID() {
+		return roomID;
+	}
+
+	public void setRoomID(int roomID) {
+		this.roomID = roomID;
+	}
+
+	public Timestamp getTimeCheckIn() {
+		return TimeCheckIn;
+	}
+
+	public void setTimeCheckIn(Timestamp timeCheckIn) {
+		TimeCheckIn = timeCheckIn;
+	}
+
+	public int getHotelID() {
+		return hotelID;
+	}
+
+	public void setHotelID(int hotelID) {
+		this.hotelID = hotelID;
+	}
+
+	public Timestamp getAttemptedLeaveTime() {
+		return AttemptedLeaveTime;
+	}
+
+	public void setAttemptedLeaveTime(Timestamp attemptedLeaveTime) {
+		AttemptedLeaveTime = attemptedLeaveTime;
+	}
+
+	public Timestamp getTimeCheckOut() {
+		return TimeCheckOut;
+	}
+
+	public void setTimeCheckOut(Timestamp timeCheckOut) {
+		TimeCheckOut = timeCheckOut;
+	}
+
+	public String getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+
 }
