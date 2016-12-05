@@ -55,25 +55,6 @@ public interface UserBLService {
 	 */
 	public boolean ModifyPassword(UserVo vo);
 	
-	/**
-	 * 
-	 * @param vo
-	 */
-	public void Cancel(UserVo vo);
-	
-	/**
-	 * 
-	 * @param state
-	 * @return 获得对应状态
-	 */
-	public List<HotelroomVo> filterbystate(int state);
-	
-	/**
-	 * 
-	 * @param list
-	 * @return 获得按时间排序的酒店信息
-	 */
-	public List<HotelroomVo> SortByTime (List<HotelroomVo> list);
 	
 	/**
 	 * 
@@ -102,7 +83,5 @@ public interface UserBLService {
 	 * @return 获得历史订单记录
 	 */
 	public List<OrderPo> GetOrderHistory (int id);
-
-	public boolean ViewDetail(int hotelid);
 	
 }

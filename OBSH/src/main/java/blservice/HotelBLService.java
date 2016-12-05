@@ -2,6 +2,7 @@ package blservice;
 import java.util.List;
 
 import po.HotelPo;
+import po.HotelroomPo;
 import vo.HotelVo;
 public interface HotelBLService {
 	/**
@@ -30,7 +31,14 @@ public interface HotelBLService {
 	 * @param star
 	 * @return 按星级搜索
 	 */
-	public List<HotelPo> SortByStar(int star,List<HotelPo> list);
+	public List<HotelPo> FilterByStar(int star,List<HotelPo> list);
+	
+	/**
+	 * 
+	 * @param list
+	 * @return 按星级排序（由高到低）
+	 */
+	public List<HotelPo> SortByStar(List<HotelPo> list);
 	
 	/**
 	 * 
@@ -38,7 +46,14 @@ public interface HotelBLService {
 	 * @param max
 	 * @return 按原始价格区间搜索
 	 */
-	public List<HotelPo> SortByPrice(double min, double max,List<HotelPo> list);
+	public List<HotelPo> FilterByPrice(double min, double max,List<HotelPo> list);
+	
+	/**
+	 * 
+	 * @param list
+	 * @return 按价格排序（由低到高）
+	 */
+	public List<HotelPo> SortByPrice(List<HotelPo> list);
 	
 	/**
 	 * 
@@ -46,14 +61,21 @@ public interface HotelBLService {
 	 * @param max
 	 * @return 按评价区间搜索
 	 */
-	public List<HotelPo> SortByScore(double min, double max,List<HotelPo> list);
+	public List<HotelPo> FilterByScore(double min, double max,List<HotelPo> list);
+	
+	/**
+	 * 
+	 * @param list
+	 * @return 按评分排序（由高到低）
+	 */
+	public List<HotelPo> SortByScore(List<HotelPo> list);
 	
 	/**
 	 * 
 	 * @param type
 	 * @return 按房间类型搜索
 	 */
-	public List<HotelPo> SortByRoomType(String type,List<HotelPo> list);
+	public List<HotelPo> FilterByRoomType(String type,List<HotelPo> list);
 	
 	/**
 	 * 
@@ -62,16 +84,10 @@ public interface HotelBLService {
 	 */
 	public HotelPo SearchByName(String hotel);
 
-	String[] getRelatedCommercial(int c);
-
-	List<HotelPo> AllHotels();
-
-	HotelPo SearchByNmae(String hotel);
-
-	String[] getProvince();
-
-	String[] getRelatedCity(int p);
-
-	String[] getRelatedDistrict(int c);
-
+	/**
+	 * 
+	 * @param list
+	 * @return 
+	 */
+	public List<HotelroomPo> SortByTime(List<HotelroomPo> list);
 }

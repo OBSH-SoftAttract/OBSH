@@ -69,30 +69,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public void Cancel(UserVo vo) {
-		// TODO Auto-generated method stub
-		userblservice.Cancel(vo);
-	}
-
-	@Override
-	public List<HotelroomVo> filterbystate(int state) {
-		// TODO Auto-generated method stub
-		return userblservice.filterbystate(state);
-	}
-
-	@Override
-	public List<HotelroomVo> SortByTime(List<HotelroomVo> list) {
-		// TODO Auto-generated method stub
-		return userblservice.SortByTime(list);
-	}
-
-	@Override
-	public boolean ViewDetail(int hotelid) {
-		// TODO Auto-generated method stub
-		return userblservice.ViewDetail(hotelid);
-	}
-
-	@Override
 	public boolean AddClient(UserVo vo) {
 		// TODO Auto-generated method stub
 		return userblservice.AddClient(vo);
@@ -270,65 +246,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 
-	@Override
-	public void Updateroom() {
-		// TODO Auto-generated method stub
-		hotelroomblservice.Updateroom();
-	}
-
-
-
-	@Override
-	public boolean Checkin(HotelroomVo vo) {
-		// TODO Auto-generated method stub
-		return hotelroomblservice.Checkin(vo);
-	}
-
-
-
-	@Override
-	public String Timein(String datein) {
-		// TODO Auto-generated method stub
-		return hotelroomblservice.Timein(datein);
-	}
-
-
-
-	@Override
-	public int IDin(int id) {
-		// TODO Auto-generated method stub
-		return hotelroomblservice.IDin(id);
-	}
-
-
-
-	@Override
-	public String TimeOutpro(String dateoutpro) {
-		// TODO Auto-generated method stub
-		return hotelroomblservice.TimeOutpro(dateoutpro);
-	}
-
-
-
-	@Override
-	public String Timeout(String timeout) {
-		// TODO Auto-generated method stub
-		return hotelroomblservice.Timeout(timeout);
-	}
-
-
-
-	@Override
-	public int IDout(int id) {
-		// TODO Auto-generated method stub
-		return hotelroomblservice.IDout(id);
-	}
-	@Override
-	public CreditPo getCredit(int id) {
-		// TODO Auto-generated method stub
-		return creditblservice.getCredit(id);
-	}
-
 
 	@Override
 	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
@@ -386,90 +303,11 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 
-	@Override
-	public List<HotelPo> AllHotels() {
-		// TODO Auto-generated method stub
-		return hotelblservice.AllHotels();
-	}
-
-
-
-	@Override
-	public List<HotelPo> SortByStar(int star, List<HotelPo> list) {
-		// TODO Auto-generated method stub
-		return hotelblservice.SortByStar(star, list);
-	}
-
-
-
-	@Override
-	public List<HotelPo> SortByPrice(double min, double max, List<HotelPo> list) {
-		// TODO Auto-generated method stub
-		return hotelblservice.SortByPrice(min, max, list);
-	}
-
-
-
-	@Override
-	public List<HotelPo> SortByScore(double min, double max, List<HotelPo> list) {
-		// TODO Auto-generated method stub
-		return hotelblservice.SortByScore(min, max, list);
-	}
-
-
-
-	@Override
-	public List<HotelPo> SortByRoomType(String type, List<HotelPo> list) {
-		// TODO Auto-generated method stub
-		return hotelblservice.SortByRoomType(type, list);
-	}
-
-
-
-	@Override
-	public HotelPo SearchByNmae(String hotel) {
-		// TODO Auto-generated method stub
-		return hotelblservice.SearchByNmae(hotel);
-	}
-
-
-
-	@Override
-	public String[] getProvince() {
-		// TODO Auto-generated method stub
-		return hotelblservice.getProvince();
-	}
-
-
-
-	@Override
-	public String[] getRelatedCity(int p) {
-		// TODO Auto-generated method stub
-		return hotelblservice.getRelatedCity(p);
-	}
-
-
-
-	@Override
-	public String[] getRelatedDistrict(int c) {
-		// TODO Auto-generated method stub
-		return hotelblservice.getRelatedDistrict(c);
-	}
-
-
-
-	@Override
-	public String[] getRelatedCommercial(int c) {
-		// TODO Auto-generated method stub
-		return hotelblservice.getRelatedCommercial(c);
-	}
-
-
 
 	@Override
 	public String ViewHotelDetail(int hotelid) {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.ViewHotelDetail(hotelid);
 	}
 
 
@@ -477,7 +315,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	@Override
 	public HotelPo SearchByName(String hotel) {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.SearchByName(hotel);
 	}
 
 
@@ -485,7 +323,7 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	@Override
 	public List<HotelPo> Views(String address, String commercialDistrict) {
 		// TODO Auto-generated method stub
-		return null;
+		return hotelblservice.Views(address, commercialDistrict);
 	}
 
 
@@ -493,7 +331,79 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	@Override
 	public void createByPersonal(int id, Date birthday) {
 		// TODO Auto-generated method stub
-		
+		memberblservice.createByPersonal(id, birthday);
+	}
+
+
+
+	@Override
+	public List<HotelPo> FilterByStar(int star, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.FilterByStar(star, list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByStar(List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByStar(list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> FilterByPrice(double min, double max, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.FilterByPrice(min, max, list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByPrice(List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByPrice(list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> FilterByScore(double min, double max, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.FilterByScore(min, max, list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> SortByScore(List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByScore(list);
+	}
+
+
+
+	@Override
+	public List<HotelPo> FilterByRoomType(String type, List<HotelPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.FilterByRoomType(type, list);
+	}
+
+
+
+	@Override
+	public List<HotelroomPo> SortByTime(List<HotelroomPo> list) {
+		// TODO Auto-generated method stub
+		return hotelblservice.SortByTime(list);
+	}
+
+
+
+	@Override
+	public CreditPo getCredit(int id) {
+		// TODO Auto-generated method stub
+		return creditblservice.getCredit(id);
 	}
 
 }

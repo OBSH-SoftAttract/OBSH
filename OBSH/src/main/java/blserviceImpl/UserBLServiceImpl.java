@@ -29,7 +29,6 @@ public class UserBLServiceImpl implements UserBLService{
 	private HotelDao hoteldao;
 	private OrderDao orderdao;
 	private CreditDao creditdao;
-	private HotelBLService hotelbl;
 	private final double DefaultCredit=0;
 	
 	public UserBLServiceImpl(){
@@ -37,12 +36,13 @@ public class UserBLServiceImpl implements UserBLService{
 		hoteldao=HotelDaoImpl.getInstance();
 		orderdao=OrderDaoImpl.getInstance();
 		creditdao=CreditDaoImpl.getInstance();
-		hotelbl=new HotelBLServiceImpl();
 	}
 	
 	@Override
 	public boolean login(int id, String password) {
-		return userdao.getUser(id).getPassword().equals(password);
+		UserPo po=userdao.getUser(id);
+		if(null==po)return false;
+		return po.getPassword().equals(password);
 	}
 	
 	@Override
@@ -69,23 +69,6 @@ public class UserBLServiceImpl implements UserBLService{
 		return userdao.updateUser(po);
 	}
 
-	@Override
-	public void Cancel(UserVo vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<HotelroomVo> filterbystate(int state) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<HotelroomVo> SortByTime(List<HotelroomVo> list) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean AddClient(UserVo vo) {
@@ -128,10 +111,6 @@ public class UserBLServiceImpl implements UserBLService{
 		return creditdao.getCredit(id);
 	}
 
-	@Override
-	public boolean ViewDetail(int hotelid) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 }
