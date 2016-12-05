@@ -28,6 +28,7 @@ public class UserBLServiceImpl implements UserBLService{
 	private OrderDao orderdao;
 	private CreditDao creditdao;
 	private final double DefaultCredit=0;
+/*	private final static int ID=151250001;*/
 	
 	public UserBLServiceImpl(){
 		userdao=UserDaoImpl.getInstance();

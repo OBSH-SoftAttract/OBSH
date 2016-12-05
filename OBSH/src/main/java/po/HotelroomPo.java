@@ -1,16 +1,13 @@
 package po;
 
 import java.sql.Timestamp;
+
+import vo.HotelroomVo;
+
 /**
  * 
- * roomID                房间编号：301
- * TimeCheckIn           入住时间
- * hotelID               酒店的ID
- * AttemptedLeaveTime    预计退房时间
- * TimeCheckOut          退房时间
- * roomType              房间类型
- * price                 房间价格
- * IfOccupied            占用情况
+ * roomID 房间编号：301 TimeCheckIn 入住时间 hotelID 酒店的ID AttemptedLeaveTime 预计退房时间
+ * TimeCheckOut 退房时间 roomType 房间类型 price 房间价格 IfOccupied 占用情况
  */
 public class HotelroomPo {
 	private int roomID;
@@ -22,17 +19,28 @@ public class HotelroomPo {
 	private double price;
 	private boolean IfOccupied;
 
-    public HotelroomPo(int roomID,Timestamp datein,int hotelID,Timestamp attemptedLeaveTime,
-    		Timestamp timecheckout,String roomtype,double price,boolean ifoccupied){
-    	this.roomID=roomID;
-    	this.TimeCheckIn=datein;
-    	this.hotelID=hotelID;
-    	this.AttemptedLeaveTime=attemptedLeaveTime;
-    	this.TimeCheckOut=timecheckout;
-    	this.roomType = roomtype;
-    	this.price = price;
-    	this.IfOccupied=ifoccupied;
-    }
+	public HotelroomPo(int roomID, Timestamp datein, int hotelID, Timestamp attemptedLeaveTime, Timestamp timecheckout,
+			String roomtype, double price, boolean ifoccupied) {
+		this.roomID = roomID;
+		this.TimeCheckIn = datein;
+		this.hotelID = hotelID;
+		this.AttemptedLeaveTime = attemptedLeaveTime;
+		this.TimeCheckOut = timecheckout;
+		this.roomType = roomtype;
+		this.price = price;
+		this.IfOccupied = ifoccupied;
+	}
+
+	public HotelroomPo(HotelroomVo vo) {
+		this.roomID=vo.getRoomID();
+		this.hotelID=vo.getHotelID();
+		this.TimeCheckIn=vo.getTimeCheckIn();
+		this.TimeCheckOut=vo.getTimeCheckOut();
+		this.AttemptedLeaveTime=vo.getAttemptedLeaveTime();
+		this.price=vo.getPrice();
+		this.IfOccupied=vo.isIfOccupied();
+		this.roomType=vo.getRoomType();
+	}
 
 	public boolean isIfOccupied() {
 		return IfOccupied;
@@ -101,5 +109,5 @@ public class HotelroomPo {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-                                                       
+
 }

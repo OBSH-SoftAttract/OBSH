@@ -233,15 +233,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public int Addroom(double room) throws RemoteException{
-		// TODO Auto-generated method stub
-		return hotelroomblservice.Addroom(room);
-	}
-
-
-
-
-	@Override
 	public List<OrderPo> ViewByHotel(int id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return orderblservice.ViewByHotel(id);
@@ -406,6 +397,30 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public double getRankDiscount(int rank) throws RemoteException {
 		// TODO Auto-generated method stub
 		return memberblservice.getRankDiscount(rank);
+	}
+
+
+
+	@Override
+	public boolean Addroom(HotelroomVo vo) throws RemoteException {
+		// TODO Auto-generated method stub
+		return hotelroomblservice.Addroom(vo);
+	}
+
+
+
+	@Override
+	public void CheckIn(HotelroomVo vo) {
+		// TODO Auto-generated method stub
+		hotelroomblservice.CheckIn(vo);
+	}
+
+
+
+	@Override
+	public void CheckOut(HotelroomVo vo) {
+		// TODO Auto-generated method stub
+		hotelroomblservice.CheckOut(vo);
 	}
 
 }
