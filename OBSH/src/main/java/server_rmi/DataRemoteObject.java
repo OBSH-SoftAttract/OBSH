@@ -117,9 +117,9 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException {
+	public boolean Assess(int score, String comment, int id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return orderblservice.Assess(score, comment, ordervo);
+		return orderblservice.Assess(score, comment, id);
 	}
 
 	@Override
@@ -421,6 +421,22 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public void ModifyPrice(HotelroomVo vo) {
 		// TODO Auto-generated method stub
 		hotelroomblservice.ModifyPrice(vo);
+	}
+
+
+
+	@Override
+	public HotelPo SearchByID(int id) throws RemoteException {
+		// TODO Auto-generated method stub
+		return hotelblservice.SearchByID(id);
+	}
+
+
+
+	@Override
+	public boolean AddAssess(int score, String s, int hotelID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return hotelblservice.AddAssess(score, s, hotelID);
 	}
 
 }
