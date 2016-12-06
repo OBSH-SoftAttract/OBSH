@@ -14,7 +14,6 @@ import data.dao.impl.HotelroomDaoImpl;
 import po.HotelPo;
 import po.HotelroomPo;
 import vo.HotelVo;
-import vo.HotelroomVo;
 
 public class HotelBLServiceImpl implements HotelBLService {
 
@@ -22,6 +21,8 @@ public class HotelBLServiceImpl implements HotelBLService {
 	HotelroomDao hotelroomdao;
 	HotelroomBLService hotelbl;
 
+	private static int scoreCount=0;
+	
 	public HotelBLServiceImpl() {
 		hoteldao = HotelDaoImpl.getInstance();
 		hotelroomdao=HotelroomDaoImpl.getInstance();
@@ -92,6 +93,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 		return price;
 	}
 
+	
 
 	@Override
 	public List<HotelPo> FilterByPrice(double min, double max, List<HotelPo> list) throws RemoteException{
@@ -142,6 +144,11 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
+	public HotelPo SearchByID(int id) throws RemoteException{
+		return hoteldao.getHotel(id);
+	}
+	
+	@Override
 	public List<HotelPo> SortByStar(List<HotelPo> list) throws RemoteException{
 		for(int i=0;i<list.size();i++){
 			for(int j=1;j<list.size();j++){
@@ -189,6 +196,20 @@ public class HotelBLServiceImpl implements HotelBLService {
 	public List<HotelroomPo> SortByTime(List<HotelroomPo> list) throws RemoteException{
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean AddAssess(int score,String comment,int hotelID) throws RemoteException {
+		HotelPo hotelpo=hoteldao.getHotel(hotelID);
+		double prescore=hotelpo.getScore();
+		if(score!=-1){
+			prescore*=scoreCount++;
+			prescore+=score;
+			hotelpo.setScore(prescore/scoreCount);
+		}
+		if(null!=comment)
+			hotelpo.addSummary(comment);
+		return hoteldao.updateHotel(hotelpo);
 	}
 
 

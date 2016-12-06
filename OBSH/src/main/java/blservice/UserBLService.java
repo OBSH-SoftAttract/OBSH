@@ -45,12 +45,6 @@ public interface UserBLService {
 	
 	/**
 	 * 
-	 * @param id
-	 */
-	public void Administration(int id)throws RemoteException;
-	
-	/**
-	 * 
 	 * @param vo
 	 * @return 修改密码
 	 */

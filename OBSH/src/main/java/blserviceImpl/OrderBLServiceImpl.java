@@ -3,27 +3,21 @@ package blserviceImpl;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import blservice.HotelBLService;
 import blservice.MemberBLService;
 import blservice.OrderBLService;
 import blservice.PromotionBLService;
 import data.dao.CreditDao;
-import data.dao.HotelDao;
 import data.dao.OrderDao;
-import data.dao.PromotionDao;
 import data.dao.impl.CreditDaoImpl;
-import data.dao.impl.HotelDaoImpl;
 import data.dao.impl.OrderDaoImpl;
-import data.dao.impl.PromotionDaoImpl;
 import po.CreditPo;
-import po.HotelPo;
 import po.OrderPo;
 import po.PromotionPo;
-import vo.PromotionVo;
 import vo.OrderVo;
 
 
@@ -31,11 +25,10 @@ public class OrderBLServiceImpl implements OrderBLService{
 
 	private CreditDao creditdao;
 	private OrderDao orderdao;
-	private HotelDao hoteldao;
+	private HotelBLService hotelbl;
 	private PromotionBLService promotionbl;
 	private MemberBLService memberbl;
 	
-	private static int scoreCount=0;
 	private final double CREDIT=0;
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private final long AttemptedTime=21600000;//6小时
@@ -45,7 +38,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	public OrderBLServiceImpl(){
 		creditdao=CreditDaoImpl.getInstance();
 		orderdao=OrderDaoImpl.getInstance();
-		hoteldao=HotelDaoImpl.getInstance();
+		hotelbl=new HotelBLServiceImpl();
 		promotionbl=new PromotionBLServiceImpl();
 		memberbl=new MemberBLServiceImpl();
 		cre=new CreditBLServiceImpl();
@@ -88,22 +81,17 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, OrderVo ordervo) throws RemoteException{
-		HotelPo hotelpo=hoteldao.getHotel(ordervo.getHotelID());
-		double prescore=hotelpo.getScore();
-		if(score!=-1){
-			prescore*=scoreCount++;
-			prescore+=score;
-			hotelpo.setScore(prescore/scoreCount);
-		}
-		if(null!=comment)
-			hotelpo.addSummary(comment);
-		return hoteldao.updateHotel(hotelpo);
+	public boolean Assess(int score, String comment, int hotelID) throws RemoteException{
+		return hotelbl.AddAssess(score,comment,hotelID);
 	}
 
 	@Override
 	public boolean Add(OrderVo ordervo) throws RemoteException{
 		OrderPo orderPo=new OrderPo(ordervo);
+		Date date=new Date();
+		Timestamp now=new Timestamp(date.getTime());
+		orderPo.setStartTime(now);
+		
 		return orderdao.addOrderPo(orderPo);
 	}
 

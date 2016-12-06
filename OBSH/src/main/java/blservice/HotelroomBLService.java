@@ -26,4 +26,11 @@ public interface HotelroomBLService {
 	 * 更新客户退房时间
 	 */
 	public void CheckOut(HotelroomVo vo);
+	
+	/**
+	 * 
+	 * @param vo
+	 * 修改客房的价格
+	 */
+	public void ModifyPrice(HotelroomVo vo);
 }

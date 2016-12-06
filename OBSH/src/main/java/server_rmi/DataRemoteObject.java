@@ -257,14 +257,6 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 
 
 	@Override
-	public void Administration(int id) throws RemoteException{
-		// TODO Auto-generated method stub
-		userblservice.Administration(id);
-	}
-
-
-
-	@Override
 	public boolean AddHotelMember(UserVo vo) throws RemoteException{
 		// TODO Auto-generated method stub
 		return userblservice.AddHotelMember(vo);
@@ -421,6 +413,14 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 	public void CheckOut(HotelroomVo vo) {
 		// TODO Auto-generated method stub
 		hotelroomblservice.CheckOut(vo);
+	}
+
+
+
+	@Override
+	public void ModifyPrice(HotelroomVo vo) {
+		// TODO Auto-generated method stub
+		hotelroomblservice.ModifyPrice(vo);
 	}
 
 }

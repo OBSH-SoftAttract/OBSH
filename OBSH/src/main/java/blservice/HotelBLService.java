@@ -58,6 +58,22 @@ public interface HotelBLService {
 	
 	/**
 	 * 
+	 * @param id
+	 * @return 按酒店ID搜索
+	 * @throws RemoteException
+	 */
+	public HotelPo SearchByID(int id) throws RemoteException;
+	
+	/**
+	 * 
+	 * @param s
+	 * @param hotelID
+	 * @return 添加评价
+	 * @throws RemoteException
+	 */
+	public boolean AddAssess(int score,String s,int hotelID)throws RemoteException;
+	/**
+	 * 
 	 * @param min
 	 * @param max
 	 * @return 按评价区间搜索

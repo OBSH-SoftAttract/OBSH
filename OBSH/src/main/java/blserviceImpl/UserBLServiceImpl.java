@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+import blservice.OrderBLService;
 import blservice.UserBLService;
 import data.dao.CreditDao;
 import data.dao.HotelDao;
@@ -25,15 +26,15 @@ public class UserBLServiceImpl implements UserBLService{
 
 	private UserDao userdao;
 	private HotelDao hoteldao;
-	private OrderDao orderdao;
 	private CreditDao creditdao;
+	private OrderBLService orderbl;
 	private final double DefaultCredit=0;
 /*	private final static int ID=151250001;*/
 	
 	public UserBLServiceImpl(){
 		userdao=UserDaoImpl.getInstance();
 		hoteldao=HotelDaoImpl.getInstance();
-		orderdao=OrderDaoImpl.getInstance();
+		orderbl=new OrderBLServiceImpl();
 		creditdao=CreditDaoImpl.getInstance();
 	}
 	
@@ -53,12 +54,6 @@ public class UserBLServiceImpl implements UserBLService{
 	@Override
 	public boolean ModifyHotelMessage(HotelVo vo) throws RemoteException{
 		return hoteldao.updateHotel(new HotelPo(vo));
-	}
-
-	@Override
-	public void Administration(int id) throws RemoteException{
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -101,7 +96,7 @@ public class UserBLServiceImpl implements UserBLService{
 
 	@Override
 	public List<OrderPo> GetOrderHistory(int id) throws RemoteException{
-		List<OrderPo> list=orderdao.getOrderByUserID(id);
+		List<OrderPo> list=orderbl.ViewByCustom(id);
 		return list;
 	}
 

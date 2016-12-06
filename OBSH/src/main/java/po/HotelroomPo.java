@@ -6,8 +6,14 @@ import vo.HotelroomVo;
 
 /**
  * 
- * roomID 房间编号：301 TimeCheckIn 入住时间 hotelID 酒店的ID AttemptedLeaveTime 预计退房时间
- * TimeCheckOut 退房时间 roomType 房间类型 price 房间价格 IfOccupied 占用情况
+ * roomID 房间编号：301 
+ * TimeCheckIn 入住时间 
+ * hotelID 酒店的ID 
+ * AttemptedLeaveTime 预计退房时间
+ * TimeCheckOut 退房时间
+ * roomType 房间类型
+ * price 房间价格 
+ * IfOccupied 占用情况
  */
 public class HotelroomPo {
 	private int roomID;

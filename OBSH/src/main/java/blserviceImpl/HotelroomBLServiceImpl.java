@@ -31,6 +31,7 @@ public class HotelroomBLServiceImpl implements HotelroomBLService{
 		Timestamp now=new Timestamp(date.getTime());
 		HotelroomPo po=new HotelroomPo(vo);
 		po.setTimeCheckIn(now);
+		hotelroomdao.updateHotelroom(po);
 	}
 
 	@Override
@@ -39,6 +40,15 @@ public class HotelroomBLServiceImpl implements HotelroomBLService{
 		Timestamp now=new Timestamp(date.getTime());
 		HotelroomPo po=new HotelroomPo(vo);
 		po.setTimeCheckOut(now);
+		po.setIfOccupied(false);
+		hotelroomdao.updateHotelroom(po);
+	}
+
+	@Override
+	public void ModifyPrice(HotelroomVo vo) {
+		HotelroomPo po=new HotelroomPo(vo);
+		po.setPrice(vo.getPrice());
+		hotelroomdao.updateHotelroom(po);
 	}
 
 }
