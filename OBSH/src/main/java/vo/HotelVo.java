@@ -1,10 +1,9 @@
 package vo;
 
 import java.util.List;
-import java.util.Vector;
-import po.HotelPo;
 
-public class HotelVo extends Vector<String> {
+
+public class HotelVo {
 	private int hotelID;
 	private String name;
 	private int star;

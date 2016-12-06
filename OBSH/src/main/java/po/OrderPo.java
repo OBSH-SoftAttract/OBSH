@@ -51,7 +51,15 @@ public class OrderPo {
 	}
 	
 	public OrderPo(OrderVo ordervo) {
-		// TODO Auto-generated constructor stub
+		this.orderID=ordervo.getOrderID();
+		this.orderState=ordervo.getOrderState();
+		this.StartTime=ordervo.getStartTime();
+		this.EndTime=ordervo.getEndTime();
+		this.lastTime=ordervo.getLastTime();
+		this.userID=ordervo.getUserID();
+		this.price=ordervo.getPrice();
+		this.hotelID=ordervo.getHotelID();
+		this.roomInfo=ordervo.getRoomInfo();
 	}
 
 	public String getOrderID(){

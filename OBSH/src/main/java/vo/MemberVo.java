@@ -6,8 +6,7 @@ package vo;
  * userInfo		用户信息（用户名+信用值信息）
  * @author bxh
  */
-import po.MemberPo;
-import po.UserPo;
+
 
 public class MemberVo {
 	

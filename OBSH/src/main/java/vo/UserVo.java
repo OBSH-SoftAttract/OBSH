@@ -1,6 +1,5 @@
 package vo;
 
-import po.UserPo;
 
 public class UserVo {
 	private int id;
@@ -12,12 +11,11 @@ public class UserVo {
 		super();
 	}
 
-	public UserVo(UserPo userPo) {
-		super();
-		this.id = userPo.getID();
-		this.username = userPo.getUsername();
-		this.password = userPo.getPassword();
-		this.phone = userPo.getPhone();
+	public UserVo (int i, String pa,String ph,String un){ 
+		this.id=i;
+		this.password=pa; 
+		this.phone=ph;
+		this.username=un;
 	}
 
 	public int getID() {

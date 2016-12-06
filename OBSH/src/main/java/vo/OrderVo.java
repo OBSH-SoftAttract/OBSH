@@ -2,8 +2,6 @@ package vo;
 
 import java.sql.Timestamp;
 
-import po.OrderPo;
-import po.UserPo;
 /**
  * orderID		订单编号
  * orderState   订单状态
@@ -36,10 +34,6 @@ public class OrderVo {
 	
 	private String userInfo;
 	
-	public OrderVo(OrderPo orderpo,UserPo userpo){
-		super();
-		
-	}
 	
 	public OrderVo(String orderid,int orderstate,Timestamp starttime,Timestamp endtime,Timestamp lasttime,
 			int userid,double pri,int hotelid,String roominfo,String userinfo){

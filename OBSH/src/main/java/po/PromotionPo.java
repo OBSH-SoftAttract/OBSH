@@ -42,7 +42,12 @@ public class PromotionPo {
 	}
 	
 	public PromotionPo(PromotionVo vo) {
-		// TODO Auto-generated constructor stub
+		this.id = vo.getId();
+		this.itemName = vo.getItemName();
+		this.startTime = vo.getStartTime();
+		this.endTime = vo.getEndTime();
+		this.promotionInfo =vo.getPromotionInfo();
+		this.discount=vo.getDiscount();
 	}
 
 	public int getID() {

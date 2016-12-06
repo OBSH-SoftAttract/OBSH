@@ -6,7 +6,7 @@ package vo;
  * startTime          策略适用开始时间
  * endTime            策略适用结束时间
  * promotionInfo      策略详细信息
- * hotelMarketerInfo          酒店名称    
+ * discount           折扣 
  * @author bxh
  */
 import po.PromotionPo;
@@ -28,39 +28,19 @@ public class PromotionVo {
 	
 	private String promotionInfo;
 	
-	private String hotelMarketerInfo;
-	
-	public PromotionVo(PromotionPo promotionPo, UserPo userPo) {
-		super();
-		this.id = promotionPo.getID();
-		if(String.valueOf(id).length()==3) {          //用来区分是酒店工作人员还是网站营销人员的
-			hotelMarketerInfo = userPo.getUsername();  
-		}
-		this.itemName = promotionPo.getItemName();
-		this.startTime = promotionPo.getStartTime();
-		this.endTime = promotionPo.getEndTime();
-		this.promotionInfo = promotionPo.getPromotionInfo();
-	}
-	
-	public PromotionVo(PromotionPo promotionPo, HotelPo hotelPo) {
-		super();
-		this.id = promotionPo.getID();
-		if(String.valueOf(id).length()==4) {          //用来区分是酒店工作人员还是网站营销人员的
-			hotelMarketerInfo = hotelPo.getName();
-		} 
-		this.itemName = promotionPo.getItemName();
-		this.startTime = promotionPo.getStartTime();
-		this.endTime = promotionPo.getEndTime();
-		this.promotionInfo = promotionPo.getPromotionInfo();
-	}
-	
-	public PromotionVo(int id, String hotelMarketerInfo, String itemName, Timestamp startTime, Timestamp endTime, String promotionInfo){
+	private double discount;
+		
+	public PromotionVo(int id, double discount, String itemName, Timestamp startTime, Timestamp endTime, String promotionInfo){
 		this.id = id;
-		this.hotelMarketerInfo = hotelMarketerInfo;
+		this.discount =discount;
 		this.itemName = itemName;
 		this.promotionInfo = promotionInfo;
 		this.startTime = startTime;
 		this.endTime  = endTime;
+	}
+	
+	public void setId(int id) {
+		this.id=id;
 	}
 	
 	public int getId() {
@@ -98,13 +78,15 @@ public class PromotionVo {
 	public void setPromotionInfo(String promotionInfo) {
 		this.promotionInfo = promotionInfo;
 	}
-	
-	public String getHotelMarketerInfo() {
-		return hotelMarketerInfo;
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 	
-	public void setHotelMarketerInfo(String hotelMarketerInfo) {
-		this.hotelMarketerInfo = hotelMarketerInfo;
-	}
+
 
 }
