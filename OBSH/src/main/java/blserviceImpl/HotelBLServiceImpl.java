@@ -17,10 +17,10 @@ import vo.HotelVo;
 
 public class HotelBLServiceImpl implements HotelBLService {
 
-	HotelDao hoteldao;
-	HotelroomDao hotelroomdao;
-	HotelroomBLService hotelbl;
-
+	private HotelDao hoteldao;
+	private HotelroomDao hotelroomdao;
+	private HotelroomBLService hotelbl;
+	
 	private static int scoreCount=0;
 	
 	public HotelBLServiceImpl() {

@@ -1,8 +1,6 @@
 package blserviceImpl;
 
 import java.rmi.RemoteException;
-import java.sql.Timestamp;
-import java.util.Date;
 
 import blservice.HotelroomBLService;
 import data.dao.HotelroomDao;
@@ -14,8 +12,11 @@ public class HotelroomBLServiceImpl implements HotelroomBLService{
 
 	HotelroomDao hotelroomdao;
 	
+	PresentTimeGet nowtime;
+	
 	public HotelroomBLServiceImpl(){
 		hotelroomdao=HotelroomDaoImpl.getInstance();
+		nowtime=new PresentTimeGet();
 	}
 	
 	@Override
@@ -27,19 +28,15 @@ public class HotelroomBLServiceImpl implements HotelroomBLService{
 	
 	@Override
 	public void CheckIn(HotelroomVo vo){
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
 		HotelroomPo po=new HotelroomPo(vo);
-		po.setTimeCheckIn(now);
+		po.setTimeCheckIn(nowtime.NowTime());
 		hotelroomdao.updateHotelroom(po);
 	}
 
 	@Override
 	public void CheckOut(HotelroomVo vo) {
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
 		HotelroomPo po=new HotelroomPo(vo);
-		po.setTimeCheckOut(now);
+		po.setTimeCheckOut(nowtime.NowTime());
 		po.setIfOccupied(false);
 		hotelroomdao.updateHotelroom(po);
 	}

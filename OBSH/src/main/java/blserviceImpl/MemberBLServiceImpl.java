@@ -19,9 +19,7 @@ public class MemberBLServiceImpl implements MemberBLService{
 	}
 	
 	@Override
-	public void createByPersonal(int id, Date birthday) throws RemoteException{
-		// TODO Auto-generated method stub
-		
+	public void createByPersonal(int id, Date birthday) throws RemoteException{	
 		MemberPo memberPo = new MemberPo();
 		memberPo.setUserId(id);
 		memberPo.setBirthday(birthday);
@@ -32,9 +30,7 @@ public class MemberBLServiceImpl implements MemberBLService{
 	}
 
 	@Override
-	public void createByBusiness(int id, String name) throws RemoteException{
-		// TODO Auto-generated method stub
-		
+	public void createByBusiness(int id, String name) throws RemoteException{		
 		MemberPo memberPo = new MemberPo();
 		memberPo.setUserId(id);
 		memberPo.setCorpoatename(name);
@@ -46,8 +42,6 @@ public class MemberBLServiceImpl implements MemberBLService{
 
 	@Override
 	public int getMemberRank(int id) throws RemoteException{
-		// TODO Auto-generated method stub
-
 		int rank = 0;
 		double credit = creditbl.getCredit(id).getCreditResult();
 		if(credit>=1000){
@@ -66,13 +60,11 @@ public class MemberBLServiceImpl implements MemberBLService{
 
 	@Override
 	public boolean isMember(int id) throws RemoteException{
-		// TODO Auto-generated method stub
 		return memberdao.isMember(id);
 	}
 
 	@Override
-	public double getRankDiscount(int rank) throws RemoteException {
-		
+	public double getRankDiscount(int rank) throws RemoteException {	
 		return Discount[rank];
 	}
 

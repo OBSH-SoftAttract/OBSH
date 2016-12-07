@@ -29,6 +29,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	private PromotionBLService promotionbl;
 	private MemberBLService memberbl;
 	
+	private PresentTimeGet nowtime;
 	private final double CREDIT=0;
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private final long AttemptedTime=21600000;//6小时
@@ -42,6 +43,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 		promotionbl=new PromotionBLServiceImpl();
 		memberbl=new MemberBLServiceImpl();
 		cre=new CreditBLServiceImpl();
+		nowtime=new PresentTimeGet();
 	}
 	
 	@Override
@@ -64,9 +66,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public boolean IFpassTime(OrderVo ordervo) throws RemoteException{
 		Timestamp deadline=ordervo.getLastTime();		
-		Date date = new Date();       
-		Timestamp now = new Timestamp(date.getTime());
-		if(deadline.getTime()<now.getTime())return true;		
+
+		if(deadline.getTime()<nowtime.NowTime().getTime())return true;		
 		return false;
 	}
 	
@@ -74,9 +75,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public void CancelKillCredit(OrderVo ordervo)throws RemoteException {
 		double precredit=cre.getCredit(ordervo.getUserID()).getCreditResult();
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
-		CreditPo creditpo=new CreditPo(ordervo.getUserID(),now ,precredit-ordervo.getPrice());
+
+		CreditPo creditpo=new CreditPo(ordervo.getUserID(),nowtime.NowTime(),precredit-ordervo.getPrice());
 		creditdao.addCredit(creditpo);
 	}
 
@@ -88,9 +88,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	@Override
 	public boolean Add(OrderVo ordervo) throws RemoteException{
 		OrderPo orderPo=new OrderPo(ordervo);
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
-		orderPo.setStartTime(now);
+		orderPo.setStartTime(nowtime.NowTime());
 		
 		return orderdao.addOrderPo(orderPo);
 	}
@@ -108,8 +106,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 		List<PromotionPo> list=promotionbl.getPromotions();
 		Iterator<PromotionPo> ite=list.iterator();
 		
-		Date date = new Date();
-		Timestamp now = new Timestamp(date.getTime());
+		Timestamp now=nowtime.NowTime();
 		double best=1;
 		PromotionPo res=null;
 		while(ite.hasNext()){

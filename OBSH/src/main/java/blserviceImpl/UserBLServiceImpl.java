@@ -1,19 +1,15 @@
 package blserviceImpl;
 
 import java.rmi.RemoteException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 import blservice.OrderBLService;
 import blservice.UserBLService;
 import data.dao.CreditDao;
 import data.dao.HotelDao;
-import data.dao.OrderDao;
 import data.dao.UserDao;
 import data.dao.impl.CreditDaoImpl;
 import data.dao.impl.HotelDaoImpl;
-import data.dao.impl.OrderDaoImpl;
 import data.dao.impl.UserDaoImpl;
 import po.CreditPo;
 import po.HotelPo;
@@ -29,6 +25,7 @@ public class UserBLServiceImpl implements UserBLService{
 	private CreditDao creditdao;
 	private OrderBLService orderbl;
 	private final double DefaultCredit=0;
+	private PresentTimeGet nowtime;
 /*	private final static int ID=151250001;*/
 	
 	public UserBLServiceImpl(){
@@ -36,6 +33,7 @@ public class UserBLServiceImpl implements UserBLService{
 		hoteldao=HotelDaoImpl.getInstance();
 		orderbl=new OrderBLServiceImpl();
 		creditdao=CreditDaoImpl.getInstance();
+		nowtime=new PresentTimeGet();
 	}
 	
 	@Override
@@ -71,10 +69,7 @@ public class UserBLServiceImpl implements UserBLService{
 		
 		UserPo po=new UserPo(vo);
 		
-		Date date=new Date();
-		Timestamp now =new Timestamp(date.getTime());
-		
-		CreditPo creditpo=new CreditPo(vo.getID(), now, DefaultCredit);
+		CreditPo creditpo=new CreditPo(vo.getID(), nowtime.NowTime(), DefaultCredit);
 		return userdao.addUser(po)&&creditdao.setCredit(creditpo);
 	}
 	
