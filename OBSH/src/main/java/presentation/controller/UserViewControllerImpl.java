@@ -1,15 +1,18 @@
 package presentation.controller;
 
+import java.util.List;
 import blservice.HotelBLService;
 import blservice.OrderBLService;
 import blservice.UserBLService;
 import blserviceImpl.OrderBLServiceImpl;
 import blserviceImpl.UserBLServiceImpl;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import po.HotelPo;
 import presentation.view.UserView;
 import presentation.view.UserViewControllerService;
 import vo.UserVo;
+import vo.HotelVo;
+import po.HotelPo;
 
 public class UserViewControllerImpl implements UserViewControllerService{
 	private int userId;
@@ -50,10 +53,6 @@ public class UserViewControllerImpl implements UserViewControllerService{
 		}
 	}
 	@Override
-	public void backtoMain(Stage primaryStage) {
-		view.backtoMain(primaryStage);
-	}
-	@Override
 	public String[] getHotelName() {
 		// TODO Auto-generated method stub
 		return null;
@@ -74,24 +73,61 @@ public class UserViewControllerImpl implements UserViewControllerService{
 		return null;
 	}
 	@Override
-	public void jumptoSearchHotelMainFrame(Stage primaryStage) {
-		view.jumptoSearchHotelMainFrame(primaryStage);
-	}
-	@Override
-	public void jumptoRegisterFrame(Stage primaryStage) {
-		view.jumptoRegisterFrame(primaryStage);
-	}
-	@Override
-	public void jumptoUserMainFrame(Stage primaryStage) {
-		view.jumptoUserMainFrame(primaryStage);
-	}
-	@Override
-	public void jumptoCheckOrder(Stage primaryStage) {
-		view.jumptoCheckOrder(primaryStage);
+	public void SortbyPopularity() {
+		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void jumptoMaintainPersonalInfo(Stage primaryStage) {
-		view.jumptoMaintainPersonalInfo(primaryStage);		
+	public List<HotelPo> Views(String address, String commercialDistrict) {
+		return userService.Views(address, commercialDistrict);
+	}
+	@Override
+	public void registeruser(String username, String password, String conpassword, String phonenum) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public boolean succeedtoFindUser(String userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public void modifyUserInfo(String name, String phone, String credit) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String getUserName(String userId) {
+		
+		return null;
+	}
+	@Override
+	public String getUserPhone(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUserCredit(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean checkHotelWorker(String hotelname) {
+		return false;		
+	}
+	@Override
+	public String setHotelId(String hotelname) {
+		return hotelname;
+		
+	}
+	@Override
+	public void saveHotelWorkerInfo(String hotelname, String hotelworkerpassword) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public boolean checkpasswordequal(String hotelworkerpassword, String hotelworkerpasswordconfirm) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

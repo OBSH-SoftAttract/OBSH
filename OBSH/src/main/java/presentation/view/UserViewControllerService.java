@@ -1,22 +1,29 @@
 package presentation.view;
 
-
-import javafx.stage.Stage;
+import java.util.List;
+import po.HotelPo;
 
 public interface UserViewControllerService {
 	public int getUserId();
 	public int getUserPassword();
 	public void setView(UserView view);
 	public boolean successLogin(int userId,String password);
-	public void backtoMain(Stage primaryStage);
-	public void jumptoSearchHotelMainFrame(Stage primaryStage);
-	public void jumptoRegisterFrame(Stage primaryStage);
-	public void jumptoUserMainFrame(Stage primaryStage);
 	public String[] getHotelName();
 	public String[] getRelatedHotelStarLevel();
 	public String[] getRelatedHotelPrice();
 	public String[] getRelatedHotelMark();
-	public void jumptoCheckOrder(Stage primaryStage);
-	public void jumptoMaintainPersonalInfo(Stage primaryStage);
-
+	public void SortbyPopularity();
+	public List<HotelPo> Views(String address, String commercial);
+	public void registeruser(String username, String password, String conpassword, String phonenum);
+	public boolean succeedtoFindUser(String userId);
+	public void modifyUserInfo(String name, String phone, String credit);
+	public String getUserName(String userId);
+	public String getUserPhone(String userId);
+	public String getUserCredit(String userId);
+	public boolean checkHotelWorker(String hotelname);
+	public String setHotelId(String hotelname);
+	public void saveHotelWorkerInfo(String hotelname, String hotelworkerpassword);
+	public boolean checkpasswordequal(String hotelworkerpassword, String hotelworkerpasswordconfirm);
 }
+
+
