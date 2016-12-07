@@ -38,10 +38,9 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 		     Timestamp timeCheckOut = ret.getTimestamp(5);
 		     String roomType = ret.getString(6);
 		     double price = ret.getDouble(7);
-		     boolean isEmpty = ret.getBoolean(8);
-		     String hotelroomID = String.valueOf(hotelID)+String.valueOf(roomID); 
+		     String hotelroomID = String.valueOf(hotelID)+String.valueOf(roomID);
 		     
-		     HotelroomPo hotelroomPo=new HotelroomPo(roomID, timeCheckIn, hotelID, attemptedLeaveTime, timeCheckOut, roomType, price, isEmpty); 
+		     HotelroomPo hotelroomPo=new HotelroomPo(roomID, timeCheckIn, hotelID, attemptedLeaveTime, timeCheckOut, roomType, price); 
 		     map.put(hotelroomID, hotelroomPo);
 		 }//显示数据  
 		     ret.close();  
@@ -66,7 +65,6 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 					"',TimeCheckOut = '"+hotelroomPo.getTimeCheckOut()+
 					"',roomType = '"+hotelroomPo.getRoomType()+
 					"',price = "+hotelroomPo.getPrice()+
-					", isEmpty = "+hotelroomPo.isIfOccupied()+
 					",where roomID = "+hotelroomPo.getRoomID()+
 					"and hotelID = "+hotelroomPo.getHotelID();//SQL语句 
 			db1 = new JDBCHelper(sql);//创建DBHelper对象  
@@ -90,8 +88,7 @@ public class HotelroomDataMysqlHelper implements HotelroomDataHelper {
 				",'"+hotelroomPo.getAttemptedLeaveTime()+
 				"','"+hotelroomPo.getTimeCheckOut()+
 				"','"+hotelroomPo.getRoomType()+
-				"',"+hotelroomPo.getPrice()+
-				","+hotelroomPo.isIfOccupied()+")";
+				"',"+hotelroomPo.getPrice()+")";
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
 			sta = db1.pst.executeUpdate(sql);
