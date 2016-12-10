@@ -2,6 +2,7 @@ package blservice;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import po.PromotionPo;
 import vo.PromotionVo;
 public interface PromotionBLService {
@@ -18,14 +19,14 @@ public interface PromotionBLService {
 	 * @param vo
 	 * @return 增加营销策略
 	 */
-	public boolean createNewItem(PromotionVo vo)throws RemoteException;
+	public ResultMessage createNewItem(PromotionVo vo)throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 系统更新营销策略列表
 	 */
-	public boolean Del(PromotionVo vo)throws RemoteException;
+	public ResultMessage Del(PromotionVo vo)throws RemoteException;
 	
 	
 	/**

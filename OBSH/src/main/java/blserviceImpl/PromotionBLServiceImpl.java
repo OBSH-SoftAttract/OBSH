@@ -3,6 +3,7 @@ package blserviceImpl;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import blservice.PromotionBLService;
 import data.dao.PromotionDao;
 import data.dao.impl.PromotionDaoImpl;
@@ -24,13 +25,15 @@ public class PromotionBLServiceImpl implements PromotionBLService{
 	}
 
 	@Override
-	public boolean createNewItem(PromotionVo vo) throws RemoteException{
-		return promotiondao.addPromotionPo(new PromotionPo(vo));
+	public ResultMessage createNewItem(PromotionVo vo) throws RemoteException{
+		if(promotiondao.addPromotionPo(new PromotionPo(vo)))return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 	@Override
-	public boolean Del(PromotionVo vo) throws RemoteException{
-		return promotiondao.deletePromotionPo(vo.getItemName());
+	public ResultMessage Del(PromotionVo vo) throws RemoteException{
+		if(promotiondao.deletePromotionPo(vo.getItemName()))return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 	@Override

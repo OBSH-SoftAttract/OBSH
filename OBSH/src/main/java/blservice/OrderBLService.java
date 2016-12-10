@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import po.OrderPo;
 import po.PromotionPo;
 import vo.OrderVo;
@@ -16,14 +17,14 @@ public interface OrderBLService extends Remote{
 	 * @return	将订单状态改为已撤销
 	 * @throws RemoteException 
 	 */
-	public boolean Cancellation(OrderVo ordervo) throws RemoteException;
+	public ResultMessage Cancellation(OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * @param   ordervo
 	 * @return  订单是否超时
 	 * @throws RemoteException 
 	 */
-	public boolean IFpassTime (OrderVo ordervo) throws RemoteException;
+	public ResultMessage IFpassTime (OrderVo ordervo) throws RemoteException;
 	
 	/**
 	 * @param   ordervo
@@ -40,7 +41,7 @@ public interface OrderBLService extends Remote{
 	 * @return 提交订单评语
 	 * @throws RemoteException 
 	 */
-	public boolean Assess(int score,String comment,int hotelID) throws RemoteException;
+	public ResultMessage Assess(int score,String comment,int hotelID) throws RemoteException;
 	
 	/**
 	 * 
@@ -48,7 +49,7 @@ public interface OrderBLService extends Remote{
 	 * @return 添加订单
 	 * @throws RemoteException 
 	 */
-	public boolean Add(OrderVo ordervo) throws RemoteException; 
+	public ResultMessage Add(OrderVo ordervo) throws RemoteException; 
 	
 	/**
 	 * 
@@ -56,7 +57,7 @@ public interface OrderBLService extends Remote{
 	 * @return 检查信用值是否满足下单要求
 	 * @throws RemoteException 
 	 */
-	public boolean CreditCheck(OrderVo ordervo) throws RemoteException ;
+	public ResultMessage CreditCheck(OrderVo ordervo) throws RemoteException ;
 	
 	/**
 	 * 
@@ -88,7 +89,7 @@ public interface OrderBLService extends Remote{
 	 * @return 处理用户申诉
 	 * @throws RemoteException 
 	 */
-	public boolean ComplainDeal(OrderVo vo) throws RemoteException;
+	public ResultMessage ComplainDeal(OrderVo vo) throws RemoteException;
 	
 	/**
 	 * 

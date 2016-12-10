@@ -14,27 +14,21 @@ import po.CreditPo;
 public class CreditBLServiceImpl implements CreditBLService{
 
 	private CreditDao creditdao;
-	
+	private PresentTimeGet nowTime;
 	public CreditBLServiceImpl(){
 		creditdao=CreditDaoImpl.getInstance();
 	}
 	
 	@Override
-	public void addCredit(int id,double value) throws RemoteException{
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
-		
+	public void addCredit(int id,double value) throws RemoteException{	
 		double afterOperation=this.getCredit(id).getCreditResult()+value;
 		String CreditChange="+"+String.valueOf(value);
-		CreditPo po=new CreditPo(id,now,3,CreditChange,afterOperation);
+		CreditPo po=new CreditPo(id,nowTime.NowTime(),3,CreditChange,afterOperation);
 		creditdao.addCredit(po);		
 	}
 
 	@Override
 	public void recoverCredit (int id,double price, int tag)throws RemoteException {
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
-		
 		double afterOperation=this.getCredit(id).getCreditResult();
 		String CreditChange="+";
 		if(tag==0){
@@ -46,7 +40,7 @@ public class CreditBLServiceImpl implements CreditBLService{
 			CreditChange+=String.valueOf(price);
 		}
 			
-		CreditPo po=new CreditPo(id,now,2,CreditChange,afterOperation);
+		CreditPo po=new CreditPo(id,nowTime.NowTime(),2,CreditChange,afterOperation);
 		creditdao.addCredit(po);
 	}
 
@@ -68,12 +62,9 @@ public class CreditBLServiceImpl implements CreditBLService{
 
 	@Override
 	public void CutCreditForCancel(int id, double price) throws RemoteException{
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
-		
 		double afterOperation=this.getCredit(id).getCreditResult()-price/2;
 		String CreditChange="-"+String.valueOf(price/2);
-		CreditPo po=new CreditPo(id,now,2,CreditChange,afterOperation);
+		CreditPo po=new CreditPo(id,nowTime.NowTime(),2,CreditChange,afterOperation);
 		creditdao.addCredit(po);	
 	}
 

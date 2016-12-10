@@ -2,6 +2,7 @@ package blservice;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import po.HotelPo;
 import po.HotelroomPo;
 import vo.HotelVo;
@@ -11,7 +12,7 @@ public interface HotelBLService {
 	 * @param hotelNo
 	 * @return 添加酒店
 	 */
-	public boolean Addhotel (HotelVo hotelvo)throws RemoteException;
+	public ResultMessage Addhotel (HotelVo hotelvo)throws RemoteException;
 
 	/**
 	 * 
@@ -71,7 +72,7 @@ public interface HotelBLService {
 	 * @return 添加评价
 	 * @throws RemoteException
 	 */
-	public boolean AddAssess(int score,String s,int hotelID)throws RemoteException;
+	public ResultMessage AddAssess(int score,String s,int hotelID)throws RemoteException;
 	/**
 	 * 
 	 * @param min

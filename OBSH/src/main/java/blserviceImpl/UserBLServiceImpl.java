@@ -3,6 +3,7 @@ package blserviceImpl;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import blservice.OrderBLService;
 import blservice.UserBLService;
 import data.dao.CreditDao;
@@ -37,56 +38,72 @@ public class UserBLServiceImpl implements UserBLService{
 	}
 	
 	@Override
-	public boolean login(int id, String password) throws RemoteException{
+	public ResultMessage login(int id, String password) throws RemoteException{
 		UserPo po=userdao.getUser(id);
-		if(null==po)return false;
-		return po.getPassword().equals(password);
+		if(null==po)return ResultMessage.NotExist;
+		if(po.getPassword().equals(password))
+			return ResultMessage.WrongPassword;
+		else
+			return ResultMessage.PASS;
 	}
 	
 	@Override
-	public boolean ModifyMessage(UserVo vo) throws RemoteException{
+	public ResultMessage ModifyMessage(UserVo vo) throws RemoteException{
 		UserPo po=new UserPo(vo);
-		return userdao.updateUser(po);
+		if( userdao.updateUser(po))
+			return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 	@Override
-	public boolean ModifyHotelMessage(HotelVo vo) throws RemoteException{
-		return hoteldao.updateHotel(new HotelPo(vo));
+	public ResultMessage ModifyHotelMessage(HotelVo vo) throws RemoteException{
+		if(hoteldao.updateHotel(new HotelPo(vo)))
+			return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 	@Override
-	public boolean ModifyPassword(UserVo vo) throws RemoteException{
+	public ResultMessage ModifyPassword(UserVo vo) throws RemoteException{
 		UserPo po=userdao.getUser(vo.getID());
 		po.setPassword(vo.getPassword());
-		return userdao.updateUser(po);
+		if(userdao.updateUser(po))
+			return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 
 	@Override
-	public boolean AddClient(UserVo vo) throws RemoteException{
+	public ResultMessage AddClient(UserVo vo) throws RemoteException{
 		String id=String.valueOf(vo.getID());
-		if(id.length()!=9)return false;
+		if(id.length()!=9)
+			return ResultMessage.FormatWrong;
 		
 		UserPo po=new UserPo(vo);
-		
+		if(userdao.addUser(po))
+			return ResultMessage.IDExsit;
 		CreditPo creditpo=new CreditPo(vo.getID(), nowtime.NowTime(), DefaultCredit);
-		return userdao.addUser(po)&&creditdao.setCredit(creditpo);
+		if(creditdao.setCredit(creditpo))
+			return ResultMessage.Success;
+		else
+			return ResultMessage.UpdateFail;
 	}
 	
 	@Override
-	public boolean AddHotelMember(UserVo vo) throws RemoteException{
+	public ResultMessage AddHotelMember(UserVo vo) throws RemoteException{
 		String id=String.valueOf(vo.getID());
-		if(id.length()!=4)return false;
+		if(id.length()!=4)return ResultMessage.FormatWrong;
 		
-		return userdao.addUser(new UserPo(vo));
+		if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
+		return ResultMessage.IDExsit;
 	}
 
 	@Override
-	public boolean AddMarketer(UserVo vo) throws RemoteException{
+	public ResultMessage AddMarketer(UserVo vo) throws RemoteException{
 		String id=String.valueOf(vo.getID());
-		if(id.length()!=3)return false;
+		if(id.length()!=3)return ResultMessage.FormatWrong;
 		
-		return userdao.addUser(new UserPo(vo));
+		if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
+		return ResultMessage.IDExsit;
 	}
 
 	@Override

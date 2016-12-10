@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import blservice.HotelBLService;
 import blservice.MemberBLService;
 import blservice.OrderBLService;
@@ -47,28 +48,24 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 	
 	@Override
-	public boolean Cancellation(OrderVo ordervo)throws RemoteException{
-		if(0!=ordervo.getOrderState()){
-			return false;
-		}
-		ordervo.setOrderState(2);
+	public ResultMessage Cancellation(OrderVo ordervo)throws RemoteException{
+        ordervo.setOrderState(2);
 		OrderPo po=orderdao.getOrder(ordervo.getOrderID());
 		po.setOrderState(2);
 		
-		Date date=new Date();
-		Timestamp now=new Timestamp(date.getTime());
-		if(now.getTime()-ordervo.getStartTime().getTime()>AttemptedTime){
+		if(nowtime.NowTime().getTime()-ordervo.getStartTime().getTime()>AttemptedTime){
 			cre.CutCreditForCancel(ordervo.getUserID(),ordervo.getPrice());
 		}
-		return orderdao.updateOrder(po);
+		if(orderdao.updateOrder(po))return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 	@Override
-	public boolean IFpassTime(OrderVo ordervo) throws RemoteException{
+	public ResultMessage IFpassTime(OrderVo ordervo) throws RemoteException{
 		Timestamp deadline=ordervo.getLastTime();		
 
-		if(deadline.getTime()<nowtime.NowTime().getTime())return true;		
-		return false;
+		if(deadline.getTime()<nowtime.NowTime().getTime())return ResultMessage.InTime;	
+		return ResultMessage.OverTime;
 	}
 	
 
@@ -81,24 +78,25 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public boolean Assess(int score, String comment, int hotelID) throws RemoteException{
+	public ResultMessage Assess(int score, String comment, int hotelID) throws RemoteException{
 		return hotelbl.AddAssess(score,comment,hotelID);
 	}
 
 	@Override
-	public boolean Add(OrderVo ordervo) throws RemoteException{
+	public ResultMessage Add(OrderVo ordervo) throws RemoteException{
 		OrderPo orderPo=new OrderPo(ordervo);
 		orderPo.setStartTime(nowtime.NowTime());
 		
-		return orderdao.addOrderPo(orderPo);
+		if(orderdao.addOrderPo(orderPo))return ResultMessage.Success;
+		return ResultMessage.IDExsit;
 	}
 
 	@Override
-	public boolean CreditCheck(OrderVo ordervo) throws RemoteException{
+	public ResultMessage CreditCheck(OrderVo ordervo) throws RemoteException{
 		int id=ordervo.getUserID();
 		double credit=cre.getCredit(id).getCreditResult();
-		if(credit>=CREDIT)return true;
-		return false;
+		if(credit>=CREDIT)return ResultMessage.CreditMet;
+		return ResultMessage.CreditWrong;
 	}
 
 	@Override
@@ -151,13 +149,14 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public boolean ComplainDeal(OrderVo vo) throws RemoteException{
+	public ResultMessage ComplainDeal(OrderVo vo) throws RemoteException{
 		OrderPo po=orderdao.getOrder(vo.getOrderID());
 		if(po.getOrderState()!=3)
-		return false;
+		return ResultMessage.StateWrong;
 		else{
 			po.setOrderState(2);
-			return orderdao.updateOrder(po);
+			if(orderdao.updateOrder(po))return ResultMessage.UpdateSuccess;
+			return ResultMessage.UpdateFail;
 		}
 	}
 

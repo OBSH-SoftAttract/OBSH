@@ -3,6 +3,7 @@ package blservice;
 import java.rmi.RemoteException;
 import java.util.List;
 
+import ResultMessage.ResultMessage;
 import po.CreditPo;
 import po.HotelPo;
 import po.HotelroomPo;
@@ -19,7 +20,7 @@ public interface UserBLService {
 	 * @param password
 	 * @return 登录
 	 */
-	public boolean login(int id, String password)throws RemoteException;
+	public ResultMessage login(int id, String password)throws RemoteException;
 	
 	/**
 	 * 
@@ -34,21 +35,21 @@ public interface UserBLService {
 	 * @param vo
 	 * @return 修改客户信息
 	 */
-	public boolean ModifyMessage(UserVo vo)throws RemoteException;
+	public ResultMessage ModifyMessage(UserVo vo)throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 修改酒店信息
 	 */
-	public boolean ModifyHotelMessage(HotelVo vo)throws RemoteException;
+	public ResultMessage ModifyHotelMessage(HotelVo vo)throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 修改密码
 	 */
-	public boolean ModifyPassword(UserVo vo)throws RemoteException;
+	public ResultMessage ModifyPassword(UserVo vo)throws RemoteException;
 	
 	
 	/**
@@ -56,21 +57,21 @@ public interface UserBLService {
 	 * @param vo
 	 * @return 添加用户
 	 */
-	public boolean AddClient(UserVo vo)throws RemoteException;
+	public ResultMessage AddClient(UserVo vo)throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 添加酒店工作人员(需要先添加酒店)
 	 */
-	public boolean AddHotelMember(UserVo vo)throws RemoteException;
+	public ResultMessage AddHotelMember(UserVo vo)throws RemoteException;
 	
 	/**
 	 * 
 	 * @param vo
 	 * @return 添加营销人员
 	 */
-	public boolean AddMarketer(UserVo vo)throws RemoteException;
+	public ResultMessage AddMarketer(UserVo vo)throws RemoteException;
 	
 	/**
 	 * 

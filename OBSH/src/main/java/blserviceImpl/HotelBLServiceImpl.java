@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ResultMessage.ResultMessage;
 import blservice.HotelBLService;
-import blservice.HotelroomBLService;
 import data.dao.HotelDao;
 import data.dao.HotelroomDao;
 import data.dao.impl.HotelDaoImpl;
@@ -19,22 +19,21 @@ public class HotelBLServiceImpl implements HotelBLService {
 
 	private HotelDao hoteldao;
 	private HotelroomDao hotelroomdao;
-	private HotelroomBLService hotelbl;
 	
 	private static int scoreCount=0;
 	
 	public HotelBLServiceImpl() {
 		hoteldao = HotelDaoImpl.getInstance();
 		hotelroomdao=HotelroomDaoImpl.getInstance();
-		hotelbl = new HotelroomBLServiceImpl();
 	}
 
 	@Override
-	public boolean Addhotel(HotelVo hotelvo) throws RemoteException{
+	public ResultMessage Addhotel(HotelVo hotelvo) throws RemoteException{
 		String id = String.valueOf(hotelvo.getHotelID());
 		if (id.length() != 4)
-			return false;
-		return hoteldao.addHotelPo(new HotelPo(hotelvo));
+			return ResultMessage.FormatWrong;
+		if( hoteldao.addHotelPo(new HotelPo(hotelvo)))return ResultMessage.Success;
+		return ResultMessage.IDExsit;
 	}
 
 	@Override
@@ -199,7 +198,7 @@ public class HotelBLServiceImpl implements HotelBLService {
 	}
 
 	@Override
-	public boolean AddAssess(int score,String comment,int hotelID) throws RemoteException {
+	public ResultMessage AddAssess(int score,String comment,int hotelID) throws RemoteException {
 		HotelPo hotelpo=hoteldao.getHotel(hotelID);
 		double prescore=hotelpo.getScore();
 		if(score!=-1){
@@ -209,7 +208,8 @@ public class HotelBLServiceImpl implements HotelBLService {
 		}
 		if(null!=comment)
 			hotelpo.addSummary(comment);
-		return hoteldao.updateHotel(hotelpo);
+		if(hoteldao.updateHotel(hotelpo)) return ResultMessage.UpdateSuccess;
+		return ResultMessage.UpdateFail;
 	}
 
 
