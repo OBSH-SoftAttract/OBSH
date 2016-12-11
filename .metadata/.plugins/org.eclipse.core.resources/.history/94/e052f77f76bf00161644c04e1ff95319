@@ -1,0 +1,41 @@
+package presentation.controller;
+
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
+
+import presentation.view.DealOrder;
+import presentation.view.HotelStaff;
+/**
+ * BasicMessage在javafx下的控制器
+ * @author bxh
+ *
+ */
+public class DealOrderController {
+	
+	private DealOrder dealOrder;
+	
+	@FXML
+	private void CloseStage(){
+		dealOrder.getPrimaryStage().close();
+	}
+
+	@FXML
+	private void minimizeStage() {
+		dealOrder.getPrimaryStage().setIconified(true); 
+	}
+	
+	@FXML
+	private void BackToSignIn() {
+		dealOrder.getPrimaryStage().close();
+		HotelStaff m = new HotelStaff();
+		m.start(new Stage());
+	}
+	
+	public void setDealOrder(DealOrder dealOrder) {
+		// TODO Auto-generated method stub
+		this.dealOrder= dealOrder;
+		
+	}
+
+
+}

@@ -10,6 +10,7 @@ public class client_run {
 	
 	public void linkToServer() {
 		try {
+			remotehelper=RemoteHelper_client.getInstance();
 			remotehelper.setRemote(Naming.lookup("rmi://localhost:4450/DataRemoteObject"));
 			System.out.println("the client has linked");
 		} catch (MalformedURLException e) {

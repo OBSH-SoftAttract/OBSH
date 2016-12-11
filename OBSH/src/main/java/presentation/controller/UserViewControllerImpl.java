@@ -27,7 +27,7 @@ public class UserViewControllerImpl implements UserViewControllerService {
 	public ResultMessage Login(String id, String password) throws  RemoteException {
 		// TODO Auto-generated method stub
 		if(id.equals("")||password.equals(""))return ResultMessage.NULL;
-		if (!isNum(id)||id.length()!=6)return ResultMessage.FormatWrong;
+		if (!isNum(id)||id.length()!=9)return ResultMessage.FormatWrong;
 			return userService.login(Integer.parseInt(id), password);
 	}
 	

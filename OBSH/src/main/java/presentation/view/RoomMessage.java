@@ -33,7 +33,7 @@ public class RoomMessage extends Application {
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 	        RoomMessageController controller = loader.getController();
-	        controller.setHotelStaff(this);
+	        controller.setRoomMessage(this);
 	    }catch(Exception e){
 	       	e.printStackTrace();
 	    }
@@ -62,14 +62,15 @@ public class RoomMessage extends Application {
 	}
 	
     /**
-     * Returns the main stage.
+     * Returns roomMessage.
      * @return
      */
     public Stage getPrimaryStage() {
         return primaryStage;
     }
+    
+	public static void main(String[] args) {
+		launch(args);
+	}
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

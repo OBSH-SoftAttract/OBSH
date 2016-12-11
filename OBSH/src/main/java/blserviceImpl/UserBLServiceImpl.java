@@ -72,7 +72,7 @@ public class UserBLServiceImpl implements UserBLService{
 
 
 	@Override
-	public ResultMessage AddClient(int id,UserVo vo) throws RemoteException{
+	public ResultMessage AddClient(UserVo vo) throws RemoteException{
 		String ID=String.valueOf(vo.getID());
 		if(ID.length()!=6)
 			return ResultMessage.FormatWrong;

@@ -1,0 +1,31 @@
+package presentation.controller;
+
+import javafx.fxml.FXML;
+import presentation.view.AddPromotion;
+
+/**
+ * @author bxh
+ *
+ */
+public class AddPromotionController {
+	
+	private AddPromotion addPromotion;
+	
+	@FXML
+	private void CloseStage(){
+		addPromotion.getPrimaryStage().close();
+	}
+
+	@FXML
+	private void minimizeStage() {
+		addPromotion.getPrimaryStage().setIconified(true); 
+	}
+	
+	public void setAddPromotion(AddPromotion addPromotion) {
+		// TODO Auto-generated method stub
+		this.addPromotion = addPromotion;
+		
+	}
+
+
+}

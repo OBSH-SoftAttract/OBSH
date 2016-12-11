@@ -57,7 +57,7 @@ public interface UserBLService {
 	 * @param vo
 	 * @return 添加用户
 	 */
-	public ResultMessage AddClient(int id,UserVo vo)throws RemoteException;
+	public ResultMessage AddClient(UserVo vo)throws RemoteException;
 	
 	/**
 	 * 

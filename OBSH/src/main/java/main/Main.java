@@ -8,7 +8,7 @@ import presentation.view.UserView;
 
 public class Main extends Application{
 	public static void main(String[]args){
-		new client_run().linkToServer();
+		//new client_run().linkToServer();
 		launch(args);
 	}
 

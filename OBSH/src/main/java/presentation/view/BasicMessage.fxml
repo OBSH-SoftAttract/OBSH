@@ -16,8 +16,8 @@
    <top>
       <Pane prefHeight="70.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="close" layoutX="866.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="34.0" />
-            <Button id="minimize" layoutX="832.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="34.0" />
+           <Button id="close" layoutX="866.0" mnemonicParsing="false" onAction="#CloseStage" prefHeight="34.0" prefWidth="34.0" />
+            <Button id="minimize" layoutX="832.0" mnemonicParsing="false" onAction="#minimizeStage" prefHeight="34.0" prefWidth="34.0" />
             <Label layoutX="19.0" prefHeight="35.0" prefWidth="131.0" text="OBSH—SIXTEEN" />
             <Text layoutX="19.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="酒店名称" />
          </children>
@@ -26,11 +26,10 @@
    <left>
       <Pane prefHeight="545.0" prefWidth="180.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="178.0" text="房间信息" />
-            <Button layoutY="62.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="179.0" text="订单处理" />
-            <Button layoutX="1.0" layoutY="127.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="178.0" text="销售策略" />
-            <Button layoutX="1.0" layoutY="195.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="178.0" text="维护酒店信息" />
-            <Button layoutX="1.0" layoutY="263.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="178.0" text="录入客房" />
+           <Button fx:id="roommessage" layoutX="1.0" mnemonicParsing="false" onAction="#jumpToRoomMessage" prefHeight="62.0" prefWidth="178.0" text="客房管理" />
+            <Button fx:id="orderdeal" layoutY="62.0" mnemonicParsing="false" onAction="#jumpToDealOrder" prefHeight="65.0" prefWidth="179.0" text="订单处理" />
+            <Button fx:id="addpromotion" layoutX="1.0" layoutY="127.0" mnemonicParsing="false" onAction="#jumpToPromotionItem" prefHeight="68.0" prefWidth="178.0" text="销售策略" />
+            <Button fx:id="basic" layoutX="1.0" layoutY="195.0" mnemonicParsing="false" onAction="#jumpToBasicMessage" prefHeight="68.0" prefWidth="178.0" text="维护酒店信息" />
          </children>
       </Pane>
    </left>
@@ -86,13 +85,14 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="189.0" layoutY="95.0" prefHeight="30.0" prefWidth="147.0" />
-            <ChoiceBox layoutX="492.0" layoutY="95.0" prefHeight="30.0" prefWidth="144.0" />
-            <ChoiceBox layoutX="189.0" layoutY="165.0" prefHeight="30.0" prefWidth="145.0" />
-            <ChoiceBox layoutX="493.0" layoutY="165.0" prefHeight="30.0" prefWidth="145.0" />
-            <TextArea layoutX="189.0" layoutY="230.0" prefHeight="77.0" prefWidth="452.0" />
-            <TextArea layoutX="188.0" layoutY="335.0" prefHeight="77.0" prefWidth="452.0" />
-            <Button layoutX="573.0" layoutY="439.0" mnemonicParsing="false" prefWidth="65.0" text="修改" />
+            <TextField fx:id="hotelName" layoutX="189.0" layoutY="95.0" prefHeight="30.0" prefWidth="147.0" />
+            <TextArea fx:id="services" layoutX="189.0" layoutY="230.0" prefHeight="77.0" prefWidth="452.0" />
+            <TextArea fx:id="briefInfo" layoutX="188.0" layoutY="335.0" prefHeight="77.0" prefWidth="452.0" />
+            <Button layoutX="573.0" layoutY="439.0" mnemonicParsing="false" onAction="#modifyHotel" prefWidth="65.0" text="修改" />
+            <TextField fx:id="address" layoutX="189.0" layoutY="165.0" prefHeight="30.0" prefWidth="147.0" />
+            <TextField fx:id="tradingArea" layoutX="491.0" layoutY="165.0" prefHeight="30.0" prefWidth="147.0" />
+            <Label fx:id="tip" layoutX="571.0" layoutY="481.0" prefHeight="36.0" prefWidth="75.0" />
+            <ChoiceBox fx:id="star" layoutX="490.0" layoutY="95.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </center>
