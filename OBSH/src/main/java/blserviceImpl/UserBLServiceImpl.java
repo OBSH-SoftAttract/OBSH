@@ -27,7 +27,6 @@ public class UserBLServiceImpl implements UserBLService{
 	private OrderBLService orderbl;
 	private final double DefaultCredit=0;
 	private PresentTimeGet nowtime;
-/*	private final static int ID=151250001;*/
 	
 	public UserBLServiceImpl(){
 		userdao=UserDaoImpl.getInstance();
@@ -73,9 +72,9 @@ public class UserBLServiceImpl implements UserBLService{
 
 
 	@Override
-	public ResultMessage AddClient(UserVo vo) throws RemoteException{
-		String id=String.valueOf(vo.getID());
-		if(id.length()!=9)
+	public ResultMessage AddClient(int id,UserVo vo) throws RemoteException{
+		String ID=String.valueOf(vo.getID());
+		if(ID.length()!=6)
 			return ResultMessage.FormatWrong;
 		
 		UserPo po=new UserPo(vo);
@@ -115,6 +114,11 @@ public class UserBLServiceImpl implements UserBLService{
 	@Override
 	public List<CreditPo> getHistoryCredit(int id) throws RemoteException{
 		return creditdao.getCredit(id);
+	}
+
+	@Override
+	public int GetNewClientID() {
+		return userdao;
 	}
 
 

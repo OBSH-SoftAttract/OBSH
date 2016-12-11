@@ -57,7 +57,7 @@ public interface UserBLService {
 	 * @param vo
 	 * @return 添加用户
 	 */
-	public ResultMessage AddClient(UserVo vo)throws RemoteException;
+	public ResultMessage AddClient(int id,UserVo vo)throws RemoteException;
 	
 	/**
 	 * 
@@ -80,4 +80,9 @@ public interface UserBLService {
 	 */
 	public List<OrderPo> GetOrderHistory (int id)throws RemoteException	;
 	
+	/**
+	 * 
+	 * @return 获得自增的客户ID
+	 */
+	public int GetNewClientID();
 }

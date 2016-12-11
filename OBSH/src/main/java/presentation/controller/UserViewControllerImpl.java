@@ -1,133 +1,55 @@
 package presentation.controller;
 
-import java.util.List;
+import java.rmi.RemoteException;
+
+import ResultMessage.ResultMessage;
 import blservice.HotelBLService;
 import blservice.OrderBLService;
 import blservice.UserBLService;
-import blserviceImpl.OrderBLServiceImpl;
-import blserviceImpl.UserBLServiceImpl;
-import javafx.stage.Stage;
-import po.HotelPo;
-import presentation.view.UserView;
+
+import client_rmi.RemoteHelper_client;
+
 import presentation.view.UserViewControllerService;
 import vo.UserVo;
-import vo.HotelVo;
-import po.HotelPo;
 
-public class UserViewControllerImpl implements UserViewControllerService{
-	private int userId;
-	private int password;
-	private UserView view;
-	private UserVo userVo;
-	private OrderBLService orderService;	
+
+public class UserViewControllerImpl implements UserViewControllerService {
+	private OrderBLService orderService;
 	private UserBLService userService;
 	private HotelBLService hotelService;
+
+	public UserViewControllerImpl() {
+		orderService = RemoteHelper_client.getInstance().getOrderBLService();
+		userService = RemoteHelper_client.getInstance().getUserBLService();
+	}
+
+	@Override
+	public ResultMessage Login(String id, String password) throws  RemoteException {
+		// TODO Auto-generated method stub
+		if(id.equals("")||password.equals(""))return ResultMessage.NULL;
+		if (!isNum(id)||id.length()!=6)return ResultMessage.FormatWrong;
+			return userService.login(Integer.parseInt(id), password);
+	}
 	
-	public UserViewControllerImpl(int userId){
-		this.userId=userId;
-		orderService = new OrderBLServiceImpl();
-		userService = new UserBLServiceImpl();
-	}
 	@Override
-	public int getUserId() {
-		return userId;
+	public ResultMessage Register(String id, String password, String phone) throws  RemoteException{
+		// TODO Auto-generated method stub
+		if(id.equals("")||password.equals("")||phone.equals(""))return ResultMessage.NULL;
+		UserVo vo=new UserVo();
+		vo.setID(Integer.parseInt(id));
+		vo.setPassword(password);
+		vo.setPhone(phone);
+		return userService.AddClient(vo);
 	}
-
-	@Override
-	public int getUserPassword() {
-		return password;
-	}
-
-	@Override
-	public void setView(UserView view) {
-		this.view = view;	
-	}
-
-	@Override
-	public boolean successLogin(int userId, String password){
-		if(userVo.getID() == userId&&userVo.getPassword() == password){
-			return true;
+	
+	private static boolean isNum(String str) {
+		for (int i = str.length(); --i >= 0;) {
+			if (!Character.isDigit(str.charAt(i))) {
+				return false;
+			}
 		}
-		else{
-			return false;
-		}
+		return true;
 	}
-	@Override
-	public String[] getHotelName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public String[] getRelatedHotelStarLevel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public String[] getRelatedHotelPrice() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public String[] getRelatedHotelMark() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void SortbyPopularity() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public List<HotelPo> Views(String address, String commercialDistrict) {
-		return userService.Views(address, commercialDistrict);
-	}
-	@Override
-	public void registeruser(String username, String password, String conpassword, String phonenum) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean succeedtoFindUser(String userId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public void modifyUserInfo(String name, String phone, String credit) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public String getUserName(String userId) {
-		
-		return null;
-	}
-	@Override
-	public String getUserPhone(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public String getUserCredit(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public boolean checkHotelWorker(String hotelname) {
-		return false;		
-	}
-	@Override
-	public String setHotelId(String hotelname) {
-		return hotelname;
-		
-	}
-	@Override
-	public void saveHotelWorkerInfo(String hotelname, String hotelworkerpassword) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean checkpasswordequal(String hotelworkerpassword, String hotelworkerpasswordconfirm) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
+
 }
