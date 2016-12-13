@@ -2738,3 +2738,55 @@ Caused by: java.io.EOFException: no more data available - expected end tag </pro
 2016-12-12 16:25:42,822 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
 2016-12-12 16:25:42,824 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2016-12-12 16:25:42,826 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:13:25,490 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:13:25,494 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:13:25,495 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:13:25,496 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:17:57,171 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:17:57,173 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:17:57,175 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:17:57,176 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:18:08,792 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:18:08,794 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:18:08,795 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:18:08,797 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:18:28,812 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:18:28,813 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:18:28,816 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:18:28,817 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:19:15,077 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:15,078 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:19:15,079 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:15,081 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:19:22,180 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:22,182 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:19:22,183 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:22,185 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:19:31,449 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:31,451 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:19:31,452 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:31,454 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:19:53,553 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:53,555 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:19:53,558 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:19:53,559 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:20:15,526 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:15,527 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:20:15,529 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:15,531 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:20:23,694 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:23,695 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:20:23,697 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:23,698 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:20:28,268 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:28,269 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:20:28,269 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:28,270 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:20:30,980 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:30,982 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:20:30,984 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:30,985 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources
+2016-12-13 19:20:59,945 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:59,947 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\main\resources
+2016-12-13 19:20:59,949 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-13 19:20:59,950 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\asus1\Documents\GitHub\OBSH\OBSH\src\test\resources

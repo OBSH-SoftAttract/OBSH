@@ -51,7 +51,6 @@ public class CreditPo {
 	 */
 	public CreditPo(int userID,int orderID, Timestamp  time, int action, String CreditChange, double CreditResult) {
 		this.userID = userID;
-		this.orderID = orderID;
 		this.time = time;
 		this.action = action;
 		this.CreditChange = CreditChange;
@@ -64,14 +63,6 @@ public class CreditPo {
 	
 	public void setUserId(int userID) {
 		this.userID = userID;
-	}
-	
-	public int getOrderID() {
-		return orderID;
-	}
-	
-	public void setOrderId(int orderID) {
-		this.orderID = orderID;
 	}
 	
 	public Timestamp getTime() {

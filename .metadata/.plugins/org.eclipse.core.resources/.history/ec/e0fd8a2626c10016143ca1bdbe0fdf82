@@ -38,7 +38,7 @@ public class CreditDataMysqlHelper implements CreditDataHelper {
 		        String creditChange = ret.getString(5); 
 		        double creditResult = ret.getDouble(6);
 		        
-		        CreditPo creditPo=new CreditPo(userId, orderId, time, action, creditChange, creditResult); 
+		        CreditPo creditPo=new CreditPo(userId, time, action, creditChange, creditResult); 
 		        map.put(userId, creditPo);
 		     }//显示数据  
 		     ret.close();  
@@ -95,7 +95,6 @@ public class CreditDataMysqlHelper implements CreditDataHelper {
 		// TODO Auto-generated method stub
 
 		sql = "insert into credit value("+creditPo.getUserID()+
-				","+creditPo.getOrderID()+
 				",'"+creditPo.getTime()+
 				"',"+creditPo.getAction()+
 				"','"+creditPo.getCreditChange()+

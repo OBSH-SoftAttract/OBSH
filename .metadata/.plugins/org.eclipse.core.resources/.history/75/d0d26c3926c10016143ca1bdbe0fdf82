@@ -95,7 +95,6 @@ public class CreditDataMysqlHelper implements CreditDataHelper {
 		// TODO Auto-generated method stub
 
 		sql = "insert into credit value("+creditPo.getUserID()+
-				","+creditPo.getOrderID()+
 				",'"+creditPo.getTime()+
 				"',"+creditPo.getAction()+
 				"','"+creditPo.getCreditChange()+

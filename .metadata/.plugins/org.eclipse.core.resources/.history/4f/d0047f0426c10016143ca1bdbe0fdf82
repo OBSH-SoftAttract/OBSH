@@ -66,12 +66,12 @@ public class CreditPo {
 		this.userID = userID;
 	}
 	
-	public int getOrderID() {
-		return orderID;
+	public int getUserID() {
+		return userID;
 	}
 	
-	public void setOrderId(int orderID) {
-		this.orderID = orderID;
+	public void setUserId(int userID) {
+		this.userID = userID;
 	}
 	
 	public Timestamp getTime() {
