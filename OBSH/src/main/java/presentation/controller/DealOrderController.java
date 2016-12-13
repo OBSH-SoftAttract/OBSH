@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -46,6 +47,7 @@ public class DealOrderController {
 		Text delayt = new Text("订单延期至:");
 		TextField delaytf = new TextField();
 		delaytf.setMaxWidth(150);
+		delaytf.setTooltip(new Tooltip("格式为:yyyy-MM-dd HH:mm:ss"));
 		Button delay = new Button("延期");
 		Button cancel = new Button("取消");
 		HBox hb = new HBox();

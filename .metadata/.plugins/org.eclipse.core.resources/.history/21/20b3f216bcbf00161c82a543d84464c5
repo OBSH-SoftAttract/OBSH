@@ -1,0 +1,189 @@
+package presentation.controller;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+import presentation.view.AddPromotion;
+import presentation.view.BasicMessage;
+import presentation.view.DealOrder;
+import presentation.view.HotelStaff;
+import presentation.view.PromotionItem;
+import presentation.view.RoomMessage;
+/**
+ * 缺少对列表的操作 不懂
+ * @author asus1
+ *
+ */
+public class PromotionItemController {
+	
+	private PromotionItem promotionItem;
+	
+	@FXML
+	private Button roommessage;
+	
+	@FXML
+	private Button orderdeal;
+	
+	@FXML
+	private Button addpromotion;
+	
+	@FXML
+	private Button basic;
+	
+	@FXML
+	private Button add;
+	
+	@FXML
+	private TableColumn name;
+	
+	@FXML
+	private TableColumn start;
+	
+	@FXML
+	private TableColumn end;
+	
+	@FXML
+	private TableColumn info;
+	
+	@FXML
+	private TableColumn count;
+	
+	@FXML
+	private void initialize() {
+
+	}
+	
+	@FXML
+	private void deletpromotion() {
+		/**
+		 * 删除策略
+		 */
+	}
+	
+	/**
+	 * 打开添加策略的界面
+	 */
+	@FXML
+	private void jumpToAddpromotion() {
+		AddPromotion a = new AddPromotion();
+		a.start(new Stage());
+	}
+	
+	@FXML
+	private void CloseStage(){
+		promotionItem.getPrimaryStage().close();
+	}
+
+	@FXML
+	private void minimizeStage() {
+		promotionItem.getPrimaryStage().setIconified(true); 
+	}
+	
+	@FXML
+	private void BackToSignIn() {
+		promotionItem.getPrimaryStage().close();
+		HotelStaff m = new HotelStaff();
+		m.start(new Stage());
+	}
+	
+	@FXML
+	private void jumpToRoomMessage() {
+		promotionItem.getPrimaryStage().close();
+		RoomMessage r = new RoomMessage();
+		r.start(new Stage());
+	}
+	
+	@FXML
+	private void jumpToDealOrder() {
+		promotionItem.getPrimaryStage().close();
+		DealOrder d = new DealOrder();
+		d.start(new Stage());
+	}
+	
+	@FXML
+	private void jumpToPromotionItem() {
+
+	}
+	
+	@FXML
+	private void jumpToBasicMessage() {
+		promotionItem.getPrimaryStage().close();
+		BasicMessage b = new BasicMessage();
+		b.start(new Stage());
+	}
+
+	public static class Order {
+		private final SimpleStringProperty ordername;
+		private final SimpleStringProperty startdate;
+		private final SimpleStringProperty enddate;
+		private final SimpleStringProperty information;
+		private final SimpleStringProperty discount;
+	 
+		private Hotel(String hn, String star, String price, String m, String r, String rt, String rp) {
+			this.hotelname = new SimpleStringProperty(hn);
+			this.starlevel = new SimpleStringProperty(star);
+			this.lowprice = new SimpleStringProperty(price);
+			this.mark = new SimpleStringProperty(m);
+			this.room = new SimpleStringProperty(r);
+			this.roomtype = new SimpleStringProperty(rt);
+			this.roomprice = new SimpleStringProperty(rp);
+		}
+	 
+		public String getHotelname() {
+			return hotelname.get();
+		}	 
+		public void setHotelname(String hn) {
+			hotelname.set(hn);
+		} 
+		public String getStarlevel() {
+			return starlevel.get();
+		}	 
+		public void setStarlevel(String s) {
+			starlevel.set(s);
+		}
+		public String getLowprice() {
+			return lowprice.get();
+		}	 
+		public void setLowprice(String price) {
+			lowprice.set(price);
+		}
+		public String getMark() {
+			return mark.get();
+		}
+	 
+		public void setMark(String m) {
+			mark.set(m);
+		}
+		public String getRoom() {
+			return room.get();
+		}
+	 
+		public void setRoom(String r) {
+			room.set(r);
+		}
+		public String getRoomtype() {
+			return roomtype.get();
+		}
+	 
+		public void setRoomtype(String rt) {
+			roomtype.set(rt);
+		}
+		public String getRoomprice() {
+			return roomprice.get();
+		}	 
+		public void setRoomprice(String rp) {
+			roomprice.set(rp);
+		}
+	}
+	
+	public void setPromotionItem(PromotionItem promotionItem) {
+		// TODO Auto-generated method stub
+		this.promotionItem = promotionItem;
+		
+	}
+
+
+}

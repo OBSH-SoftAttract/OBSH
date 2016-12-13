@@ -28,7 +28,7 @@ public class AddPromotionController {
 	private TextField count;
 	
 	/**
-	 * 修改策略的方法
+	 * 添加策略的方法
 	 */
 	@FXML
 	private void setPromotion() {
