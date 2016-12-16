@@ -440,4 +440,12 @@ PromotionBLService,CreditBLService,HotelBLService,OrderBLService,MemberBLService
 		return hotelblservice.AddAssess(score, s, hotelID);
 	}
 
+
+
+	@Override
+	public int GetNewClientID() {
+		// TODO Auto-generated method stub
+		return userblservice.GetNewClientID();
+	}
+
 }
