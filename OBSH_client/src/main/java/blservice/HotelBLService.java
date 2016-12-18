@@ -115,4 +115,11 @@ public interface HotelBLService {
 	 * @return 
 	 */
 	public List<HotelroomPo> SortByTime(List<HotelroomPo> list)throws RemoteException;
+
+	/**
+	 * 
+	 * @param type
+	 * @return 根据房间类型获得价格
+	 */
+	public double getHotelRoomPriceByType(String type, String hotelname);
 }

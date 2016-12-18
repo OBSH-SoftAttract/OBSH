@@ -38,5 +38,11 @@ public interface UserViewControllerService {
 	
 	public String getHotelNameByHotelID(int hotelID)throws RemoteException;
 	
-	public void ProduceOrder(String start,String end,String deadline,String type,int roomNum)throws RemoteException;
+	public ResultMessage ProduceOrder(String hotelname,String start,String end,String deadline,String type,int roomNum,int userID)throws RemoteException;
+	
+	public ResultMessage Assess(String orderID,String comment,int score,int hotelID)throws RemoteException;
+	
+	public void Cancellation(String orderID)throws RemoteException;
+	
+	public HotelVo getHotelInfoByName(String hotelname)throws RemoteException;
 }

@@ -41,7 +41,7 @@ public interface OrderBLService extends Remote{
 	 * @return 提交订单评语
 	 * @throws RemoteException 
 	 */
-	public ResultMessage Assess(int score,String comment,int hotelID) throws RemoteException;
+	public ResultMessage Assess(String orderID,int score,String comment,int hotelID) throws RemoteException;
 	
 	/**
 	 * 
@@ -144,5 +144,5 @@ public interface OrderBLService extends Remote{
 	 * @return 获得一个新的订单号
 	 * @throws RemoteException 
 	 */
-	public String CreateID(int hotel,int hotelroom) throws RemoteException;
+	public String CreateID(int userID) throws RemoteException;
 }

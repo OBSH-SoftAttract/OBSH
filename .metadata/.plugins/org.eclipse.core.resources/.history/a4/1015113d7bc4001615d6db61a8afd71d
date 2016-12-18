@@ -1,0 +1,26 @@
+package mainframe;
+
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Main extends Application{
+	public static void main(String[]args){	
+		/*launch(args);*/
+		Date date=Date.valueOf("2016-11-11");
+		Calendar   calendar   =   new   GregorianCalendar(); 
+	    calendar.setTime(date); 
+	    calendar.add(calendar.DATE,1);
+	    
+	    System.out.println(calendar.getTime().toString());
+	}
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+
+		Mainframe controller = new Mainframe();
+		primaryStage = controller.Main();
+	}
+}

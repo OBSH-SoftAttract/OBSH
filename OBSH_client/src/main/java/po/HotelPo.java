@@ -12,7 +12,7 @@ public class HotelPo {
 	private String location;  //地址+商圈
 	private List<String> summary; //评价
 	private String services;  //服务设施
-	private String roomInfo;//房间类型+个数 中间用分号区分
+	private String roomInfo;//房间类型+个数+价格 中间用分号区分
 	private static double score=0;
 	private int scoreCount;
 	

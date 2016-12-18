@@ -207,5 +207,18 @@ public class HotelBLServiceImpl implements HotelBLService {
 		return ResultMessage.UpdateFail;
 	}
 
+	@Override
+	public double getHotelRoomPriceByType(String type, String hotelname){
+		String rooms[]=SearchByName(hotelname).getRoomInfo().split(";");
+		
+		for(int i=0;i<rooms.length;i++){
+			String s[]=rooms[i].split("+");
+			if(s[0].equals(type)){
+				return Double.parseDouble(s[2]);
+			}
+		}
+		return 0;
+	}
+
 
 }

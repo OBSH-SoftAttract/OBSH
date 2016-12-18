@@ -78,7 +78,9 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage Assess(int score, String comment, int hotelID) throws RemoteException {
+	public ResultMessage Assess(String orderID,int score, String comment, int hotelID) throws RemoteException {
+		if(orderdao.getOrder(orderID).isEvaluate())
+			return ResultMessage.NULL;
 		return hotelbl.AddAssess(score,comment,hotelID);
 	}
 
@@ -223,7 +225,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public String CreateID(int hotelID,int hotelroomid) {
+	public String CreateID(int userID) {
 		String s="";
 		try{
 			Date date = new Date();
@@ -234,7 +236,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 		catch (Exception e){
 			e.printStackTrace();
 		}
-		s=s+hotelID+Integer.toString(hotelroomid).substring(0, 3);
+		s=s+Integer.toString(userID);
 		return  s;
 	}
 

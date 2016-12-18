@@ -67,7 +67,7 @@ public class PrePrice {
 			public void handle(ActionEvent event) {
 				//controller生成订单，并改变ntc
 				ProduceOrder po = new ProduceOrder(controller);
-				po.produce(hotelname);
+				po.produce(hotelname,"");
 				mainFrame.setDisable(true);
 			}
         });

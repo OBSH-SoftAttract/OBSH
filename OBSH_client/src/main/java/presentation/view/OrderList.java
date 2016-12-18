@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
 import vo.OrderVo;
 
 public class OrderList extends HBox {
@@ -85,53 +86,59 @@ public class OrderList extends HBox {
 		ordertable.setMaxWidth(600);
 		vb.getChildren().add(ordertable);
         HBox buttonhb = new HBox();
-        Button revoke = new Button("撤销");
-		revoke.setMaxHeight(3);
-		revoke.setVisible(false);
-		Button comment = new Button("评价");
-		comment.setMaxHeight(3);
-		comment.setVisible(false);
-		//根据controller判断是否显示button1，2，3，4
-		//根据controller判断isFinished
-		boolean isFinished = true;
-		if(isFinished){
+        
+        if(state==1){
+			Button comment = new Button("评价");
+			comment.setMaxHeight(3);
 			comment.setVisible(true);
-		}
-		buttonhb.getChildren().addAll(comment, revoke);
-		if(state ==1){
-			revoke.setVisible(true);
-		}
-		else{
-			revoke.setVisible(false);
-		}
-		revoke.setOnAction(new EventHandler<ActionEvent>(){
-			@Override
-			public void handle(ActionEvent event) {
-				//撤销
-				//controller重新获取订单信息，更新订单列表
-				int revokeindex = ordertable.getSelectionModel().getSelectedIndex();
-			}
-		});
+			buttonhb.getChildren().addAll(comment);
+			comment.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					// 判断是否评价
 
-		comment.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				// 判断是否评价
+					int index = ordertable.getSelectionModel().getSelectedIndex();
+					String comment = ordertable.getItems().get(index).getCommentState();
+					String hotel=ordertable.getItems().get(index).getOrderId().substring(14, 18);
+					if (!comment.equals("已评价")) {
+						// index是被评价的酒店的订单的索引
+						Comment c = new Comment(controller,Integer.parseInt(hotel),ordertable.getItems().get(index).getOrderId());
+						c.showstage();
+						
+					} else {
+						HaveCommented hc = new HaveCommented();
+						
+						hc.showstage();
+					}
 
-				int index = ordertable.getSelectionModel().getSelectedIndex();
-				String comment = ordertable.getItems().get(index).getCommentState();
-				if (!comment.equals("已评价")) {
-					// index是被评价的酒店的订单的索引
-					Comment c = new Comment(controller);
-					c.showstage();
-					
-				} else {
-					HaveCommented hc = new HaveCommented();
-					hc.showstage();
 				}
-
-			}
-		});
+			});
+		}
+		
+		if(state ==0){
+	        Button revoke = new Button("撤销");
+			revoke.setMaxHeight(3);
+			revoke.setVisible(false);
+			revoke.setVisible(true);
+			buttonhb.getChildren().addAll(revoke);
+			revoke.setOnAction(new EventHandler<ActionEvent>(){
+				@Override
+				public void handle(ActionEvent event) {
+					//撤销
+					//controller重新获取订单信息，更新订单列表
+					int revokeindex = ordertable.getSelectionModel().getSelectedIndex();
+					String orderID=ordertable.getItems().get(revokeindex).getOrderId();
+					try {
+						controller.Cancellation(orderID);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}					
+					data.remove(revokeindex);
+				}
+			});
+			
+		}
+		
 		buttonhb.setSpacing(20);
 		buttonhb.setPadding(new Insets(20,0,20,0));
 		buttonhb.setAlignment(Pos.CENTER);

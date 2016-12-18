@@ -1,7 +1,0 @@
-package presentation.view;
-
-import javafx.application.Application;
-
-public class addPromotion extends Application{
-
-}

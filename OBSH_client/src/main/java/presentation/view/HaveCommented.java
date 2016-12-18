@@ -12,8 +12,8 @@ import javafx.stage.Stage;
 
 public class HaveCommented {
 	public void showstage(){
-		Text text = new Text("您已评价！");
-		Button button = new Button("确定");
+		Text text = new Text("您已经评价过了哦！");
+		Button button = new Button("朕知道了");
 		VBox vb = new VBox();
 		vb.setSpacing(20);
 		vb.setAlignment(Pos.CENTER);

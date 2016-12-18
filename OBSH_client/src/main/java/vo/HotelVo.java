@@ -12,8 +12,8 @@ public class HotelVo {
 	private String services;
 	private String roomInfo;//房间类型+个数+价格  中间用分号区分
 	private double score=0;
-	private double minPrice;
     private int scoreCount;
+    private double minPrice;
 	
 	public HotelVo(int hotelID, String name, int star, String location, List<String> summary, String services,
 			String roominfo,double s,String br,int sc) {
@@ -27,6 +27,19 @@ public class HotelVo {
 		this.score=s;
 		this.briefInfo=br;
 		this.scoreCount = sc;
+		
+		this.minPrice=10000000;
+		String rooms[]=roomInfo.split(";");
+		for(int i=0;i<rooms.length;i++){
+			String room[]=rooms[i].split("+");
+			if( Double.parseDouble(room[2])<this.minPrice){
+				this.minPrice=Double.parseDouble(room[2]);
+			}
+		}
+	}
+
+	public double getMinPrice() {
+		return minPrice;
 	}
 
 	public int getHotelID() {
@@ -99,14 +112,6 @@ public class HotelVo {
 
 	public void setScore(double score) {
 		this.score = score;
-	}
-
-	public double getMinPrice() {
-		return minPrice;
-	}
-
-	public void setMinPrice(double minPrice) {
-		this.minPrice = minPrice;
 	}
 
 	public int getScoreCount() {

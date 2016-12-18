@@ -1,5 +1,6 @@
 package presentation.view;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class HotelList extends VBox {
 		}
 	}	
 
-	private final TableView table = new TableView();
+	private final TableView<Hotel> table = new TableView<>();
 
 	public VBox addHotelList(BorderPane mainFrame) {
 		ObservableList<Hotel> data = FXCollections.observableArrayList(hotelList);
@@ -109,11 +110,18 @@ public class HotelList extends VBox {
 			@Override
 			public void handle(ActionEvent event) {
 				int selecterhotel = table.getSelectionModel().getSelectedIndex();
-				if(selecterhotel == 1){
-					HotelFrame hf = new HotelFrame(controller);
-					GridPane hotelgp = hf.hotelFrame(mainFrame);
-					mainFrame.setCenter(hotelgp);
+				String hotelname=table.getItems().get(selecterhotel).getHotelname();
+				HotelVo vo = null;
+				try {
+					vo = controller.getHotelInfoByName(hotelname);
+				} catch (RemoteException e) {
+					e.printStackTrace();
 				}
+				
+				HotelFrame hf = new HotelFrame(controller,vo);
+				GridPane hotelgp = hf.hotelFrame(mainFrame);
+				mainFrame.setCenter(hotelgp);
+				
 			}
         });
       
@@ -124,7 +132,7 @@ public class HotelList extends VBox {
 				//根据index获得酒店列表中的酒店
 				String hotelname = hotelName.get(index);
 				ProduceOrder po = new ProduceOrder(controller);
-				po.produce(hotelname);
+				po.produce(hotelname,"");
 				}
 			});
         vb.getChildren().add(buttonhb);

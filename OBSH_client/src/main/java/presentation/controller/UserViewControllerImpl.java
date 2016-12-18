@@ -95,7 +95,7 @@ public class UserViewControllerImpl implements UserViewControllerService {
 		// TODO Auto-generated method stub
 		UserPo po=userService.GetUserByID(this.UserID);
 		UserVo uservo=new UserVo();
-		uservo.setID(po.getID());
+		uservo.setID(po.getId());
 		uservo.setPassword(po.getPassword());
 		uservo.setPhone(po.getPhone());
 		uservo.setUsername(po.getUsername());
@@ -156,8 +156,10 @@ public class UserViewControllerImpl implements UserViewControllerService {
 			String services=hotelpo.getServices();  
 			String roomInfo=hotelpo.getRoomInfo();
 			double score=hotelpo.getScore();
-			double minPrice=hotelService.getHotelMinPrice(hotelID);
-			HotelVo vo=new HotelVo(hotelID,name,star,location,summary,services,roomInfo,score,briefInfo,minPrice);
+			int count=hotelpo.getScoreCount();
+
+			HotelVo vo=new HotelVo(hotelID,name,star,location,summary,
+					services,roomInfo,score,briefInfo,count);
 			hotellist.add(vo);
 		}
 		return hotellist;
@@ -226,11 +228,70 @@ public class UserViewControllerImpl implements UserViewControllerService {
 	}
 
 	@Override
-	public void ProduceOrder(String start, String end, String deadline, String type, int roomNum)throws RemoteException {
-		    String hotelroom[roomNum]=hotelroomService.getHotelRoom
-			orderService.CreateID(hotel, hotelroom);
+	public ResultMessage ProduceOrder(String hotelname,String start, String end, String deadline,
+			String type, int roomNum,int userID)throws RemoteException {	    		
+			String orderID=orderService.CreateID(userID);
+		    
+		    String orderid=orderID;
+			int orderState=0;
+			Timestamp StartTime= Timestamp.valueOf(start);
+			Timestamp EndTime= Timestamp.valueOf(end);
+			Timestamp lastTime= Timestamp.valueOf(deadline);
+			
+			int userid=userID;
+			double price=hotelService.getHotelRoomPriceByType(type,hotelname);
+			int hotelID=hotelService.SearchByName(hotelname).getHotelID();
+			String roomInfo=type+"+"+String.valueOf(roomNum);
+            boolean evaluate=false;
+			
+		    OrderVo ordervo=new OrderVo(orderid,orderState,StartTime,EndTime,lastTime,userid,price,hotelID,roomInfo,evaluate);
+		    return orderService.Add(ordervo);
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ResultMessage Assess(String orderID,String comment, int score,int hotelID) throws RemoteException {
+		// TODO Auto-generated method stub
+		return orderService.Assess(orderID,score, comment, hotelID);
+	}
+
+	@Override
+	public void Cancellation(String orderID) throws RemoteException {
+		// TODO Auto-generated method stub
+		OrderPo po=orderService.ViewByOrderID(orderID);
+		int orderState=po.getOrderState();
+		Timestamp StartTime=po.getStartTime();
+		Timestamp EndTime=po.getEndTime();
+		Timestamp lastTime=po.getlastTime();
+		int userID=po.getUserID();
+		double price=po.getPrice();
+		int hotelID=po.getHotelID();
+		String roomInfo=po.getroomInfo();
+        boolean evaluate=po.isEvaluate();
+        OrderVo ordervo=new OrderVo(orderID,orderState,StartTime,EndTime,lastTime,userID,
+        		price,hotelID,roomInfo,evaluate);
+		ResultMessage re=orderService.IFpassTime(ordervo);
+		if(re== ResultMessage.OverTime){orderService.Cancellation(ordervo);}
+		orderService.Cancellation(ordervo);
+	}
+
+	@Override
+	public HotelVo getHotelInfoByName(String hotelname) throws RemoteException {
+		// TODO Auto-generated method stub
+		HotelPo po=hotelService.SearchByName(hotelname);
+		int hotelID=po.getHotelID();
+		String name=po.getName();
+		int star=po.getStar();
+		String briefInfo=po.getBriefInfo();
+		String location=po.getLocation(); 
+		List<String> summary=po.getSummary(); 
+		String services=po.getServices(); 
+		String roomInfo=po.getRoomInfo();
+		double score=po.getScore();
+		int scoreCount=po.getScoreCount();
+		
+		return new HotelVo(hotelID,name,star,location,summary,services,roomInfo,score,briefInfo,scoreCount);
 	}
 	
 	

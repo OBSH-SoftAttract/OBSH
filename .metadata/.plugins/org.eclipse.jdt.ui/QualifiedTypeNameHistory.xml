@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="data.dao.CreditDao"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="data.dao.MemberDao"/>
 <fullyQualifiedTypeName name="data.datahelper.MemberDataHelper"/>
@@ -12,14 +10,11 @@
 <fullyQualifiedTypeName name="data.datahelper.OrderDataHelper"/>
 <fullyQualifiedTypeName name="data.dao.PromotionDao"/>
 <fullyQualifiedTypeName name="data.datahelper.PromotionDataHelper"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="data.datahelper.CreditDataHelper"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="client_rmi.client_run"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="po.MemberPo"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="blservice.CreditBLService"/>
 <fullyQualifiedTypeName name="blservice.UserBLService"/>
 <fullyQualifiedTypeName name="data.dao.UserDao"/>
@@ -31,7 +26,6 @@
 <fullyQualifiedTypeName name="presentation.view.PromotionItem"/>
 <fullyQualifiedTypeName name="presentation.view.BasicMessage"/>
 <fullyQualifiedTypeName name="presentation.view.UserViewControllerService"/>
-<fullyQualifiedTypeName name="ResultMessage.ResultMessage"/>
 <fullyQualifiedTypeName name="presentation.view.RoomMessage"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
 <fullyQualifiedTypeName name="presentation.view.addPromotion"/>
@@ -56,4 +50,14 @@
 <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
 <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
 <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
+<fullyQualifiedTypeName name="ResultMessage.ResultMessage"/>
+<fullyQualifiedTypeName name="vo.HotelVo"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.text.Format"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 </qualifiedTypeNameHistroy>

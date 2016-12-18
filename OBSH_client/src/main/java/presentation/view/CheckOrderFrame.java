@@ -7,10 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import vo.OrderVo;
 
@@ -20,7 +17,6 @@ public class CheckOrderFrame {
 	private Button tb2 = new Button("已执行正常订单");
 	private Button tb3 = new Button("撤销订单");
 	private Button tb4 = new Button("异常订单");
-	private int index;
 	List<OrderVo> list ;
 	UserViewControllerService controller;
 	
@@ -34,10 +30,6 @@ public class CheckOrderFrame {
 		vb.getChildren().addAll(tb1,tb2,tb3,tb4);
 		vb.setSpacing(100);
 		vb.setPadding(new Insets(100,10,0,0));
-		Button revoke = new Button("撤销");
-		revoke.setMaxHeight(3);
-		revoke.setVisible(false);
-		
         
 		try {
 			list = controller.getAllHistoryOrdersByUserID(controller.GetPresentUserInfo().getID());
@@ -52,10 +44,9 @@ public class CheckOrderFrame {
 	    		tb2.setId("ToggleButton");
 		        tb3.setId("ToggleButton");
 		        tb4.setId("ToggleButton");
-		        //显示未执行正常订单
-		        index = 1;
+		        //显示未执行正常订单;
 		        OrderList orderlist = new OrderList(list,controller);
-			    VBox ordervb1 = orderlist.addOrderList(index);
+			    VBox ordervb1 = orderlist.addOrderList(0);
 				border.setLeft(vb);
 				border.setCenter(ordervb1);
 			}	        
@@ -67,9 +58,9 @@ public class CheckOrderFrame {
 	    		tb2.setId("SelectedButton");
 		        tb3.setId("ToggleButton");
 		        tb4.setId("ToggleButton");
-		        index = 0;
+
 		        OrderList orderlist = new OrderList(list,controller);
-			    VBox ordervb2 = orderlist.addOrderList(index);
+			    VBox ordervb2 = orderlist.addOrderList(1);
 				border.setLeft(vb);
 				border.setCenter(ordervb2);
 			}
@@ -81,9 +72,9 @@ public class CheckOrderFrame {
 		        tb2.setId("ToggleButton");
 	    		tb3.setId("SelectedButton");
 		        tb4.setId("ToggleButton");
-		        index = 0;
+
 		        OrderList orderlist = new OrderList(list,controller);
-			    VBox ordervb3 = orderlist.addOrderList(index);
+			    VBox ordervb3 = orderlist.addOrderList(2);
 				border.setLeft(vb);
 				border.setCenter(ordervb3);
 			}
@@ -95,29 +86,20 @@ public class CheckOrderFrame {
 		        tb2.setId("ToggleButton");
 		        tb3.setId("ToggleButton");
 	    		tb4.setId("SelectedButton");
-	    		 index = 0;
+
 	    		 OrderList orderlist = new OrderList(list,controller);
-	    		 VBox ordervb4 = orderlist.addOrderList(index);
+	    		 VBox ordervb4 = orderlist.addOrderList(3);
 	    		 border.setLeft(vb);
 	    		 border.setCenter(ordervb4);
 			}
         });
         
        
-
 	    OrderList orderlist = new OrderList(list,controller);
-	    VBox orderhb = orderlist.addOrderList(index);
+	    VBox ordervb = orderlist.addOrderList(0);
 		border.setLeft(vb);
-		border.setCenter(orderhb);
+		border.setCenter(ordervb);
 		
-		revoke.setOnAction(new EventHandler<ActionEvent>(){
-			@Override
-			public void handle(ActionEvent event) {
-				//撤销
-				//controller重新获取订单信息，更新订单列表
-			}
-		});
-		border.setBottom(revoke);
 		border.getStyleClass().add("ordervb");
         tb1.setId("ToggleButton");
         tb2.setId("ToggleButton");

@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  * userID       用户的账号
  * price        订单价格
  * hotelID      酒店编号
- * roomInfo     房间信息
+ * roomInfo     房间信息(类型+个数)
  * evaluate     是否评价过
  */
 public class OrderVo {

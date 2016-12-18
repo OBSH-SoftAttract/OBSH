@@ -1,5 +1,8 @@
 package presentation.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,21 +19,30 @@ import javafx.scene.layout.VBox;
 public class AddRoomList {
 	
 	UserViewControllerService controller;
-	
-	public AddRoomList(UserViewControllerService controller){
+	String HotelRooms[];
+	int index=0;
+	public AddRoomList(UserViewControllerService controller,String HotelRooms[]){
 		this.controller=controller;
+		this.HotelRooms=HotelRooms;
 	}
 	
-	private final TableView table = new TableView();
-	final ObservableList<RoomList> data = FXCollections.observableArrayList(
-	    new RoomList("豪华大床房", "大床", "1198"),
-	    new RoomList("豪华双床房", "大床", "1334"));
+	private final TableView<RoomList> table = new TableView<>();
+	ObservableList<RoomList> data;
 	//房型列表
-	public VBox addRoomList(){
+	public VBox addRoomList(String hotelName){
+		
 		VBox v = new VBox();
-		table.setEditable(false);		 
+		table.setEditable(false);	
+		List<RoomList> list=new ArrayList<RoomList>();
+		for(int i=0;i<HotelRooms.length;i++){
+			String ssr[]=HotelRooms[i].split("+");
+			list.add(new RoomList(ssr[0],ssr[1],ssr[2]));
+		}
+		
+		data = FXCollections.observableArrayList(list);
+		
 		TableColumn roomtypetc = new TableColumn("房型");
-        TableColumn bedtypetc = new TableColumn("床型");
+        TableColumn bedtypetc = new TableColumn("数量");
         TableColumn pricetc = new TableColumn("房价");
         roomtypetc.setCellValueFactory(
             new PropertyValueFactory<>("roomtype")
@@ -51,8 +63,9 @@ public class AddRoomList {
 			@Override
 			public void handle(ActionEvent event) {
 				//预定
+				index = table.getSelectionModel().getSelectedIndex();
 				ProduceOrder po = new ProduceOrder(controller);
-				po.produce();
+				po.produce(hotelName,table.getItems().get(index).getRoomtype());
 			}
         });
         v.setSpacing(20);

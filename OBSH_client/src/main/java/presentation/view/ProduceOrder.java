@@ -1,7 +1,12 @@
 package presentation.view;
 
+import java.rmi.RemoteException;
+import java.sql.Date;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,7 +44,7 @@ public class ProduceOrder {
 		this.controller=controller;
 	}
 	
-	public void produce(String hotelname){
+	public void produce(String hotelname,String Roomtype){
 		Stage stage = new Stage();
 		HBox hotelhb = new HBox();
 		TextField hotelnametf = new TextField();
@@ -72,28 +77,35 @@ public class ProduceOrder {
 		checkoutminbox.setValue("00");
 		checkinDatePicker.setValue(LocalDate.now());
 		checkoutDatePicker.setValue(checkinDatePicker.getValue().plusDays(1));
-		starttime.getChildren().addAll(addText("开始时间："), addDatePicker(checkinDatePicker),checkinhourbox,addText(":"),checkinminbox);
-		endtime.getChildren().addAll(addText("退房时间："),addDatePicker(checkoutDatePicker),checkouthourbox,addText(":"),checkoutminbox);
+		starttime.getChildren().addAll(addText("开始时间："), addDatePicker(checkinDatePicker),
+				checkinhourbox,addText(":"),checkinminbox);
+		endtime.getChildren().addAll(addText("退房时间："),addDatePicker(checkoutDatePicker),
+				checkouthourbox,addText(":"),checkoutminbox);
 		HBox lasttime = new HBox();	
 		lasttime.setPadding(new Insets(0,0,0,100));
 		lasttime.setSpacing(10);
-		TextField dotime = new TextField();
-		//dotime时间自动生成
-		//dotime.setText("");
-		dotime.setMaxWidth(150);
+		
+		Text dotime = new Text();
 		dotime.setDisable(true);
+		dotime.setText("最迟不超过开始时间后两小时");
 		lasttime.getChildren().addAll(addText("最晚订单执行时间："),dotime);
 		HBox roombox = new HBox();
 		roombox.setPadding(new Insets(0,0,0,100));
 		roombox.setSpacing(10);
-		ObservableList<String> options = 
-			    FXCollections.observableArrayList(
+		ObservableList<String> options;
+		if(Roomtype.equals("")){
+			options=FXCollections.observableArrayList(
 			        "大床房",
 			        "双床房",
 			        "家庭房",
-			        "套间"
-			    );
-		//options也要用controller调用
+			        "套间");
+		}
+		else{
+			options=FXCollections.observableArrayList(Roomtype);
+		}
+
+		
+		
 		ComboBox roomtype = new ComboBox(options);
 		roomtype.setValue("大床房");
 		roomtype.setMaxWidth(100);
@@ -146,20 +158,42 @@ public class ProduceOrder {
 				
 				String start=checkindate.toString();
 				String end=checkoutdate.toString();
+				String deadline=start;
 				
 				int startHourIndex = checkinhourbox.getSelectionModel().getSelectedIndex();
 				int startMinuteIndex = checkinminbox.getSelectionModel().getSelectedIndex();
 				start=start+" "+startHourIndex+":"+startMinuteIndex+":"+"00";
+				
+				
+				int deadHour=startHourIndex+2;
+				int deadMinute=startMinuteIndex;
+				
+				if(startHourIndex>23){
+					deadHour-=24;
+					Format f = new SimpleDateFormat("yyyy-MM-dd"); 
+					java.util.Date datea=Date.valueOf(deadline);
+					Calendar   calendar   = Calendar.getInstance();
+				    calendar.setTime(datea); 
+				    calendar.add(Calendar.DAY_OF_MONTH, 1);
+				    datea=calendar.getTime();
+				    deadline=datea.toString();
+				}
+				deadline=deadline+" "+deadHour+":"+deadMinute+":"+"00";
+				
 				//获得checkout时间索引
 				int endHourIndex = checkouthourbox.getSelectionModel().getSelectedIndex();
 				int endMinuteIndex = checkoutminbox.getSelectionModel().getSelectedIndex();
 				end=end+" "+endHourIndex+":"+endMinuteIndex+":"+"00";
-				//checkin，checkout对应小时、分钟参照Line32、33
-				int roomTypeSelected = roomtype.getSelectionModel().getSelectedIndex();//获得房间类型索引，具体房间类型参照Line54
+				//checkin，checkout对应小时、分钟
+				int roomTypeSelected = roomtype.getSelectionModel().getSelectedIndex();//获得房间类型索引
 				int roomnumber = Integer.parseInt(roomnum.getText());//获得房间数量
-				int peoplenumber = Integer.parseInt(peoplenum.getText());//获得入住人数
-				int childchoice = roomtype.getSelectionModel().getSelectedIndex();//0是有，1是无
-				
+								
+				try {
+					int userID=controller.GetPresentUserInfo().getID();
+					controller.ProduceOrder(hotelname,start, end, deadline, options.get(roomTypeSelected), roomnumber,userID);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
 				stage.close();
 			}
 			});
