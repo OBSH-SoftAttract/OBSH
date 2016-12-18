@@ -10,7 +10,7 @@ public class MainHHH extends Application{
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		UserViewControllerService user=new UserViewControllerImpl();
+		UserViewControllerImpl user=new UserViewControllerImpl();
 		new UserView(user);
 	}
 }

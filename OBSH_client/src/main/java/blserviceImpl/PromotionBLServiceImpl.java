@@ -38,7 +38,10 @@ public class PromotionBLServiceImpl implements PromotionBLService{
 
 	@Override
 	public List<PromotionPo> getPromotions() throws RemoteException{		
-		return promotiondao.getLineItem();
+		List<PromotionPo>list=promotiondao.getLineItem();
+		
+		
+		return list;
 	}
 
 }

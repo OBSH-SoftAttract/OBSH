@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="data.dao.MemberDao"/>
 <fullyQualifiedTypeName name="data.datahelper.MemberDataHelper"/>
 <fullyQualifiedTypeName name="data.datahelper.HotelDataHelper"/>
 <fullyQualifiedTypeName name="po.UserPo"/>
@@ -52,7 +50,6 @@
 <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
 <fullyQualifiedTypeName name="ResultMessage.ResultMessage"/>
 <fullyQualifiedTypeName name="vo.HotelVo"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.text.Format"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.mysql.cj.api.jdbc.Statement"/>
+<fullyQualifiedTypeName name="vo.OrderVo"/>
 </qualifiedTypeNameHistroy>

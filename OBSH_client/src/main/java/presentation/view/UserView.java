@@ -32,7 +32,7 @@ public class UserView {
 
 	private UserViewControllerService userviewService;
 
-	public UserView(UserViewControllerService controller) {
+	public UserView(UserViewControllerImpl controller) {
 		this.userviewService = controller;
 		
 		Main();

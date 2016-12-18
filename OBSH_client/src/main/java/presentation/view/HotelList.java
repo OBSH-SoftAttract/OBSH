@@ -19,6 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import vo.HotelVo;
+import vo.OrderVo;
 
 public class HotelList extends VBox {
 
@@ -27,7 +28,7 @@ public class HotelList extends VBox {
 	UserViewControllerService controller;
 	
 	final List<String> hotelName=new ArrayList<String>();
-	
+	String Types[]={"大床房","双床房","家庭房","套间"};
 	public HotelList(List<HotelVo> list,UserViewControllerService controller) {
 		this.controller=controller;
 		for (HotelVo hotel : list) {
@@ -36,13 +37,42 @@ public class HotelList extends VBox {
 			String price=String.valueOf(hotel.getMinPrice());
 			String score=String.valueOf(hotel.getScore());
 			String[] roomInfo=hotel.getRoomInfo().split(";");
-			String[] singleHotel;
+			List<String> T=new ArrayList<String>();
 			for(int i=0;i<roomInfo.length;i++){
-				singleHotel=roomInfo[i].split("+");
-				hotelName.add(name);
-				hotelList.add(new Hotel(name,star,price,score,"",singleHotel[0],singleHotel[2],singleHotel[1]));
+				String []temp=roomInfo[i].split("+");
+				T.add(temp[0]);
 			}
 			
+			String types=getTypes(T);
+			hotelName.add(name);
+			int userid;
+			List<OrderVo> orderlist = null;
+			try {
+				userid = controller.GetPresentUserInfo().getID();
+				orderlist=controller.getAllHistoryOrdersByUserID(userid);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+			boolean orderstate[]={false,false,false,false};
+			String state[]={"正常订单","正常订单","撤销订单","异常订单"};
+			for(OrderVo order:orderlist){
+				orderstate[order.getOrderState()]=true;
+			}
+			String history="";
+			boolean fir=true;
+			for(int i=0;i<4;i++){
+				if(orderstate[i]){
+					if(fir){
+						history=history+"记录:"+state[i];
+						fir=false;
+					}				   
+					else
+						history=history+"/"+state[i];
+				}
+					
+			}
+			hotelList.add(new Hotel(name,star,price,score,types,history));
 			
 		}
 	}	
@@ -55,7 +85,7 @@ public class HotelList extends VBox {
 		VBox vb = new VBox();
 		table.setEditable(false);
 
-		TableColumn hotelnametc = new TableColumn("酒店名称");
+        TableColumn hotelnametc = new TableColumn("酒店名称");
         hotelnametc.setMaxWidth(100);
         TableColumn starleveltc = new TableColumn("星级");
         starleveltc.setMaxWidth(100);
@@ -63,14 +93,11 @@ public class HotelList extends VBox {
         lowpricetc.setMaxWidth(100);
         TableColumn marktc = new TableColumn("评分");
         marktc.setMaxWidth(100);
-        TableColumn roomtc = new TableColumn("房间");
-        roomtc.setMaxWidth(100);
-        TableColumn roomtypetc = new TableColumn("房间类型");
-        roomtypetc.setMaxWidth(100);
-        TableColumn roompricetc = new TableColumn("房间价格");
-        roompricetc.setMaxWidth(100);
-        TableColumn roomnumtc = new TableColumn("数量");
-        roomnumtc.setMaxWidth(100);
+        TableColumn types = new TableColumn("房间类型");
+        types.setMaxWidth(200);
+        TableColumn history = new TableColumn("历史预定情况");
+        history.setMaxWidth(200);
+        
         hotelnametc.setCellValueFactory(
             new PropertyValueFactory<>("hotelname")
         );
@@ -83,22 +110,16 @@ public class HotelList extends VBox {
         marktc.setCellValueFactory(
                 new PropertyValueFactory<>("mark")
             );
-        roomtc.setCellValueFactory(
-                new PropertyValueFactory<>("room")
+        types.setCellValueFactory(
+                new PropertyValueFactory<>("types")
             );
-        roomtypetc.setCellValueFactory(
-                new PropertyValueFactory<>("roomtype")
+        history.setCellValueFactory(
+                new PropertyValueFactory<>("history")
             );
-        roompricetc.setCellValueFactory(
-                new PropertyValueFactory<>("roomprice")
-            );
-        roomnumtc.setCellValueFactory(
-                new PropertyValueFactory<>("roomnum")
-            );
-        roomtc.getColumns().addAll(roomtypetc, roompricetc,roomnumtc);
+
         table.setItems(data);
-        table.setMaxWidth(800);
-        table.getColumns().addAll(hotelnametc, starleveltc,  lowpricetc, marktc, roomtc);
+        table.setMaxWidth(700);
+        table.getColumns().addAll(hotelnametc, starleveltc,  lowpricetc, marktc,types,history);
         vb.getChildren().add(table);
         HBox buttonhb = new HBox();
         buttonhb.setSpacing(20);
@@ -140,27 +161,55 @@ public class HotelList extends VBox {
         vb.setAlignment(Pos.CENTER);
 		return vb;
 	}
+	
+	public String getTypes(List<String> a){
+		String res="";
+		boolean jun[]={false,false,false,false};
+		for(int i=0;i<a.size();i++){
+			if(a.get(i).equals(Types[0]))
+				jun[0]=true;
+			if(a.get(i).equals(Types[1]))
+				jun[1]=true;
+			if(a.get(i).equals(Types[2]))
+				jun[2]=true;
+			if(a.get(i).equals(Types[3]))
+				jun[3]=true;
+		}
+		boolean fir=true;
+		for(int i=0;i<4;i++){
+			if(jun[i]){
+				if(fir){
+					res+=Types[i];
+				}
+				else
+					res=res+"/"+Types[i];
+			}
+		}
+		
+		return res;
+	}
 	public static class Hotel {
 		private final SimpleStringProperty hotelname;
 		private final SimpleStringProperty starlevel;
 		private final SimpleStringProperty lowprice;
 		private final SimpleStringProperty mark;
-		private final SimpleStringProperty room;
-		private final SimpleStringProperty roomtype;
-		private final SimpleStringProperty roomprice;
-		private final SimpleStringProperty roomnum;
+		private final SimpleStringProperty types;
+		private final SimpleStringProperty history;
 	 
-		private Hotel(String hn, String star, String price, String m, String r, String rt, String rp,String num) {
+		private Hotel(String hn, String star, String price, String m, String types,String r) {
 			this.hotelname = new SimpleStringProperty(hn);
 			this.starlevel = new SimpleStringProperty(star);
 			this.lowprice = new SimpleStringProperty(price);
 			this.mark = new SimpleStringProperty(m);
-			this.room = new SimpleStringProperty(r);
-			this.roomtype = new SimpleStringProperty(rt);
-			this.roomprice = new SimpleStringProperty(rp);
-			this.roomnum = new SimpleStringProperty(num);
+			this.types=new SimpleStringProperty(types);
+			this.history = new SimpleStringProperty(r);
 		}
-	 
+		public String getTypes() {
+			return types.get();
+		}	 
+		public void setTypes(String hn) {
+			types.set(hn);
+		} 
 		public String getHotelname() {
 			return hotelname.get();
 		}	 
@@ -186,31 +235,13 @@ public class HotelList extends VBox {
 		public void setMark(String m) {
 			mark.set(m);
 		}
-		public String getRoom() {
-			return room.get();
+		
+		public String getHistory() {
+			return history.get();
 		}
 	 
-		public void setRoom(String r) {
-			room.set(r);
-		}
-		public String getRoomtype() {
-			return roomtype.get();
-		}
-	 
-		public void setRoomtype(String rt) {
-			roomtype.set(rt);
-		}
-		public String getRoomprice() {
-			return roomprice.get();
-		}	 
-		public void setRoomprice(String rp) {
-			roomprice.set(rp);
-		}
-		public String getRoomnum() {
-			return roomnum.get();
-		}	 
-		public void setRoomnum(String num) {
-			roomnum.set(num);
+		public void setHistory(String m) {
+			history.set(m);
 		}
 	}
 }

@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import com.mysql.cj.api.jdbc.Statement;
+
 import data.datahelper.UserDataHelper;
 import po.UserPo;
 
@@ -50,27 +52,36 @@ public class UserDataMysqlHelper implements UserDataHelper {
 	}
 
 	@Override
-	public void addUserData(UserPo userPo) {
+	public int addUserData(UserPo userPo) {
 		// TODO Auto-generated method stub
+		int autoIncKeyFromApi = -1; 
 		int log;
 		if(userPo.isLogin())
 			log=1;
 		else
 			log=0;
-		sql = "insert into user value("+userPo.getId()+
-				", '"+userPo.getUsername()+
+		
+		sql = "insert into user (name, password, contactinfo, login) values('"+userPo.getUsername()+
 				"' ,'"+userPo.getPassword()+
 				"','"+userPo.getPhone()+
-				"',"+log+")";
+				"',"+log+")" ; 
+
 		db1 = new JDBCHelper(sql);//创建DBHelper对象  
 		try {
-			sta = db1.pst.executeUpdate(sql);
+			sta = db1.stmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+		    ret = db1.stmt.getGeneratedKeys();                                  // 获取自增主键！  
+		    if (ret.next()) {  
+		        autoIncKeyFromApi = ret.getInt(1);  
+		    }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		db1.close();//关闭连接
+		userPo.setId(autoIncKeyFromApi);
+		return userPo.getId();
 	}
+
 	
 	@Override
 	public void updateUserData(Map<Integer, UserPo> map) {

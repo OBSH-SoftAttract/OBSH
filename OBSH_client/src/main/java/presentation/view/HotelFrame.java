@@ -1,5 +1,7 @@
 package presentation.view;
 
+import java.rmi.RemoteException;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -55,8 +57,9 @@ public class HotelFrame {
 		Button tb1 = new Button("房型列表");
 		Button tb2 = new Button("优惠策略");
 		Button tb3 = new Button("用户评价");
+		Button tb4 = new Button("历史预定");
 		HBox hb = new HBox();
-		hb.getChildren().addAll(tb1, tb2, tb3);
+		hb.getChildren().addAll(tb1, tb2, tb3, tb4);
 		gp.add(hb, 0, 5);
 		BorderPane b = new BorderPane();
 		tb1.setOnAction(new EventHandler<ActionEvent>() {
@@ -80,13 +83,30 @@ public class HotelFrame {
 			@Override
 			public void handle(ActionEvent event) {
 				UserComment uc = new UserComment();
-				VBox vb3 = uc.addUserComment();
+				
+				VBox vb3 = null;
+				try {
+					vb3 = uc.addUserComment(controller.getHotelInfoByName(hotelname).getSummary());
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
 				b.setCenter(vb3);
 			}
 		});
+		
+		tb4.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				HistoryList rl = new HistoryList(controller);
+				VBox vb4 = rl.addHistoryList(-1);
+				b.setCenter(vb4);
+			}
+		});
+		
 		gp.add(b, 0, 6);
 		return gp;
 	}
+	
 
 	// 对text的字体设定
 	public Text addText(String s) {

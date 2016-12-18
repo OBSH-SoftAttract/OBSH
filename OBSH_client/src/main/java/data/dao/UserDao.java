@@ -16,7 +16,7 @@ public interface UserDao {
 	 * @param userPo
 	 * @return	新建用户
 	 */
-	public boolean addUser(UserPo userPo) ;
+	public int addUser(UserPo userPo) ;
 	
 	/**
 	 * @param userPo

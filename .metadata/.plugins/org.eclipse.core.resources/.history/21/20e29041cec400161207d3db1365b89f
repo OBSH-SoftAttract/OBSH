@@ -1,0 +1,87 @@
+package mainframe;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+
+public class HistoryList {
+	//预定酒店历史
+	private final TableView<History> hoteltable = new TableView<>();       
+	private ObservableList<History> data;
+	public VBox addHistoryList(int state){		
+		final VBox vb = new VBox();
+		//酒店列表
+		//所有命名后面添加tc表示类型为tablecolumn
+		if(state==-1){
+			data = FXCollections.observableArrayList(
+				    new History("Hotel1", "2016/05/07", "正常订单"),
+				    new History("Hotel2", "2016/05/31", "异常订单"));
+		}
+		else if(state==2)data = FXCollections.observableArrayList(
+			    new History("Hotel1", "2016/05/07", "正常订单"),
+			    new History("Hotel2", "2016/05/31", "正常订单"));
+		else{
+			data = FXCollections.observableArrayList(
+				    new History("Hotel1", "1111/05/07", "撤销订单"),
+				    new History("Hotel2", "1111/05/31", "撤销订单"));
+		}
+		
+		TableColumn hotelnametc = new TableColumn("酒店名称");
+		hotelnametc.setMinWidth(150);
+		hotelnametc.setCellValueFactory(
+	            new PropertyValueFactory<>("hotelname"));
+		TableColumn timetc = new TableColumn("预订时间");
+		timetc.setMinWidth(150);
+		timetc.setCellValueFactory(
+	            new PropertyValueFactory<>("time"));
+		TableColumn orderStatetc = new TableColumn("订单状态");
+		orderStatetc.setMinWidth(150);
+		orderStatetc.setCellValueFactory(
+	            new PropertyValueFactory<>("orderState"));
+		hoteltable.setItems(data);
+		hoteltable.getColumns().addAll(hotelnametc,timetc,orderStatetc);
+		hoteltable.setEditable(false);	
+		hoteltable.setMaxWidth(450);
+		vb.getChildren().add(hoteltable);
+		return vb;		
+	}
+	public static class History{		
+		private final SimpleStringProperty hotelname;
+		private final SimpleStringProperty time;
+		private final SimpleStringProperty orderState;
+	 
+		private History(String hName, String t, String orderstate) {
+			this.hotelname = new SimpleStringProperty(hName);
+			this.time = new SimpleStringProperty(t);
+			this.orderState = new SimpleStringProperty(orderstate);
+		}
+		//最关键的地方是get、set后面首字母大写
+		 public String getHotelname() {
+	            return hotelname.get();
+	        }
+	 
+	        public void setHotelname(String hName) {
+	        	hotelname.set(hName);
+	        }
+	 
+	        public String getTime() {
+	            return time.get();
+	        }
+	 
+	        public void setTime(String t) {
+	        	time.set(t);
+	        }
+	 
+	        public String getOrderState() {
+	            return orderState.get();
+	        }
+	 
+	        public void setOrderState(String orderstate) {
+	        	orderState.set(orderstate);
+	        }
+	}
+}

@@ -6,13 +6,17 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 public class client_run {
-	RemoteHelper_client remotehelper;
+	RemoteHelper_client remoteHelper;
+	
+	public client_run(){
+		linkToServer();
+	}
 	
 	public void linkToServer() {
 		try {
-			remotehelper=RemoteHelper_client.getInstance();
-			remotehelper.setRemote(Naming.lookup("rmi://localhost:4450/DataRemoteObject"));
-			System.out.println("the client has linked");
+			remoteHelper = RemoteHelper_client.getInstance();
+			remoteHelper.setRemote(Naming.lookup("rmi://localhost:8888/DataRemoteObject"));
+			System.out.println("linked");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -20,5 +24,8 @@ public class client_run {
 		} catch (NotBoundException e) {
 			e.printStackTrace();
 		}
+	}
+	public static void main(String[] args){
+		new client_run();
 	}
 }

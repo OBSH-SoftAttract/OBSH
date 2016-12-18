@@ -21,7 +21,7 @@ public interface UserDataHelper {
 	 * 向数据库中写入新的用户数据
 	 * @param list
 	 */
-	public void addUserData(UserPo userPo);
+	public int addUserData(UserPo userPo);
 
 }
 

@@ -62,10 +62,10 @@ public interface OrderBLService extends Remote{
 	/**
 	 * 
 	 * @param userid
-	 * @return 获得符合该用户的最优策略
+	 * @return 获得最优策略
 	 * @throws RemoteException 
 	 */
-	public PromotionPo CalPromotion(int userid) throws RemoteException;
+	public PromotionPo CalPromotion() throws RemoteException;
 	
 	/**
 	 * 

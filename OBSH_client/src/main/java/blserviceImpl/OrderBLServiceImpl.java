@@ -102,7 +102,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public PromotionPo CalPromotion(int userid) throws RemoteException {
+	public PromotionPo CalPromotion() throws RemoteException {
 		List<PromotionPo> list=promotionbl.getPromotions();
 		Iterator<PromotionPo> ite=list.iterator();
 		
@@ -131,7 +131,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 			discount=memberDiscount;
 		}
 		
-		PromotionPo promotion=CalPromotion(vo.getUserID());
+		PromotionPo promotion=CalPromotion();
 		if(promotion!=null&&promotion.getDiscount()<discount)
 			discount=promotion.getDiscount();
 		   

@@ -78,8 +78,7 @@ public class UserBLServiceImpl implements UserBLService{
 			return ResultMessage.FormatWrong;
 		
 		UserPo po=new UserPo(vo);
-		if(userdao.addUser(po))
-			return ResultMessage.IDExsit;
+		userdao.addUser(po);
 		CreditPo creditpo=new CreditPo(vo.getID(), nowtime.NowTime(), DefaultCredit);
 		if(creditdao.setCredit(creditpo))
 			return ResultMessage.Success;
@@ -92,7 +91,7 @@ public class UserBLServiceImpl implements UserBLService{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=4)return ResultMessage.FormatWrong;
 		
-		if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
+		//if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
 		return ResultMessage.IDExsit;
 	}
 
@@ -101,7 +100,7 @@ public class UserBLServiceImpl implements UserBLService{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=3)return ResultMessage.FormatWrong;
 		
-		if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
+		//if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
 		return ResultMessage.IDExsit;
 	}
 
@@ -118,7 +117,7 @@ public class UserBLServiceImpl implements UserBLService{
 
 	@Override
 	public int GetNewClientID() {
-		return userdao.;
+		return 0;
 	}
 
 	@Override

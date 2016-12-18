@@ -275,7 +275,7 @@ public class UserMainFrame {
 		room.setText("房间类型");
 		RadioButton c1 = new RadioButton("大床房");
 		RadioButton c2 = new RadioButton("双床房");
-		RadioButton c3 = new RadioButton("家庭房/三人");
+		RadioButton c3 = new RadioButton("家庭房");
 		RadioButton c4 = new RadioButton("套间");
 		RadioButton c5 = new RadioButton("不限");
 		roomType.setSpacing(10);
