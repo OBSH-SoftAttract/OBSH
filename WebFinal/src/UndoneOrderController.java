@@ -58,14 +58,14 @@ public class UndoneOrderController {
 	}
 	
 	@FXML
-	private void jumpToPromotionItem() {
+	private void jumpToWebPromotion() {
 		undoneOrder.getPrimaryStage().close();
 		WebPromotion w = new WebPromotion();
 		w.start(new Stage());
 	}
 	
 	@FXML
-	private void jumpToBasicMessage() {
+	private void jumpToCredit() {
 		undoneOrder.getPrimaryStage().close();
 		Credit cr = new Credit();
 		cr.start(new Stage());

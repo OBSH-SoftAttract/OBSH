@@ -18,7 +18,7 @@ import presentation.view.Credit;
 
 public class WebPromotionController {
 	
-	private WebPromotion promotionItem;
+	private WebPromotion webpromotion;
 	
 	@FXML
 	private Button undoneorder;
@@ -106,31 +106,31 @@ public class WebPromotionController {
 	
 	@FXML
 	private void CloseStage(){
-		promotionItem.getPrimaryStage().close();
+		webpromotion.getPrimaryStage().close();
 	}
 
 	@FXML
 	private void minimizeStage() {
-		promotionItem.getPrimaryStage().setIconified(true); 
+		webpromotion.getPrimaryStage().setIconified(true); 
 	}
 	
 	@FXML
 	private void BackToSignIn() {
-		promotionItem.getPrimaryStage().close();
+		webpromotion.getPrimaryStage().close();
 		Web m = new Web();
 		m.start(new Stage());
 	}
 	
 	@FXML
 	private void jumpToUndoneOrder() {
-		promotionItem.getPrimaryStage().close();
+		webpromotion.getPrimaryStage().close();
 		UndoneOrder u = new UndoneOrder();
 		u.start(new Stage());
 	}
 	
 	@FXML
 	private void jumpToCancelOrder() {
-		promotionItem.getPrimaryStage().close();
+		webpromotion.getPrimaryStage().close();
 		CancelOrder c = new CancelOrder();
 		c.start(new Stage());
 	}
@@ -141,8 +141,8 @@ public class WebPromotionController {
 	}
 	
 	@FXML
-	private void jumpToCrecit() {
-		promotionItem.getPrimaryStage().close();
+	private void jumpToCredit() {
+		webpromotion.getPrimaryStage().close();
 		Credit cr = new Credit();
 		cr.start(new Stage());
 	}
@@ -205,7 +205,7 @@ public class WebPromotionController {
 	
 	public void setWebPromotion(WebPromotion Webpromotion) {
 		// TODO Auto-generated method stub
-		this.promotionItem = Webpromotion;
+		this.webpromotion = Webpromotion;
 		
 	}
 

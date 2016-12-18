@@ -8,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import presentation.controller.CancelOrderController;
+import presentation.controller.WebPromotionController;
 
 public class WebPromotion extends Application {
 

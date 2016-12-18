@@ -1,3 +1,4 @@
+package presentation.view;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -7,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import presentation.controller.WebController;
 
 public class Web extends Application {
 	private Stage primaryStage;
