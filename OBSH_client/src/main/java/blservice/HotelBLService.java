@@ -1,4 +1,5 @@
 package blservice;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -6,7 +7,7 @@ import ResultMessage.ResultMessage;
 import po.HotelPo;
 import po.HotelroomPo;
 import vo.HotelVo;
-public interface HotelBLService {
+public interface HotelBLService extends Remote{
 	/**
 	 * 
 	 * @param hotelNo
@@ -121,5 +122,5 @@ public interface HotelBLService {
 	 * @param type
 	 * @return 根据房间类型获得价格
 	 */
-	public double getHotelRoomPriceByType(String type, String hotelname);
+	public double getHotelRoomPriceByType(String type, String hotelname)throws RemoteException;
 }

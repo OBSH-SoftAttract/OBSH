@@ -1,5 +1,6 @@
 package po;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.sql.Date;
  * @author bxh
  */
 
-public class MemberPo {
+public class MemberPo implements Serializable{
 	
 	private int userId;
 	

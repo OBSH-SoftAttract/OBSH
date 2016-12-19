@@ -1,9 +1,12 @@
 package data.datahelper.impl;
 
+import data.datahelper.AdminstratorDataHelper;
 import data.datahelper.CreditDataHelper;
 import data.datahelper.DataFactory;
 import data.datahelper.HotelDataHelper;
+import data.datahelper.HotelStaffDataHelper;
 import data.datahelper.HotelroomDataHelper;
+import data.datahelper.MarketerDataHelper;
 import data.datahelper.MemberDataHelper;
 import data.datahelper.OrderDataHelper;
 import data.datahelper.PromotionDataHelper;
@@ -59,6 +62,27 @@ public class DataFactoryImpl implements DataFactory{
 		// TODO Auto-generated method stub
 		MemberDataHelper MemberDao = new MemberDataMysqlHelper();
 		return MemberDao;
+	}
+
+	@Override
+	public HotelStaffDataHelper getHotelStaffDataHelper() {
+		// TODO Auto-generated method stub
+		HotelStaffDataHelper HotelStaffDao = new HotelStaffDataMysqlHelper();
+		return HotelStaffDao;
+	}
+
+	@Override
+	public MarketerDataHelper getMarketerDataHelper() {
+		// TODO Auto-generated method stub
+		MarketerDataHelper MarketerDao = new MarketerDataMysqlHelper();
+		return MarketerDao;
+	}
+
+	@Override
+	public AdminstratorDataHelper getAdminstratorDataHelper() {
+		// TODO Auto-generated method stub
+		AdminstratorDataHelper AdminstratorDao = new AdminstratorDataMysqlHelper();
+		return AdminstratorDao;
 	}
 
 	

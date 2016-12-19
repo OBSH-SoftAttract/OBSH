@@ -57,7 +57,7 @@ public interface OrderBLService extends Remote{
 	 * @return 检查信用值是否满足下单要求
 	 * @throws RemoteException 
 	 */
-	public ResultMessage CreditCheck(OrderVo ordervo) throws RemoteException ;
+	public ResultMessage CreditCheck(int userid) throws RemoteException ;
 	
 	/**
 	 * 
@@ -69,11 +69,11 @@ public interface OrderBLService extends Remote{
 	
 	/**
 	 * 
-	 * @param vo
-	 * @return 获得订单价格
+	 * @param userid
+	 * @return 获得最佳折扣
 	 * @throws RemoteException 
 	 */
-	public double CalPrice(OrderVo vo) throws RemoteException;
+	public double CalDiscount(int userID) throws RemoteException;
 	
 	/**
 	 * 

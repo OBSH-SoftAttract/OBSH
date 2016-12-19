@@ -1,5 +1,6 @@
 package vo;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.sql.Date;
  */
 
 
-public class MemberVo {
+public class MemberVo implements Serializable{
 	
     private int userId;
 	

@@ -17,13 +17,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import presentation.controller.UserViewControllerImpl;
 
 public class PrePrice {
 	private final TableView table = new TableView();
 	ObservableList<Comment> data;
-	//new Comment("双十一", "2016-11-11 00:00:00", "2016-11-12 00:00:00","叼叼叼啊啊啊啊啊","0.85")
-	UserViewControllerService controller;
-	public PrePrice(UserViewControllerService controller){
+
+	private UserViewControllerImpl controller;
+	public PrePrice(UserViewControllerImpl controller){
 		this.controller=controller;
 	}
 		public VBox addPrePrice(BorderPane mainFrame,String hotelname){

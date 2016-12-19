@@ -1,5 +1,6 @@
 package po;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import vo.PromotionVo;
@@ -13,7 +14,7 @@ import vo.PromotionVo;
  * discount            打折的折扣 如0.88
  * @author bxh
  */
-public class PromotionPo {
+public class PromotionPo implements Serializable{
 
 	private int id;
 	

@@ -1,4 +1,5 @@
 package vo;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -11,7 +12,7 @@ import java.sql.Timestamp;
  * @author bxh
  */
 
-public class CreditVo {
+public class CreditVo implements Serializable{
 	private int userID;
 	
 	private Timestamp  time;

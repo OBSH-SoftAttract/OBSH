@@ -1,5 +1,6 @@
 package po;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import vo.OrderVo;
@@ -15,7 +16,7 @@ import vo.OrderVo;
  * hotelID      酒店编号
  * roomInfo     房间信息
  */
-public class OrderPo {
+public class OrderPo implements Serializable{
 	private String orderID;
 	
 	private int orderState;

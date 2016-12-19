@@ -12,11 +12,12 @@ package vo;
 import po.PromotionPo;
 import po.UserPo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import po.HotelPo;
 
-public class PromotionVo {
+public class PromotionVo implements Serializable{
 	
 	private int id;
 	

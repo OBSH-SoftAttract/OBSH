@@ -1,8 +1,10 @@
 package po;
 
+import java.io.Serializable;
+
 import vo.UserVo;
 
-public class UserPo {
+public class UserPo implements Serializable{
 	private int id;
 	private String username;
 	private String password;

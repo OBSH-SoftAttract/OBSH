@@ -1,8 +1,9 @@
 package vo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class HotelroomVo {
+public class HotelroomVo implements Serializable{
 	private int roomID;
 	private Timestamp TimeCheckIn;
 	private int hotelID;

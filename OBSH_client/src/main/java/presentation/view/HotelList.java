@@ -18,18 +18,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import presentation.controller.UserViewControllerImpl;
 import vo.HotelVo;
 import vo.OrderVo;
 
 public class HotelList extends VBox {
 
-	List<Hotel> hotelList;
+	List<Hotel> hotelList=new ArrayList<Hotel>();;
 
-	UserViewControllerService controller;
+	private UserViewControllerImpl controller;
 	
 	final List<String> hotelName=new ArrayList<String>();
 	String Types[]={"大床房","双床房","家庭房","套间"};
-	public HotelList(List<HotelVo> list,UserViewControllerService controller) {
+	public HotelList(List<HotelVo> list,UserViewControllerImpl controller) {
 		this.controller=controller;
 		for (HotelVo hotel : list) {
 			String name=hotel.getName();			

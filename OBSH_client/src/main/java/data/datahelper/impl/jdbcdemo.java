@@ -28,13 +28,16 @@ public class jdbcdemo {
   static JDBCHelper db1 = null;  
   static ResultSet ret = null; 
   static int sta;
-  //static UserPo userPo = new UserPo(151250008, "233333","144", "比尔盖茨", 5000, true);
-  static MemberPo memberPo = new MemberPo(151250004,Date.valueOf("1996-06-01"),null,2,"蔡赵辰+2600");
+  static UserPo userPo = new UserPo(1001, "233333","15050526299", "小画家", false);
+  /*static MemberPo memberPo = new MemberPo(151250004,Date.valueOf("1996-06-01"),null,2,"蔡赵辰+2600");
   static OrderPo orderPo = new OrderPo("110",0,Timestamp.valueOf("2016-11-29 15:45:00"),Timestamp.valueOf("2016-11-30 05:00:00"),
-		  Timestamp.valueOf("2016-11-30 10:08:04"),151250004,500,1001,"商务房",false);
+		  Timestamp.valueOf("2016-11-30 10:08:04"),151250004,500,1001,"商务房",false);*/
   //static CreditPo creditPo = new CreditPo(151250004, 2000, "-500+2016-11-29");
   public static void main(String[] args) {
-	  //HotelDao hotelDao = HotelDaoImpl.getInstance();
+	  UserDao userDao = UserDaoImpl.getInstance();
+	 // userDao.addOthers(userPo);
+	 // int test = userDao.addUser(userPo);
+	 // System.out.println(test);
 	  /*CreditDao creditDao = CreditDaoImpl.getInstance();
 	  System.out.println(creditDao.getCredit(creditPo.getUserId()).getCreditInfo());
 	  OrderDao orderDao = OrderDaoImpl.getInstance();

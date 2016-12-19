@@ -11,12 +11,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import presentation.controller.UserViewControllerImpl;
 import vo.OrderVo;
 
 public class HistoryList {	
-	private UserViewControllerService controller;
+	private UserViewControllerImpl controller;
 	
-	public HistoryList(UserViewControllerService controller){
+	public HistoryList(UserViewControllerImpl controller){
 		this.controller=controller;
 	}
 	

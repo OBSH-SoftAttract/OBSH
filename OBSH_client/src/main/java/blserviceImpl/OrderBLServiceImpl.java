@@ -94,9 +94,8 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public ResultMessage CreditCheck(OrderVo ordervo) {
-		int id=ordervo.getUserID();
-		double credit=cre.getCredit(id).getCreditResult();
+	public ResultMessage CreditCheck(int userid) {
+		double credit=cre.getCredit(userid).getCreditResult();
 		if(credit>=CREDIT)return ResultMessage.CreditMet;
 		return ResultMessage.CreditWrong;
 	}
@@ -124,10 +123,10 @@ public class OrderBLServiceImpl implements OrderBLService{
 	}
 
 	@Override
-	public double CalPrice(OrderVo vo) throws RemoteException{
+	public double CalDiscount(int userID) throws RemoteException{
 		double discount=1;
-		if(memberbl.isMember(vo.getUserID())){
-			double memberDiscount=memberbl.getRankDiscount(memberbl.getMemberRank(vo.getUserID()));
+		if(memberbl.isMember(userID)){
+			double memberDiscount=memberbl.getRankDiscount(memberbl.getMemberRank(userID));
 			discount=memberDiscount;
 		}
 		
@@ -135,7 +134,7 @@ public class OrderBLServiceImpl implements OrderBLService{
 		if(promotion!=null&&promotion.getDiscount()<discount)
 			discount=promotion.getDiscount();
 		   
-		return discount*vo.getPrice();
+		return discount;
 	}
 
 	@Override

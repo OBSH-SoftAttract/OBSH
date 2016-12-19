@@ -50,7 +50,7 @@ public class UserDataMysqlHelper implements UserDataHelper {
 	     }  
 		return map;
 	}
-
+	
 	@Override
 	public int addUserData(UserPo userPo) {
 		// TODO Auto-generated method stub
@@ -81,7 +81,6 @@ public class UserDataMysqlHelper implements UserDataHelper {
 		userPo.setId(autoIncKeyFromApi);
 		return userPo.getId();
 	}
-
 	
 	@Override
 	public void updateUserData(Map<Integer, UserPo> map) {

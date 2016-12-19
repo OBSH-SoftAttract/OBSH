@@ -1,5 +1,6 @@
 package blservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import vo.HotelVo;
 import vo.HotelroomVo;
 import vo.UserVo;
 
-public interface UserBLService {
+public interface UserBLService extends Remote{
 	
 	/**
 	 * 
@@ -64,7 +65,7 @@ public interface UserBLService {
 	 * @param vo
 	 * @return 添加用户
 	 */
-	public ResultMessage AddClient(UserVo vo)throws RemoteException;
+	public int AddClient(UserVo vo)throws RemoteException;
 	
 	/**
 	 * 
@@ -86,10 +87,4 @@ public interface UserBLService {
 	 * @return 获得历史订单记录
 	 */
 	public List<OrderPo> GetOrderHistory (int id)throws RemoteException	;
-	
-	/**
-	 * 
-	 * @return 获得自增的客户ID
-	 */
-	public int GetNewClientID();
 }

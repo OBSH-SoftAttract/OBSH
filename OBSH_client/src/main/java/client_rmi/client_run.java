@@ -8,10 +8,6 @@ import java.rmi.RemoteException;
 public class client_run {
 	RemoteHelper_client remoteHelper;
 	
-	public client_run(){
-		linkToServer();
-	}
-	
 	public void linkToServer() {
 		try {
 			remoteHelper = RemoteHelper_client.getInstance();
@@ -24,8 +20,5 @@ public class client_run {
 		} catch (NotBoundException e) {
 			e.printStackTrace();
 		}
-	}
-	public static void main(String[] args){
-		new client_run();
 	}
 }

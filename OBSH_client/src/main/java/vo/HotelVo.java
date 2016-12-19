@@ -1,8 +1,9 @@
 package vo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class HotelVo {
+public class HotelVo implements Serializable{
 	private int hotelID;
 	private String name;
 	private int star;

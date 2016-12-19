@@ -1,10 +1,11 @@
 package blservice;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import vo.HotelroomVo;
 
-public interface HotelroomBLService {
+public interface HotelroomBLService extends Remote{
 	
 	/**
 	 * 

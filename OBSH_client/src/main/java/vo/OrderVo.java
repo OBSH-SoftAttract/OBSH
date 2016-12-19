@@ -1,5 +1,6 @@
 package vo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -14,7 +15,7 @@ import java.sql.Timestamp;
  * roomInfo     房间信息(类型+个数)
  * evaluate     是否评价过
  */
-public class OrderVo {
+public class OrderVo implements Serializable{
 
     private String orderID;
 	

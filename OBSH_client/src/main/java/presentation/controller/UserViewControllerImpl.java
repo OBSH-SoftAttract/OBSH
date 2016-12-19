@@ -42,8 +42,13 @@ public class UserViewControllerImpl implements UserViewControllerService {
 		userService = RemoteHelper_client.getInstance().getUserBLService();
 		creditservice=RemoteHelper_client.getInstance().getCreditBLService();
 		memberservice=RemoteHelper_client.getInstance().getMemberBLService();
+		hotelService=RemoteHelper_client.getInstance().getHotelBLService();
 	}
 
+	public int getUserID(){
+		return this.UserID;
+	}
+	
 	@Override
 	public ResultMessage Login(String id, String password) throws  RemoteException {
 		// TODO Auto-generated method stub
@@ -53,14 +58,12 @@ public class UserViewControllerImpl implements UserViewControllerService {
 	}
 	
 	@Override
-	public ResultMessage Register(String name, String password, String phone,int userid) throws  RemoteException{
+	public int Register(String name, String password, String phone) throws  RemoteException{
 		// TODO Auto-generated method stub
-		if(name.equals("")||password.equals("")||phone.equals(""))return ResultMessage.NULL;
 		UserVo vo=new UserVo();
 		vo.setUsername(name);
 		vo.setPassword(password);
 		vo.setPhone(phone);
-		vo.setID(userid);
 		
 		return userService.AddClient(vo);
 	}
@@ -72,11 +75,6 @@ public class UserViewControllerImpl implements UserViewControllerService {
 			}
 		}
 		return true;
-	}
-
-	@Override
-	public int NewClientID() throws RemoteException {
-		return userService.GetNewClientID();
 	}
 
 	@Override
@@ -228,6 +226,11 @@ public class UserViewControllerImpl implements UserViewControllerService {
 	}
 
 	@Override
+	public ResultMessage CheckIfCreditMet(int userid)throws RemoteException{
+		return orderService.CreditCheck(userid);
+	}
+	
+	@Override
 	public ResultMessage ProduceOrder(String hotelname,String start, String end, String deadline,
 			String type, int roomNum,int userID)throws RemoteException {	    		
 			String orderID=orderService.CreateID(userID);
@@ -240,6 +243,9 @@ public class UserViewControllerImpl implements UserViewControllerService {
 			
 			int userid=userID;
 			double price=hotelService.getHotelRoomPriceByType(type,hotelname);
+			price*=roomNum;
+			
+			price*=orderService.CalDiscount(userID);
 			int hotelID=hotelService.SearchByName(hotelname).getHotelID();
 			String roomInfo=type+"+"+String.valueOf(roomNum);
             boolean evaluate=false;
@@ -292,6 +298,19 @@ public class UserViewControllerImpl implements UserViewControllerService {
 		int scoreCount=po.getScoreCount();
 		
 		return new HotelVo(hotelID,name,star,location,summary,services,roomInfo,score,briefInfo,scoreCount);
+	}
+
+	@Override
+	public void setUserID(int id) throws RemoteException {
+		// TODO Auto-generated method stub
+		this.UserID=id;
+		
+	}
+
+	@Override
+	public double BestPromotionDiscount(int userid) throws RemoteException {
+		// TODO Auto-generated method stub
+		return orderService.CalDiscount(userid);
 	}
 	
 	

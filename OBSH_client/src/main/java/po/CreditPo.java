@@ -1,5 +1,6 @@
 package po;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -12,7 +13,7 @@ import java.sql.Timestamp;
  * @author 毕潇晗
  */
 
-public class CreditPo {
+public class CreditPo implements Serializable{
 	
 	private int userID;
 	

@@ -1,10 +1,11 @@
 package po;
 
+import java.io.Serializable;
 import java.util.List;
 
 import vo.HotelVo;
 
-public class HotelPo {
+public class HotelPo implements Serializable{
 	private int hotelID;
 	private String name;
 	private int star;

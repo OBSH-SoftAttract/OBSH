@@ -19,7 +19,7 @@ public interface UserDataHelper {
 
 	/**
 	 * 向数据库中写入新的用户数据
-	 * @param list
+	 * @param 返回为新用户的id
 	 */
 	public int addUserData(UserPo userPo);
 

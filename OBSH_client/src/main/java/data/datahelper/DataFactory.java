@@ -15,5 +15,11 @@ public interface DataFactory {
 	public HotelDataHelper getHotelDataHelper();
 	
 	public MemberDataHelper getMemberDataHelper();
+	
+	public HotelStaffDataHelper getHotelStaffDataHelper();
+	
+	public MarketerDataHelper getMarketerDataHelper();
+	
+	public AdminstratorDataHelper getAdminstratorDataHelper();
 
 }

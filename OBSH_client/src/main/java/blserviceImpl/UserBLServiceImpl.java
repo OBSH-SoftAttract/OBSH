@@ -8,9 +8,13 @@ import blservice.OrderBLService;
 import blservice.UserBLService;
 import data.dao.CreditDao;
 import data.dao.HotelDao;
+import data.dao.HotelStaffDao;
+import data.dao.MarketerDao;
 import data.dao.UserDao;
 import data.dao.impl.CreditDaoImpl;
 import data.dao.impl.HotelDaoImpl;
+import data.dao.impl.HotelStaffDaoImpl;
+import data.dao.impl.MarketerDaoImpl;
 import data.dao.impl.UserDaoImpl;
 import po.CreditPo;
 import po.HotelPo;
@@ -25,6 +29,8 @@ public class UserBLServiceImpl implements UserBLService{
 	private HotelDao hoteldao;
 	private CreditDao creditdao;
 	private OrderBLService orderbl;
+	private MarketerDao marketerdao;
+	private HotelStaffDao hotelstaffdao;
 	private final double DefaultCredit=0;
 	private PresentTimeGet nowtime;
 	
@@ -33,6 +39,8 @@ public class UserBLServiceImpl implements UserBLService{
 		hoteldao=HotelDaoImpl.getInstance();
 		orderbl=new OrderBLServiceImpl();
 		creditdao=CreditDaoImpl.getInstance();
+		marketerdao=MarketerDaoImpl.getInstance();
+		hotelstaffdao=HotelStaffDaoImpl.getInstance();
 		nowtime=new PresentTimeGet();
 	}
 	
@@ -40,7 +48,7 @@ public class UserBLServiceImpl implements UserBLService{
 	public ResultMessage login(int id, String password) {
 		UserPo po=userdao.getUser(id);
 		if(null==po)return ResultMessage.NotExist;
-		if(po.getPassword().equals(password))
+		if(!po.getPassword().equals(password))
 			return ResultMessage.WrongPassword;
 		else
 			return ResultMessage.PASS;
@@ -72,18 +80,12 @@ public class UserBLServiceImpl implements UserBLService{
 
 
 	@Override
-	public ResultMessage AddClient(UserVo vo) {
-		String ID=String.valueOf(vo.getID());
-		if(ID.length()!=6)
-			return ResultMessage.FormatWrong;
-		
+	public int AddClient(UserVo vo) {	
 		UserPo po=new UserPo(vo);
-		userdao.addUser(po);
-		CreditPo creditpo=new CreditPo(vo.getID(), nowtime.NowTime(), DefaultCredit);
-		if(creditdao.setCredit(creditpo))
-			return ResultMessage.Success;
-		else
-			return ResultMessage.UpdateFail;
+		int userid=userdao.addUser(po);
+		CreditPo creditpo=new CreditPo(userid, nowtime.NowTime(), DefaultCredit);
+		creditdao.setCredit(creditpo);
+		return userid;
 	}
 	
 	@Override
@@ -91,7 +93,7 @@ public class UserBLServiceImpl implements UserBLService{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=4)return ResultMessage.FormatWrong;
 		
-		//if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
+		if(hotelstaffdao.addHotelStaff(new UserPo(vo)))return ResultMessage.Success;
 		return ResultMessage.IDExsit;
 	}
 
@@ -100,7 +102,7 @@ public class UserBLServiceImpl implements UserBLService{
 		String id=String.valueOf(vo.getID());
 		if(id.length()!=3)return ResultMessage.FormatWrong;
 		
-		//if(userdao.addUser(new UserPo(vo)))return ResultMessage.Success;
+		if(marketerdao.addMarketer(new UserPo(vo)))return ResultMessage.Success;
 		return ResultMessage.IDExsit;
 	}
 
@@ -115,10 +117,6 @@ public class UserBLServiceImpl implements UserBLService{
 		return creditdao.getCredit(id);
 	}
 
-	@Override
-	public int GetNewClientID() {
-		return 0;
-	}
 
 	@Override
 	public UserPo GetUserByID(int ID)  {

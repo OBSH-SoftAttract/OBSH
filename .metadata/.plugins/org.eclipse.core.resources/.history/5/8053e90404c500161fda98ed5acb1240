@@ -1,0 +1,23 @@
+package rmi;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+import service.Hello;
+
+public class DataRemoteObject  extends UnicastRemoteObject implements Hello{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4029039744279087114L;
+	private Hello h;
+	protected DataRemoteObject() throws RemoteException {
+		
+	}
+	@Override
+	public void hh() throws RemoteException {
+		// TODO Auto-generated method stub
+		h.hh();
+	}
+	
+}

@@ -25,6 +25,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
+import presentation.controller.UserViewControllerImpl;
 import presentation.view.HotelList;
 import presentation.view.UserViewControllerService;
 import vo.HotelVo;
@@ -33,6 +34,8 @@ import vo.UserVo;
 public class UserMainFrame {
 	private Button searchIcon;
 	private Button button;
+	private String address;
+	private String commercial;
 	private int priceSelectIndex;
 	private int roomTypeSelectIndex;
 	private int priceSort;
@@ -41,14 +44,16 @@ public class UserMainFrame {
 	private DatePicker checkoutDatePicker;
 	private LocalDate checkindate;
 	private LocalDate checkoutdate;
+	
+	
 	/*客户主界面
      * 包括退出的链接，跳转到搜索酒店界面，查看订单界面，维护个人信息界面的按钮
      *  以及要求用户输入关于地址商圈信息的搜索框
      */
 	
-	private UserViewControllerService controller;
+	private UserViewControllerImpl controller;
 	
-	public UserMainFrame(UserViewControllerService controller){
+	public UserMainFrame(UserViewControllerImpl controller){
 		this.controller=controller;
 	}
 	
@@ -307,8 +312,8 @@ public class UserMainFrame {
 			public void handle(ActionEvent event) {
 				checkindate = checkinDatePicker.getValue();
 				checkoutdate = checkoutDatePicker.getValue();
-				String address = locationtf.getText();
-				String commercial = commercialtf.getText();
+				address = locationtf.getText();
+				commercial = commercialtf.getText();
 				priceSelectIndex = 6;
 				tgroup.selectedToggleProperty().addListener(
 					    (ObservableValue<? extends Toggle> ov, Toggle old_Toggle,

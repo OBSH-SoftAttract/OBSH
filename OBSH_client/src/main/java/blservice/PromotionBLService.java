@@ -1,11 +1,12 @@
 package blservice;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
 import ResultMessage.ResultMessage;
 import po.PromotionPo;
 import vo.PromotionVo;
-public interface PromotionBLService {
+public interface PromotionBLService extends Remote{
 	/**
 	 * 
 	 * @param id

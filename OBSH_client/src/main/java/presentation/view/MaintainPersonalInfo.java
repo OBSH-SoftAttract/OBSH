@@ -6,12 +6,16 @@ import ResultMessage.ResultMessage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import presentation.controller.UserViewControllerImpl;
 import vo.UserVo;
 
 public class MaintainPersonalInfo {
@@ -23,9 +27,9 @@ public class MaintainPersonalInfo {
 	private TextField membertf = new TextField();
 	//跳至维护个人信息信息主界面
 	
-	UserViewControllerService controller;
+	private UserViewControllerImpl controller;
 	
-	public  MaintainPersonalInfo(UserViewControllerService controller){
+	public  MaintainPersonalInfo(UserViewControllerImpl controller){
 		this.controller=controller;
 	}
 	
@@ -146,17 +150,24 @@ public class MaintainPersonalInfo {
 			public void handle(ActionEvent event) {
 				nametf.setDisable(true);
 				String smodifyname = nametf.getText();
-				confirmname.setVisible(false);
-				modifyname.setVisible(true);
-				//controller保存并更新modifyname
-				UserVo vo;
-				try {
-					vo = controller.GetPresentUserInfo();
-					vo.setUsername(smodifyname);
-				    controller.ModifyMessage(vo);
-				} catch (RemoteException e) {
-					e.printStackTrace();
+				
+				if(smodifyname.equals("")){
+					InputWarn();
 				}
+				else{
+					confirmname.setVisible(false);
+					modifyname.setVisible(true);
+					//controller保存并更新modifyname
+					UserVo vo;
+					try {
+						vo = controller.GetPresentUserInfo();
+						vo.setUsername(smodifyname);
+					    controller.ModifyMessage(vo);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}					
+				}
+
 			}
 		});
 		confirmphone.setOnAction(new EventHandler<ActionEvent>(){
@@ -164,22 +175,51 @@ public class MaintainPersonalInfo {
 			public void handle(ActionEvent event) {
 				phonetf.setDisable(true);
 				String smodifyphone = phonetf.getText();
-				confirmphone.setVisible(false);
-				modifyphone.setVisible(true);
-				//controller保存并更新modifyphone
-				UserVo vo;
-				try {
-					vo = controller.GetPresentUserInfo();
-					vo.setPhone(smodifyphone);
-				    controller.ModifyMessage(vo);
-				} catch (RemoteException e) {
-					e.printStackTrace();
+				if(smodifyphone.equals("")){
+					InputWarn();
 				}
+				else{
+					confirmphone.setVisible(false);
+					modifyphone.setVisible(true);
+					//controller保存并更新modifyphone
+					UserVo vo;
+					try {
+						vo = controller.GetPresentUserInfo();
+						vo.setPhone(smodifyphone);
+					    controller.ModifyMessage(vo);
+					} catch (RemoteException e) {
+						e.printStackTrace();
+					}					
+				}
+
 
 			}
 		});
 		return gridpane;
 	}		
+	
+	public void InputWarn() {
+		Stage stage = new Stage();
+		Text text = new Text("内容不能为空" );
+
+		Button button = new Button("确定");
+		VBox vb = new VBox();
+		vb.setSpacing(10);
+		vb.getChildren().addAll(text,button);
+		vb.setMinSize(200, 200);
+		vb.setMaxSize(400, 400);
+		vb.setAlignment(Pos.CENTER);
+		Scene scene = new Scene(vb);
+		stage.setScene(scene);
+		stage.show();
+		button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				stage.close();
+			}
+		});
+	}
+	
 	//对text的字体设定
 	public Text addText(String s){
 		Text text = new Text(s);

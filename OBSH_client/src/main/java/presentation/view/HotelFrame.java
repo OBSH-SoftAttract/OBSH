@@ -12,14 +12,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import presentation.controller.UserViewControllerImpl;
 import vo.HotelVo;
 
 public class HotelFrame {
 
-	private UserViewControllerService controller;
+	private UserViewControllerImpl controller;
 	private HotelVo hotel;
 
-	public HotelFrame(UserViewControllerService controller, HotelVo hotelvo) {
+	public HotelFrame(UserViewControllerImpl controller, HotelVo hotelvo) {
 		this.controller = controller;
 		this.hotel = hotelvo;
 	}

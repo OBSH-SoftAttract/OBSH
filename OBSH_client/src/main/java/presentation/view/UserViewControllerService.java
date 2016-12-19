@@ -12,9 +12,7 @@ import vo.UserVo;
 public interface UserViewControllerService {
 	public ResultMessage Login(String id, String password) throws RemoteException;
 
-	public ResultMessage Register(String id, String password, String phone,int userid) throws RemoteException;
-	
-	public int NewClientID()throws RemoteException;
+	public int Register(String id, String password, String phone) throws RemoteException;
 	
 	public void ModifyPassword(int userid,String passwords) throws RemoteException;
 	
@@ -45,4 +43,10 @@ public interface UserViewControllerService {
 	public void Cancellation(String orderID)throws RemoteException;
 	
 	public HotelVo getHotelInfoByName(String hotelname)throws RemoteException;
+	
+	public void setUserID(int id)throws RemoteException;
+	
+	public ResultMessage CheckIfCreditMet(int userid)throws RemoteException;
+	
+	public double BestPromotionDiscount(int userid)throws RemoteException;
 }

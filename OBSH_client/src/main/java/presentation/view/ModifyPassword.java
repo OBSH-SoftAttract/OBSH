@@ -5,20 +5,24 @@ import java.rmi.RemoteException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import presentation.controller.UserViewControllerImpl;
 import vo.UserVo;
 
 public class ModifyPassword {
 	
-	UserViewControllerService controller;
+	private UserViewControllerImpl controller;
 	
-	public ModifyPassword(UserViewControllerService controller){
+	public ModifyPassword(UserViewControllerImpl controller){
 		this.controller=controller;
 	}
 	
@@ -42,6 +46,9 @@ public class ModifyPassword {
 				//controller更新密码
 				String passwordone = password1.getText();
 				String passwordtwo = password2.getText();
+				if(passwordone.equals("")||passwordtwo.equals("")){
+					InputWarn();
+				}
 				if(passwordone.equals(passwordtwo)){
 					MaintainPersonalInfo mpi = new MaintainPersonalInfo(controller);
 					GridPane g = null;
@@ -81,6 +88,29 @@ public class ModifyPassword {
 		grid.setAlignment(Pos.CENTER);
 		return grid;
 	}
+	
+	public void InputWarn() {
+		Stage stage = new Stage();
+		Text text = new Text("内容不能为空" );
+
+		Button button = new Button("确定");
+		VBox vb = new VBox();
+		vb.setSpacing(10);
+		vb.getChildren().addAll(text,button);
+		vb.setMinSize(200, 200);
+		vb.setMaxSize(400, 400);
+		vb.setAlignment(Pos.CENTER);
+		Scene scene = new Scene(vb);
+		stage.setScene(scene);
+		stage.show();
+		button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				stage.close();
+			}
+		});
+	}
+	
 	//对text的字体设定
 		public Text addText(String s){
 			Text text = new Text(s);
