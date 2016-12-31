@@ -1,0 +1,219 @@
+.root{
+	-fx-background-image:url("/bgg.png");	
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 	
+}
+.SearchHotel{
+	-fx-background-image:url("/tag2.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#448aca;
+	-fx-background-color:#448aca;
+}
+.CheckOrder{
+	-fx-background-image:url("/tag2.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#448aca;
+	-fx-background-color:#448aca;
+}
+.MaintainPersonalInfo{
+	-fx-background-image:url("/tag2.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#448aca;
+	-fx-background-color:#448aca;
+}
+.ReverseHistory{
+	-fx-background-image:url("/tag2.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#448aca;
+	-fx-background-color:#448aca;
+}
+.SearchButton{
+	-fx-background-image:url("/blue_37.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:#dff2fc;
+	-fx-background-color:#dff2fc;
+}
+.FlexibleButton{
+	-fx-background-image:url("/flexiblebutton.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#dff2fc;
+	-fx-background-color:#dff2fc;
+}
+.ExpandButton{
+	-fx-background-image:url("/flexiblebutton.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#dff2fc;
+	-fx-background-color:#dff2fc;
+}
+.Label{
+	-fx-background-image:url("/field.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:#dff2fc;
+	-fx-background-color:#dff2fc;
+}
+#ToggleButton{
+	-fx-background-image:url("/原按钮.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-text-fill:#81511c;
+}
+#SelectedButton{
+	-fx-background-image:url("/button.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-text-fill:white;
+}
+.AddHotelWorkerButton{
+	-fx-background-color:#fbcb45;
+	-fx-font-size:18;
+	-fx-text-fill:black;
+}
+.ModifyHotelWorkerInfo{
+	-fx-background-color:#8dd97e;
+	-fx-font-size:18;
+	-fx-text-fill:white;
+}
+.Usertag{
+	-fx-background-image:url("/tagblue.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:white;
+	-fx-background-color:white;
+}
+.Hoteltag{
+	-fx-background-image:url("/tagyellow.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:white;
+	-fx-background-color:white;
+}
+.Webtag{
+	-fx-background-image:url("/tagpink.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%; 
+	-fx-border-color:white;
+	-fx-background-color:white;
+}
+#Text{
+	-fx-fill:#bdd97e;
+	-fx-font-size:32;
+}
+.CloseButton{
+	-fx-background-image:url("'/blue_16.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:#dff2fc;
+	-fx-background-color:#dff2fc;
+	-fx-border-width:0;
+}
+.Back{
+	-fx-background-image:url("'/back.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:#dff2fc;
+	-fx-background-color:#dff2fc;
+	-fx-border-width:0;
+}
+.MenuText{
+	-fx-fill:black;
+	-fx-font-size:15;
+}
+.HNText{
+	-fx-fill:white;
+	-fx-font-size:18;
+}
+.HMText{
+	-fx-fill:white;
+	-fx-font:15 "Futura";
+}
+.PText{
+	-fx-fill:white;
+	-fx-font:15 "Marker Felt";
+}
+.OSText{
+	-fx-fill:white;
+	-fx-font-size:15;
+}
+.ViewDetail{
+	-fx-background-image:url("'/view.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:#667bbf;
+	-fx-background-color:#667bbf;
+	-fx-border-width:0;
+}
+.ProduceOrder{
+	-fx-background-image:url("'/produceOrder.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:#667bbf;
+	-fx-background-color:#667bbf;
+	-fx-border-width:0;
+}
+.HBox{
+	-fx-border-color:#667bbf;
+	-fx-border-width:2px;
+	-fx-border-radius:10;
+	-fx-background-color:#667bbf;
+}
+.pagination{
+	-fx-base:black;
+}
+.pagination .pagination-control .bullet-button {
+   -fx-background-color: transparent, #DDF1F8, #0E5D79, white, white;
+}
+.pagination .pagination-control .bullet-button:selected {  
+   -fx-background-color: transparent, #DDF1F8, #0E5D79, white, #0E5D79;
+}
+#Whitestar{
+	-fx-background-image:url("'/STAR.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:white;
+	-fx-border-width:0;
+}
+#Yellowstar{
+	-fx-background-image:url("'/yellowstar.png"); 
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 100% 100%;
+	-fx-border-color:white;
+	-fx-border-width:0;
+}
+.Hotelname{
+	-fx-fill:black;
+	-fx-font:25 "黑体";
+}
+.Price{
+	-fx-fill:orange;
+	-fx-font:23 "Marker Felt";
+}
+.Mark{
+	-fx-fill:rgb(255,149,15);
+	-fx-font:23 "Futura";
+}
+
+#Introduction{
+	-fx-fill:black;
+	-fx-font:15 "黑体";
+}
+#Tb{
+	-fx-background-color:rgb(135,142,255);
+}
+#ChangeTb{
+	-fx-background-color:rgb(255,195,12);
+}
+.Button{
+	-fx-background-radius:20;
+	-fx-background-color:#8bbde5;
+}
+.Button:hover{
+	-fx-background-color:#667bbf;
+}
